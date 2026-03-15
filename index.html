@@ -79,11 +79,10 @@
     .sidebar {
       background: var(--white);
       border-radius: 10px;
-      overflow-y: auto;
+      overflow: visible;
       box-shadow: 0 2px 16px rgba(0,0,0,.08);
       position: sticky;
       top: 70px;
-      max-height: calc(100vh - 90px);
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
@@ -421,7 +420,6 @@
         <a href="https://credly.com/users/ericyocam" target="_blank">Credly Badges</a>
       </div>
     </div>
-    <div class="sidebar-scroll-hint" id="scrollHint"><i class="fa-solid fa-chevron-down"></i></div>
   </aside>
   </div>
 
@@ -1222,14 +1220,5 @@
     el.classList.toggle('open');
     btn.textContent = el.classList.contains('open') ? '▴ Hide Courses' : '▾ View Courses';
   }
-  const sidebar = document.querySelector('.sidebar');
-  const hint = document.getElementById('scrollHint');
-  function checkScroll() {
-    const atBottom = sidebar.scrollHeight - sidebar.scrollTop - sidebar.clientHeight < 2;
-    hint.style.display = atBottom ? 'none' : 'block';
-  }
-  sidebar.addEventListener('scroll', checkScroll);
-  window.addEventListener('load', checkScroll);
-  checkScroll();
 </script>
 </html>
