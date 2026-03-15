@@ -87,7 +87,33 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    .sidebar-scroll-hint {
+    .course-toggle {
+      display: inline-block;
+      margin-top: .4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--gold);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .course-toggle:hover { text-decoration: underline; }
+    .course-list {
+      display: none;
+      margin-top: .6rem;
+      padding: .6rem .8rem;
+      background: var(--light);
+      border-radius: 6px;
+      font-size: .82rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .course-list.open { display: block; }
+    .course-list table { width: 100%; border-collapse: collapse; }
+    .course-list td { padding: .15rem .4rem; vertical-align: top; }
+    .course-list td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; width: 110px; }
       position: absolute;
       bottom: 0;
       left: 0;
@@ -476,42 +502,108 @@
         <div class="entry-year">2024 – Present</div>
         <div class="entry-subtitle"><a href="https://www.calpoly.edu" target="_blank">California Polytechnic State University</a> · <a href="https://engineering.calpoly.edu" target="_blank">College of Engineering</a> · San Luis Obispo, CA · <a href="https://polyratings.dev/professor/81270ba5-d799-465c-b9d7-61f4247bb13d" target="_blank"><strong>Polyratings</strong></a></div>
         <div class="entry-note">Fast Response Time · Flexible Grading Policy · Uploads Slides · Flexible Attendance Policy</div>
+        <button class="course-toggle" onclick="toggleCourses('calpoly')">▾ View Courses</button>
+        <div class="course-list" id="calpoly">
+          <table>
+            <tr><td>CSC321</td><td>Introduction to Computer Security · Undergraduate</td></tr>
+          </table>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-title">Adjunct Assistant Professor <span class="pub-badge badge-published">Online</span></div>
         <div class="entry-year">2024 – Present</div>
         <div class="entry-subtitle"><a href="https://www.dominican.edu" target="_blank">Dominican University of California</a> · <a href="https://www.dominican.edu/academics/schools/barowsky-school-business" target="_blank">Barowsky School of Business</a> · San Rafael, CA</div>
         <div class="entry-note">Designed and created a synchronous Information Security Risk Management course (Wednesdays, 6–10 PM) as part of the core curriculum of the Master of Science in Cybersecurity program at the AACSB-accredited Barowsky School of Business.</div>
+        <button class="course-toggle" onclick="toggleCourses('dominican')">▾ View Courses</button>
+        <div class="course-list" id="dominican">
+          <table>
+            <tr><td>MSC5703</td><td>Information Security Risk Management · Graduate</td></tr>
+          </table>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-title">Affiliate Instructor <span class="pub-badge badge-published">Online</span></div>
         <div class="entry-year">2018 – 2021</div>
         <div class="entry-subtitle"><a href="https://www.washington.edu" target="_blank">University of Washington</a> · <a href="https://be.uw.edu" target="_blank">College of Built Environments</a> · <a href="https://urbdp.be.uw.edu/" target="_blank">Dept. of Urban Design and Planning</a> · Seattle, WA</div>
         <div class="entry-note">Taught graduate course in Critical Infrastructure &amp; Cybersecurity. Center for Information Assurance and Cybersecurity (CIAC). Recipient of the University of Washington Teaching Excellence Award.</div>
+        <button class="course-toggle" onclick="toggleCourses('uw')">▾ View Courses</button>
+        <div class="course-list" id="uw">
+          <table>
+            <tr><td>IPM509</td><td>Communications and Cyber Infrastructure Systems · Graduate</td></tr>
+          </table>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-title">Part Time Professor <span class="pub-badge badge-published">Online</span></div>
         <div class="entry-year">2013 – 2018</div>
         <div class="entry-subtitle"><a href="https://www.apus.edu" target="_blank">American Public University System</a> · <a href="https://www.apu.apus.edu/online-colleges-and-schools/school-of-science-tech-engineering-math/" target="_blank">School of STEM</a> · Charles Town, WV</div>
         <div class="entry-note">Taught undergraduate and graduate courses in information security, cybersecurity law, networking, and IT management across multiple programs serving military and public service communities.</div>
+        <button class="course-toggle" onclick="toggleCourses('apus')">▾ View Courses</button>
+        <div class="course-list" id="apus">
+          <table>
+            <tr><td>ISSC631</td><td>Cyber Ethics: Privacy and Intellectual Property · Graduate</td></tr>
+            <tr><td>ISSC660</td><td>Information Assurance · Graduate</td></tr>
+            <tr><td>ITMG624</td><td>Information Technology Project Management · Graduate</td></tr>
+            <tr><td>ISSC699</td><td>Cybersecurity Studies Capstone · Graduate</td></tr>
+            <tr><td>ISSC331</td><td>Legal Issues in Information Security · Undergraduate</td></tr>
+            <tr><td>ISSC340</td><td>Local Area Network Technologies · Undergraduate</td></tr>
+            <tr><td>ISSC341</td><td>Introduction to Networking · Undergraduate</td></tr>
+            <tr><td>ISSC422</td><td>Information Security · Undergraduate</td></tr>
+            <tr><td>ISSC471</td><td>IT Security: Auditing · Undergraduate</td></tr>
+            <tr><td>ISSC481</td><td>IT Security: Planning and Policy · Undergraduate</td></tr>
+            <tr><td>ISSC498</td><td>Information Security Capstone · Undergraduate</td></tr>
+            <tr><td>ISSC499</td><td>Senior Seminar in Cybersecurity Capstone · Undergraduate</td></tr>
+            <tr><td>ITMG481</td><td>Ethics in Information Technology · Undergraduate</td></tr>
+          </table>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-title">Adjunct Professor <span class="pub-badge badge-published">Online</span></div>
         <div class="entry-year">2010 – 2015</div>
         <div class="entry-subtitle"><a href="https://www.ufairfax.edu" target="_blank">University of Fairfax</a> · Graduate School · Salem, VA</div>
         <div class="entry-note">Taught courses in information systems, cybersecurity, ethics, and legal practices at graduate and doctoral levels. Rated "Awesome" on Rate My Professors.</div>
+        <button class="course-toggle" onclick="toggleCourses('fairfax')">▾ View Courses</button>
+        <div class="course-list" id="fairfax">
+          <table>
+            <tr><td>IA8125</td><td>Information Security Policy Planning and Analysis · Doctoral</td></tr>
+            <tr><td>CEX8240</td><td>Strategic and Technological Trends in Information Security I · Doctoral</td></tr>
+            <tr><td>CEX9200</td><td>Research Topics in Information Security II · Doctoral</td></tr>
+            <tr><td>IA7020</td><td>Information Security Systems and Organizational Awareness · Graduate</td></tr>
+            <tr><td>IA7030</td><td>Legal and Ethical Practices in Information Security · Graduate</td></tr>
+            <tr><td>IA8030</td><td>Design, Development and Evaluation of Security Controls · Graduate</td></tr>
+            <tr><td>IA8080</td><td>Security Solution Implementation · Graduate</td></tr>
+            <tr><td>IA8110</td><td>Certification and Accreditation · Graduate</td></tr>
+          </table>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-title">Adjunct Professor <span class="pub-badge badge-published">Online</span></div>
         <div class="entry-year">2010 – 2011</div>
         <div class="entry-subtitle"><a href="https://www.cityu.edu" target="_blank">City University of Seattle</a> · School of Management · Seattle, WA</div>
         <div class="entry-note">Taught a graduate course in Network Intrusion and Computer Forensics.</div>
+        <button class="course-toggle" onclick="toggleCourses('cityu')">▾ View Courses</button>
+        <div class="course-list" id="cityu">
+          <table>
+            <tr><td>ISEC520</td><td>Ethical Obligations in Information Security · Graduate</td></tr>
+          </table>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-title">Adjunct Professor <span class="pub-badge badge-published">Online</span></div>
         <div class="entry-year">2007 – 2010</div>
         <div class="entry-subtitle"><a href="https://www.eccu.edu" target="_blank">EC-Council University</a> · Graduate School · Albuquerque, NM</div>
         <div class="entry-note">Taught courses in information systems, networks, and information security at graduate level.</div>
+        <button class="course-toggle" onclick="toggleCourses('eccu')">▾ View Courses</button>
+        <div class="course-list" id="eccu">
+          <table>
+            <tr><td>ECCU502</td><td>Investigating Network Intrusion and Computer Forensics · Graduate</td></tr>
+            <tr><td>ECCU506</td><td>Conducting Penetration and Security Tests · Graduate</td></tr>
+            <tr><td>ECCU509</td><td>Securing Wireless Networks · Graduate</td></tr>
+            <tr><td>ECCU513</td><td>Disaster Recovery · Graduate</td></tr>
+            <tr><td>ECCU515</td><td>Project Management in IT Security · Graduate</td></tr>
+            <tr><td>ECCU524</td><td>Principles of E-Business Security · Graduate</td></tr>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -1112,6 +1204,12 @@
 
 </body>
 <script>
+  function toggleCourses(id) {
+    const el = document.getElementById(id);
+    const btn = el.previousElementSibling;
+    el.classList.toggle('open');
+    btn.textContent = el.classList.contains('open') ? '▴ Hide Courses' : '▾ View Courses';
+  }
   const sidebar = document.querySelector('.sidebar');
   const hint = document.getElementById('scrollHint');
   function checkScroll() {
