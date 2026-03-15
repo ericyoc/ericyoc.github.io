@@ -84,22 +84,25 @@
       position: sticky;
       top: 70px;
       max-height: calc(100vh - 90px);
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
     .sidebar-scroll-hint {
-      position: sticky;
+      position: absolute;
       bottom: 0;
+      left: 0;
+      right: 0;
       text-align: center;
-      padding: .5rem 0;
+      padding: .6rem 0;
       background: linear-gradient(transparent, var(--white) 60%);
       color: var(--gold);
       font-size: 1rem;
       pointer-events: none;
+      transition: opacity .3s;
       animation: bounce 1.8s infinite;
     }
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); opacity: .6; }
+      0%, 100% { transform: translateY(0); opacity: .7; }
       50% { transform: translateY(4px); opacity: 1; }
     }
     .sidebar-top {
@@ -380,8 +383,8 @@
         <span class="icon"><i class="fa-solid fa-award"></i></span>
         <a href="https://credly.com/users/ericyocam" target="_blank">Credly Badges</a>
       </div>
-      <div class="sidebar-scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
     </div>
+    <div class="sidebar-scroll-hint" id="scrollHint"><i class="fa-solid fa-chevron-down"></i></div>
   </aside>
 
   <!-- MAIN CONTENT -->
@@ -1103,7 +1106,7 @@
 </body>
 <script>
   const sidebar = document.querySelector('.sidebar');
-  const hint = document.querySelector('.sidebar-scroll-hint');
+  const hint = document.getElementById('scrollHint');
   sidebar.addEventListener('scroll', () => {
     const atBottom = sidebar.scrollHeight - sidebar.scrollTop <= sidebar.clientHeight + 10;
     hint.style.opacity = atBottom ? '0' : '1';
