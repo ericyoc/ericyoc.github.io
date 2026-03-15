@@ -1107,9 +1107,11 @@
 <script>
   const sidebar = document.querySelector('.sidebar');
   const hint = document.getElementById('scrollHint');
-  sidebar.addEventListener('scroll', () => {
-    const atBottom = sidebar.scrollHeight - sidebar.scrollTop <= sidebar.clientHeight + 10;
+  function checkScroll() {
+    const atBottom = Math.ceil(sidebar.scrollTop + sidebar.clientHeight) >= sidebar.scrollHeight;
     hint.style.opacity = atBottom ? '0' : '1';
-  });
+  }
+  sidebar.addEventListener('scroll', checkScroll);
+  checkScroll();
 </script>
 </html>
