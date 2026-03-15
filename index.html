@@ -114,6 +114,12 @@
     .course-list table { width: 100%; border-collapse: collapse; }
     .course-list td { padding: .15rem .4rem; vertical-align: top; }
     .course-list td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; width: 110px; }
+    .course-badge { font-size: .68rem; font-weight: 600; padding: .1rem .4rem; border-radius: 20px; margin-left: .3rem; vertical-align: middle; }
+    .badge-undergrad { background: #d0f0fd; color: #0a5070; }
+    .badge-grad     { background: #cfe2ff; color: #084298; }
+    .badge-doctoral { background: #e2d9f3; color: #432874; }
+    .badge-lms      { background: #f0f0f0; color: #555; }
+    .course-footnote { font-size: .72rem; color: var(--muted); margin-top: .5rem; padding-top: .4rem; border-top: 1px solid var(--border); }
       position: absolute;
       bottom: 0;
       left: 0;
@@ -505,8 +511,9 @@
         <button class="course-toggle" onclick="toggleCourses('calpoly')">▾ View Courses</button>
         <div class="course-list" id="calpoly">
           <table>
-            <tr><td>CSC321</td><td>Introduction to Computer Security · Undergraduate</td></tr>
+            <tr><td>CSC321</td><td>Introduction to Computer Security* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Canvas</span></td></tr>
           </table>
+          <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
       <div class="entry">
@@ -517,8 +524,9 @@
         <button class="course-toggle" onclick="toggleCourses('dominican')">▾ View Courses</button>
         <div class="course-list" id="dominican">
           <table>
-            <tr><td>MSC5703</td><td>Information Security Risk Management · Graduate</td></tr>
+            <tr><td>MSC5703</td><td>Information Security Risk Management* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Moodle</span></td></tr>
           </table>
+          <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
       <div class="entry">
@@ -529,8 +537,9 @@
         <button class="course-toggle" onclick="toggleCourses('uw')">▾ View Courses</button>
         <div class="course-list" id="uw">
           <table>
-            <tr><td>IPM509</td><td>Communications and Cyber Infrastructure Systems · Graduate</td></tr>
+            <tr><td>IPM509</td><td>Communications and Cyber Infrastructure Systems* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Canvas</span></td></tr>
           </table>
+          <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
       <div class="entry">
@@ -541,20 +550,21 @@
         <button class="course-toggle" onclick="toggleCourses('apus')">▾ View Courses</button>
         <div class="course-list" id="apus">
           <table>
-            <tr><td>ISSC631</td><td>Cyber Ethics: Privacy and Intellectual Property · Graduate</td></tr>
-            <tr><td>ISSC660</td><td>Information Assurance · Graduate</td></tr>
-            <tr><td>ITMG624</td><td>Information Technology Project Management · Graduate</td></tr>
-            <tr><td>ISSC699</td><td>Cybersecurity Studies Capstone · Graduate</td></tr>
-            <tr><td>ISSC331</td><td>Legal Issues in Information Security · Undergraduate</td></tr>
-            <tr><td>ISSC340</td><td>Local Area Network Technologies · Undergraduate</td></tr>
-            <tr><td>ISSC341</td><td>Introduction to Networking · Undergraduate</td></tr>
-            <tr><td>ISSC422</td><td>Information Security · Undergraduate</td></tr>
-            <tr><td>ISSC471</td><td>IT Security: Auditing · Undergraduate</td></tr>
-            <tr><td>ISSC481</td><td>IT Security: Planning and Policy · Undergraduate</td></tr>
-            <tr><td>ISSC498</td><td>Information Security Capstone · Undergraduate</td></tr>
-            <tr><td>ISSC499</td><td>Senior Seminar in Cybersecurity Capstone · Undergraduate</td></tr>
-            <tr><td>ITMG481</td><td>Ethics in Information Technology · Undergraduate</td></tr>
+            <tr><td>ISSC631</td><td>Cyber Ethics: Privacy and Intellectual Property* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC660</td><td>Information Assurance* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ITMG624</td><td>Information Technology Project Management* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC699</td><td>Cybersecurity Studies Capstone* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC331</td><td>Legal Issues in Information Security* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC340</td><td>Local Area Network Technologies* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC341</td><td>Introduction to Networking* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC422</td><td>Information Security* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC471</td><td>IT Security: Auditing* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC481</td><td>IT Security: Planning and Policy* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC498</td><td>Information Security Capstone* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ISSC499</td><td>Senior Seminar in Cybersecurity Capstone* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
+            <tr><td>ITMG481</td><td>Ethics in Information Technology* <span class="course-badge badge-undergrad">Undergrad</span> <span class="course-badge badge-lms">Sakai</span></td></tr>
           </table>
+          <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
       <div class="entry">
@@ -565,15 +575,16 @@
         <button class="course-toggle" onclick="toggleCourses('fairfax')">▾ View Courses</button>
         <div class="course-list" id="fairfax">
           <table>
-            <tr><td>IA8125</td><td>Information Security Policy Planning and Analysis · Doctoral</td></tr>
-            <tr><td>CEX8240</td><td>Strategic and Technological Trends in Information Security I · Doctoral</td></tr>
-            <tr><td>CEX9200</td><td>Research Topics in Information Security II · Doctoral</td></tr>
-            <tr><td>IA7020</td><td>Information Security Systems and Organizational Awareness · Graduate</td></tr>
-            <tr><td>IA7030</td><td>Legal and Ethical Practices in Information Security · Graduate</td></tr>
-            <tr><td>IA8030</td><td>Design, Development and Evaluation of Security Controls · Graduate</td></tr>
-            <tr><td>IA8080</td><td>Security Solution Implementation · Graduate</td></tr>
-            <tr><td>IA8110</td><td>Certification and Accreditation · Graduate</td></tr>
+            <tr><td>IA8125</td><td>Information Security Policy Planning and Analysis* <span class="course-badge badge-doctoral">Doctoral</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>CEX8240</td><td>Strategic and Technological Trends in Information Security I* <span class="course-badge badge-doctoral">Doctoral</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>CEX9200</td><td>Research Topics in Information Security II* <span class="course-badge badge-doctoral">Doctoral</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>IA7020</td><td>Information Security Systems and Organizational Awareness* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>IA7030</td><td>Legal and Ethical Practices in Information Security* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>IA8030</td><td>Design, Development and Evaluation of Security Controls* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>IA8080</td><td>Security Solution Implementation* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
+            <tr><td>IA8110</td><td>Certification and Accreditation* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
           </table>
+          <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
       <div class="entry">
@@ -584,7 +595,7 @@
         <button class="course-toggle" onclick="toggleCourses('cityu')">▾ View Courses</button>
         <div class="course-list" id="cityu">
           <table>
-            <tr><td>ISEC520</td><td>Ethical Obligations in Information Security · Graduate</td></tr>
+            <tr><td>ISEC520</td><td>Ethical Obligations in Information Security <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard</span></td></tr>
           </table>
         </div>
       </div>
@@ -596,13 +607,14 @@
         <button class="course-toggle" onclick="toggleCourses('eccu')">▾ View Courses</button>
         <div class="course-list" id="eccu">
           <table>
-            <tr><td>ECCU502</td><td>Investigating Network Intrusion and Computer Forensics · Graduate</td></tr>
-            <tr><td>ECCU506</td><td>Conducting Penetration and Security Tests · Graduate</td></tr>
-            <tr><td>ECCU509</td><td>Securing Wireless Networks · Graduate</td></tr>
-            <tr><td>ECCU513</td><td>Disaster Recovery · Graduate</td></tr>
-            <tr><td>ECCU515</td><td>Project Management in IT Security · Graduate</td></tr>
-            <tr><td>ECCU524</td><td>Principles of E-Business Security · Graduate</td></tr>
+            <tr><td>ECCU502</td><td>Investigating Network Intrusion and Computer Forensics* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard &amp; Moodle</span></td></tr>
+            <tr><td>ECCU506</td><td>Conducting Penetration and Security Tests* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard &amp; Moodle</span></td></tr>
+            <tr><td>ECCU509</td><td>Securing Wireless Networks* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard &amp; Moodle</span></td></tr>
+            <tr><td>ECCU513</td><td>Disaster Recovery* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard &amp; Moodle</span></td></tr>
+            <tr><td>ECCU515</td><td>Project Management in IT Security* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard &amp; Moodle</span></td></tr>
+            <tr><td>ECCU524</td><td>Principles of E-Business Security* <span class="course-badge badge-grad">Graduate</span> <span class="course-badge badge-lms">Blackboard &amp; Moodle</span></td></tr>
           </table>
+          <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
     </section>
