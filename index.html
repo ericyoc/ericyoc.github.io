@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eric Yocam | Cybersecurity Researcher & Professor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── LAYOUT ── */
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,.08);
+      position: sticky;
+      top: 70px;
+    }
+    .sidebar-top {
+      background: var(--navy);
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .avatar-wrap {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      border: 3px solid var(--gold);
+      box-shadow: 0 4px 16px rgba(0,0,0,.4);
+    }
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sidebar-name {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .sidebar-roles {
+      color: rgba(255,255,255,.65);
+      font-size: .78rem;
+      line-height: 1.6;
+      margin-top: .4rem;
+    }
+    .sidebar-body {
+      padding: 1.25rem 1.4rem;
+    }
+    .sidebar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      margin-bottom: .85rem;
+      font-size: .84rem;
+      color: var(--text);
+    }
+    .sidebar-item .icon {
+      flex-shrink: 0;
+      width: 18px;
+      color: var(--gold);
+      margin-top: 2px;
+      text-align: center;
+    }
+    .sidebar-item a {
+      color: var(--navy-mid);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .sidebar-item a:hover { color: var(--gold); }
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: .8rem 0;
+    }
+
+    /* ── MAIN ── */
+    .main { display: flex; flex-direction: column; gap: 1.6rem; }
+
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Bio paragraph */
+    .bio-text {
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* Education / appointments rows */
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .2rem 1rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .entry:last-child { border-bottom: none; }
+    .entry-title {
+      font-weight: 600;
+      font-size: .92rem;
+      color: var(--navy);
+    }
+    .entry-subtitle {
+      font-size: .84rem;
+      color: var(--muted);
+      grid-column: 1;
+    }
+    .entry-note {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+      grid-column: 1;
+    }
+    .entry-year {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+      align-self: start;
+      text-align: right;
+    }
+
+    /* Publications */
+    .pub {
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .88rem;
+    }
+    .pub:last-child { border-bottom: none; }
+    .pub-authors { color: var(--muted); }
+    .pub-title { font-weight: 600; color: var(--navy); margin: .15rem 0; }
+    .pub-venue { color: var(--text); font-style: italic; }
+    .pub-doi a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: .82rem;
+    }
+    .pub-doi a:hover { text-decoration: underline; }
+    .pub-badge {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .1rem .5rem;
+      border-radius: 20px;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+    .badge-pending { background: #fff3cd; color: #856404; }
+    .badge-review  { background: #cfe2ff; color: #084298; }
+    .badge-preprint{ background: #e2d9f3; color: #432874; }
+
+    /* Patents */
+    .patents-text {
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+    .patents-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: .8rem;
+    }
+    .tag {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: .2rem .7rem;
+      font-size: .78rem;
+      color: var(--navy);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 780px) {
+      .page-wrapper { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      nav ul { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="brand">Eric Yocam</span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#appointments">Appointments</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#patents">Patents</a></li>
+    <li><a href="https://github.com/ericyoc?tab=repositories" target="_blank">Portfolio ↗</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar-wrap">
+        <!-- Replace profile.jpg with your actual photo filename in the repo -->
+        <img src="profile.jpg" alt="Eric Yocam" onerror="this.style.background='#1a3558';this.src='https://ui-avatars.com/api/?name=Eric+Yocam&background=1a3558&color=c8983a&size=130'"/>
+      </div>
+      <div class="sidebar-name">Eric Yocam</div>
+      <div class="sidebar-roles">
+        PhD Candidate (ABD) · Cybersecurity<br/>
+        Professor · Researcher · Author<br/>
+        ABET Evaluator · 23 Patents
+      </div>
+    </div>
+    <div class="sidebar-body">
+      <div class="sidebar-item">
+        <span class="icon">📍</span>
+        <span>San Luis Obispo, CA</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="icon">🏛️</span>
+        <span>Dakota State University<br/>Cal Poly SLO · Dominican Univ. CA</span>
+      </div>
+      <hr class="sidebar-divider"/>
+      <div class="sidebar-item">
+        <span class="icon">✉️</span>
+        <a href="mailto:ericyoc@gmail.com">ericyoc@gmail.com</a>
+      </div>
+      <div class="sidebar-item">
+        <span class="icon">💼</span>
+        <a href="https://linkedin.com/in/ericyocam" target="_blank">linkedin.com/in/ericyocam</a>
+      </div>
+      <div class="sidebar-item">
+        <span class="icon">🐙</span>
+        <a href="https://github.com/ericyoc" target="_blank">github.com/ericyoc</a>
+      </div>
+      <div class="sidebar-item">
+        <span class="icon">📁</span>
+        <a href="https://github.com/ericyoc?tab=repositories" target="_blank">View All Repositories</a>
+      </div>
+      <div class="sidebar-item">
+        <span class="icon">🔬</span>
+        <a href="https://orcid.org/0000-0001-8176-3867" target="_blank">ORCiD Profile</a>
+      </div>
+      <div class="sidebar-item">
+        <span class="icon">🏅</span>
+        <a href="https://credly.com/users/ericyocam" target="_blank">Credly Badges</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- BIO -->
+    <section class="card" id="about">
+      <h2 class="card-title">About</h2>
+      <p class="bio-text">
+        Eric Yocam is a PhD candidate (ABD) in Cyber Operations at Dakota State University's Beacom College of Computer and Cyber Sciences, where he holds a 4.0 GPA. His dissertation investigates hybrid neural network model defenses against white-box, targeted, and compound adversarial attacks, supervised by Dr. Varghese Vaidyan. He concurrently serves as a Lecturer at California Polytechnic State University and Adjunct Assistant Professor at Dominican University of California.
+      </p>
+      <p class="bio-text" style="margin-top:.9rem;">
+        His research spans adversarial machine learning, post-quantum cryptography, agricultural IoT security, LLM hallucination mitigation, autonomous vehicle lane detection, and space IoT cybersecurity risk. He is an ABET Program Evaluator for Computer Science, Cybersecurity, and Computer Engineering, and holds 23 issued patents assigned to T-Mobile USA — including work in DeepFake Detection, Behavioral Biometrics, and Temporal Identity Vaulting.
+      </p>
+      <p class="bio-text" style="margin-top:.9rem;">
+        Beyond academia, Eric is the author of <em>Cyber Inference</em> (Book 1 of <em>The Convergence Chronicles</em>), a hard science fiction series exploring AI consciousness and superintelligence, and is actively developing Book 2, <em>Cyber Emergence</em>.
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="card" id="education">
+      <h2 class="card-title">Education</h2>
+
+      <div style="margin-bottom:.5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Cybersecurity, Computer Engineering & Computer Science</div>
+
+      <div class="entry">
+        <div class="entry-title">PhD Cyber Operations — ABD</div>
+        <div class="entry-year">Exp. May 2026</div>
+        <div class="entry-subtitle">Dakota State University · Beacom College · GPA 4.0/4.0</div>
+        <div class="entry-note">Dissertation: Hybrid Neural Network Model Defenses Against White-box, Targeted, and Compound Adversarial Attacks</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">MS Computer Engineering</div>
+        <div class="entry-year">2020</div>
+        <div class="entry-subtitle">Syracuse University · College of Engineering and Computer Science</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">MS Computer Science</div>
+        <div class="entry-year">2004</div>
+        <div class="entry-subtitle">California State University, Chico · College of Engineering, Computer Science, and Technology</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">BS Computer Engineering</div>
+        <div class="entry-year">1990</div>
+        <div class="entry-subtitle">University of the Pacific · School of Engineering</div>
+      </div>
+
+      <div style="margin:1rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Business Administration & Finance</div>
+
+      <div class="entry">
+        <div class="entry-title">Doctor of Business Administration</div>
+        <div class="entry-year">2008</div>
+        <div class="entry-subtitle">University of Phoenix · School of Advanced Studies</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">MS Finance</div>
+        <div class="entry-year">2002</div>
+        <div class="entry-subtitle">Seattle University · Albers School of Business and Economics</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">MBA</div>
+        <div class="entry-year">1997</div>
+        <div class="entry-subtitle">University of San Diego · Knauss School of Business</div>
+      </div>
+    </section>
+
+    <!-- APPOINTMENTS -->
+    <section class="card" id="appointments">
+      <h2 class="card-title">Academic Appointments</h2>
+      <div class="entry">
+        <div class="entry-title">Lecturer</div>
+        <div class="entry-year">2024 – Present</div>
+        <div class="entry-subtitle">California Polytechnic State University · College of Engineering</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Adjunct Assistant Professor</div>
+        <div class="entry-year">2024 – 2026</div>
+        <div class="entry-subtitle">Dominican University of California · Barowsky School of Business</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">ABET Program Evaluator</div>
+        <div class="entry-year">2022 – 2025</div>
+        <div class="entry-subtitle">Computer Science, Cybersecurity, and Computer Engineering</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Affiliate Instructor</div>
+        <div class="entry-year">2018 – 2021</div>
+        <div class="entry-subtitle">University of Washington · College of Built Environments</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Part Time Professor</div>
+        <div class="entry-year">2013 – 2018</div>
+        <div class="entry-subtitle">American Public University System · School of STEM</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Adjunct Professor</div>
+        <div class="entry-year">2010 – 2015</div>
+        <div class="entry-subtitle">University of Fairfax · Graduate School</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Adjunct Professor</div>
+        <div class="entry-year">2007 – 2010</div>
+        <div class="entry-subtitle">EC-Council University · Graduate School</div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="card" id="publications">
+      <h2 class="card-title">Selected Publications</h2>
+
+      <div style="margin-bottom:.4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Book Chapter (Pending)</div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., Rizi, A., Kamepalli, M., Vaidyan, V., Wang, Y., Comert, G.</div>
+        <div class="pub-title">Quantum Adversarial Machine Learning and Defense Strategies: Challenges and Opportunities <span class="pub-badge badge-pending">Pending</span></div>
+        <div class="pub-venue">Quantum Robustness in Artificial Intelligence, Springer Quantum Science and Technology Series</div>
+      </div>
+
+      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Under Review</div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., Vaidyan, V., Ruganuza, D., Mwakalonge, J.L., Comert, G., Pian, D.</div>
+        <div class="pub-title">Retroreflectivity-Based Traffic Sign Cybersecurity: Synthetic Data and Defense Models <span class="pub-badge badge-review">Under Review</span></div>
+      </div>
+
+      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Refereed Journal &amp; Conference Articles</div>
+
+      <div class="pub">
+        <div class="pub-authors">Kothakonda, B.V., Ketema, N., Vaidyan, V., Podhradsky, A., Yocam, E., et al.</div>
+        <div class="pub-title">Multi-level Post Quantum Encryption for Images with Quantum Fourier Transform</div>
+        <div class="pub-venue">2025 IEEE International Conference on Electro Information Technology (eIT)</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/EIT64391.2025.11103675" target="_blank">doi: 10.1109/EIT64391.2025.11103675</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Jagatha, A., Kappala, A., Kamepalli, M., Vaidyan, V., Yocam, E., et al.</div>
+        <div class="pub-title">A Novel Approach to Quantum-Resistant Selective Encryption for Agricultural Sensors with Limited Resources</div>
+        <div class="pub-venue">2025 IEEE 15th Annual Computing and Communication Workshop and Conference (CCWC)</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/CCWC62904.2025.10903955" target="_blank">doi: 10.1109/CCWC62904.2025.10903955</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Black, G., Yocam, E., Vaidyan, V., Comert, G., Wang, Y.</div>
+        <div class="pub-title">From LLMs to Randomness: Analyzing Program Input Efficacy with Resource and Language Metrics</div>
+        <div class="pub-venue">IEEE Access, 2025</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2025.3571205" target="_blank">doi: 10.1109/ACCESS.2025.3571205</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Rizi, A., Yocam, E., Vaidyan, V., Wang, Y.</div>
+        <div class="pub-title">Exploring Machine Learning with FNNs for Identifying Modified DGAs Through Noise and Linear Recursive Sequences</div>
+        <div class="pub-venue">2024 Cyber Awareness and Research Symposium (CARS)</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/CARS61786.2024.10778668" target="_blank">doi: 10.1109/CARS61786.2024.10778668</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., et al.</div>
+        <div class="pub-title">A Privacy-Preserving System Design for Digital Presence Protection</div>
+        <div class="pub-venue">Tech Science Press – Computers, Materials &amp; Continua, 2022</div>
+        <div class="pub-doi"><a href="https://doi.org/10.32604/cmc.2023.032826" target="_blank">doi: 10.32604/cmc.2023.032826</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., et al.</div>
+        <div class="pub-title">5G Mobile Networks: Reviewing Security Control Correctness for Mischievous Activity</div>
+        <div class="pub-venue">SN Applied Sciences, 2022</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1007/s42452-022-05193-8" target="_blank">doi: 10.1007/s42452-022-05193-8</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E.</div>
+        <div class="pub-title">Narrow-band Internet of Things Protocol Standards: Survey of Security and Privacy Control Effectiveness</div>
+        <div class="pub-venue">2020 International Symposium on Networks, Computers and Communications (ISNCC)</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/ISNCC49221.2020.9297222" target="_blank">doi: 10.1109/ISNCC49221.2020.9297222</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E.</div>
+        <div class="pub-title">Evolution on the Edge: Intelligent Devices</div>
+        <div class="pub-venue">IEEE Computer Society IT Professional, 2003</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/MITP.2003.1191790" target="_blank">doi: 10.1109/MITP.2003.1191790</a></div>
+      </div>
+
+      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Preprint</div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., et al.</div>
+        <div class="pub-title">Quantum Adversarial Machine Learning and Defense Strategies: Challenges and Opportunities <span class="pub-badge badge-preprint">Preprint</span></div>
+        <div class="pub-doi"><a href="https://doi.org/10.48550/arXiv.2412.12373" target="_blank">arXiv: 2412.12373</a></div>
+      </div>
+    </section>
+
+    <!-- PATENTS -->
+    <section class="card" id="patents">
+      <h2 class="card-title">Inventions &amp; Patents</h2>
+      <p class="patents-text">
+        Eric holds <strong>23 issued patents</strong>, all assigned to T-Mobile USA, spanning a wide range of wireless, security, and AI domains.
+      </p>
+      <div class="patents-tags">
+        <span class="tag">DeepFake Detection</span>
+        <span class="tag">Temporal Identity Vaulting</span>
+        <span class="tag">Behavioral Biometrics</span>
+        <span class="tag">Privacy Breach Detection</span>
+        <span class="tag">Augmented Reality Collision</span>
+        <span class="tag">Mobile Device In-Motion Proximity Guidance</span>
+        <span class="tag">Dynamic Wireless Networks with Aerial Drones</span>
+        <span class="tag">+ 16 additional patents</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  &copy; 2026 Eric Yocam · <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;">github.com/ericyoc</a>
+</footer>
+
+</body>
+</html>
