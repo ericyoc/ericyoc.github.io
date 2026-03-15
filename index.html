@@ -88,14 +88,18 @@
       -ms-overflow-style: none; /* IE/Edge */
     }
     .sidebar-scroll-hint {
+      position: sticky;
+      bottom: 0;
       text-align: center;
-      padding: .6rem 0 .8rem;
-      color: var(--muted);
-      font-size: .75rem;
+      padding: .5rem 0;
+      background: linear-gradient(transparent, var(--white) 60%);
+      color: var(--gold);
+      font-size: 1rem;
+      pointer-events: none;
       animation: bounce 1.8s infinite;
     }
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); opacity: .5; }
+      0%, 100% { transform: translateY(0); opacity: .6; }
       50% { transform: translateY(4px); opacity: 1; }
     }
     .sidebar-top {
@@ -376,8 +380,8 @@
         <span class="icon"><i class="fa-solid fa-award"></i></span>
         <a href="https://credly.com/users/ericyocam" target="_blank">Credly Badges</a>
       </div>
+      <div class="sidebar-scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
     </div>
-    <div class="sidebar-scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
   </aside>
 
   <!-- MAIN CONTENT -->
