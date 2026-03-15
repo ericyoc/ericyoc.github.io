@@ -78,10 +78,11 @@
     .sidebar {
       background: var(--white);
       border-radius: 10px;
-      overflow: hidden;
+      overflow-y: auto;
       box-shadow: 0 2px 16px rgba(0,0,0,.08);
       position: sticky;
       top: 70px;
+      max-height: calc(100vh - 90px);
     }
     .sidebar-top {
       background: var(--navy);
