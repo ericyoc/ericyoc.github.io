@@ -4,6 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eric Yocam | Cybersecurity Researcher & Professor</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Eric Yocam — PhD Candidate in Cyber Operations, Cybersecurity Professor, IEEE Senior Member, inventor of 23 US patents, and author of Cyber Inference. Researcher at Dakota State University."/>
+  <meta name="author" content="Eric Yocam"/>
+  <meta name="keywords" content="Eric Yocam, cybersecurity, adversarial machine learning, post-quantum cryptography, IoT security, LLM hallucination, autonomous vehicles, IEEE, Dakota State University"/>
+  <link rel="canonical" href="https://ericyocam.com/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://ericyocam.com/"/>
+  <meta property="og:title" content="Eric Yocam | Cybersecurity Researcher & Professor"/>
+  <meta property="og:description" content="PhD Candidate, Cybersecurity Professor, IEEE Senior Member, 23 Patents, 20+ Publications. Researcher at Dakota State University."/>
+  <meta property="og:image" content="https://ericyocam.com/profile.jpg"/>
+  <meta property="og:image:alt" content="Eric Yocam"/>
+  <meta property="og:site_name" content="Eric Yocam"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Eric Yocam | Cybersecurity Researcher & Professor"/>
+  <meta name="twitter:description" content="PhD Candidate, Cybersecurity Professor, IEEE Senior Member, 23 Patents, 20+ Publications."/>
+  <meta name="twitter:image" content="https://ericyocam.com/profile.jpg"/>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="favicon.png"/>
+
+  <!-- Google Analytics — replace GA_MEASUREMENT_ID with your actual ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
@@ -297,16 +332,56 @@
     @media (max-width: 780px) {
       .page-wrapper { grid-template-columns: 1fr; }
       .sidebar { position: static; }
-      nav ul { gap: 1rem; }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: .5rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,.3);
+        z-index: 99;
+      }
+      nav ul.open { display: flex; }
+      nav ul li a {
+        display: block;
+        padding: .75rem 2rem;
+        font-size: .9rem;
+      }
+      .nav-hamburger { display: flex; }
     }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: .4rem;
+      background: none;
+      border: none;
+      outline: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: rgba(255,255,255,.85);
+      border-radius: 2px;
+      transition: all .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <span class="brand"></span>
-  <ul>
+  <span class="brand">Eric Yocam</span>
+  <ul id="navMenu">
     <li><a href="#about">BioSketch</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#appointments">Appointments</a></li>
@@ -318,6 +393,9 @@
     <li><a href="#honors">Honors</a></li>
     <li><a href="https://github.com/ericyoc?tab=repositories" target="_blank">Portfolio ↗</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="page-wrapper">
@@ -388,7 +466,16 @@
         <span class="icon"><i class="fa-solid fa-award"></i></span>
         <a href="https://credly.com/users/ericyocam" target="_blank">Credly Badges</a>
       </div>
-    </div>
+      <hr class="sidebar-divider"/>
+      <div class="sidebar-item">
+        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+        <a href="mailto:eric@ericyocam.com">eric@ericyocam.com</a>
+      </div>
+      <div style="padding:.5rem .2rem .8rem;">
+        <a href="cv.pdf" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--gold);color:var(--white);text-decoration:none;font-weight:600;font-size:.84rem;padding:.55rem 1rem;border-radius:6px;transition:background .2s;">
+          <i class="fa-solid fa-file-arrow-down"></i> Download CV
+        </a>
+      </div>
     <div class="sidebar-scroll-hint" id="scrollHint"><i class="fa-solid fa-chevron-down"></i></div>
   </aside>
   </div>
@@ -1131,6 +1218,7 @@
 
 </body>
 <script>
+  // Sidebar scroll hint
   const sidebar = document.querySelector('.sidebar');
   const hint = document.getElementById('scrollHint');
   function checkScroll() {
@@ -1140,5 +1228,20 @@
   sidebar.addEventListener('scroll', checkScroll);
   window.addEventListener('load', checkScroll);
   checkScroll();
+
+  // Mobile hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+  // Close menu when a nav link is clicked
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+    });
+  });
 </script>
 </html>

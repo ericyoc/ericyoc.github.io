@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /CNAME
+
+Sitemap: https://ericyocam.com/sitemap.xml
