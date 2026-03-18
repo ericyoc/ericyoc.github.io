@@ -30,7 +30,7 @@
     "description": "PhD candidate (ABD) in Cyber Operations at Dakota State University. IEEE Senior Member, 23 US patents, 20+ peer-reviewed publications. Lecturer at Cal Poly SLO and Adjunct Assistant Professor at Dominican University of California.",
     "url": "https://ericyocam.com",
     "image": "https://ericyocam.com/profile.jpg",
-    "email": "eric@ericyocam.com",
+    "email": "eric.yocam@trojans.dsu.edu",
     "sameAs": [
       "https://www.linkedin.com/in/eric-yocam/",
       "https://github.com/ericyoc",
@@ -403,7 +403,47 @@
     @media (max-width: 780px) {
       .page-wrapper { grid-template-columns: 1fr; }
       .sidebar { position: static; }
-      nav ul { gap: 1rem; }
+      .nav-hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 16px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      .nav-hamburger span {
+        display: block;
+        height: 2px;
+        background: rgba(255,255,255,.85);
+        border-radius: 2px;
+        transition: all .25s;
+      }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        gap: 0;
+        padding: .5rem 0;
+        box-shadow: 0 4px 16px rgba(0,0,0,.35);
+        z-index: 99;
+      }
+      nav ul.open { display: flex; }
+      nav ul li a {
+        display: block;
+        padding: .65rem 1.5rem;
+        font-size: .9rem;
+        border-bottom: 1px solid rgba(255,255,255,.07);
+      }
+    }
+    @media (min-width: 781px) {
+      .nav-hamburger { display: none; }
     }
   </style>
 </head>
@@ -411,17 +451,20 @@
 
 <!-- NAV -->
 <nav>
-  <span class="brand"></span>
-  <ul>
-    <li><a href="#about">BioSketch</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#appointments">Appointments</a></li>
-    <li><a href="#professional">Professional</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#patents">Patents</a></li>
-    <li><a href="#service">Service</a></li>
-    <li><a href="#talks">Talks</a></li>
-    <li><a href="#honors">Honors</a></li>
+  <span class="brand">Eric Yocam</span>
+  <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="#about" onclick="document.getElementById('nav-menu').classList.remove('open')">BioSketch</a></li>
+    <li><a href="#education" onclick="document.getElementById('nav-menu').classList.remove('open')">Education</a></li>
+    <li><a href="#appointments" onclick="document.getElementById('nav-menu').classList.remove('open')">Appointments</a></li>
+    <li><a href="#professional" onclick="document.getElementById('nav-menu').classList.remove('open')">Professional</a></li>
+    <li><a href="#publications" onclick="document.getElementById('nav-menu').classList.remove('open')">Publications</a></li>
+    <li><a href="#patents" onclick="document.getElementById('nav-menu').classList.remove('open')">Patents</a></li>
+    <li><a href="#service" onclick="document.getElementById('nav-menu').classList.remove('open')">Service</a></li>
+    <li><a href="#talks" onclick="document.getElementById('nav-menu').classList.remove('open')">Talks</a></li>
+    <li><a href="#honors" onclick="document.getElementById('nav-menu').classList.remove('open')">Honors</a></li>
     <li><a href="https://github.com/ericyoc?tab=repositories" target="_blank">Portfolio ↗</a></li>
   </ul>
 </nav>
@@ -585,6 +628,7 @@
         <div class="entry-title">Master of Science (MS) — Computer Science</div>
         <div class="entry-year">2004</div>
         <div class="entry-subtitle"><a href="https://www.csuchico.edu" target="_blank">California State University, Chico</a> · <a href="https://www.csuchico.edu/academics/college/engineering/index.shtml" target="_blank">College of Engineering, Computer Science, and Technology</a> · Chico, CA</div>
+        <div class="entry-note">Thesis: A Fuzzy Enabled Edge Network Device Simulation Software Application · Supervisor: Seung Bae Im, PhD</div>
       </div>
       <div class="entry">
         <div class="entry-title">Bachelor of Science (BS) — Computer Engineering</div>
@@ -884,12 +928,6 @@
         <div class="pub-venue">iUniverse · Independent Publisher</div>
         <div class="pub-doi"><a href="https://www.amazon.com/Corporate-Governance-Directors-Leadership-Diligence/dp/0996104704" target="_blank">View on Amazon ↗</a></div>
         <div class="pub-doi" style="margin-top:.2rem;">Featured among the best-reviewed books of the month in the <em>Kirkus Discoveries</em> newsletter. Referenced by the American Institute of Certified Board Advisors as core knowledge.</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E.</div>
-        <div class="pub-title">A Fuzzy Enabled Edge Network Device Simulation Software Application <span class="pub-badge badge-published">Master's Thesis — 2004</span></div>
-        <div class="pub-venue">California State University, Chico</div>
-        <div class="pub-doi">Thesis Supervisor: Seung Bae Im, PhD</div>
       </div>
 
       <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Book Chapter (In Production)</div>
