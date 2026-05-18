@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corporate Governance: A Board Director's Pocket Guide, 4th Ed. | Eric Yocam</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="book"/>
+  <meta property="og:title"       content="Corporate Governance: A Board Director's Pocket Guide, 4th Edition"/>
+  <meta property="og:description" content="Clear. Concise. Current. The essential pocket guide every board director needs in 2026. By Eric Yocam PhD, DBA and Annie Choi JD, MIB."/>
+  <meta property="og:url"         content="https://ericyocam.com/pocket-guide.html"/>
+  <meta property="og:image"       content="https://ericyoc.github.io/pocket_guide_book_cover.png"/>
+  <meta name="description"        content="Corporate Governance: A Board Director's Pocket Guide, 4th Edition (2026) — practical, concise guidance for board members navigating AI oversight, cybersecurity, and the complex governance environment of 2026."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── PAGE ── */
+    .page-wrapper {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .breadcrumb {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── BOOK HERO ── */
+    .book-hero {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.09);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-bottom: 1.8rem;
+    }
+
+    .book-cover {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.2);
+      display: block;
+    }
+    .book-cover-placeholder {
+      width: 100%;
+      aspect-ratio: 6/9;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .book-cover-placeholder .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: .5rem;
+    }
+    .book-cover-placeholder .cover-sub {
+      font-size: .72rem;
+      color: var(--gold-light);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .cover-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: .75rem auto;
+    }
+    .book-cover-placeholder .cover-authors {
+      font-size: .78rem;
+      color: rgba(255,255,255,.7);
+      margin-top: .5rem;
+    }
+
+    .book-info-edition {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .2rem .7rem;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .book-info-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .3rem;
+    }
+    .book-info-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .book-authors {
+      font-size: .92rem;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+    .book-authors a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .book-authors a:hover { text-decoration: underline; }
+
+    .book-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-bottom: 1.4rem;
+    }
+    .meta-chip {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: .25rem .75rem;
+      font-size: .8rem;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .meta-chip i { color: var(--gold); font-size: .75rem; }
+
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .7rem 1.5rem;
+      border-radius: 7px;
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: background .2s, transform .15s;
+      margin-right: .75rem;
+      margin-bottom: .5rem;
+    }
+    .buy-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .buy-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--navy-mid);
+      font-weight: 600;
+      font-size: .88rem;
+      padding: .65rem 1.2rem;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color .2s, color .2s;
+      margin-bottom: .5rem;
+    }
+    .buy-btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p {
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: .8rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── FEATURES LIST ── */
+    .features-list {
+      list-style: none;
+      margin: .5rem 0 0;
+    }
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .93rem;
+    }
+    .features-list li:last-child { border-bottom: none; }
+    .features-list li i {
+      color: var(--gold);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── EDITIONS COMPARE ── */
+    .editions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    .edition-card {
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+    .edition-card.current {
+      border-color: var(--gold);
+      background: #fdf8ee;
+    }
+    .edition-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-bottom: .3rem;
+    }
+    .edition-card.current .edition-label { color: var(--gold); }
+    .edition-name {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--navy);
+      margin-bottom: .2rem;
+    }
+    .edition-detail {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    /* ── AUTHORS ── */
+    .author-block {
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .author-block:last-child { border-bottom: none; }
+    .author-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: .25rem;
+    }
+    .author-bio {
+      font-size: .88rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .author-bio a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .author-bio a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 680px) {
+      .book-hero {
+        grid-template-columns: 1fr;
+      }
+      .book-cover-placeholder, .book-cover {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      .book-info-title { font-size: 1.35rem; }
+      .editions-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="index.html#publications">Publications</a></li>
+    <li><a href="https://cipherghostseries.com/" target="_blank">Cipher Ghost Series ↗</a></li>
+    <li><a href="https://www.amazon.com/dp/B0H265K9B7" target="_blank">Buy on Amazon ↗</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="index.html">Eric Yocam</a> &rsaquo; Books &rsaquo; Corporate Governance Pocket Guide
+  </div>
+
+  <!-- BOOK HERO -->
+  <div class="book-hero">
+
+    <div>
+      <img src="https://ericyoc.github.io/pocket_guide_book_cover.png" alt="Corporate Governance: A Board Director's Pocket Guide, 4th Edition cover"
+           class="book-cover"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="book-cover-placeholder" style="display:none;">
+        <div class="cover-title">Corporate Governance:<br/>A Board Director's Pocket Guide</div>
+        <div class="cover-divider"></div>
+        <div class="cover-sub">4th Edition · 2026</div>
+        <div class="cover-authors">Eric Yocam PhD, DBA<br/>Annie Choi JD, MIB</div>
+      </div>
+    </div>
+
+    <div>
+      <span class="book-info-edition">4th Edition · 2026</span>
+      <h1 class="book-info-title">Corporate Governance: A Board Director's Pocket Guide</h1>
+      <p class="book-info-subtitle">Leadership, Diligence, and Wisdom</p>
+
+      <p class="book-authors">
+        By <a href="https://www.amazon.com/Eric-Yocam/e/B002BM21B6/" target="_blank">Eric Yocam PhD, DBA</a>
+        &nbsp;&amp;&nbsp;
+        <a href="https://www.amazon.com/s?field-author=Siu+Kuen+Choi" target="_blank">Siu Kuen Annie Choi JD, MIB</a>
+      </p>
+
+      <div class="book-meta">
+        <span class="meta-chip"><i class="fa-solid fa-book"></i> 241 Pages</span>
+        <span class="meta-chip"><i class="fa-solid fa-building-columns"></i> Independently Published</span>
+        <span class="meta-chip"><i class="fa-solid fa-calendar"></i> 2026</span>
+        <span class="meta-chip"><i class="fa-solid fa-language"></i> English</span>
+        <span class="meta-chip"><i class="fa-brands fa-amazon"></i> Print &amp; Kindle</span>
+      </div>
+
+      <div>
+        <a href="https://www.amazon.com/dp/B0H265K9B7" target="_blank" class="buy-btn">
+          <i class="fa-brands fa-amazon"></i> Buy on Amazon
+        </a>
+        <a href="index.html#publications" class="buy-btn-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back to Publications
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="card">
+    <h2 class="card-title">About This Book</h2>
+    <p>
+      <em>Corporate Governance: A Board Director's Pocket Guide, 4th Edition</em> delivers practical, concise guidance for today's board members navigating an increasingly complex environment.
+    </p>
+    <p>
+      Boards face heightened scrutiny over Artificial Intelligence oversight, cybersecurity resilience, geopolitical and supply chain risks, talent and human capital management, and evolving sustainability expectations. At the same time, directors must manage intense schedules, shareholder activism, regulatory complexity, and rapid technological change.
+    </p>
+    <p>
+      This updated 4th Edition equips directors and executives with clear explanations of core governance principles, board responsibilities, risk oversight, committee best practices, and emerging trends. Whether you are a new or seasoned board member, this compact handbook provides immediately actionable insights to strengthen oversight, improve decision-making, and fulfill your fiduciary duties in the AI-driven, high-risk environment of 2026.
+    </p>
+  </div>
+
+  <!-- KEY UPDATES -->
+  <div class="card">
+    <h2 class="card-title">Key Updates in the 4th Edition</h2>
+    <ul class="features-list">
+      <li>
+        <i class="fa-solid fa-microchip"></i>
+        <span><strong>AI Governance and Board-Level Technology Oversight</strong> — Dedicated chapter covering the EU AI Act, NIST AI RMF, model hallucination risk, deepfake threats, and AI disclosure obligations.</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-shield-halved"></i>
+        <span><strong>Cybersecurity as a Core Enterprise Risk</strong> — SEC cybersecurity disclosure rules, third-party risk, and board-level incident response, anchored by the Equifax and CrowdStrike case studies.</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-table-list"></i>
+        <span><strong>Modern Board Skills Matrices and Director Refreshment</strong> — 2026 best practices for skills gap analysis, identifying critical expertise, and governance-driven board composition.</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-chart-line"></i>
+        <span><strong>Updated Risk Management and Succession Planning Guidance</strong> — Geopolitical risk, supply chain disruption, human capital risk, and emergency CEO succession frameworks.</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span><strong>Practical Lessons from Recent High-Profile Cases</strong> — Seven full case studies: Enron, WorldCom, Wells Fargo, Boeing 737 MAX, Equifax, FTX, and OpenAI — each with board-level governance lessons.</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-globe"></i>
+        <span><strong>Global Governance Comparison</strong> — New chapter covering U.S., UK, Germany (co-determination), Japan (keiretsu), China (SOEs), India, and EU CSRD double materiality.</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-scroll"></i>
+        <span><strong>SEC Clawback Rules, Universal Proxy, and ESG Materiality</strong> — All updated for the 2026 regulatory landscape.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <div class="card">
+    <h2 class="card-title">What's Inside</h2>
+    <p>The Pocket Guide is organized into three parts, five appendices, and a comprehensive glossary:</p>
+    <ul class="features-list">
+      <li><i class="fa-solid fa-circle-dot"></i><span><strong>Part I — Governance Overview:</strong> Governance theory, board characteristics, director roles, celebrity directors, board effectiveness, committees, and mentoring.</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span><strong>Part II — Governance Performance:</strong> Organizational models, best and poor governance practices, compliance, governance measures, risk management, quality, capability maturity, and business intelligence.</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span><strong>Part III — Governance Trends and Globalization:</strong> Emerging trends, dedicated AI Governance chapter, and global governance comparison across six jurisdictions.</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span><strong>Appendices:</strong> Director Question Frameworks (10 domains), Crisis Governance Playbook (5 scenarios), Board Governance Maturity Model, Board Director Toolkit (calendar, charter outline, CEO evaluation template, independence checklist), and the "Y" Governance Frameworks.</span></li>
+      <li><i class="fa-solid fa-circle-dot"></i><span><strong>Glossary:</strong> 80+ governance terms including Board Capture, Decision Velocity, Ethics Waiver, Governance Debt, and Materiality (ESG).</span></li>
+    </ul>
+  </div>
+
+  <!-- EDITIONS -->
+  <div class="card">
+    <h2 class="card-title">Edition</h2>
+    <div class="editions-grid" style="grid-template-columns:1fr;">
+      <div class="edition-card current">
+        <div class="edition-label">Current Edition</div>
+        <div class="edition-name">4th Edition (2026)</div>
+        <div class="edition-detail">Independently Published · 241 pages<br/>
+          Print &amp; Kindle · <a href="https://www.amazon.com/dp/B0H265K9B7" target="_blank" style="color:var(--gold);text-decoration:none;">Available on Amazon ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTHORS -->
+  <div class="card">
+    <h2 class="card-title">About the Authors</h2>
+    <div class="author-block">
+      <div class="author-name">Eric Yocam PhD, DBA</div>
+      <p class="author-bio">
+        Eric Yocam teaches at the Barowsky School of Business, Dominican University of California, and maintains a research affiliation with Dakota State University's Beacom College of Computer and Cyber Sciences. His research interests span corporate governance, leadership, quantum computing security, adversarial machine learning, and AI governance. He is an IEEE Senior Member and holds seven degrees across cybersecurity, computer engineering, computer science, business administration, and finance.
+        <br/><a href="index.html">Full BioSketch ↗</a> &nbsp;·&nbsp; <a href="http://ericyocam.com" target="_blank">ericyocam.com ↗</a>
+      </p>
+    </div>
+    <div class="author-block">
+      <div class="author-name">Siu Kuen Annie Choi JD, MIB</div>
+      <p class="author-bio">
+        Siu Kuen Annie Choi is a licensed attorney in the state of Washington. As a legal researcher, her research interests are in the areas of corporate governance, international business, and immigration law.
+      </p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="card" style="text-align:center;padding:2.2rem;">
+    <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
+      Clear. Concise. Current.
+    </p>
+    <p style="color:var(--muted);margin-bottom:1.4rem;">The essential pocket guide every board director needs in 2026.</p>
+    <a href="https://www.amazon.com/dp/B0H265K9B7" target="_blank" class="buy-btn" style="font-size:1rem;padding:.85rem 2rem;">
+      <i class="fa-brands fa-amazon"></i> Get It on Amazon
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Eric Yocam &nbsp;·&nbsp;
+  <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
+  <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+</footer>
+
+</body>
+</html>
