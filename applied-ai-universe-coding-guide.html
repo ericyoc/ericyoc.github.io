@@ -5,21 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Applied AI Universe Coding Guide | Eric Yocam</title>
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="book"/>
-  <meta property="og:title"       content="The Applied AI Universe Coding Guide: A Complete Hands-On Handbook from Neural Networks to Generative AI"/>
-  <meta property="og:description" content="Master artificial intelligence from first principles to modern generative systems through a rigorous, hands-on engineering approach. By Eric Yocam PhD, DBA."/>
-  <meta property="og:url"         content="https://ericyocam.com/applied-ai-universe-coding-guide.html"/>
-  <meta property="og:image"       content="applied_ai_coding_cover.png"/>
-  <meta name="description"        content="The Applied AI Universe Coding Guide — a comprehensive practical handbook from neural networks to generative AI, quantum machine learning, and hybrid AI architectures. By Eric Yocam PhD, DBA."/>
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root {
       --navy: #0f2340;
-      --navy-mid: #1a3558;
       --gold: #c8983a;
       --gold-light: #e8b85a;
       --light: #f4f6f9;
@@ -38,7 +28,6 @@
       line-height: 1.65;
     }
 
-    /* ── TOP NAV ── */
     nav {
       background: var(--navy);
       padding: 0 2rem;
@@ -49,14 +38,12 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,.35);
     }
     nav .brand {
       color: var(--white);
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 600;
-      letter-spacing: .02em;
       text-decoration: none;
     }
     nav ul {
@@ -69,13 +56,10 @@
       text-decoration: none;
       font-size: .88rem;
       font-weight: 600;
-      letter-spacing: .06em;
       text-transform: uppercase;
-      transition: color .2s;
     }
     nav ul li a:hover { color: var(--gold-light); }
 
-    /* ── PAGE ── */
     .page-wrapper {
       max-width: 960px;
       margin: 2.5rem auto;
@@ -87,13 +71,8 @@
       color: var(--muted);
       margin-bottom: 1.5rem;
     }
-    .breadcrumb a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
 
-    /* ── COMING SOON BANNER ── */
     .coming-soon-banner {
       background: linear-gradient(135deg, var(--navy) 0%, #1e3a6e 100%);
       border-radius: 10px;
@@ -102,139 +81,47 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,.15);
     }
-    .coming-soon-banner i {
-      color: var(--gold);
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-    .coming-soon-banner .banner-text {
-      color: var(--white);
-      font-size: .95rem;
-    }
-    .coming-soon-banner .banner-text strong {
-      color: var(--gold-light);
-    }
+    .coming-soon-banner i { color: var(--gold); font-size: 1.4rem; }
+    .coming-soon-banner .banner-text { color: var(--white); font-size: .95rem; }
+    .coming-soon-banner .banner-text strong { color: var(--gold-light); }
 
-    /* roadmap link card */
-    .roadmap-card {
+    .roadmap-link {
       background: var(--white);
       border-radius: 10px;
-      padding: 1.25rem 1.8rem;
+      padding: 1rem 1.5rem;
       margin-bottom: 1.8rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,.06);
       border-left: 4px solid var(--gold);
     }
-    .roadmap-text {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .roadmap-text i {
-      font-size: 1.7rem;
-      color: var(--gold);
-    }
-    .roadmap-text span {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--navy);
-    }
-    .roadmap-btn {
+    .roadmap-link a {
       background: var(--navy);
-      color: var(--white);
+      color: white;
       padding: 0.5rem 1.2rem;
       border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      transition: background 0.2s, transform 0.1s;
+      font-size: 0.85rem;
     }
-    .roadmap-btn i {
-      font-size: 0.9rem;
-    }
-    .roadmap-btn:hover {
-      background: var(--gold);
-      color: var(--navy);
-    }
+    .roadmap-link a:hover { background: var(--gold); color: var(--navy); }
 
-    /* ── BOOK HERO ── */
     .book-hero {
       background: var(--white);
       border-radius: 12px;
-      box-shadow: 0 2px 20px rgba(0,0,0,.09);
       padding: 2.5rem;
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 2.5rem;
-      align-items: start;
       margin-bottom: 1.8rem;
     }
-
-    .book-cover {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.2);
-      display: block;
-    }
-    .book-cover-placeholder {
-      width: 100%;
-      aspect-ratio: 6/9;
-      background: linear-gradient(135deg, #0b1a3a 0%, #1a2e5e 50%, #0d1f42 100%);
-      border-radius: 8px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-      color: var(--white);
-    }
-    .book-cover-placeholder .cover-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: .5rem;
-    }
-    .book-cover-placeholder .cover-sub {
-      font-size: .72rem;
-      color: var(--gold-light);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-    .cover-divider {
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-      margin: .75rem auto;
-    }
-    .book-cover-placeholder .cover-authors {
-      font-size: .78rem;
-      color: rgba(255,255,255,.7);
-      margin-top: .5rem;
-    }
-
     .book-info-edition {
-      display: inline-block;
       background: var(--gold);
       color: var(--navy);
       font-size: .72rem;
       font-weight: 700;
       padding: .2rem .7rem;
       border-radius: 20px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+      display: inline-block;
       margin-bottom: .75rem;
     }
     .book-info-title {
@@ -242,7 +129,6 @@
       font-size: 1.7rem;
       font-weight: 700;
       color: var(--navy);
-      line-height: 1.25;
       margin-bottom: .3rem;
     }
     .book-info-subtitle {
@@ -252,17 +138,8 @@
       font-style: italic;
       margin-bottom: 1rem;
     }
-    .book-authors {
-      font-size: .92rem;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-    }
-    .book-authors a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .book-authors a:hover { text-decoration: underline; }
+    .book-authors { margin-bottom: 1.2rem; }
+    .book-authors a { color: var(--gold); text-decoration: none; }
 
     .book-meta {
       display: flex;
@@ -276,12 +153,7 @@
       border-radius: 20px;
       padding: .25rem .75rem;
       font-size: .8rem;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: .35rem;
     }
-    .meta-chip i { color: var(--gold); font-size: .75rem; }
 
     .notify-btn {
       display: inline-flex;
@@ -290,18 +162,10 @@
       background: var(--gold);
       color: var(--navy);
       font-weight: 700;
-      font-size: .92rem;
       padding: .7rem 1.5rem;
       border-radius: 7px;
       text-decoration: none;
-      letter-spacing: .03em;
-      transition: background .2s, transform .15s;
       margin-right: .75rem;
-      margin-bottom: .5rem;
-    }
-    .notify-btn:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
     }
     .buy-btn-secondary {
       display: inline-flex;
@@ -309,26 +173,16 @@
       gap: .5rem;
       background: transparent;
       color: var(--navy-mid);
-      font-weight: 600;
-      font-size: .88rem;
       padding: .65rem 1.2rem;
       border-radius: 7px;
       text-decoration: none;
       border: 1.5px solid var(--border);
-      transition: border-color .2s, color .2s;
-      margin-bottom: .5rem;
-    }
-    .buy-btn-secondary:hover {
-      border-color: var(--gold);
-      color: var(--gold);
     }
 
-    /* ── CARDS ── */
     .card {
       background: var(--white);
       border-radius: 10px;
       padding: 1.8rem 2rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,.07);
       margin-bottom: 1.6rem;
     }
     .card-title {
@@ -339,116 +193,36 @@
       padding-bottom: .5rem;
       margin-bottom: 1.2rem;
     }
-    .card p {
-      font-size: .95rem;
-      color: var(--text);
-      line-height: 1.75;
-      margin-bottom: .8rem;
-    }
-    .card p:last-child { margin-bottom: 0; }
 
-    /* ── FEATURES LIST ── */
     .features-list {
       list-style: none;
-      margin: .5rem 0 0;
     }
     .features-list li {
       display: flex;
-      align-items: flex-start;
       gap: .7rem;
       padding: .5rem 0;
       border-bottom: 1px solid var(--border);
-      font-size: .93rem;
     }
-    .features-list li:last-child { border-bottom: none; }
-    .features-list li i {
-      color: var(--gold);
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
+    .features-list li i { color: var(--gold); }
 
-    /* ── SERIES CARD ── */
     .series-card {
       border: 1.5px solid var(--border);
       border-radius: 8px;
       padding: 1rem 1.2rem;
       margin-bottom: .85rem;
     }
-    .series-card.current {
-      border-color: var(--gold);
-      background: #fdf8ee;
-    }
-    .series-label {
-      font-size: .72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--muted);
-      margin-bottom: .3rem;
-    }
-    .series-card.current .series-label { color: var(--gold); }
-    .series-name {
-      font-weight: 700;
-      font-size: .95rem;
-      color: var(--navy);
-      margin-bottom: .2rem;
-    }
-    .series-detail {
-      font-size: .82rem;
-      color: var(--muted);
-    }
+    .series-card.current { border-color: var(--gold); background: #fdf8ee; }
 
-    /* ── AUTHORS ── */
-    .author-block {
-      padding: .9rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .author-block:last-child { border-bottom: none; }
-    .author-name {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: .25rem;
-    }
-    .author-bio {
-      font-size: .88rem;
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .author-bio a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .author-bio a:hover { text-decoration: underline; }
-
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 2rem;
       font-size: .8rem;
       color: var(--muted);
     }
-
-    @media (max-width: 680px) {
-      .book-hero {
-        grid-template-columns: 1fr;
-      }
-      .book-cover, .book-cover-placeholder {
-        max-width: 200px;
-        margin: 0 auto;
-      }
-      .book-info-title { font-size: 1.35rem; }
-      nav ul { gap: 1rem; }
-      .roadmap-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="brand">Eric Yocam</a>
   <ul>
@@ -465,169 +239,83 @@
     <a href="index.html">Eric Yocam</a> &rsaquo; Books &rsaquo; The Applied AI Universe Coding Guide
   </div>
 
-  <!-- NOW AVAILABLE BANNER -->
   <div class="coming-soon-banner">
     <i class="fa-solid fa-rocket"></i>
     <div class="banner-text">
-      <strong>Now Available on Amazon.com</strong> &mdash; <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank" style="color:var(--gold-light);text-decoration:underline;">Order your copy today.</a>
+      <strong>Now Available on Amazon.com</strong> &mdash; <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank" style="color:var(--gold-light);">Order your copy today.</a>
     </div>
   </div>
 
-  <!-- AI UNIVERSE ROADMAP LINK CARD (opens image in new window) -->
-  <div class="roadmap-card">
-    <div class="roadmap-text">
-      <i class="fa-regular fa-map"></i>
-      <span><strong>The AI Universe Roadmap</strong> — visual guide to nested AI fields, ethics ripple effect, and the dependency chain.</span>
-    </div>
-    <a href="The_AI_Universe_Roadmap.png" target="_blank" class="roadmap-btn">
-      <i class="fa-regular fa-image"></i> View full roadmap ↗
-    </a>
+  <!-- JUST A LINK - NO IMAGE EMBEDDED -->
+  <div class="roadmap-link">
+    <span><i class="fa-regular fa-map"></i> <strong>The AI Universe Roadmap</strong> — visual guide to nested AI fields</span>
+    <a href="The_AI_Universe_Roadmap.png" target="_blank">View full roadmap ↗</a>
   </div>
 
-  <!-- BOOK HERO -->
   <div class="book-hero">
-
-    <!-- Cover image placeholder (just a placeholder, not the roadmap) -->
-    <div>
-      <div class="book-cover-placeholder">
-        <div class="cover-title">The Applied AI Universe Coding Guide</div>
-        <div class="cover-divider"></div>
-        <div class="cover-sub">First Edition</div>
-        <div class="cover-authors">Eric Yocam PhD, DBA</div>
-      </div>
-    </div>
-
     <div>
       <span class="book-info-edition">First Edition · Now Available</span>
       <h1 class="book-info-title">The Applied AI Universe Coding Guide</h1>
       <p class="book-info-subtitle">A Complete Hands-On Handbook from Neural Networks to Generative AI</p>
-
-      <p class="book-authors">
-        By <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank">Eric Yocam PhD, DBA</a>
-      </p>
+      <p class="book-authors">By <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank">Eric Yocam PhD, DBA</a></p>
 
       <div class="book-meta">
         <span class="meta-chip"><i class="fa-solid fa-book"></i> First Edition</span>
-        <span class="meta-chip"><i class="fa-solid fa-building-columns"></i> Independently Published</span>
         <span class="meta-chip"><i class="fa-solid fa-calendar"></i> Now Available</span>
-        <span class="meta-chip"><i class="fa-solid fa-language"></i> English</span>
         <span class="meta-chip"><i class="fa-brands fa-amazon"></i> Print &amp; Kindle</span>
-        <span class="meta-chip"><i class="fa-solid fa-layer-group"></i> Book 1 — The Adaptive AI Codex Series</span>
       </div>
 
       <div>
-        <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank" class="notify-btn">
-          <i class="fa-brands fa-amazon"></i> Buy on Amazon
-        </a>
-        <a href="index.html" class="buy-btn-secondary">
-          <i class="fa-solid fa-arrow-left"></i> Back to ericyocam.com
-        </a>
+        <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank" class="notify-btn"><i class="fa-brands fa-amazon"></i> Buy on Amazon</a>
+        <a href="index.html" class="buy-btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back</a>
       </div>
     </div>
   </div>
 
-  <!-- DESCRIPTION -->
   <div class="card">
     <h2 class="card-title">About This Book</h2>
-    <p>
-      <em>The Applied AI Universe Coding Guide</em> is a project-first, concept-second guide to the entire AI Universe. It is organized around the <strong>depiction of the AI Universe</strong> — five concentric rings, each labeling a major sub-field of AI, from the outermost Artificial Intelligence ring down through Machine Learning, Neural Networks, Deep Learning, and Generative AI. This book covers every ring, every labeled topic, and every idea — with an analogy before any code and a runnable listing for every concept.
-    </p>
-    <p>
-      Parts I–VI cover the classical AI stack, including four additional chapters on the latest Generative AI developments: Diffusion Models, LoRA and PEFT, RLHF, and Mamba/State Space Models. Parts VII–VIII extend the journey into quantum computing — Hybrid Quantum-Classical AI using IBM Qiskit, Google Cirq, and PennyLane, and Quantum AI fundamentals including Bell states, Grover's search, VQE, and quantum teleportation. All quantum demos run on simulators, with appendices explaining how to connect to real quantum hardware.
-    </p>
-    <p>
-      Every chapter follows the same four-layer structure: <strong>Concept</strong> (a plain-English analogy before any mathematics), <strong>Code Snippet</strong> (a fully annotated, runnable Google Colab cell), <strong>Output</strong> (the chart or result shown and explained), and <strong>Insight</strong> (a pro tip, common mistake, or deeper connection). No prior AI experience is required — only intermediate Python skills.
-    </p>
-    <p>
-      The companion notebook <em>AI_Universe_Coding.ipynb</em> runs in Google Colab (zero setup, free GPU), Windows, macOS, or Ubuntu/Linux. All code listings are available in a public GitHub repository (link coming soon).
-    </p>
+    <p><em>The Applied AI Universe Coding Guide</em> is a project-first, concept-second guide to the entire AI Universe. It is organized around the depiction of the AI Universe — five concentric rings, each labeling a major sub-field of AI.</p>
+    <p>Every chapter follows the same four-layer structure: <strong>Concept</strong>, <strong>Code Snippet</strong>, <strong>Output</strong>, and <strong>Insight</strong>. No prior AI experience is required — only intermediate Python skills.</p>
   </div>
 
-  <!-- WHAT'S INSIDE -->
   <div class="card">
     <h2 class="card-title">What's Inside</h2>
-    <p>33 chapters across 8 parts, each following the same four-layer structure: Concept, Code Snippet, Output, and Insight — with a runnable Google Colab cell for every topic.</p>
     <ul class="features-list">
-      <li>
-        <i class="fa-solid fa-map"></i>
-        <span><strong>Part I — The AI Universe Roadmap</strong> — Ch. 1: The Concentric Rings of AI. The map before the territory: how all sub-fields nest inside one another.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-brain"></i>
-        <span><strong>Part II — Artificial Intelligence</strong> — Ch. 2–4: Planning &amp; Scheduling, Expert Systems &amp; Knowledge Representation, Fuzzy Logic.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-chart-line"></i>
-        <span><strong>Part III — Machine Learning</strong> — Ch. 5–9: Feature Engineering, Supervised Learning, Unsupervised Learning, Semi-Supervised Learning, Ensemble Learning.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-network-wired"></i>
-        <span><strong>Part IV — Neural Networks</strong> — Ch. 10–14: Activation Functions, Perceptrons, Backpropagation, MLP/CNN/LSTMs, Self-Organizing Maps.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-layer-group"></i>
-        <span><strong>Part V — Deep Learning</strong> — Ch. 15–21: Deep Neural Networks &amp; Architecture Depth, Transfer Learning, Generative Adversarial Networks, Attention Mechanisms, Dropout &amp; Regularization, Deep Reinforcement Learning, Capsule Networks &amp; Deep Belief Networks.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-        <span><strong>Part VI — Generative AI</strong> — Ch. 22–29: Language Modeling, The Transformer Architecture, Pre-Trained Models, Dialogue Systems, Diffusion Models, LoRA and PEFT, RLHF and Alignment, Mamba/State Space Models.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-atom"></i>
-        <span><strong>Part VII — Hybrid Quantum-Classical AI</strong> — Ch. 30: Hybrid Quantum-Classical AI. Practical NISQ-era systems using IBM Qiskit, Google Cirq, and PennyLane.</span>
-      </li>
-      <li>
-        <i class="fa-solid fa-infinity"></i>
-        <span><strong>Part VIII — Quantum AI</strong> — Ch. 31–33: Quantum AI fundamentals, QAOA, and VQE. Bell states, Grover's search, and quantum teleportation — all running on simulators with appendices for real hardware.</span>
-      </li>
+      <li><i class="fa-solid fa-map"></i> <strong>Part I — The AI Universe Roadmap</strong> — The concentric rings of AI</li>
+      <li><i class="fa-solid fa-brain"></i> <strong>Part II — Artificial Intelligence</strong> — Planning, Expert Systems, Fuzzy Logic</li>
+      <li><i class="fa-solid fa-chart-line"></i> <strong>Part III — Machine Learning</strong> — Feature Engineering, Supervised/Unsupervised Learning</li>
+      <li><i class="fa-solid fa-network-wired"></i> <strong>Part IV — Neural Networks</strong> — Perceptrons, Backpropagation, CNNs, LSTMs</li>
+      <li><i class="fa-solid fa-layer-group"></i> <strong>Part V — Deep Learning</strong> — GANs, Attention, Transfer Learning, RL</li>
+      <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Part VI — Generative AI</strong> — Transformers, LLMs, Diffusion Models, RLHF</li>
+      <li><i class="fa-solid fa-atom"></i> <strong>Part VII — Hybrid Quantum-Classical AI</strong> — Qiskit, Cirq, PennyLane</li>
+      <li><i class="fa-solid fa-infinity"></i> <strong>Part VIII — Quantum AI</strong> — Bell states, Grover's search, VQE</li>
     </ul>
   </div>
 
-  <!-- WHO THIS IS FOR -->
-  <div class="card">
-    <h2 class="card-title">Who This Book Is For</h2>
-    <p>This book is for anyone interested in AI and learners who want a complete, hands-on tour of the field. No prior AI experience is required — only intermediate Python skills are necessary.</p>
-  </div>
-
-  <!-- SERIES -->
   <div class="card">
     <h2 class="card-title">The Adaptive AI Codex Series</h2>
-    <p style="margin-bottom:1rem;">This title is Book 1 of <em>The Adaptive AI Codex Series</em> — a practical, code-first collection for anyone interested in building, understanding, and securing AI systems. Series status: <strong style="color:var(--gold);">Book 1 Available · Books 2 &amp; 3 Coming Later in 2026</strong>.</p>
     <div class="series-card current">
-      <div class="series-label">This Book · Book 1</div>
+      <div class="series-label">Book 1</div>
       <div class="series-name">The Applied AI Universe Coding Guide</div>
-      <div class="series-detail">A complete hands-on handbook covering AI fundamentals: Machine Learning, Neural Networks, Deep Learning, Generative AI, and Hybrid Quantum-Classical systems.</div>
     </div>
     <div class="series-card">
       <div class="series-label">Book 2</div>
-      <div class="series-name">The Applied AI Universe Coding Guide: Adversarial Attacks</div>
-      <div class="series-detail">Explore how AI models can be fooled and compromised in practice. Hands-on techniques for adversarial examples, poisoning attacks, evasion methods, and real-world vulnerabilities.</div>
+      <div class="series-name">Adversarial Attacks</div>
     </div>
     <div class="series-card">
       <div class="series-label">Book 3</div>
-      <div class="series-name">The Applied AI Universe Coding Guide: Adversarial Defenses</div>
-      <div class="series-detail">Master practical strategies to build more robust and secure AI systems, including adversarial training, detection methods, and defensive architectures.</div>
+      <div class="series-name">Adversarial Defenses</div>
     </div>
   </div>
 
-  <!-- CTA -->
-  <div class="card" style="text-align:center;padding:2.2rem;">
-    <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
-      Practical. Rigorous. Code-First.
-    </p>
-    <p style="color:var(--muted);margin-bottom:1.4rem;">Available now on Amazon.com.</p>
-    <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
-      <i class="fa-brands fa-amazon"></i> Buy on Amazon
-    </a>
+  <div class="card" style="text-align:center;">
+    <a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank" class="notify-btn"><i class="fa-brands fa-amazon"></i> Buy on Amazon</a>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2026 Eric Yocam &nbsp;·&nbsp;
-  <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
-  <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+  &copy; 2026 Eric Yocam
 </footer>
 
 </body>
