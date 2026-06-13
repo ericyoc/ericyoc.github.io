@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Slideshow | The Applied AI Universe</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0f2340;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .slideshow-container {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 1000px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .slide-image {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .slide-image img {
+      max-width: 100%;
+      max-height: 65vh;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      background: #0f2340;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background: #c8983a;
+      color: #0f2340;
+    }
+    .counter {
+      text-align: center;
+      color: #6b7a8d;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    h2 {
+      text-align: center;
+      color: #0f2340;
+      margin-bottom: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    @media (max-width: 600px) {
+      .slideshow-container { padding: 1rem; }
+      button { padding: 0.4rem 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="slideshow-container">
+  <h2>📖 Course Orientation Slideshow</h2>
+  <div class="slide-image">
+    <img id="slideImg" src="slideshow/img45.jpg" alt="Slide">
+  </div>
+  <div class="controls">
+    <button id="prevBtn">◀ Previous</button>
+    <button id="nextBtn">Next ▶</button>
+  </div>
+  <div class="counter" id="slideCounter">Slide 1 / 14</div>
+</div>
+
+<script>
+  const slides = [
+    "slideshow/img45.jpg",
+    "slideshow/img46.jpg",
+    "slideshow/img47.jpg",
+    "slideshow/img48.jpg",
+    "slideshow/img49.jpg",
+    "slideshow/img50.jpg",
+    "slideshow/img51.jpg",
+    "slideshow/img52.jpg",
+    "slideshow/img53.jpg",
+    "slideshow/img54.jpg",
+    "slideshow/img55.jpg",
+    "slideshow/img56.jpg",
+    "slideshow/img57.jpg",
+    "slideshow/img58.jpg"
+  ];
+  let current = 0;
+  const img = document.getElementById("slideImg");
+  const counter = document.getElementById("slideCounter");
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+
+  function update() {
+    img.src = slides[current];
+    counter.innerText = `Slide ${current+1} / ${slides.length}`;
+  }
+
+  prev.addEventListener("click", () => {
+    if (current > 0) { current--; update(); }
+  });
+  next.addEventListener("click", () => {
+    if (current < slides.length - 1) { current++; update(); }
+  });
+  update();
+</script>
+</body>
+</html>
