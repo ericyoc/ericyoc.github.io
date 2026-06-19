@@ -373,6 +373,47 @@
     .badge-panel      { background: #e2d9f3; color: #432874; }
     .badge-cert       { background: #d0f0fd; color: #0a5070; }
 
+    /* Publication theme headers */
+    .pub-theme {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.06rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 1.7rem 0 .15rem;
+      padding-top: 1.1rem;
+      border-top: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .pub-theme.first { margin-top: .3rem; padding-top: 0; border-top: none; }
+    .pub-theme i { color: var(--gold); font-size: .95rem; width: 1.1rem; text-align: center; }
+    .pub-theme-desc {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0 0 .55rem;
+    }
+    .pub-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin: .5rem 0 .2rem;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--gold);
+      cursor: pointer;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .35rem .75rem;
+      font-family: 'Source Sans 3', sans-serif;
+      transition: background .15s, border-color .15s;
+    }
+    .pub-toggle:hover { background: var(--light); border-color: var(--gold); }
+    .pub-collapse { display: none; }
+    .pub-collapse.open { display: block; margin-top: .2rem; }
+
     /* Patents */
     .patents-text {
       font-size: .9rem;
@@ -857,118 +898,242 @@
 
     <!-- PUBLICATIONS -->
     <section class="card" id="publications">
-      <h2 class="card-title">Publications <a href="https://scholar.google.com/citations?user=Ns46BB0AAAAJ&hl=en" target="_blank" style="font-size:.75rem;font-family:'Source Sans 3',sans-serif;font-weight:600;color:var(--gold);text-decoration:none;margin-left:.8rem;vertical-align:middle;">View on Google Scholar ↗</a></h2>
+      <h2 class="card-title">Publications <a href="https://scholar.google.com/citations?user=Ns46BB0AAAAJ&hl=en" target="_blank" style="font-size:.75rem;font-family:'Source Sans 3',sans-serif;font-weight:600;color:var(--gold);text-decoration:none;margin-left:.8rem;vertical-align:middle;">View on Google Scholar &#8599;</a></h2>
       <p class="patents-text" style="margin-bottom:1rem;">
-        Eric has authored and co-authored <strong>20+ peer-reviewed publications</strong> spanning adversarial machine learning, post-quantum cryptography, IoT security, LLM hallucination mitigation, and autonomous vehicle systems — with work appearing in IEEE Access, IEEE Transactions, Springer, and arXiv.
+        Eric has authored and co-authored <strong>20+ peer-reviewed publications</strong> spanning adversarial machine learning, post-quantum cryptography, IoT security, LLM hallucination mitigation, and autonomous vehicle systems &mdash; with work appearing in IEEE Access, IEEE Transactions, Springer, Elsevier, and arXiv. Work is grouped by <strong>research theme</strong>. Published papers and public preprints are shown directly; each theme's <em>under-review</em> and <em>in-development</em> pipeline can be expanded with the <strong>Show&nbsp;more</strong> control.
       </p>
 
-      <div style="margin-bottom:.4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Book Chapter — Published 2026</div>
+      <!-- THEME 1: Adversarial ML & AI Model Defense -->
+      <div class="pub-theme first"><i class="fa-solid fa-shield-halved"></i>Adversarial Machine Learning &amp; AI Model Defense</div>
+      <p class="pub-theme-desc">Hardening neural networks and autonomous-system perception against adversarial attacks &mdash; the core of Eric's doctoral work on hybrid neural network model defenses.</p>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Rizi, A., Kamepalli, M., Vaidyan, V., Wang, Y., Comert, G.</div>
-        <div class="pub-title">Quantum Adversarial Machine Learning and Defense Strategies: Challenges and Opportunities <span class="pub-badge badge-published">Published — 2026</span></div>
+        <div class="pub-title">Quantum Adversarial Machine Learning and Defense Strategies: Challenges and Opportunities <span class="pub-badge badge-published">Book Chapter &mdash; 2026</span></div>
         <div class="pub-venue">Quantum Robustness in Artificial Intelligence, Springer Quantum Science and Technology Series</div>
-        <div class="pub-doi"><a href="https://link.springer.com/chapter/10.1007/978-3-032-11153-1_4" target="_blank">doi: 10.1007/978-3-032-11153-1_4</a> · Springer</div>
+        <div class="pub-doi"><a href="https://link.springer.com/chapter/10.1007/978-3-032-11153-1_4" target="_blank">doi: 10.1007/978-3-032-11153-1_4</a> &middot; Springer</div>
       </div>
-
-      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Published — 2026</div>
-      <div class="pub">
-        <div class="pub-authors">Prasad, A.R., Ketema, N., Yocam, E., Vaidyan, V., Comert, G., Werth, D., Buckley, R., Stone, M.R., Kothakonda, B.V.</div>
-        <div class="pub-title">A Novel Hybrid Quantum-Classical Path Optimization for Methane Detection Using Remote Quantum Intensity Prediction Models <span class="pub-badge badge-published">Published — 2026</span></div>
-        <div class="pub-venue">IEEE Access · DOI: 10.1109/ACCESS.2026.3675450</div>
-        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2026.3675450" target="_blank">doi: 10.1109/ACCESS.2026.3675450</a> · <a href="https://ieeexplore.ieee.org/document/11441353" target="_blank">IEEE Xplore</a> · <a href="https://ieee-dataport.org/documents/rams-simulated-meteorological-and-atmospheric-tracer-dataset-ensemble-learning-based" target="_blank">Dataset (IEEE DataPort)</a></div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Kappala, A., Yocam, E., Kayastha, N., Vodnala, S.R., Vaidyan, V., Comert, G., Podhradsky, A., Werth, D., Buckley, R.</div>
-        <div class="pub-title">A Dynamic Quantum-Resistant Selective Encryption Approach for Agricultural Sensors with Limited Resources <span class="pub-badge badge-published">Published — 2026</span></div>
-        <div class="pub-venue">IEEE Access</div>
-        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2026.3668608" target="_blank">doi: 10.1109/ACCESS.2026.3668608</a> · <a href="https://ieeexplore.ieee.org/document/11414071" target="_blank">IEEE Xplore</a></div>
-      </div>
-
-      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Published — 2025</div>
       <div class="pub">
         <div class="pub-authors">Fulkerson, E., Yocam, E., Vaidyan, V., Kamepalli, M., Wang, Y., Comert, G.</div>
-        <div class="pub-title">PyRHOH: A Meta-Learning Analysis Framework for Determining the Impact of Compilation on Malicious JavaScript Identification <span class="pub-badge badge-published">Published — 2025</span></div>
+        <div class="pub-title">PyRHOH: A Meta-Learning Analysis Framework for Determining the Impact of Compilation on Malicious JavaScript Identification <span class="pub-badge badge-published">Published &mdash; 2025</span></div>
         <div class="pub-venue">Machine Learning with Applications, 100724</div>
         <div class="pub-doi"><a href="https://doi.org/10.1016/j.mlwa.2025.100724" target="_blank">doi: 10.1016/j.mlwa.2025.100724</a></div>
       </div>
       <div class="pub">
+        <div class="pub-authors">Rizi, A., Yocam, E., Vaidyan, V., Wang, Y.</div>
+        <div class="pub-title">Exploring Machine Learning with FNNs for Identifying Modified DGAs Through Noise and Linear Recursive Sequences (LRS) <span class="pub-badge badge-published">Published &mdash; 2024</span></div>
+        <div class="pub-venue">2024 Cyber Awareness and Research Symposium (CARS)</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/CARS61786.2024.10778668" target="_blank">doi: 10.1109/CARS61786.2024.10778668</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., Yocam, C., Vaidyan, V., Wang, Y., Kalappattil, M., Rizi, A.</div>
+        <div class="pub-title">Superspace Concentration and Adversarial Robustness in Quantum Algorithms <span class="pub-badge badge-preprint">Preprint</span></div>
+        <div class="pub-venue">Target: IEEE Transactions on Quantum Engineering</div>
+        <div class="pub-doi"><a href="https://arxiv.org/abs/2606.11580" target="_blank">arXiv: 2606.11580</a></div>
+      </div>
+      <button class="pub-toggle" data-show="&#9662;&nbsp; Show 6 more &mdash; under review &amp; in development" data-hide="&#9652;&nbsp; Hide in-progress work" onclick="togglePubs(this,'pub-adv')">&#9662;&nbsp; Show 6 more &mdash; under review &amp; in development</button>
+      <div class="pub-collapse" id="pub-adv">
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Mwakalonge, J.L., Comert, G., Ngotonie, M.</div>
+          <div class="pub-title">Cross-Domain Adversarial Robustness of Geometric Prior Neural Networks: Safety-Critical Deployment Guidelines <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence &middot; MS ID: TETCI-2026-0503</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Comert, G., Wang, Y.</div>
+          <div class="pub-title">Hardening Black-Box Neural Networks Against Adversarial Attacks Through Surrogate-Based Defense Transfer <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">IEEE Transactions on Dependable and Secure Computing</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Mwakalonge, J.L., Comert, G., Wang, Y.</div>
+          <div class="pub-title">Architectural Robustness in Lane Detection Systems: Geometric Constraints and Adversarial Stability <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">Transportation Research Interdisciplinary Perspectives (Elsevier) &middot; MS ID: TRIP-D-26-00418</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Comert, G., Wang, Y., Mwakalonge, J.L.</div>
+          <div class="pub-title">Protection of UAV-Based Crop Row Detection Against Adversarial Attacks <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence &middot; MS ID: TETCI-2025-2766</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Ruganuza, D., Mwakalonge, J.L., Comert, G., Pian, D.</div>
+          <div class="pub-title">Retroreflectivity-Based Traffic Sign Cybersecurity: Synthetic Data and Defense Models <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">Engineering Applications of Artificial Intelligence (Elsevier) &middot; MS ID: EAAI-S-26-15207 &middot; Preprint on SSRN</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Kalappattila, M., Vaidyan, V.M., Yocam, E., Comert, G., Kramer, A.</div>
+          <div class="pub-title">Probabilistic Interpretation of Bi-Directional Transformer Models for Office Document Macro Detection <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: Expert Systems with Applications (Elsevier)</div>
+        </div>
+      </div>
+
+      <!-- THEME 2: LLM Security & Reliability -->
+      <div class="pub-theme"><i class="fa-solid fa-comment-dots"></i>Large Language Model Security &amp; Reliability</div>
+      <p class="pub-theme-desc">Attacking and defending large language models &mdash; hallucination mitigation, internal-node attacks, randomness analysis, and applied generative-AI engineering.</p>
+      <div class="pub">
+        <div class="pub-authors">Black, G., Yocam, E., Vaidyan, V., Comert, G., Wang, Y.</div>
+        <div class="pub-title">From LLMs to Randomness: Analyzing Program Input Efficacy with Resource and Language Metrics <span class="pub-badge badge-published">Published &mdash; 2025</span></div>
+        <div class="pub-venue">IEEE Access, 2025</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2025.3571205" target="_blank">doi: 10.1109/ACCESS.2025.3571205</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E.</div>
+        <div class="pub-title">The Applied AI Universe Coding Guide: A Complete Hands-On Handbook from Neural Networks to Generative AI <span class="pub-badge badge-published">Published &mdash; 2026</span></div>
+        <div class="pub-venue">Independently Published &middot; Adaptive AI Codex Series, Book 1 &middot; ISBN-13: 979-8198797932</div>
+        <div class="pub-doi"><a href="applied-ai-universe-coding-guide.html" style="color:var(--gold);text-decoration:none;">Book Page &#8599;</a></div>
+      </div>
+      <button class="pub-toggle" data-show="&#9662;&nbsp; Show 2 more &mdash; under review" data-hide="&#9652;&nbsp; Hide in-progress work" onclick="togglePubs(this,'pub-llm')">&#9662;&nbsp; Show 2 more &mdash; under review</button>
+      <div class="pub-collapse" id="pub-llm">
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Comert, G., Kalathas, P., Wang, Y., Mwakalonge, J.L.</div>
+          <div class="pub-title">Adaptive Activation Cancellation for Hallucination Mitigation in Large Language Models <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">SN Computer Science (Springer Nature) &middot; Submission ID: SNCS-D-26-02755</div>
+          <div class="pub-doi"><a href="https://arxiv.org/abs/2603.10195" target="_blank">arXiv: 2603.10195</a></div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Wang, Y.</div>
+          <div class="pub-title">H-Node Attack and Defense in Large Language Models <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence &middot; MS ID: TETCI-2026-0776</div>
+          <div class="pub-doi"><a href="https://arxiv.org/abs/2603.26045" target="_blank">arXiv: 2603.26045</a></div>
+        </div>
+      </div>
+
+      <!-- THEME 3: Post-Quantum Cryptography & Quantum Systems Security -->
+      <div class="pub-theme"><i class="fa-solid fa-atom"></i>Post-Quantum Cryptography &amp; Quantum Systems Security</div>
+      <p class="pub-theme-desc">Quantum-resistant encryption for resource-limited devices and side-channel analysis of quantum and hardware systems.</p>
+      <div class="pub">
+        <div class="pub-authors">Kappala, A., Yocam, E., Kayastha, N., Vodnala, S.R., Vaidyan, V., Comert, G., Podhradsky, A., Werth, D., Buckley, R.</div>
+        <div class="pub-title">A Dynamic Quantum-Resistant Selective Encryption Approach for Agricultural Sensors with Limited Resources <span class="pub-badge badge-published">Published &mdash; 2026</span></div>
+        <div class="pub-venue">IEEE Access</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2026.3668608" target="_blank">doi: 10.1109/ACCESS.2026.3668608</a> &middot; <a href="https://ieeexplore.ieee.org/document/11414071" target="_blank">IEEE Xplore</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Jagatha, A., Kappala, A., Kamepalli, M., Vaidyan, V., Yocam, E., Wang, Y., Comert, G.</div>
+        <div class="pub-title">A Novel Approach to Quantum-Resistant Selective Encryption for Agricultural Sensors with Limited Resources <span class="pub-badge badge-published">Published &mdash; 2025</span></div>
+        <div class="pub-venue">2025 IEEE 15th Annual Computing and Communication Workshop and Conference (CCWC) &middot; IEEE Best Paper Award</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/CCWC62904.2025.10903955" target="_blank">doi: 10.1109/CCWC62904.2025.10903955</a></div>
+      </div>
+      <div class="pub">
         <div class="pub-authors">Kothakonda, B.V., Ketema, N., Vaidyan, V., Podhradsky, A., Yocam, E., Wang, Y., Comert, G.</div>
-        <div class="pub-title">Multi-level Post Quantum Encryption for Images with Quantum Fourier Transform <span class="pub-badge badge-published">Published — 2025</span></div>
+        <div class="pub-title">Multi-level Post Quantum Encryption for Images with Quantum Fourier Transform <span class="pub-badge badge-published">Published &mdash; 2025</span></div>
         <div class="pub-venue">2025 IEEE International Conference on Electro Information Technology (eIT)</div>
         <div class="pub-doi"><a href="https://doi.org/10.1109/EIT64391.2025.11103675" target="_blank">doi: 10.1109/EIT64391.2025.11103675</a></div>
       </div>
       <div class="pub">
-        <div class="pub-authors">Jagatha, A., Kappala, A., Kamepalli, M., Vaidyan, V., Yocam, E., Wang, Y., Comert, G.</div>
-        <div class="pub-title">A Novel Approach to Quantum-Resistant Selective Encryption for Agricultural Sensors with Limited Resources <span class="pub-badge badge-published">Published — 2025</span></div>
-        <div class="pub-venue">2025 IEEE 15th Annual Computing and Communication Workshop and Conference (CCWC)</div>
-        <div class="pub-doi"><a href="https://doi.org/10.1109/CCWC62904.2025.10903955" target="_blank">doi: 10.1109/CCWC62904.2025.10903955</a></div>
+        <div class="pub-authors">Yocam, E., Vaidyan, V.</div>
+        <div class="pub-title">TriSweep: A Four-Drone Swarm Framework for Electromagnetic Side-Channel Analysis <span class="pub-badge badge-preprint">Preprint</span></div>
+        <div class="pub-venue">arXiv</div>
+        <div class="pub-doi"><a href="https://arxiv.org/abs/2605.22709" target="_blank">arXiv: 2605.22709</a></div>
       </div>
       <div class="pub">
-        <div class="pub-authors">Black, G., Yocam, E., Vaidyan, V., Comert, G., Wang, Y.</div>
-        <div class="pub-title">From LLMs to Randomness: Analyzing Program Input Efficacy with Resource and Language Metrics <span class="pub-badge badge-published">Published — 2025</span></div>
-        <div class="pub-venue">IEEE Access, 2025</div>
-        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2025.3571205" target="_blank">doi: 10.1109/ACCESS.2025.3571205</a></div>
+        <div class="pub-authors">Yocam, E., Vaidyan, V., Flack, M., Comert, G., Mwakalonge, J.</div>
+        <div class="pub-title">Side-Channel Attacks Bypass Protection in 3D Printers <span class="pub-badge badge-preprint">Preprint</span></div>
+        <div class="pub-venue">arXiv</div>
+        <div class="pub-doi"><a href="https://arxiv.org/abs/2606.13952" target="_blank">arXiv: 2606.13952</a></div>
+      </div>
+      <button class="pub-toggle" data-show="&#9662;&nbsp; Show 4 more &mdash; in development" data-hide="&#9652;&nbsp; Hide in-progress work" onclick="togglePubs(this,'pub-pq')">&#9662;&nbsp; Show 4 more &mdash; in development</button>
+      <div class="pub-collapse" id="pub-pq">
+        <div class="pub">
+          <div class="pub-authors">Vaidyan, V., Yocam, E., Tyagi, A., Wang, Y.</div>
+          <div class="pub-title">Quantum AI Security: Threats, Defenses, and Practical Strategies in the Post-Quantum Era <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Springer &middot; Monograph (18 chapters)</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Wang, S., Rizi, A., Vaidyan, V.</div>
+          <div class="pub-title">Semantic Multi-Tier Quantum-Resistant Encryption for Agricultural IoT with Hardware Validation <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: Future Generation Computer Systems (Elsevier)</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Basnet, D., Bista, A.</div>
+          <div class="pub-title">Quantum Control Plane Side Channel Attack <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: IEEE CARS</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Vaidyan, V., Basnet, D., Bista, A.</div>
+          <div class="pub-title">Quantum Timing Attacks &mdash; Raspberry Pi Hardware Implementation <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: TBD</div>
+        </div>
       </div>
 
-      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Published — 2024</div>
+      <!-- THEME 4: Quantum & Hybrid Sensing -->
+      <div class="pub-theme"><i class="fa-solid fa-helicopter"></i>Quantum &amp; Hybrid Sensing &mdash; Methane Detection, Drones &amp; Scientific ML</div>
+      <p class="pub-theme-desc">Hybrid quantum-classical and quantum-inspired models for gas-leak detection, multi-drone path optimization, and predictive scientific computing.</p>
       <div class="pub">
-        <div class="pub-authors">Rizi, A., Yocam, E., Vaidyan, V., Wang, Y.</div>
-        <div class="pub-title">Exploring Machine Learning with FNNs for Identifying Modified DGAs Through Noise and Linear Recursive Sequences (LRS) <span class="pub-badge badge-published">Published — 2024</span></div>
-        <div class="pub-venue">2024 Cyber Awareness and Research Symposium (CARS)</div>
-        <div class="pub-doi"><a href="https://doi.org/10.1109/CARS61786.2024.10778668" target="_blank">doi: 10.1109/CARS61786.2024.10778668</a></div>
+        <div class="pub-authors">Prasad, A.R., Ketema, N., Yocam, E., Vaidyan, V., Comert, G., Werth, D., Buckley, R., Stone, M.R., Kothakonda, B.V.</div>
+        <div class="pub-title">A Novel Hybrid Quantum-Classical Path Optimization for Methane Detection Using Remote Quantum Intensity Prediction Models <span class="pub-badge badge-published">Published &mdash; 2026</span></div>
+        <div class="pub-venue">IEEE Access &middot; DOI: 10.1109/ACCESS.2026.3675450</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1109/ACCESS.2026.3675450" target="_blank">doi: 10.1109/ACCESS.2026.3675450</a> &middot; <a href="https://ieeexplore.ieee.org/document/11441353" target="_blank">IEEE Xplore</a> &middot; <a href="https://ieee-dataport.org/documents/rams-simulated-meteorological-and-atmospheric-tracer-dataset-ensemble-learning-based" target="_blank">Dataset (IEEE DataPort)</a></div>
+      </div>
+      <button class="pub-toggle" data-show="&#9662;&nbsp; Show 4 more &mdash; under review &amp; in development" data-hide="&#9652;&nbsp; Hide in-progress work" onclick="togglePubs(this,'pub-sense')">&#9662;&nbsp; Show 4 more &mdash; under review &amp; in development</button>
+      <div class="pub-collapse" id="pub-sense">
+        <div class="pub">
+          <div class="pub-authors">Prasad, A.R., Ketema, N., Kothakonda, B.V., Yocam, E., Vaidyan, V., Comert, G., Podhradsky, A., Werth, D., Buckley, R.</div>
+          <div class="pub-title">Hybrid Quantum-Classical Path Optimization for Multi-Drone Gas Leak Detection <span class="pub-badge badge-review">Under Review</span></div>
+          <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence &middot; MS ID: TETCI-2025-2170</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Prasad, A.R., Yocam, E., Vaidyan, V., Comert, G., Werth, D., Buckley, R., Gale, A., Danielson, T.</div>
+          <div class="pub-title">Event-Driven Methane Leak Prediction with Quantum Spiking Neural Networks <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: IEEE Transactions on Emerging Topics in Computational Intelligence or IEEE Access</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Prasad, A.R., Ketema, N., Kothakonda, B.V., Yocam, E., Vaidyan, V., Comert, G., Podhradsky, A., Werth, D., Buckley, R.</div>
+          <div class="pub-title">Functional Benchmarking and Performance Assessment of Predictive Models for Methane Leak Detection Across Classical, Quantum-Inspired, and Quantum Frameworks <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: TBD</div>
+        </div>
+        <div class="pub">
+          <div class="pub-authors">Yocam, E., Mei, D., Wang, S., Vaidyan, V., Kamepalli, M.</div>
+          <div class="pub-title">Scaling Predictive Models for Germanium Crystal Growth through MLOps (Ge-STAR) <span class="pub-badge badge-pending">In Development</span></div>
+          <div class="pub-venue">Target: IEEE Access</div>
+        </div>
       </div>
 
-      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Published — 2023 &amp; Earlier</div>
+      <!-- THEME 5: IoT, Network & Space Systems Security -->
+      <div class="pub-theme"><i class="fa-solid fa-satellite-dish"></i>IoT, Network &amp; Space Systems Security</div>
+      <p class="pub-theme-desc">Securing constrained and distributed systems &mdash; from space IoT risk methodologies and narrow-band IoT to 5G networks, mobile computing, and digital-presence privacy.</p>
+      <div class="pub">
+        <div class="pub-authors">Dawaare, B.A., Vaidyan, V.M., Yocam, E., Comert, G.</div>
+        <div class="pub-title">Probabilistic Space IoT Risk Management Methodology (P-SIRM2) <span class="pub-badge badge-published">Published &mdash; 2026</span></div>
+        <div class="pub-venue">Digital Engineering, vol. 11, 100118, 2026</div>
+        <div class="pub-doi"><a href="https://doi.org/10.1016/j.dte.2026.100118" target="_blank">doi: 10.1016/j.dte.2026.100118</a> &middot; Elsevier</div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., Alomar, A., Gawanmeh, A., Mansoor, W.</div>
+        <div class="pub-title">A Privacy-Preserving System Design for Digital Presence Protection <span class="pub-badge badge-published">Published &mdash; 2023</span></div>
+        <div class="pub-venue">Computers, Materials &amp; Continua, 75(2), 3091&ndash;3110</div>
+        <div class="pub-doi"><a href="https://doi.org/10.32604/cmc.2023.032826" target="_blank">doi: 10.32604/cmc.2023.032826</a></div>
+      </div>
       <div class="pub">
         <div class="pub-authors">Gawanmeh, A., Abed, S., AlAwadh, S.A.A., Mansoor, W., Atalla, S., Alomari, A., Yocam, E.</div>
-        <div class="pub-title">Enhanced Not Recently Used Algorithm for Cache Memory Systems in Mobile Computing <span class="pub-badge badge-published">Published — 2023</span></div>
+        <div class="pub-title">Enhanced Not Recently Used Algorithm for Cache Memory Systems in Mobile Computing <span class="pub-badge badge-published">Published &mdash; 2023</span></div>
         <div class="pub-venue">ACR 2023, Lecture Notes in Networks and Systems</div>
         <div class="pub-doi"><a href="https://doi.org/10.1007/978-3-031-33743-7_35" target="_blank">doi: 10.1007/978-3-031-33743-7_35</a></div>
       </div>
       <div class="pub">
-        <div class="pub-authors">Yocam, E., Alomar, A., Gawanmeh, A., Mansoor, W.</div>
-        <div class="pub-title">A Privacy-Preserving System Design for Digital Presence Protection <span class="pub-badge badge-published">Published — 2023</span></div>
-        <div class="pub-venue">Computers, Materials &amp; Continua, 75(2), 3091–3110</div>
-        <div class="pub-doi"><a href="https://doi.org/10.32604/cmc.2023.032826" target="_blank">doi: 10.32604/cmc.2023.032826</a></div>
-      </div>
-      <div class="pub">
         <div class="pub-authors">Yocam, E., Gawanmeh, A., Alomari, A., Mansoor, W.</div>
-        <div class="pub-title">5G Mobile Networks: Reviewing Security Control Correctness for Mischievous Activity <span class="pub-badge badge-published">Published — 2022</span></div>
+        <div class="pub-title">5G Mobile Networks: Reviewing Security Control Correctness for Mischievous Activity <span class="pub-badge badge-published">Published &mdash; 2022</span></div>
         <div class="pub-venue">SN Applied Sciences, 4(11), 304</div>
         <div class="pub-doi"><a href="https://doi.org/10.1007/s42452-022-05193-8" target="_blank">doi: 10.1007/s42452-022-05193-8</a></div>
       </div>
       <div class="pub">
         <div class="pub-authors">Yocam, E.</div>
-        <div class="pub-title">Narrow-band Internet of Things Protocol Standards: Survey of Security and Privacy Control Effectiveness <span class="pub-badge badge-published">Published — 2020</span></div>
+        <div class="pub-title">Narrow-band Internet of Things Protocol Standards: Survey of Security and Privacy Control Effectiveness <span class="pub-badge badge-published">Published &mdash; 2020</span></div>
         <div class="pub-venue">2020 International Symposium on Networks, Computers and Communications (ISNCC)</div>
         <div class="pub-doi"><a href="https://doi.org/10.1109/ISNCC49221.2020.9297222" target="_blank">doi: 10.1109/ISNCC49221.2020.9297222</a></div>
       </div>
       <div class="pub">
         <div class="pub-authors">Yocam, E.</div>
-        <div class="pub-title">Evolution on the Edge: Intelligent Devices <span class="pub-badge badge-published">Published — 2003</span></div>
-        <div class="pub-venue">IEEE Computer Society IT Professional, 5(2), 32–36</div>
+        <div class="pub-title">Evolution on the Edge: Intelligent Devices <span class="pub-badge badge-published">Published &mdash; 2003</span></div>
+        <div class="pub-venue">IEEE Computer Society IT Professional, 5(2), 32&ndash;36</div>
         <div class="pub-doi"><a href="https://doi.org/10.1109/MITP.2003.1191790" target="_blank">doi: 10.1109/MITP.2003.1191790</a></div>
       </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E.</div>
-        <div class="pub-title">Cyber Inference: Unraveling Consciousness — Book 1 of The Convergence Chronicles <span class="pub-badge badge-published">Published — 2025</span></div>
-        <div class="pub-venue">Hard Science Fiction · The Convergence Chronicles Series</div>
-        <div class="pub-doi"><a href="https://www.amazon.com/Convergence-Chronicles-Inference-Unraveling-Consciousness-ebook/dp/B0FNG7NSNT/" target="_blank">View on Amazon ↗</a></div>
-      </div>
+
+      <!-- THEME 6: Corporate Governance & Empirical Finance -->
+      <div class="pub-theme"><i class="fa-solid fa-scale-balanced"></i>Corporate Governance &amp; Empirical Finance</div>
+      <p class="pub-theme-desc">Empirical analysis of board governance, celebrity directors, and decentralized markets &mdash; arguing that who controls a system matters as much as the code that runs it.</p>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Choi, A.</div>
-        <div class="pub-title">Corporate Governance: A Board Director's Pocket Guide — Leadership, Diligence, and Wisdom (4th Edition) <span class="pub-badge badge-published">Published — 2026</span></div>
-        <div class="pub-venue">Independently Published</div>
-        <div class="pub-doi"><a href="https://www.amazon.com/dp/B0H265K9B7" target="_blank">View on Amazon ↗</a> &nbsp;·&nbsp; <a href="pocket-guide.html" style="color:var(--gold);text-decoration:none;">Book Page ↗</a></div>
+        <div class="pub-title">Corporate Governance: A Board Director's Pocket Guide &mdash; Leadership, Diligence, and Wisdom (4th Edition) <span class="pub-badge badge-published">Published &mdash; 2026</span></div>
+        <div class="pub-venue">Independently Published &middot; ISBN-13: 9798197255204</div>
+        <div class="pub-doi"><a href="https://www.amazon.com/dp/B0H265K9B7" target="_blank">View on Amazon &#8599;</a> &nbsp;&middot;&nbsp; <a href="pocket-guide.html" style="color:var(--gold);text-decoration:none;">Book Page &#8599;</a></div>
         <div class="pub-doi" style="margin-top:.2rem;">Featured among the best-reviewed books of the month in the <em>Kirkus Discoveries</em> newsletter. Referenced by the American Institute of Certified Board Advisors as core knowledge.</div>
-      </div>
-
-      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Preprints &amp; Under Review</div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Comert, G., Kalathas, P., Wang, Y., Mwakalonge, J.L.</div>
-        <div class="pub-title">Adaptive Activation Cancellation for Hallucination Mitigation in Large Language Models <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">SN Computer Science (Springer Nature) · Submission ID: SNCS-D-26-02755</div>
-        <div class="pub-doi"><a href="https://arxiv.org/abs/2603.10195" target="_blank">arXiv: 2603.10195</a></div>
       </div>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Pollin, R.</div>
@@ -978,88 +1143,35 @@
       </div>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Pollin, R.</div>
+        <div class="pub-title">Celebrity Board Directors and Shareholder Wealth: A Composite Multi-Theory Assessment <span class="pub-badge badge-preprint">Preprint</span></div>
+        <div class="pub-venue">Social Science Research Network (SSRN)</div>
+        <div class="pub-doi"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6566018" target="_blank">SSRN: 6566018</a></div>
+      </div>
+      <div class="pub">
+        <div class="pub-authors">Yocam, E., Pollin, R.</div>
         <div class="pub-title">Celebrity Governance Without Institutions: Evidence from Cryptocurrency Markets <span class="pub-badge badge-preprint">Preprint</span></div>
         <div class="pub-venue">Social Science Research Network (SSRN)</div>
         <div class="pub-doi"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6577958" target="_blank">SSRN: 6577958</a></div>
       </div>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Pollin, R.</div>
-        <div class="pub-title">Celebrity Board Directors and Shareholder Wealth: A Composite Multi-Theory Assessment <span class="pub-badge badge-preprint">Preprint</span></div>
+        <div class="pub-title">Leverage Discipline and Board Governance in Construction and Real Estate <span class="pub-badge badge-preprint">Preprint</span></div>
         <div class="pub-venue">Social Science Research Network (SSRN)</div>
-        <div class="pub-doi"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6566018" target="_blank">SSRN: 6566018</a></div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Mwakalonge, J.L., Comert, G., Ngotonie, M.</div>
-        <div class="pub-title">Cross-Domain Adversarial Robustness of Geometric Prior Neural Networks: Safety-Critical Deployment Guidelines <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence · MS ID: TETCI-2026-0503</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Comert, G., Wang, Y.</div>
-        <div class="pub-title">Hardening Black-Box Neural Networks Against Adversarial Attacks Through Surrogate-Based Defense Transfer <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">IEEE Transactions on Dependable and Secure Computing</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Ruganuza, D., Mwakalonge, J.L., Comert, G., Pian, D.</div>
-        <div class="pub-title">Retroreflectivity-Based Traffic Sign Cybersecurity: Synthetic Data and Defense Models <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">Engineering Applications of Artificial Intelligence (Elsevier) · MS ID: EAAI-S-26-15207</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Prasad, A.R., Ketema, N., Kothakonda, B.V., Yocam, E., Vaidyan, V., Comert, G., Podhradsky, A., Werth, D., Buckley, R.</div>
-        <div class="pub-title">Hybrid Quantum-Classical Path Optimization for Multi-Drone Gas Leak Detection <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence · MS ID: TETCI-2025-2170</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Mwakalonge, J.L., Comert, G., Wang, Y.</div>
-        <div class="pub-title">Architectural Robustness in Lane Detection Systems: Geometric Constraints and Adversarial Stability <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">Transportation Research Interdisciplinary Perspectives (Elsevier) · MS ID: TRIP-D-26-00418</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Comert, G., Wang, Y., Mwakalonge, J.L.</div>
-        <div class="pub-title">Protection of UAV-Based Crop Row Detection Against Adversarial Attacks <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence · MS ID: TETCI-2025-2766</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Wang, Y.</div>
-        <div class="pub-title">H-Node Attack and Defense in Large Language Models <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">IEEE Transactions on Emerging Topics in Computational Intelligence · MS ID: TETCI-2026-0776</div>
-        <div class="pub-doi"><a href="https://arxiv.org/abs/2603.26045" target="_blank">arXiv: 2603.26045</a></div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Kamepalli, M., Yocam, E., Vaidyan, V.</div>
-        <div class="pub-title">Vulnerabilities Paper <span class="pub-badge badge-review">Under Review</span></div>
-        <div class="pub-venue">Expert Systems with Applications (Elsevier)</div>
       </div>
 
-      <div style="margin:.8rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">In Development</div>
+      <!-- THEME 7: Science Fiction & Public Writing -->
+      <div class="pub-theme"><i class="fa-solid fa-pen-nib"></i>Science Fiction &amp; Public Writing</div>
+      <p class="pub-theme-desc">Creative and trade writing running parallel to the research &mdash; hard science fiction on AI consciousness and cybersecurity commentary for general audiences.</p>
       <div class="pub">
-        <div class="pub-authors">Prasad, A.R., Yocam, E., Vaidyan, V., Comert, G., Werth, D., Buckley, R., Gale, A., Danielson, T.</div>
-        <div class="pub-title">Event-Driven Methane Leak Prediction with Quantum Spiking Neural Networks <span class="pub-badge badge-pending">In Development</span></div>
-        <div class="pub-venue">Target: IEEE Transactions on Emerging Topics in Computational Intelligence or IEEE Access</div>
+        <div class="pub-authors">Yocam, E.</div>
+        <div class="pub-title">Cyber Inference: Unraveling Consciousness &mdash; Book 1 of The Convergence Chronicles <span class="pub-badge badge-published">Published &mdash; 2025</span></div>
+        <div class="pub-venue">Hard Science Fiction &middot; The Convergence Chronicles Series &middot; ISBN-13: 9798292661238</div>
+        <div class="pub-doi"><a href="https://www.amazon.com/Convergence-Chronicles-Inference-Unraveling-Consciousness-ebook/dp/B0FNG7NSNT/" target="_blank">View on Amazon &#8599;</a></div>
       </div>
       <div class="pub">
-        <div class="pub-authors">Yocam, E., Mei, D., Wang, S., Vaidyan, V., Kamepalli, M.</div>
-        <div class="pub-title">Scaling Predictive Models for Germanium Crystal Growth through MLOps (Ge-STAR) <span class="pub-badge badge-pending">In Development</span></div>
-        <div class="pub-venue">Target: IEEE Access</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Wang, S., Rizi, A., Vaidyan, V.</div>
-        <div class="pub-title">Semantic Multi-Tier Quantum-Resistant Encryption for Agricultural IoT with Hardware Validation <span class="pub-badge badge-pending">In Development</span></div>
-        <div class="pub-venue">Target: Future Generation Computer Systems (Elsevier)</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Dawaare, B.A., Vaidyan, V., Yocam, E., Comert, G.</div>
-        <div class="pub-title">Probabilistic Space IoT Risk Management Methodology (P-SIRM2) <span class="pub-badge badge-pending">Pending Submission</span></div>
-        <div class="pub-venue">Digital Engineering</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Basnet, D., Bista, A.</div>
-        <div class="pub-title">Quantum Control Plane Side Channel Attack <span class="pub-badge badge-pending">In Development</span></div>
-        <div class="pub-venue">Target: IEEE CARS</div>
-      </div>
-      <div class="pub">
-        <div class="pub-authors">Yocam, E., Vaidyan, V., Basnet, D., Bista, A.</div>
-        <div class="pub-title">Quantum Timing Attacks — Raspberry Pi Hardware Implementation <span class="pub-badge badge-pending">In Development</span></div>
-        <div class="pub-venue">Target: TBD</div>
+        <div class="pub-authors">Yocam, E.</div>
+        <div class="pub-title">Multiple feature articles <span class="pub-badge badge-published">Non-refereed</span></div>
+        <div class="pub-venue">United States Cybersecurity Magazine &middot; 2014&ndash;2015</div>
       </div>
     </section>
 
@@ -1471,6 +1583,17 @@ function toggleCourses(id) {
   } else {
     el.classList.add('open');
     btn.textContent = '▴ Hide Courses';
+  }
+}
+function togglePubs(btn, id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  if (el.classList.contains('open')) {
+    el.classList.remove('open');
+    btn.innerHTML = btn.getAttribute('data-show');
+  } else {
+    el.classList.add('open');
+    btn.innerHTML = btn.getAttribute('data-hide');
   }
 }
 </script>
