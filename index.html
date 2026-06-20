@@ -387,6 +387,7 @@
       gap: .55rem;
     }
     .pub-theme.first { margin-top: .3rem; padding-top: 0; border-top: none; }
+    .pub-theme { scroll-margin-top: 72px; }
     .pub-theme i { color: var(--gold); font-size: .95rem; width: 1.1rem; text-align: center; }
     .pub-theme-desc {
       font-size: .82rem;
@@ -909,8 +910,18 @@
         Eric has authored and co-authored <strong>20+ peer-reviewed publications</strong> spanning adversarial machine learning, post-quantum cryptography, IoT security, LLM hallucination mitigation, and autonomous vehicle systems &mdash; with work appearing in IEEE Access, IEEE Transactions, Springer, Elsevier, and arXiv. Work is grouped by <strong>research theme</strong>. Published papers and public preprints are shown directly; each theme's <em>under-review</em> and <em>in-development</em> pipeline can be expanded with the <strong>Show&nbsp;more</strong> control.
       </p>
 
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.3rem;">
+        <a href="#th-adv" class="tag"><i class="fa-solid fa-shield-halved" style="color:var(--gold);margin-right:.35rem;"></i>Adversarial ML &amp; AI Defense</a>
+        <a href="#th-llm" class="tag"><i class="fa-solid fa-comment-dots" style="color:var(--gold);margin-right:.35rem;"></i>LLM Security</a>
+        <a href="#th-pq" class="tag"><i class="fa-solid fa-atom" style="color:var(--gold);margin-right:.35rem;"></i>Post-Quantum &amp; Quantum</a>
+        <a href="#th-sense" class="tag"><i class="fa-solid fa-helicopter" style="color:var(--gold);margin-right:.35rem;"></i>Quantum &amp; Hybrid Sensing</a>
+        <a href="#th-iot" class="tag"><i class="fa-solid fa-satellite-dish" style="color:var(--gold);margin-right:.35rem;"></i>IoT, Network &amp; Space</a>
+        <a href="#th-gov" class="tag"><i class="fa-solid fa-scale-balanced" style="color:var(--gold);margin-right:.35rem;"></i>Governance &amp; Finance</a>
+        <a href="#th-writing" class="tag"><i class="fa-solid fa-pen-nib" style="color:var(--gold);margin-right:.35rem;"></i>Sci-Fi &amp; Public Writing</a>
+      </div>
+
       <!-- THEME 1: Adversarial ML & AI Model Defense -->
-      <div class="pub-theme first"><i class="fa-solid fa-shield-halved"></i>Adversarial Machine Learning &amp; AI Model Defense</div>
+      <div class="pub-theme first" id="th-adv"><i class="fa-solid fa-shield-halved"></i>Adversarial Machine Learning &amp; AI Model Defense</div>
       <p class="pub-theme-desc">Hardening neural networks and autonomous-system perception against adversarial attacks &mdash; the core of Eric's doctoral work on hybrid neural network model defenses.</p>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Rizi, A., Kamepalli, M., Vaidyan, V., Wang, Y., Comert, G.</div>
@@ -971,7 +982,7 @@
       </div>
 
       <!-- THEME 2: LLM Security & Reliability -->
-      <div class="pub-theme"><i class="fa-solid fa-comment-dots"></i>Large Language Model Security &amp; Reliability</div>
+      <div class="pub-theme" id="th-llm"><i class="fa-solid fa-comment-dots"></i>Large Language Model Security &amp; Reliability</div>
       <p class="pub-theme-desc">Attacking and defending large language models &mdash; hallucination mitigation, internal-node attacks, randomness analysis, and applied generative-AI engineering.</p>
       <div class="pub">
         <div class="pub-authors">Black, G., Yocam, E., Vaidyan, V., Comert, G., Wang, Y.</div>
@@ -1002,7 +1013,7 @@
       </div>
 
       <!-- THEME 3: Post-Quantum Cryptography & Quantum Systems Security -->
-      <div class="pub-theme"><i class="fa-solid fa-atom"></i>Post-Quantum Cryptography &amp; Quantum Systems Security</div>
+      <div class="pub-theme" id="th-pq"><i class="fa-solid fa-atom"></i>Post-Quantum Cryptography &amp; Quantum Systems Security</div>
       <p class="pub-theme-desc">Quantum-resistant encryption for resource-limited devices and side-channel analysis of quantum and hardware systems.</p>
       <div class="pub">
         <div class="pub-authors">Kappala, A., Yocam, E., Kayastha, N., Vodnala, S.R., Vaidyan, V., Comert, G., Podhradsky, A., Werth, D., Buckley, R.</div>
@@ -1059,7 +1070,7 @@
       </div>
 
       <!-- THEME 4: Quantum & Hybrid Sensing -->
-      <div class="pub-theme"><i class="fa-solid fa-helicopter"></i>Quantum &amp; Hybrid Sensing &mdash; Methane Detection, Drones &amp; Scientific ML</div>
+      <div class="pub-theme" id="th-sense"><i class="fa-solid fa-helicopter"></i>Quantum &amp; Hybrid Sensing &mdash; Methane Detection, Drones &amp; Scientific ML</div>
       <p class="pub-theme-desc">Hybrid quantum-classical and quantum-inspired models for gas-leak detection, multi-drone path optimization, and predictive scientific computing.</p>
       <div class="pub">
         <div class="pub-authors">Prasad, A.R., Ketema, N., Yocam, E., Vaidyan, V., Comert, G., Werth, D., Buckley, R., Stone, M.R., Kothakonda, B.V.</div>
@@ -1092,7 +1103,7 @@
       </div>
 
       <!-- THEME 5: IoT, Network & Space Systems Security -->
-      <div class="pub-theme"><i class="fa-solid fa-satellite-dish"></i>IoT, Network &amp; Space Systems Security</div>
+      <div class="pub-theme" id="th-iot"><i class="fa-solid fa-satellite-dish"></i>IoT, Network &amp; Space Systems Security</div>
       <p class="pub-theme-desc">Securing constrained and distributed systems &mdash; from space IoT risk methodologies and narrow-band IoT to 5G networks, mobile computing, and digital-presence privacy.</p>
       <div class="pub">
         <div class="pub-authors">Dawaare, B.A., Vaidyan, V.M., Yocam, E., Comert, G.</div>
@@ -1132,7 +1143,7 @@
       </div>
 
       <!-- THEME 6: Corporate Governance & Empirical Finance -->
-      <div class="pub-theme"><i class="fa-solid fa-scale-balanced"></i>Corporate Governance &amp; Empirical Finance</div>
+      <div class="pub-theme" id="th-gov"><i class="fa-solid fa-scale-balanced"></i>Corporate Governance &amp; Empirical Finance</div>
       <p class="pub-theme-desc">Empirical analysis of board governance, celebrity directors, and decentralized markets &mdash; arguing that who controls a system matters as much as the code that runs it.</p>
       <div class="pub">
         <div class="pub-authors">Yocam, E., Choi, A.</div>
@@ -1166,7 +1177,7 @@
       </div>
 
       <!-- THEME 7: Science Fiction & Public Writing -->
-      <div class="pub-theme"><i class="fa-solid fa-pen-nib"></i>Science Fiction &amp; Public Writing</div>
+      <div class="pub-theme" id="th-writing"><i class="fa-solid fa-pen-nib"></i>Science Fiction &amp; Public Writing</div>
       <p class="pub-theme-desc">Creative and trade writing running parallel to the research &mdash; hard science fiction on AI consciousness and cybersecurity commentary for general audiences.</p>
       <div class="pub">
         <div class="pub-authors">Yocam, E.</div>
