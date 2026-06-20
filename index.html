@@ -388,6 +388,7 @@
     }
     .pub-theme.first { margin-top: .3rem; padding-top: 0; border-top: none; }
     .pub-theme { scroll-margin-top: 72px; }
+    .jump-target { scroll-margin-top: 72px; }
     .pub-theme i { color: var(--gold); font-size: .95rem; width: 1.1rem; text-align: center; }
     .pub-theme-desc {
       font-size: .82rem;
@@ -678,7 +679,12 @@
         Eric holds <strong>7 degrees</strong> across cybersecurity, computer engineering, computer science, business administration, and finance — supported by <strong>3 graduate fellowships</strong> from Syracuse University, the University of San Diego, and the National Security Innovation Network (US DoD).
       </p>
 
-      <div style="margin-bottom:.5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Cybersecurity, Computer Engineering & Computer Science</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.3rem;">
+        <a href="#ed-eng" class="tag"><i class="fa-solid fa-microchip" style="color:var(--gold);margin-right:.35rem;"></i>Engineering &amp; Computer Science</a>
+        <a href="#ed-biz" class="tag"><i class="fa-solid fa-scale-balanced" style="color:var(--gold);margin-right:.35rem;"></i>Business &amp; Finance</a>
+      </div>
+
+      <div class="jump-target" id="ed-eng" style="margin-bottom:.5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Cybersecurity, Computer Engineering & Computer Science</div>
 
       <div class="entry">
         <div class="entry-title">Doctor of Philosophy (PhD) — Cyber Operations</div>
@@ -703,7 +709,7 @@
         <div class="entry-subtitle"><a href="https://www.pacific.edu" target="_blank">University of the Pacific</a> · <a href="https://www.pacific.edu/engineering" target="_blank">School of Engineering and Computer Science</a> · Stockton, CA</div>
       </div>
 
-      <div style="margin:1rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Business Administration & Finance</div>
+      <div class="jump-target" id="ed-biz" style="margin:1rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Business Administration & Finance</div>
 
       <div class="entry">
         <div class="entry-title">Doctor of Business Administration (DBA)</div>
@@ -1199,8 +1205,18 @@
         Eric holds <strong>23+ issued patents</strong>, all assigned to T-Mobile USA, spanning wireless networks, security, AI, privacy, and drone systems.
       </p>
 
-      <div style="margin-bottom:.4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued Patents — Latest First</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.3rem;">
+        <a href="#pt-2024" class="tag">2024</a>
+        <a href="#pt-2023" class="tag">2023</a>
+        <a href="#pt-2022" class="tag">2022</a>
+        <a href="#pt-2021" class="tag">2021</a>
+        <a href="#pt-2020" class="tag">2020</a>
+        <a href="#pt-2019" class="tag">2019</a>
+        <a href="#pt-2018" class="tag">2018</a>
+        <a href="#pt-2017" class="tag">2017</a>
+      </div>
 
+      <div class="jump-target" id="pt-2024" style="margin:.2rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2024</div>
       <div class="pub">
         <div class="pub-title">Identity Management <span class="pub-badge badge-published">Issued — 2024</span></div>
         <div class="pub-authors">Yocam, E. · US Patent 12,067,638</div>
@@ -1226,6 +1242,7 @@
         <div class="pub-authors">Obaidi, A.A., Yocam, E. · US Patent 12,124,609</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US12124609" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2023" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2023</div>
       <div class="pub">
         <div class="pub-title">Privacy Breach Detection <span class="pub-badge badge-published">Issued — 2023</span></div>
         <div class="pub-authors">Yocam, E., White, R., Laursen, D. · US Patent 11,836,270</div>
@@ -1251,6 +1268,7 @@
         <div class="pub-authors">Obaidi, A.A., Yocam, E.W., Farag, P. · US Patent 11,838,888</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US11838888" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2022" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2022</div>
       <div class="pub">
         <div class="pub-title">Behavioral Biometric Protection for Wireless Carrier Subscribers <span class="pub-badge badge-published">Issued — 2022</span></div>
         <div class="pub-authors">Yocam, E., Obaidi, A.A. · US Patent 11,418,949</div>
@@ -1276,6 +1294,7 @@
         <div class="pub-authors">Yocam, E.W., Kress, D.J., Obaidi, A.A. · US Patent 11,265,214</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US11265214" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2021" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2021</div>
       <div class="pub">
         <div class="pub-title">Dynamic Wireless Communications Network with Aerial Drones <span class="pub-badge badge-published">Issued — 2021</span></div>
         <div class="pub-authors">Obaidi, A.A., Yocam, E.W. · US Patent 10,988,038</div>
@@ -1291,6 +1310,7 @@
         <div class="pub-authors">Obaidi, A.A., Yocam, E.W. · US Patent 10,972,262</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US10972262" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2020" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2020</div>
       <div class="pub">
         <div class="pub-title">Temporal Identity Vaulting <span class="pub-badge badge-published">Issued — 2020</span></div>
         <div class="pub-authors">Yocam, E.W., Corey, S.D. · US Patent 10,757,097</div>
@@ -1311,6 +1331,7 @@
         <div class="pub-authors">Obaidi, A.A., Yocam, E.W. · US Patent 10,880,333</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US10880333" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2019" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2019</div>
       <div class="pub">
         <div class="pub-title">Collision Avoidance System for Augmented Reality Environments <span class="pub-badge badge-published">Issued — 2019</span></div>
         <div class="pub-authors">Obaidi, A.A., Yocam, E.W. · US Patent 10,360,437</div>
@@ -1336,6 +1357,7 @@
         <div class="pub-authors">Yocam, E.W., Kress, D.J., Obaidi, A.A. · US Patent 10,432,461</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US10432461" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2018" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2018</div>
       <div class="pub">
         <div class="pub-title">Establishing Geo-Fences and Related Alarms <span class="pub-badge badge-published">Issued — 2018</span></div>
         <div class="pub-authors">Yocam, E., Watts, A. · US Patent 10,091,612</div>
@@ -1346,6 +1368,7 @@
         <div class="pub-authors">Laursen, D.G., Yocam, E.W. · US Patent 10,136,257</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US10136257" target="_blank">View Patent ↗</a></div>
       </div>
+      <div class="jump-target" id="pt-2017" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Issued 2017</div>
       <div class="pub">
         <div class="pub-title">Establishing Geo-Fences and Related Alarms <span class="pub-badge badge-published">Issued — 2017</span></div>
         <div class="pub-authors">Yocam, E., Watts, A. · US Patent 9,560,481</div>
@@ -1365,7 +1388,14 @@
         Eric contributes broadly to the academic and professional community through certification authorship, peer review, mentorship, advisory roles, and community leadership.
       </p>
 
-      <div style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Certification Exam Question Author</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.3rem;">
+        <a href="#sv-cert" class="tag"><i class="fa-solid fa-certificate" style="color:var(--gold);margin-right:.35rem;"></i>Certification Authoring</a>
+        <a href="#sv-review" class="tag"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);margin-right:.35rem;"></i>Peer Review</a>
+        <a href="#sv-advisory" class="tag"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.35rem;"></i>Advisory &amp; Community</a>
+        <a href="#sv-panels" class="tag"><i class="fa-solid fa-chalkboard-user" style="color:var(--gold);margin-right:.35rem;"></i>Panels &amp; Workshops</a>
+      </div>
+
+      <div class="jump-target" id="sv-cert" style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Certification Exam Question Author</div>
       <div class="entry">
         <div class="entry-title">Certified Data Privacy Solutions Engineer (CDPSE) <span class="pub-badge badge-published">Cert Author</span></div>
         <div class="entry-year">2020 – 2023</div>
@@ -1397,7 +1427,7 @@
         <div class="entry-note">Tests knowledge of software engineering processes, design, construction, testing, maintenance, and professional practice standards.</div>
       </div>
 
-      <div style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Peer Review</div>
+      <div class="jump-target" id="sv-review" style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Peer Review</div>
       <div class="entry">
         <div class="entry-title">Manuscript Reviewer <span class="pub-badge badge-published">Advisory</span></div>
         <div class="entry-year">2015 – 2020</div>
@@ -1405,7 +1435,7 @@
         <div class="entry-note">Reviewed submitted research manuscripts for technical accuracy, methodological rigor, and scholarly contribution across computing, cybersecurity, information systems, and management disciplines.</div>
       </div>
 
-      <div style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Advisory &amp; Community Roles</div>
+      <div class="jump-target" id="sv-advisory" style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Advisory &amp; Community Roles</div>
       <div class="entry">
         <div class="entry-title">ABET Program Evaluator <span class="pub-badge badge-published">Advisory</span></div>
         <div class="entry-year">2022 – 2025</div>
@@ -1454,7 +1484,7 @@
         <div class="entry-note">Served on the board of a nonprofit scholarship chapter affiliated with Scholarship America, the nation's largest private-sector scholarship organization. Supported college-bound students in the Pacific Northwest through community fundraising and financial aid programs.</div>
       </div>
 
-      <div style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Invited Panels &amp; Workshops</div>
+      <div class="jump-target" id="sv-panels" style="margin:1rem 0 .4rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Invited Panels &amp; Workshops</div>
       <div class="entry">
         <div class="entry-title">"DoL, T-Mobile and University of Washington Pioneer Virtual-Cyber-Apprenticeships" <span class="pub-badge badge-published">Panel</span></div>
         <div class="entry-year">2018</div>
@@ -1483,6 +1513,12 @@
         Eric has delivered public talks and appeared in media covering cybersecurity fundamentals, workforce development, and industry-academic partnerships.
       </p>
 
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.3rem;">
+        <a href="#tk-talks" class="tag"><i class="fa-solid fa-microphone-lines" style="color:var(--gold);margin-right:.35rem;"></i>Invited Talks</a>
+        <a href="#tk-media" class="tag"><i class="fa-solid fa-newspaper" style="color:var(--gold);margin-right:.35rem;"></i>Media &amp; Press</a>
+      </div>
+
+      <div class="jump-target" id="tk-talks" style="margin:.2rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Invited Talks &amp; Lectures</div>
       <div class="entry">
         <div class="entry-title">CEM Model: Develop Students as Professionals <span class="pub-badge badge-published">Talk</span></div>
         <div class="entry-year">2018</div>
@@ -1496,16 +1532,17 @@
         <div class="entry-note">A cybersecurity fundamentals talk covering the Cyber Kill Chain, OSI Security Architecture, and Monte Carlo Simulation — exploring how these tools interconnect to build strong cybersecurity strategies. Aimed at students, professionals, and anyone seeking to understand contemporary digital security threats.</div>
       </div>
       <div class="entry">
-        <div class="entry-title">Cyber Inference — Book Launch Press Coverage <span class="pub-badge badge-published">Media</span></div>
-        <div class="entry-year">Sep 2025</div>
-        <div class="entry-subtitle"><a href="https://cipherghostseries.com/media-coverage" target="_blank">cipherghostseries.com/media-coverage</a> · Nationwide</div>
-        <div class="entry-note">Featured across 300+ news outlets following the September 2025 launch of <em>Cyber Inference</em>. Coverage included NBC affiliates (KVOA Tucson, FWNBC Texas), ABC (WKOW Madison), CBS (KUTV Salt Lake City), Google News, and major publications including the Boston Herald, San Diego Union-Tribune, and Pittsburgh Post-Gazette. Coverage spanned technology, entertainment, and financial news sectors nationwide.</div>
-      </div>
-      <div class="entry">
         <div class="entry-title">Guest Speaker — "Investor's Perspective of Corporate Governance" <span class="pub-badge badge-published">Talk</span></div>
         <div class="entry-year">2010</div>
         <div class="entry-subtitle">Seattle University · Seattle, WA</div>
         <div class="entry-note">Invited guest lecture exploring the investor's perspective on corporate governance principles, board accountability, and shareholder wealth maximization.</div>
+      </div>
+      <div class="jump-target" id="tk-media" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Media &amp; Press</div>
+      <div class="entry">
+        <div class="entry-title">Cyber Inference — Book Launch Press Coverage <span class="pub-badge badge-published">Media</span></div>
+        <div class="entry-year">Sep 2025</div>
+        <div class="entry-subtitle"><a href="https://cipherghostseries.com/media-coverage" target="_blank">cipherghostseries.com/media-coverage</a> · Nationwide</div>
+        <div class="entry-note">Featured across 300+ news outlets following the September 2025 launch of <em>Cyber Inference</em>. Coverage included NBC affiliates (KVOA Tucson, FWNBC Texas), ABC (WKOW Madison), CBS (KUTV Salt Lake City), Google News, and major publications including the Boston Herald, San Diego Union-Tribune, and Pittsburgh Post-Gazette. Coverage spanned technology, entertainment, and financial news sectors nationwide.</div>
       </div>
       <div class="entry">
         <div class="entry-title">CLTC 2nd Annual Research Exchange <span class="pub-badge badge-published">Media</span></div>
@@ -1521,6 +1558,13 @@
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric has been recognized with competitive fellowships, government credentials, and professional honors across cybersecurity, academia, and industry.
       </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.3rem;">
+        <a href="#hn-awards" class="tag"><i class="fa-solid fa-trophy" style="color:var(--gold);margin-right:.35rem;"></i>Awards &amp; Fellowships</a>
+        <a href="#hn-honors" class="tag"><i class="fa-solid fa-medal" style="color:var(--gold);margin-right:.35rem;"></i>Honors &amp; Credentials</a>
+      </div>
+
+      <div class="jump-target" id="hn-awards" style="margin:.2rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Awards &amp; Fellowships</div>
       <div class="entry">
         <div class="entry-title">IEEE Best Paper Award — Security, Trust and Privacy <span class="pub-badge badge-published">Award</span></div>
         <div class="entry-year">Mar 9, 2025</div>
@@ -1528,21 +1572,10 @@
         <div class="entry-note">Awarded for "A Novel Approach to Quantum-Resistant Selective Encryption for Agricultural Sensors with Limited Resources" in the category of Security, Trust and Privacy. Presented at the 2025 IEEE 15th Annual Computing and Communication Workshop and Conference (CCWC), Las Vegas, NV, USA, pp. 00262–00271. <a href="https://doi.org/10.1109/CCWC62904.2025.10903955" target="_blank" style="color:var(--gold);">doi: 10.1109/CCWC62904.2025.10903955 ↗</a></div>
       </div>
       <div class="entry">
-        <div class="entry-title">IEEE Senior Member <span class="pub-badge badge-published">Honor</span></div>
-        <div class="entry-year">2020</div>
-        <div class="entry-subtitle">Institute of Electrical and Electronics Engineers (IEEE) · Piscataway, NJ</div>
-        <div class="entry-note">Senior Member is the highest grade of IEEE membership for which a member can apply. Only 10% of IEEE's 400,000+ members hold this distinction.</div>
-      </div>
-      <div class="entry">
         <div class="entry-title">DoD X-Force <span class="pub-badge badge-published">Award</span></div>
         <div class="entry-year">Jun – Aug 2021</div>
         <div class="entry-subtitle">National Security Innovation Network · US Department of Defense · Washington, DC · Associated with Syracuse University</div>
         <div class="entry-note">Competitive summer fellowship solving real-world national security problems in collaboration with the US Department of Defense.</div>
-      </div>
-      <div class="entry">
-        <div class="entry-title">University Technical Affiliate <span class="pub-badge badge-published">Honor</span></div>
-        <div class="entry-year">2017 – 2021</div>
-        <div class="entry-subtitle">Center for Information Assurance and Cybersecurity · University of Washington · Seattle, WA</div>
       </div>
       <div class="entry">
         <div class="entry-title">Graduate Fellowship Award <span class="pub-badge badge-published">Award</span></div>
@@ -1559,6 +1592,18 @@
         <div class="entry-year">2019</div>
         <div class="entry-subtitle">University of Washington · College of Built Environments · <a href="https://urbdp.be.uw.edu/" target="_blank">Dept. of Urban Design and Planning</a> · Seattle, WA</div>
         <div class="entry-note">Awarded for outstanding contributions to graduate instruction in cybersecurity and critical infrastructure.</div>
+      </div>
+      <div class="jump-target" id="hn-honors" style="margin:1.4rem 0 .5rem;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Honors &amp; Credentials</div>
+      <div class="entry">
+        <div class="entry-title">IEEE Senior Member <span class="pub-badge badge-published">Honor</span></div>
+        <div class="entry-year">2020</div>
+        <div class="entry-subtitle">Institute of Electrical and Electronics Engineers (IEEE) · Piscataway, NJ</div>
+        <div class="entry-note">Senior Member is the highest grade of IEEE membership for which a member can apply. Only 10% of IEEE's 400,000+ members hold this distinction.</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">University Technical Affiliate <span class="pub-badge badge-published">Honor</span></div>
+        <div class="entry-year">2017 – 2021</div>
+        <div class="entry-subtitle">Center for Information Assurance and Cybersecurity · University of Washington · Seattle, WA</div>
       </div>
       <div class="entry">
         <div class="entry-title">ACM Featured Reviewer <span class="pub-badge badge-published">Honor</span></div>
