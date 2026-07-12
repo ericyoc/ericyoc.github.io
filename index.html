@@ -1917,7 +1917,16 @@ function toggleCard(id) {
   if (chev) chev.classList.toggle('chev-rotated');
 }
 function expandCardContaining(el) {
-  var body = el.closest ? el.closest('.card-body') : null;
+  var body = null;
+  if (el.classList && el.classList.contains('card')) {
+    body = el.querySelector('.card-body');
+  } else if (el.closest) {
+    body = el.closest('.card-body');
+    if (!body) {
+      var card = el.closest('.card');
+      if (card) body = card.querySelector('.card-body');
+    }
+  }
   if (body && body.classList.contains('collapsed')) {
     body.classList.remove('collapsed');
     var id = body.id.replace('cb-', '');
