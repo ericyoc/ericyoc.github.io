@@ -158,6 +158,22 @@
       color: var(--gold);
     }
 
+    /* ── JUMP-NAV TAGS ── */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: .35rem .8rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .tag:hover { border-color: var(--gold); color: var(--gold); }
+
     /* ── CARDS ── */
     .card {
       background: var(--white);
@@ -231,6 +247,14 @@
         <p style="font-size:.85rem;color:var(--muted);margin:0;">A concrete account of what I actually do in practice — specific methods, challenges addressed, and how a course runs.</p>
       </div>
     </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;">
+      <a href="#tp-philosophy" class="tag"><i class="fa-solid fa-book-open-reader" style="color:var(--gold);margin-right:.35rem;"></i>Teaching Philosophy</a>
+      <a href="#tn-narrative" class="tag"><i class="fa-solid fa-chalkboard-user" style="color:var(--gold);margin-right:.35rem;"></i>Teaching Narrative</a>
+      <a href="#tn-mastery" class="tag"><i class="fa-solid fa-layer-group" style="color:var(--gold);margin-right:.35rem;"></i>Mastery Learning Model</a>
+      <a href="#tn-method" class="tag"><i class="fa-solid fa-gears" style="color:var(--gold);margin-right:.35rem;"></i>Teaching Methodology</a>
+      <a href="#tn-engagement" class="tag"><i class="fa-solid fa-users" style="color:var(--gold);margin-right:.35rem;"></i>Student Engagement</a>
+      <a href="#tn-assessment" class="tag"><i class="fa-solid fa-clipboard-check" style="color:var(--gold);margin-right:.35rem;"></i>Assessment Structure</a>
+    </div>
     <a href="index.html#appointments" class="buy-btn-secondary">
       <i class="fa-solid fa-arrow-left"></i> Back to Academic Appointments
     </a>
@@ -238,7 +262,7 @@
 
   <!-- PHILOSOPHY -->
   <div class="card">
-    <h2 class="card-title">Teaching Philosophy</h2>
+    <h2 class="card-title" id="tp-philosophy">Teaching Philosophy</h2>
     <p>
       My teaching philosophy is grounded in the belief that effective education in Information Technology and Cybersecurity must bridge theory and practice while nurturing critical thinking and lifelong learning skills. With over 18 years of teaching experience across multiple universities and extensive industry background — including over 2 years teaching in-person and the remaining years teaching online across various learning management systems such as Sakai, Blackboard, Canvas, and Moodle — I strive to create a dynamic learning environment that prepares students for real-world challenges.
     </p>
@@ -246,7 +270,7 @@
       Relevance and currency are paramount in these rapidly evolving fields. I continuously update course content to reflect the latest industry trends, technologies, and best practices. My role as an ABET Program Evaluator and my industry experience, including over 23 issued patents, allow me to bring cutting-edge insights into the classroom, ensuring students are well-prepared for the current job market.
     </p>
     <p>
-      Beyond delivering courses, I have created and developed course content and assessments at both the undergraduate and graduate levels, including serving as Lead Course Content Manager for an IT Security: Cryptography course, and as ISACA Student Group Chapter Advisor. <a href="index.html#appointments" style="color:var(--gold);text-decoration:none;font-weight:600;">See ericyocam.com for the full list of courses developed by level &#8599;</a>
+      Beyond delivering courses, I have created and developed course content and assessments at both the undergraduate and graduate levels, including serving as Lead Course Content Manager for an IT Security: Cryptography course, and as ISACA Student Group Chapter Advisor.
     </p>
     <p>
       I employ diverse teaching methods to engage students, including case studies, hands-on projects, and interactive discussions. This active learning approach helps students develop practical skills and encourages critical thinking about complex IT and cybersecurity issues. Recognizing the varied backgrounds and career goals of adult learners, I provide personalized support and mentoring, leveraging my experience with various learning management systems to create an inclusive online environment.
@@ -270,24 +294,24 @@
 
   <!-- TEACHING NARRATIVE -->
   <div class="card">
-    <h2 class="card-title">"Learn by Doing" Teaching Narrative</h2>
+    <h2 class="card-title" id="tn-narrative">"Learn by Doing" Teaching Narrative</h2>
 
-    <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;">Innovative Mastery Learning Model (e.g. Capstone Focused)</div>
+    <div id="tn-mastery" style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;">Innovative Mastery Learning Model (e.g. Capstone Focused)</div>
     <p>
       Each course is designed to equip students with essential knowledge in the subject area through a comprehensive study of core concepts, principles, and applied practice. The curriculum follows a mastery learning model across a structured set of modules, ensuring students achieve a high level of proficiency (typically 90%) before advancement to the next topic.
     </p>
 
-    <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.4rem 0 .6rem;">Teaching Methodology</div>
+    <div id="tn-method" style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.4rem 0 .6rem;">Teaching Methodology</div>
     <p>
       Each course combines theoretical foundations with practical application through weekly lectures and dedicated lab or workshop sessions. Students engage in hands-on learning through project-based assignments, case studies, and applied exercises tailored to the discipline. The interactive learning environment extends beyond the classroom through active discussion on platforms such as Slack, where students share insights and explore current developments in the field.
     </p>
 
-    <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.4rem 0 .6rem;">Addressing Student Engagement Challenges</div>
+    <div id="tn-engagement" style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.4rem 0 .6rem;">Addressing Student Engagement Challenges</div>
     <p>
       A significant challenge in teaching any technical course has been maintaining consistent student engagement and attendance in both lecture and lab sessions. To address this, I have implemented deliberate interactive teaching strategies that transform passive learning into active participation. Rather than traditional lecture-only formats, I purposely establish interaction with students during class time through guided discussions of key terminology and concepts. During both lecture and lab sessions, I facilitate collaborative exploration of module review topics and lead interactive quiz preparation activities. This approach creates accountability through peer engagement and makes attendance valuable through active participation rather than passive information reception. By making each class session interactive and discussion-based, students recognize the direct value of attending and participating, which has improved both attendance and learning outcomes.
     </p>
 
-    <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.4rem 0 .6rem;">Assessment Structure</div>
+    <div id="tn-assessment" style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.4rem 0 .6rem;">Assessment Structure</div>
     <p>
       The assessment strategy emphasizes continuous improvement through multiple learning opportunities. Students complete module quizzes with multiple attempts, participate in group-based applied challenges or projects, and work on individual or paired assignments. Rather than a midterm and final exam, the course culminates in an opportunity to complete or improve previous assignments. Advanced students can pursue a mastery extension project for higher achievement levels.
     </p>
