@@ -241,15 +241,27 @@
       border-radius: 8px;
       padding: .9rem 1.1rem;
     }
-    .dest-flag { font-size: 1.3rem; margin-right: .5rem; }
+    .dest-flag { width: 24px; height: 18px; margin-right: .5rem; vertical-align: middle; border-radius: 2px; box-shadow: 0 0 0 1px var(--border); object-fit: cover; }
+    .dest-clock {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--gold);
+      font-family: 'Source Sans 3', sans-serif;
+      white-space: nowrap;
+    }
     .dest-name {
       font-weight: 700;
       font-size: .95rem;
       color: var(--navy);
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      width: 100%;
       margin-bottom: .35rem;
     }
+    .dest-name > .dest-clock { margin-left: auto; }
     .dest-desc { font-size: .84rem; color: var(--muted); line-height: 1.55; }
 
     /* ── FOOTER ── */
@@ -307,20 +319,28 @@
 
   <!-- DESTINATIONS -->
   <div class="card">
-    <h2 class="card-title">Destinations</h2>
+    <h2 class="card-title">Visited</h2>
+
+    <div class="region-label">Home</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/us.png" alt="us flag"/>San Luis Obispo, CA<span class="dest-clock" data-tz="America/Los_Angeles">&nbsp;</span></div>
+        <div class="dest-desc">Home base on California's Central Coast, between San Francisco and Los Angeles.</div>
+      </div>
+    </div>
 
     <div class="region-label">Europe</div>
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇫🇷</span>Paris, France</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/fr.png" alt="fr flag"/>Paris, France<span class="dest-clock" data-tz="Europe/Paris">&nbsp;</span></div>
         <div class="dest-desc">France's capital and cultural center, known for the Eiffel Tower, the Louvre, and centuries of art and architecture along the Seine.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇬🇧</span>London, England</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/gb.png" alt="gb flag"/>London, England<span class="dest-clock" data-tz="Europe/London">&nbsp;</span></div>
         <div class="dest-desc">The United Kingdom's capital, home to the Tower of London, Westminster, and centuries of royal and political history along the Thames.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇩🇪</span>Munich, Germany</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/de.png" alt="de flag"/>Munich, Germany<span class="dest-clock" data-tz="Europe/Berlin">&nbsp;</span></div>
         <div class="dest-desc">The Bavarian capital, known for its historic Marienplatz, Oktoberfest tradition, and proximity to the Alps.</div>
       </div>
     </div>
@@ -328,11 +348,11 @@
     <div class="region-label">Africa</div>
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇪🇬</span>Cairo, Egypt</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/eg.png" alt="eg flag"/>Cairo, Egypt<span class="dest-clock" data-tz="Africa/Cairo">&nbsp;</span></div>
         <div class="dest-desc">Egypt's capital on the Nile, gateway to the Pyramids of Giza and thousands of years of ancient history.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇪🇬</span>Aswan, Egypt</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/eg.png" alt="eg flag"/>Aswan, Egypt<span class="dest-clock" data-tz="Africa/Cairo">&nbsp;</span></div>
         <div class="dest-desc">A southern Nile city known for the Aswan High Dam, Lake Nasser, and nearby ancient Nubian and Egyptian temples.</div>
       </div>
     </div>
@@ -340,35 +360,35 @@
     <div class="region-label">Asia</div>
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇭🇰</span>Hong Kong</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/hk.png" alt="hk flag"/>Hong Kong<span class="dest-clock" data-tz="Asia/Hong_Kong">&nbsp;</span></div>
         <div class="dest-desc">A dense, vertical harbor city blending British colonial history with a fast-moving modern skyline.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇲🇴</span>Macau</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/mo.png" alt="mo flag"/>Macau<span class="dest-clock" data-tz="Asia/Macau">&nbsp;</span></div>
         <div class="dest-desc">A former Portuguese colony known for its blend of Chinese and European architecture and its casino resorts.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇨🇳</span>Shanghai, China</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/cn.png" alt="cn flag"/>Shanghai, China<span class="dest-clock" data-tz="Asia/Shanghai">&nbsp;</span></div>
         <div class="dest-desc">China's largest city and financial hub, known for the futuristic Pudong skyline across the river from the historic Bund.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇮🇩</span>Jakarta, Indonesia</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/id.png" alt="id flag"/>Jakarta, Indonesia<span class="dest-clock" data-tz="Asia/Jakarta">&nbsp;</span></div>
         <div class="dest-desc">Indonesia's sprawling capital, a hub of commerce and culture on the island of Java.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇮🇩</span>Bali, Indonesia</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/id.png" alt="id flag"/>Bali, Indonesia<span class="dest-clock" data-tz="Asia/Makassar">&nbsp;</span></div>
         <div class="dest-desc">Known for its surf breaks, terraced rice paddies, and Hindu temples set among volcanic landscapes.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇮🇳</span>New Delhi, India</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/in.png" alt="in flag"/>New Delhi, India<span class="dest-clock" data-tz="Asia/Kolkata">&nbsp;</span></div>
         <div class="dest-desc">India's capital, where Mughal-era monuments sit alongside the seat of the modern Indian government.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇸🇬</span>Singapore</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/sg.png" alt="sg flag"/>Singapore<span class="dest-clock" data-tz="Asia/Singapore">&nbsp;</span></div>
         <div class="dest-desc">A compact island city-state known for its efficiency, greenery, and mix of Chinese, Malay, and Indian cultures.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇹🇭</span>Bangkok, Thailand</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/th.png" alt="th flag"/>Bangkok, Thailand<span class="dest-clock" data-tz="Asia/Bangkok">&nbsp;</span></div>
         <div class="dest-desc">Thailand's capital, known for ornate temples, floating markets, and a famously vibrant street life.</div>
       </div>
     </div>
@@ -376,23 +396,23 @@
     <div class="region-label">Mexico</div>
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Canc&uacute;n</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/mx.png" alt="mx flag"/>Canc&uacute;n<span class="dest-clock" data-tz="America/Cancun">&nbsp;</span></div>
         <div class="dest-desc">A Caribbean coast resort city on the Yucat&aacute;n Peninsula known for its beaches and nearby Mayan ruins.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Puerto Vallarta</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/mx.png" alt="mx flag"/>Puerto Vallarta<span class="dest-clock" data-tz="America/Mexico_City">&nbsp;</span></div>
         <div class="dest-desc">A Pacific coast beach town set against the Sierra Madre mountains, known for its historic seaside boardwalk.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Puerto Pe&ntilde;asco (Rocky Point)</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/mx.png" alt="mx flag"/>Puerto Pe&ntilde;asco (Rocky Point)<span class="dest-clock" data-tz="America/Hermosillo">&nbsp;</span></div>
         <div class="dest-desc">A Sea of Cort&eacute;z fishing town popular with Southwest U.S. visitors for its beaches and sportfishing.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Tijuana</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/mx.png" alt="mx flag"/>Tijuana<span class="dest-clock" data-tz="America/Tijuana">&nbsp;</span></div>
         <div class="dest-desc">A busy border city just south of San Diego, known for its food scene and cross-border culture.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Cabo San Lucas</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/mx.png" alt="mx flag"/>Cabo San Lucas<span class="dest-clock" data-tz="America/Mazatlan">&nbsp;</span></div>
         <div class="dest-desc">A resort town at the southern tip of the Baja California Peninsula, known for its rock arch and marina.</div>
       </div>
     </div>
@@ -400,11 +420,11 @@
     <div class="region-label">Caribbean / Atlantic</div>
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇧🇲</span>Bermuda</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/bm.png" alt="bm flag"/>Bermuda<span class="dest-clock" data-tz="Atlantic/Bermuda">&nbsp;</span></div>
         <div class="dest-desc">A British Overseas Territory in the North Atlantic, known for its pink-sand beaches and pastel-colored architecture.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇧🇸</span>Nassau, Bahamas</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/bs.png" alt="bs flag"/>Nassau, Bahamas<span class="dest-clock" data-tz="America/Nassau">&nbsp;</span></div>
         <div class="dest-desc">The Bahamian capital on New Providence Island, a longtime hub for Caribbean cruising and beach tourism.</div>
       </div>
     </div>
@@ -412,11 +432,11 @@
     <div class="region-label">Canada</div>
     <div class="dest-grid">
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇨🇦</span>Victoria, BC</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/ca.png" alt="ca flag"/>Victoria, BC<span class="dest-clock" data-tz="America/Vancouver">&nbsp;</span></div>
         <div class="dest-desc">British Columbia's capital on Vancouver Island, known for its English-style gardens and harbor waterfront.</div>
       </div>
       <div class="dest-card">
-        <div class="dest-name"><span class="dest-flag">🇨🇦</span>Vancouver, BC</div>
+        <div class="dest-name"><img class="dest-flag" src="https://flagcdn.com/24x18/ca.png" alt="ca flag"/>Vancouver, BC<span class="dest-clock" data-tz="America/Vancouver">&nbsp;</span></div>
         <div class="dest-desc">A Pacific Northwest coastal city framed by mountains, known for its mix of urban life and nearby wilderness.</div>
       </div>
     </div>
@@ -493,6 +513,26 @@
       .bindPopup('<strong>' + loc[3] + ' ' + loc[2] + '</strong>')
       .bindTooltip(loc[3] + ' ' + loc[2], {permanent: true, direction: 'top', offset: [0, -6], className: 'map-callout'});
   });
+
+  function updateClocks() {
+    document.querySelectorAll('.dest-clock').forEach(function(el) {
+      var tz = el.getAttribute('data-tz');
+      try {
+        var fmt = new Intl.DateTimeFormat('en-US', {
+          timeZone: tz,
+          weekday: 'short',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        });
+        el.textContent = fmt.format(new Date());
+      } catch (e) {
+        el.textContent = '';
+      }
+    });
+  }
+  updateClocks();
+  setInterval(updateClocks, 30000);
 </script>
 
 </body>
