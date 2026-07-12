@@ -191,6 +191,19 @@
       border-radius: 8px;
       border: 1px solid var(--border);
     }
+    .leaflet-tooltip.map-callout {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--navy);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .2rem .5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      white-space: nowrap;
+    }
+    .leaflet-tooltip.map-callout::before { border-top-color: var(--border); }
     .map-legend {
       display: flex;
       flex-wrap: wrap;
@@ -274,7 +287,7 @@
     <p class="page-subtitle">A world map of the places I've been</p>
     <p class="page-author">By <a href="index.html#about">Eric Yocam, PhD, DBA</a></p>
     <div class="stat-row">
-      <span class="stat-chip"><i class="fa-solid fa-house"></i> Home: United States</span>
+      <span class="stat-chip"><i class="fa-solid fa-house"></i> Home: San Luis Obispo, CA</span>
       <span class="stat-chip"><i class="fa-solid fa-earth-americas"></i> 6 Regions Visited</span>
       <span class="stat-chip"><i class="fa-solid fa-map-pin"></i> 23 Cities</span>
     </div>
@@ -446,36 +459,40 @@
   });
 
   // Home
-  L.marker([47.6101, -122.2015], {icon: homeIcon}).addTo(map).bindPopup('<strong>Home</strong><br/>United States (Pacific Northwest)');
+  L.marker([35.2828, -120.6596], {icon: homeIcon}).addTo(map)
+    .bindPopup('<strong>🇺🇸 Home</strong><br/>San Luis Obispo, California')
+    .bindTooltip('🇺🇸 Home &mdash; San Luis Obispo, CA', {permanent: true, direction: 'top', offset: [0, -8], className: 'map-callout'});
 
   // Visited cities
   var visited = [
-    [48.8566, 2.3522, 'Paris, France'],
-    [51.5074, -0.1278, 'London, England'],
-    [48.1351, 11.5820, 'Munich, Germany'],
-    [30.0444, 31.2357, 'Cairo, Egypt'],
-    [24.0889, 32.8998, 'Aswan, Egypt'],
-    [22.3193, 114.1694, 'Hong Kong'],
-    [22.1987, 113.5439, 'Macau'],
-    [31.2304, 121.4737, 'Shanghai, China'],
-    [-6.2088, 106.8456, 'Jakarta, Indonesia'],
-    [-8.6500, 115.2167, 'Bali, Indonesia'],
-    [28.6139, 77.2090, 'New Delhi, India'],
-    [1.3521, 103.8198, 'Singapore'],
-    [13.7563, 100.5018, 'Bangkok, Thailand'],
-    [21.1619, -86.8515, 'Canc\u00fan, Mexico'],
-    [20.6534, -105.2253, 'Puerto Vallarta, Mexico'],
-    [31.3167, -113.5333, 'Puerto Pe\u00f1asco (Rocky Point), Mexico'],
-    [32.5149, -117.0382, 'Tijuana, Mexico'],
-    [22.8905, -109.9167, 'Cabo San Lucas, Mexico'],
-    [32.3078, -64.7505, 'Bermuda'],
-    [25.0343, -77.3963, 'Nassau, Bahamas'],
-    [48.4284, -123.3656, 'Victoria, BC, Canada'],
-    [49.2827, -123.1207, 'Vancouver, BC, Canada']
+    [48.8566, 2.3522, 'Paris, France', '🇫🇷'],
+    [51.5074, -0.1278, 'London, England', '🇬🇧'],
+    [48.1351, 11.5820, 'Munich, Germany', '🇩🇪'],
+    [30.0444, 31.2357, 'Cairo, Egypt', '🇪🇬'],
+    [24.0889, 32.8998, 'Aswan, Egypt', '🇪🇬'],
+    [22.3193, 114.1694, 'Hong Kong', '🇭🇰'],
+    [22.1987, 113.5439, 'Macau', '🇲🇴'],
+    [31.2304, 121.4737, 'Shanghai, China', '🇨🇳'],
+    [-6.2088, 106.8456, 'Jakarta, Indonesia', '🇮🇩'],
+    [-8.6500, 115.2167, 'Bali, Indonesia', '🇮🇩'],
+    [28.6139, 77.2090, 'New Delhi, India', '🇮🇳'],
+    [1.3521, 103.8198, 'Singapore', '🇸🇬'],
+    [13.7563, 100.5018, 'Bangkok, Thailand', '🇹🇭'],
+    [21.1619, -86.8515, 'Canc\u00fan, Mexico', '🇲🇽'],
+    [20.6534, -105.2253, 'Puerto Vallarta, Mexico', '🇲🇽'],
+    [31.3167, -113.5333, 'Puerto Pe\u00f1asco (Rocky Point), Mexico', '🇲🇽'],
+    [32.5149, -117.0382, 'Tijuana, Mexico', '🇲🇽'],
+    [22.8905, -109.9167, 'Cabo San Lucas, Mexico', '🇲🇽'],
+    [32.3078, -64.7505, 'Bermuda', '🇧🇲'],
+    [25.0343, -77.3963, 'Nassau, Bahamas', '🇧🇸'],
+    [48.4284, -123.3656, 'Victoria, BC, Canada', '🇨🇦'],
+    [49.2827, -123.1207, 'Vancouver, BC, Canada', '🇨🇦']
   ];
 
   visited.forEach(function(loc) {
-    L.marker([loc[0], loc[1]], {icon: visitedIcon}).addTo(map).bindPopup('<strong>' + loc[2] + '</strong>');
+    L.marker([loc[0], loc[1]], {icon: visitedIcon}).addTo(map)
+      .bindPopup('<strong>' + loc[3] + ' ' + loc[2] + '</strong>')
+      .bindTooltip(loc[3] + ' ' + loc[2], {permanent: true, direction: 'top', offset: [0, -6], className: 'map-callout'});
   });
 </script>
 
