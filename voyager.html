@@ -164,6 +164,19 @@
       gap: .4rem;
     }
     .stat-chip i { color: var(--gold); font-size: .78rem; }
+    .flag-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: 1rem;
+    }
+    .flag-strip img {
+      width: 26px;
+      height: 19px;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px var(--border);
+      object-fit: cover;
+    }
 
     /* ── CARDS ── */
     .card {
@@ -311,6 +324,23 @@
       <span class="stat-chip"><i class="fa-solid fa-globe"></i> 4 Continents</span>
       <span class="stat-chip"><i class="fa-solid fa-earth-americas"></i> 15 Countries</span>
       <span class="stat-chip"><i class="fa-solid fa-map-pin"></i> 22 Cities</span>
+    </div>
+    <div class="flag-strip">
+      <img src="https://flagcdn.com/24x18/fr.png" alt="France flag" title="France"/>
+      <img src="https://flagcdn.com/24x18/gb.png" alt="United Kingdom flag" title="United Kingdom"/>
+      <img src="https://flagcdn.com/24x18/de.png" alt="Germany flag" title="Germany"/>
+      <img src="https://flagcdn.com/24x18/eg.png" alt="Egypt flag" title="Egypt"/>
+      <img src="https://flagcdn.com/24x18/hk.png" alt="Hong Kong flag" title="Hong Kong"/>
+      <img src="https://flagcdn.com/24x18/mo.png" alt="Macau flag" title="Macau"/>
+      <img src="https://flagcdn.com/24x18/cn.png" alt="China flag" title="China"/>
+      <img src="https://flagcdn.com/24x18/id.png" alt="Indonesia flag" title="Indonesia"/>
+      <img src="https://flagcdn.com/24x18/in.png" alt="India flag" title="India"/>
+      <img src="https://flagcdn.com/24x18/sg.png" alt="Singapore flag" title="Singapore"/>
+      <img src="https://flagcdn.com/24x18/th.png" alt="Thailand flag" title="Thailand"/>
+      <img src="https://flagcdn.com/24x18/mx.png" alt="Mexico flag" title="Mexico"/>
+      <img src="https://flagcdn.com/24x18/bm.png" alt="Bermuda flag" title="Bermuda"/>
+      <img src="https://flagcdn.com/24x18/bs.png" alt="Bahamas flag" title="Bahamas"/>
+      <img src="https://flagcdn.com/24x18/ca.png" alt="Canada flag" title="Canada"/>
     </div>
     <a href="index.html#av-voyager" class="buy-btn-secondary">
       <i class="fa-solid fa-arrow-left"></i> Back to Avocations
@@ -532,6 +562,8 @@
         var fmt = new Intl.DateTimeFormat('en-US', {
           timeZone: tz,
           weekday: 'short',
+          month: 'short',
+          day: 'numeric',
           hour: 'numeric',
           minute: '2-digit',
           hour12: true
