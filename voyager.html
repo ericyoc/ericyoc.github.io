@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voyager | Eric Yocam</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="profile"/>
+  <meta property="og:title"       content="Voyager | Eric Yocam"/>
+  <meta property="og:description" content="A world map of Eric Yocam's travels across Europe, Asia, the Americas, and beyond."/>
+  <meta property="og:url"         content="https://ericyocam.com/voyager.html"/>
+  <meta name="description"        content="Eric Yocam's travels — an interactive world map and destination log across Europe, Asia, Mexico, the Caribbean/Atlantic, and Canada."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── PAGE ── */
+    .page-wrapper {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .breadcrumb {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.09);
+      padding: 2.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .page-eyebrow {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .2rem .7rem;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .9rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .5rem;
+    }
+    .page-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+    .page-author { font-size: .92rem; color: var(--text); }
+    .page-author a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .page-author a:hover { text-decoration: underline; }
+
+    .buy-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--navy-mid);
+      font-weight: 600;
+      font-size: .88rem;
+      padding: .65rem 1.2rem;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color .2s, color .2s;
+      margin-top: 1.3rem;
+    }
+    .buy-btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1.2rem;
+    }
+    .stat-chip {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: .3rem .85rem;
+      font-size: .8rem;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .stat-chip i { color: var(--gold); font-size: .78rem; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p { font-size: .95rem; color: var(--text); line-height: 1.75; margin-bottom: 1rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── MAP ── */
+    #travel-map {
+      width: 100%;
+      height: 420px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .map-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+    .legend-dot {
+      width: 11px; height: 11px; border-radius: 50%; display: inline-block;
+      border: 2px solid var(--white); box-shadow: 0 0 0 1px var(--border);
+    }
+    .dot-home { background: var(--navy); }
+    .dot-visited { background: var(--gold); }
+
+    /* ── DESTINATIONS ── */
+    .region-label {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin: 1.4rem 0 .8rem;
+    }
+    .region-label:first-child { margin-top: 0; }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .9rem;
+      margin-bottom: .4rem;
+    }
+    .dest-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .9rem 1.1rem;
+    }
+    .dest-flag { font-size: 1.3rem; margin-right: .5rem; }
+    .dest-name {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: .35rem;
+    }
+    .dest-desc { font-size: .84rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--muted); }
+
+    @media (max-width: 680px) {
+      .page-title { font-size: 1.4rem; }
+      nav ul { gap: 1rem; }
+      .dest-grid { grid-template-columns: 1fr; }
+      #travel-map { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="index.html#avocations">Avocations</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="index.html">Eric Yocam</a> &rsaquo; Avocations &rsaquo; Voyager
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <span class="page-eyebrow">Avocation</span>
+    <h1 class="page-title">Voyager</h1>
+    <p class="page-subtitle">A world map of the places I've been</p>
+    <p class="page-author">By <a href="index.html#about">Eric Yocam, PhD, DBA</a></p>
+    <div class="stat-row">
+      <span class="stat-chip"><i class="fa-solid fa-house"></i> Home: United States</span>
+      <span class="stat-chip"><i class="fa-solid fa-earth-americas"></i> 6 Regions Visited</span>
+      <span class="stat-chip"><i class="fa-solid fa-map-pin"></i> 23 Cities</span>
+    </div>
+    <a href="index.html#av-voyager" class="buy-btn-secondary">
+      <i class="fa-solid fa-arrow-left"></i> Back to Avocations
+    </a>
+  </div>
+
+  <!-- MAP -->
+  <div class="card">
+    <h2 class="card-title">Travel Map</h2>
+    <div id="travel-map"></div>
+    <div class="map-legend">
+      <span><span class="legend-dot dot-home"></span> Home &mdash; United States</span>
+      <span><span class="legend-dot dot-visited"></span> Visited</span>
+    </div>
+  </div>
+
+  <!-- DESTINATIONS -->
+  <div class="card">
+    <h2 class="card-title">Destinations</h2>
+
+    <div class="region-label">Europe</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇫🇷</span>Paris, France</div>
+        <div class="dest-desc">France's capital and cultural center, known for the Eiffel Tower, the Louvre, and centuries of art and architecture along the Seine.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇬🇧</span>London, England</div>
+        <div class="dest-desc">The United Kingdom's capital, home to the Tower of London, Westminster, and centuries of royal and political history along the Thames.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇩🇪</span>Munich, Germany</div>
+        <div class="dest-desc">The Bavarian capital, known for its historic Marienplatz, Oktoberfest tradition, and proximity to the Alps.</div>
+      </div>
+    </div>
+
+    <div class="region-label">Africa</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇪🇬</span>Cairo, Egypt</div>
+        <div class="dest-desc">Egypt's capital on the Nile, gateway to the Pyramids of Giza and thousands of years of ancient history.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇪🇬</span>Aswan, Egypt</div>
+        <div class="dest-desc">A southern Nile city known for the Aswan High Dam, Lake Nasser, and nearby ancient Nubian and Egyptian temples.</div>
+      </div>
+    </div>
+
+    <div class="region-label">Asia</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇭🇰</span>Hong Kong</div>
+        <div class="dest-desc">A dense, vertical harbor city blending British colonial history with a fast-moving modern skyline.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇲🇴</span>Macau</div>
+        <div class="dest-desc">A former Portuguese colony known for its blend of Chinese and European architecture and its casino resorts.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇨🇳</span>Shanghai, China</div>
+        <div class="dest-desc">China's largest city and financial hub, known for the futuristic Pudong skyline across the river from the historic Bund.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇮🇩</span>Jakarta, Indonesia</div>
+        <div class="dest-desc">Indonesia's sprawling capital, a hub of commerce and culture on the island of Java.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇮🇩</span>Bali, Indonesia</div>
+        <div class="dest-desc">Known for its surf breaks, terraced rice paddies, and Hindu temples set among volcanic landscapes.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇮🇳</span>New Delhi, India</div>
+        <div class="dest-desc">India's capital, where Mughal-era monuments sit alongside the seat of the modern Indian government.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇸🇬</span>Singapore</div>
+        <div class="dest-desc">A compact island city-state known for its efficiency, greenery, and mix of Chinese, Malay, and Indian cultures.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇹🇭</span>Bangkok, Thailand</div>
+        <div class="dest-desc">Thailand's capital, known for ornate temples, floating markets, and a famously vibrant street life.</div>
+      </div>
+    </div>
+
+    <div class="region-label">Mexico</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Canc&uacute;n</div>
+        <div class="dest-desc">A Caribbean coast resort city on the Yucat&aacute;n Peninsula known for its beaches and nearby Mayan ruins.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Puerto Vallarta</div>
+        <div class="dest-desc">A Pacific coast beach town set against the Sierra Madre mountains, known for its historic seaside boardwalk.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Puerto Pe&ntilde;asco (Rocky Point)</div>
+        <div class="dest-desc">A Sea of Cort&eacute;z fishing town popular with Southwest U.S. visitors for its beaches and sportfishing.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Tijuana</div>
+        <div class="dest-desc">A busy border city just south of San Diego, known for its food scene and cross-border culture.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇲🇽</span>Cabo San Lucas</div>
+        <div class="dest-desc">A resort town at the southern tip of the Baja California Peninsula, known for its rock arch and marina.</div>
+      </div>
+    </div>
+
+    <div class="region-label">Caribbean / Atlantic</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇧🇲</span>Bermuda</div>
+        <div class="dest-desc">A British Overseas Territory in the North Atlantic, known for its pink-sand beaches and pastel-colored architecture.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇧🇸</span>Nassau, Bahamas</div>
+        <div class="dest-desc">The Bahamian capital on New Providence Island, a longtime hub for Caribbean cruising and beach tourism.</div>
+      </div>
+    </div>
+
+    <div class="region-label">Canada</div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇨🇦</span>Victoria, BC</div>
+        <div class="dest-desc">British Columbia's capital on Vancouver Island, known for its English-style gardens and harbor waterfront.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dest-name"><span class="dest-flag">🇨🇦</span>Vancouver, BC</div>
+        <div class="dest-desc">A Pacific Northwest coastal city framed by mountains, known for its mix of urban life and nearby wilderness.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Eric Yocam &nbsp;·&nbsp;
+  <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
+  <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var map = L.map('travel-map', {
+    worldCopyJump: true,
+    scrollWheelZoom: false
+  }).setView([25, 20], 2);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 12,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  var homeIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;border-radius:50%;background:#0f2340;border:2px solid #fff;box-shadow:0 0 0 1px #dde3ec;"></div>',
+    iconSize: [14, 14],
+    iconAnchor: [7, 7]
+  });
+  var visitedIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:11px;height:11px;border-radius:50%;background:#c8983a;border:2px solid #fff;box-shadow:0 0 0 1px #dde3ec;"></div>',
+    iconSize: [11, 11],
+    iconAnchor: [6, 6]
+  });
+
+  // Home
+  L.marker([47.6101, -122.2015], {icon: homeIcon}).addTo(map).bindPopup('<strong>Home</strong><br/>United States (Pacific Northwest)');
+
+  // Visited cities
+  var visited = [
+    [48.8566, 2.3522, 'Paris, France'],
+    [51.5074, -0.1278, 'London, England'],
+    [48.1351, 11.5820, 'Munich, Germany'],
+    [30.0444, 31.2357, 'Cairo, Egypt'],
+    [24.0889, 32.8998, 'Aswan, Egypt'],
+    [22.3193, 114.1694, 'Hong Kong'],
+    [22.1987, 113.5439, 'Macau'],
+    [31.2304, 121.4737, 'Shanghai, China'],
+    [-6.2088, 106.8456, 'Jakarta, Indonesia'],
+    [-8.6500, 115.2167, 'Bali, Indonesia'],
+    [28.6139, 77.2090, 'New Delhi, India'],
+    [1.3521, 103.8198, 'Singapore'],
+    [13.7563, 100.5018, 'Bangkok, Thailand'],
+    [21.1619, -86.8515, 'Canc\u00fan, Mexico'],
+    [20.6534, -105.2253, 'Puerto Vallarta, Mexico'],
+    [31.3167, -113.5333, 'Puerto Pe\u00f1asco (Rocky Point), Mexico'],
+    [32.5149, -117.0382, 'Tijuana, Mexico'],
+    [22.8905, -109.9167, 'Cabo San Lucas, Mexico'],
+    [32.3078, -64.7505, 'Bermuda'],
+    [25.0343, -77.3963, 'Nassau, Bahamas'],
+    [48.4284, -123.3656, 'Victoria, BC, Canada'],
+    [49.2827, -123.1207, 'Vancouver, BC, Canada']
+  ];
+
+  visited.forEach(function(loc) {
+    L.marker([loc[0], loc[1]], {icon: visitedIcon}).addTo(map).bindPopup('<strong>' + loc[2] + '</strong>');
+  });
+</script>
+
+</body>
+</html>
