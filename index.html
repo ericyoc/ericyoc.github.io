@@ -195,6 +195,9 @@
     .badge-doctoral { background: #e2d9f3; color: #432874; }
     .badge-lms      { background: #f0f0f0; color: #555; }
     .badge-dev      { background: #fdecc8; color: #7a5200; }
+    .card-body { overflow: hidden; }
+    .card-body.collapsed { display: none; }
+    .chev-rotated { transform: rotate(-90deg); }
     .course-footnote { font-size: .72rem; color: var(--muted); margin-top: .5rem; padding-top: .4rem; border-top: 1px solid var(--border); }
       position: absolute;
       bottom: 0;
@@ -756,7 +759,8 @@
 
     <!-- EDUCATION -->
     <section class="card" id="education">
-      <h2 class="card-title">Education</h2>
+      <h2 class="card-title"><span onclick="toggleCard('education')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Education <i id="chev-education" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-education">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric holds <strong>7 degrees</strong> across cybersecurity, computer engineering, computer science, business administration, and finance — supported by <strong>3 graduate fellowships</strong> from Syracuse University, the University of San Diego, and the National Security Innovation Network (US DoD).
       </p>
@@ -813,11 +817,13 @@
         <div class="entry-subtitle"><a href="https://www.sandiego.edu" target="_blank">University of San Diego</a> · <a href="https://www.sandiego.edu/business/" target="_blank">Knauss School of Business</a> · San Diego, CA</div>
         <div class="entry-note">Knauss School of Business Academic Fellowship · Featured in the <a href="https://digital.sandiego.edu/usd-presidentsreports/15" target="_blank" style="color:var(--gold);">USD President's Report 1999</a>: "Reshaping The Business World — Eric Yocam '97 (M.B.A.)"</div>
       </div>
+    </div>
     </section>
 
     <!-- APPOINTMENTS -->
     <section class="card" id="appointments">
-      <h2 class="card-title">Academic Appointments</h2>
+      <h2 class="card-title"><span onclick="toggleCard('appointments')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Academic Appointments <i id="chev-appointments" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-appointments">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric has held <strong>7 academic appointments</strong> across doctoral, graduate, and undergraduate institutions spanning cybersecurity, information assurance, computer science, and business — teaching online and in-person from 2007 to present.
       </p>
@@ -944,11 +950,13 @@
           <div class="course-footnote">* Taught multiple times</div>
         </div>
       </div>
+    </div>
     </section>
 
     <!-- PROFESSIONAL -->
     <section class="card" id="professional">
-      <h2 class="card-title">Professional Experience</h2>
+      <h2 class="card-title"><span onclick="toggleCard('professional')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Professional Experience <i id="chev-professional" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-professional">
       <p class="patents-text" style="margin-bottom:1rem;">
         Over 25 years of industry experience spanning cybersecurity, technical program management, and enterprise technology — with senior roles at Microsoft and T-Mobile, expert roles at HP, Intuit, and Apple, and early innovation work at startups MediaVision and RayDream, culminating in <strong>23 issued patents</strong>.
       </p>
@@ -1057,11 +1065,13 @@
         <div class="entry-subtitle">Notable Products: <span class="pub-badge badge-product"><a href="https://en.wikipedia.org/wiki/Macintosh_II" target="_blank" style="color:inherit;text-decoration:none;">Macintosh II (Internship – 1986)</a></span> <span class="pub-badge badge-product"><a href="https://en.wikipedia.org/wiki/Macintosh_SE" target="_blank" style="color:inherit;text-decoration:none;">Macintosh SE (Internship – 1988)</a></span></div>
         <div class="entry-note">Worked closely with Motherboard/ASIC Designers: Jack McHenry, Bob Bailey.</div>
       </div>
+    </div>
     </section>
 
     <!-- PUBLICATIONS -->
     <section class="card" id="publications">
-      <h2 class="card-title">Publications <a href="https://scholar.google.com/citations?user=Ns46BB0AAAAJ&hl=en" target="_blank" style="font-size:.75rem;font-family:'Source Sans 3',sans-serif;font-weight:600;color:var(--gold);text-decoration:none;margin-left:.8rem;vertical-align:middle;">View on Google Scholar &#8599;</a></h2>
+      <h2 class="card-title"><span onclick="toggleCard('publications')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Publications <a href="https://scholar.google.com/citations?user=Ns46BB0AAAAJ&hl=en" target="_blank" style="font-size:.75rem;font-family:'Source Sans 3',sans-serif;font-weight:600;color:var(--gold);text-decoration:none;margin-left:.8rem;vertical-align:middle;">View on Google Scholar &#8599;</a> <i id="chev-publications" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-publications">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric has authored and co-authored <strong>20+ peer-reviewed publications</strong> spanning adversarial machine learning, post-quantum cryptography, IoT security, LLM hallucination mitigation, and autonomous vehicle systems &mdash; with work appearing in IEEE Access, IEEE Transactions, Springer, Elsevier, and arXiv. Work is grouped by <strong>research theme</strong>. Published papers and public preprints are shown directly; each theme's <em>under-review</em> and <em>in-development</em> pipeline can be expanded with the <strong>Show&nbsp;more</strong> control.
       </p>
@@ -1350,11 +1360,13 @@
         <div class="pub-doi" style="margin-top:.2rem;"><a href="https://www.uscybersecurity.net/csmag/finding-clarity-in-blurred-boundaries-from-activism-to-cyberterrorism/" target="_blank">Finding Clarity in Blurred Boundaries: From Activism to Cyberterrorism &#8599;</a> &middot; Summer 2014</div>
         <div class="pub-doi" style="margin-top:.2rem;"><a href="https://www.uscybersecurity.net/csmag/focusing-a-leaders-lens-on-cybersecurity-within-a-vast-framework-landscape/" target="_blank">Focusing a Leader's Lens on Cybersecurity Within a Vast Framework Landscape &#8599;</a> &middot; Spring 2014</div>
       </div>
+    </div>
     </section>
 
     <!-- PATENTS -->
     <section class="card" id="patents">
-      <h2 class="card-title">Inventions &amp; Patents</h2>
+      <h2 class="card-title"><span onclick="toggleCard('patents')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Inventions &amp; Patents <i id="chev-patents" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-patents">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric holds <strong>23+ issued patents</strong>, all assigned to T-Mobile USA, spanning wireless networks, security, AI, privacy, and drone systems.
       </p>
@@ -1529,11 +1541,13 @@
         <div class="pub-authors">Laursen, D.G., Yocam, E.W. · US Patent 9,674,664</div>
         <div class="pub-doi"><a href="https://patents.google.com/patent/US9674664" target="_blank">View Patent ↗</a></div>
       </div>
+    </div>
     </section>
 
     <!-- SERVICE -->
     <section class="card" id="service">
-      <h2 class="card-title">Service to Profession</h2>
+      <h2 class="card-title"><span onclick="toggleCard('service')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Service to Profession <i id="chev-service" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-service">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric contributes broadly to the academic and professional community through certification authorship, peer review, mentorship, advisory roles, and community leadership.
       </p>
@@ -1699,13 +1713,13 @@
         <div class="entry-subtitle">2017 <a href="https://www.nist.gov/itl/applied-cybersecurity/nice" target="_blank" style="color:var(--gold);">National Initiative for Cybersecurity Education (NICE)</a> Conference · Dayton, OH</div>
         <div class="entry-note">Panelists: Barbara Endicott-Popovsky (Executive Director, UW Center for Information Assurance Cybersecurity), Eric Yocam (Sr. Manager of Cybersecurity Innovation, T-Mobile), Morgan Zantua (Director, Workforce Development, UW CIAC). Moderator: Corrinne Sande, <a href="https://www.ncyte.net" target="_blank" style="color:var(--gold);">CyberWatch West</a>.</div>
       </div>
-    </section>
-
+    </div>
     </section>
 
     <!-- TALKS & MEDIA -->
     <section class="card" id="talks">
-      <h2 class="card-title">Featured Talks &amp; Media</h2>
+      <h2 class="card-title"><span onclick="toggleCard('talks')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Featured Talks &amp; Media <i id="chev-talks" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-talks">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric has delivered public talks and appeared in media covering cybersecurity fundamentals, workforce development, and industry-academic partnerships.
       </p>
@@ -1747,10 +1761,12 @@
         <div class="entry-subtitle"><a href="https://cltc.berkeley.edu" target="_blank" style="color:var(--gold);">UC Berkeley Center for Long-Term Cybersecurity</a> · Berkeley, CA</div>
         <div class="entry-note">"This is where a lot of innovation happens. The location and quality of research at UC Berkeley made it very attractive for us to come here. The Corporate Membership Program is a vehicle through which we can crawl, walk, and run — where we can get introduced to folks, and then maybe partner on some research." — Eric Yocam, T-Mobile</div>
       </div>
+    </div>
     </section>
     <!-- HONORS & AWARDS -->
     <section class="card" id="honors">
-      <h2 class="card-title">Honors &amp; Awards</h2>
+      <h2 class="card-title"><span onclick="toggleCard('honors')" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Honors &amp; Awards <i id="chev-honors" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.8rem;color:var(--muted);transition:transform .2s;"></i></span></h2>
+      <div class="card-body collapsed" id="cb-honors">
       <p class="patents-text" style="margin-bottom:1rem;">
         Eric has been recognized with competitive fellowships, government credentials, and professional honors across cybersecurity, academia, and industry.
       </p>
@@ -1873,6 +1889,7 @@
         <div class="entry-subtitle"><a href="https://www.dhs.gov" target="_blank" style="color:var(--gold);">US Department of Homeland Security</a> · Washington, DC · Associated with T-Mobile · Bellevue, WA</div>
         <div class="entry-note">Inactive.</div>
       </div>
+    </div>
     </section>
 
   </main>
@@ -1889,6 +1906,37 @@
   <span style="font-size:.72rem;color:var(--muted);margin-top:.3rem;display:inline-block;">Last updated: March 2026</span>
 </footer>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleCard(id) {
+  var body = document.getElementById('cb-' + id);
+  var chev = document.getElementById('chev-' + id);
+  if (!body) return;
+  body.classList.toggle('collapsed');
+  if (chev) chev.classList.toggle('chev-rotated');
+}
+function expandCardContaining(el) {
+  var body = el.closest ? el.closest('.card-body') : null;
+  if (body && body.classList.contains('collapsed')) {
+    body.classList.remove('collapsed');
+    var id = body.id.replace('cb-', '');
+    var chev = document.getElementById('chev-' + id);
+    if (chev) chev.classList.remove('chev-rotated');
+  }
+}
+document.addEventListener('click', function(e) {
+  var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+  if (!a) return;
+  var hash = a.getAttribute('href').slice(1);
+  var target = document.getElementById(hash);
+  if (target) {
+    expandCardContaining(target);
+  }
+});
+window.addEventListener('DOMContentLoaded', function() {
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) expandCardContaining(target);
+  }
+});
 function toggleCourses(id) {
   var el = document.getElementById(id);
   var btn = el.previousElementSibling;
