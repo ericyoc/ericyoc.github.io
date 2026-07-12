@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teaching Philosophy | Eric Yocam</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="profile"/>
+  <meta property="og:title"       content="Teaching Philosophy | Eric Yocam"/>
+  <meta property="og:description" content="Eric Yocam's teaching philosophy — bridging theory and practice in Information Technology and Cybersecurity education."/>
+  <meta property="og:url"         content="https://ericyocam.com/teaching-philosophy.html"/>
+  <meta name="description"        content="Eric Yocam's teaching philosophy, grounded in bridging theory and practice while nurturing critical thinking and lifelong learning in IT and Cybersecurity education."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── PAGE ── */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .breadcrumb {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.09);
+      padding: 2.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .page-eyebrow {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .2rem .7rem;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .9rem;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .5rem;
+    }
+    .page-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+    .page-author {
+      font-size: .92rem;
+      color: var(--text);
+    }
+    .page-author a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .page-author a:hover { text-decoration: underline; }
+
+    .buy-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--navy-mid);
+      font-weight: 600;
+      font-size: .88rem;
+      padding: .65rem 1.2rem;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color .2s, color .2s;
+      margin-top: 1.3rem;
+    }
+    .buy-btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p {
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 680px) {
+      .page-title { font-size: 1.4rem; }
+      nav ul { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="index.html#appointments">Appointments</a></li>
+    <li><a href="index.html#professional">Professional</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="index.html">Eric Yocam</a> &rsaquo; Academic Appointments &rsaquo; Teaching Philosophy
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <span class="page-eyebrow">Academic Appointments</span>
+    <h1 class="page-title">Teaching Philosophy</h1>
+    <p class="page-subtitle">Bridging Theory and Practice in Information Technology &amp; Cybersecurity Education</p>
+    <p class="page-author">By <a href="index.html#about">Eric Yocam, PhD, DBA</a></p>
+    <a href="index.html#appointments" class="buy-btn-secondary">
+      <i class="fa-solid fa-arrow-left"></i> Back to Academic Appointments
+    </a>
+  </div>
+
+  <!-- PHILOSOPHY -->
+  <div class="card">
+    <h2 class="card-title">Teaching Philosophy</h2>
+    <p>
+      My teaching philosophy is grounded in the belief that effective education in Information Technology and Cybersecurity must bridge theory and practice while nurturing critical thinking and lifelong learning skills. With over 15 years of teaching experience across multiple universities and extensive industry background, I strive to create a dynamic learning environment that prepares students for real-world challenges.
+    </p>
+    <p>
+      Relevance and currency are paramount in these rapidly evolving fields. I continuously update course content to reflect the latest industry trends, technologies, and best practices. My role as an ABET Program Evaluator and my industry experience, including 15 issued patents, allow me to bring cutting-edge insights into the classroom, ensuring students are well-prepared for the current job market.
+    </p>
+    <p>
+      I employ diverse teaching methods to engage students, including case studies, hands-on projects, and interactive discussions. This active learning approach helps students develop practical skills and encourages critical thinking about complex IT and cybersecurity issues. Recognizing the varied backgrounds and career goals of adult learners, I provide personalized support and mentoring, leveraging my experience with various learning management systems to create an inclusive online environment.
+    </p>
+    <p>
+      Given the critical nature of cybersecurity, I emphasize ethical considerations in technology decisions. Drawing from my experience teaching courses like "Cyber Ethics" and "Legal and Ethical Practices in Information Security," I help students develop a strong ethical framework for their future careers.
+    </p>
+    <p>
+      My interdisciplinary background in engineering, computer science, and business allows me to provide a holistic perspective on IT and cybersecurity. I encourage students to consider the broader business and societal impacts of technological decisions, preparing them for leadership roles in their careers.
+    </p>
+    <p>
+      I am committed to continuous improvement, regularly soliciting and incorporating student feedback to refine my teaching methods. I stay current with pedagogical best practices, particularly in online education, to enhance the learning experience continually.
+    </p>
+    <p>
+      Integrating my industry experience and research into course materials helps students understand the practical applications of theoretical concepts. This approach bridges the gap between academia and industry, preparing students for the challenges they'll face in their careers.
+    </p>
+    <p>
+      My ultimate goal as an educator is to empower students with the knowledge, skills, and critical thinking abilities needed to succeed in the dynamic fields of IT and cybersecurity. By fostering a supportive, challenging, and relevant learning environment, I aim to inspire students to become lifelong learners and future leaders in their chosen fields.
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="card" style="text-align:center;padding:2.2rem;">
+    <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
+      Practical. Rigorous. Student-Centered.
+    </p>
+    <a href="index.html#appointments" class="buy-btn-secondary" style="margin-top:0;">
+      <i class="fa-solid fa-arrow-left"></i> Back to Academic Appointments
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Eric Yocam &nbsp;·&nbsp;
+  <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
+  <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+</footer>
+
+</body>
+</html>
