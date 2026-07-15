@@ -259,27 +259,13 @@
       a { color: var(--navy) !important; text-decoration: underline !important; }
       .pub-badge, .course-badge, .tag { border: 1px solid var(--border) !important; }
 
-      /* Printed masthead -- appears once, at the very top of page 1 */
-      .print-masthead {
-        display: block !important;
-        text-align: center;
-        margin-bottom: 14pt;
-        padding-bottom: 10pt;
-        border-bottom: 2px solid var(--gold);
-      }
-      .print-masthead .pm-name {
-        font-family: 'Playfair Display', serif;
-        font-size: 20pt;
-        font-weight: 700;
-        color: var(--navy);
-      }
-      .print-masthead .pm-tag {
-        font-size: 9.5pt;
-        color: var(--muted);
-        margin-top: 3pt;
-      }
+      /* Trim the sidebar for print: keep only location, institutions,
+         and email -- hide the long list of profile links and the
+         Download CV button. */
+      .sidebar-item:not(.print-keep) { display: none !important; }
+      .sidebar-divider { display: none !important; }
+      .sidebar-cv-btn { display: none !important; }
     }
-    .print-masthead { display: none; }
       position: absolute;
       bottom: 0;
       left: 0;
@@ -605,12 +591,6 @@
 
 <div class="page-wrapper">
 
-  <!-- Shown only when printing / saving as PDF -->
-  <div class="print-masthead">
-    <div class="pm-name">Eric Yocam, PhD, DBA</div>
-    <div class="pm-tag">Curriculum Vitae &middot; ericyocam.com &middot; Printed <span id="print-date"></span></div>
-  </div>
-
   <!-- SIDEBAR -->
   <div style="position:relative;">
   <aside class="sidebar">
@@ -628,11 +608,11 @@
       </div>
     </div>
     <div class="sidebar-body">
-      <div class="sidebar-item">
+      <div class="sidebar-item print-keep">
         <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
         <span>San Luis Obispo, CA</span>
       </div>
-      <div class="sidebar-item">
+      <div class="sidebar-item print-keep">
         <span class="icon"><i class="fa-solid fa-building-columns"></i></span>
         <span>Dakota State University<br/>Cal Poly SLO · Dominican Univ. CA</span>
       </div>
@@ -777,11 +757,11 @@
         </span>
       </div>
       <hr class="sidebar-divider"/>
-      <div class="sidebar-item">
+      <div class="sidebar-item print-keep">
         <span class="icon"><i class="fa-solid fa-envelope"></i></span>
         <a href="mailto:contact@ericyocam.com">contact@ericyocam.com</a>
       </div>
-      <div style="padding: .6rem 0 .4rem;">
+      <div class="sidebar-cv-btn" style="padding: .6rem 0 .4rem;">
         <a href="cv.pdf" target="_blank" style="display:block;text-align:center;background:var(--gold);color:var(--navy);font-weight:700;font-size:.82rem;padding:.55rem 0;border-radius:6px;text-decoration:none;letter-spacing:.04em;transition:background .2s;" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='var(--gold)'">
           <i class="fa-solid fa-file-arrow-down" style="margin-right:.4rem;"></i>Download CV
         </a>
@@ -2194,10 +2174,6 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var __originalDocTitle = document.title;
 function printResume() {
-  var dateEl = document.getElementById('print-date');
-  if (dateEl) {
-    dateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  }
   // Use a clean title so the browser's native print header/footer
   // (Chrome/Edge/Firefox/Safari "Headers and footers" option) shows a
   // readable title instead of the raw filename, and so "Save as PDF"
