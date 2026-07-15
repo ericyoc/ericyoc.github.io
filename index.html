@@ -211,6 +211,9 @@
       body {
         background: var(--white);
         font-size: 10.5pt;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
       }
       /* Hide screen-only chrome */
       nav, .print-controls, .course-toggle, .chev-rotated, .card-title i,
@@ -257,7 +260,6 @@
         page-break-after: avoid;
       }
       a { color: var(--navy) !important; text-decoration: underline !important; }
-      .pub-badge, .course-badge, .tag { border: 1px solid var(--border) !important; }
 
       /* Trim the sidebar for print: keep only location, institutions,
          and email -- hide the long list of profile links and the
@@ -265,7 +267,9 @@
       .sidebar-item:not(.print-keep) { display: none !important; }
       .sidebar-divider { display: none !important; }
       .sidebar-cv-btn { display: none !important; }
+      .footer-links { display: none !important; }
     }
+    .sidebar-scroll-hint {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -2162,12 +2166,15 @@
 </div>
 
 <footer>
-  &copy; 2026 Eric Yocam &nbsp;·&nbsp;
+  &copy; 2026 Eric Yocam
+  <span class="footer-links">
+  &nbsp;·&nbsp;
   <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank" rel="me">GitHub</a> &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank" rel="me">LinkedIn</a> &nbsp;·&nbsp;
   <a href="https://orcid.org/0000-0001-8176-3867" style="color:var(--gold);text-decoration:none;" target="_blank" rel="me">ORCiD</a> &nbsp;·&nbsp;
   <a href="https://scholar.google.com/citations?user=Ns46BB0AAAAJ&hl=en" style="color:var(--gold);text-decoration:none;" target="_blank" rel="me">Google Scholar</a> &nbsp;·&nbsp;
   <a href="https://www.researchgate.net/profile/Eric-Yocam-2" style="color:var(--gold);text-decoration:none;" target="_blank">ResearchGate</a>
+  </span>
   <br/>
   <span style="font-size:.72rem;color:var(--muted);margin-top:.3rem;display:inline-block;">Last updated: March 2026</span>
 </footer>
