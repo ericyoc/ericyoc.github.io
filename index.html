@@ -199,6 +199,87 @@
     .card-body.collapsed { display: none; }
     .chev-rotated { transform: rotate(-90deg); }
     .course-footnote { font-size: .72rem; color: var(--muted); margin-top: .5rem; padding-top: .4rem; border-top: 1px solid var(--border); }
+
+    /* ── PRINT BUTTONS (screen only) ── */
+    .print-controls button:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── PRINT / SAVE AS PDF ── */
+    @media print {
+      @page {
+        margin: 0.6in 0.55in;
+      }
+      body {
+        background: var(--white);
+        font-size: 10.5pt;
+      }
+      /* Hide screen-only chrome */
+      nav, .print-controls, .course-toggle, .chev-rotated, .card-title i,
+      .card-title span > i, a.tag[href^="#"] { display: none !important; }
+      .card-title span[onclick] { cursor: default !important; }
+
+      /* Collapse the two-column app shell into a single printable column,
+         so the sidebar prints once at the top, followed by BioSketch and
+         every other section in normal top-to-bottom flow -- not split
+         into two side-by-side pillars per page. */
+      .page-wrapper {
+        display: block !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .sidebar {
+        position: static !important;
+        box-shadow: none !important;
+        border: 1px solid var(--border);
+        margin-bottom: 14pt;
+        page-break-inside: avoid;
+      }
+      .sidebar-scroll-hint, .sidebar [onclick] { display: none !important; }
+      .main { width: 100% !important; }
+
+      /* Force every collapsible section fully open for print, regardless
+         of on-screen collapsed/expanded state or how print was triggered
+         (button, Ctrl+P, or browser menu). */
+      .card-body.collapsed { display: block !important; }
+      .card-body { overflow: visible !important; }
+      .course-list { display: block !important; }
+
+      .card {
+        box-shadow: none !important;
+        border: 1px solid var(--border);
+        page-break-inside: auto;
+        margin-bottom: 12pt;
+      }
+      .entry, .pub, .patent-entry {
+        page-break-inside: avoid;
+      }
+      h2.card-title {
+        page-break-after: avoid;
+      }
+      a { color: var(--navy) !important; text-decoration: underline !important; }
+      .pub-badge, .course-badge, .tag { border: 1px solid var(--border) !important; }
+
+      /* Printed masthead -- appears once, at the very top of page 1 */
+      .print-masthead {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 14pt;
+        padding-bottom: 10pt;
+        border-bottom: 2px solid var(--gold);
+      }
+      .print-masthead .pm-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 20pt;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .print-masthead .pm-tag {
+        font-size: 9.5pt;
+        color: var(--muted);
+        margin-top: 3pt;
+      }
+    }
+    .print-masthead { display: none; }
       position: absolute;
       bottom: 0;
       left: 0;
@@ -524,6 +605,12 @@
 
 <div class="page-wrapper">
 
+  <!-- Shown only when printing / saving as PDF -->
+  <div class="print-masthead">
+    <div class="pm-name">Eric Yocam, PhD, DBA</div>
+    <div class="pm-tag">Curriculum Vitae &middot; ericyocam.com &middot; Printed <span id="print-date"></span></div>
+  </div>
+
   <!-- SIDEBAR -->
   <div style="position:relative;">
   <aside class="sidebar">
@@ -708,7 +795,17 @@
 
     <!-- BIO -->
     <section class="card" id="about">
-      <h2 class="card-title">BioSketch</h2>
+      <h2 class="card-title" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;">
+        <span>BioSketch</span>
+        <span class="print-controls" style="display:flex;gap:.5rem;">
+          <button onclick="printResume()" style="display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1.5px solid var(--border);color:var(--navy-mid);font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-weight:600;padding:.4rem .85rem;border-radius:20px;cursor:pointer;transition:border-color .2s,color .2s;">
+            <i class="fa-solid fa-print"></i> Print
+          </button>
+          <button onclick="printResume()" style="display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1.5px solid var(--border);color:var(--navy-mid);font-family:'Source Sans 3',sans-serif;font-size:.78rem;font-weight:600;padding:.4rem .85rem;border-radius:20px;cursor:pointer;transition:border-color .2s,color .2s;">
+            <i class="fa-solid fa-file-pdf"></i> Save as PDF
+          </button>
+        </span>
+      </h2>
 
       <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;">Research Focus</div>
       <p class="bio-text">
@@ -2095,6 +2192,23 @@
   <span style="font-size:.72rem;color:var(--muted);margin-top:.3rem;display:inline-block;">Last updated: March 2026</span>
 </footer>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var __originalDocTitle = document.title;
+function printResume() {
+  var dateEl = document.getElementById('print-date');
+  if (dateEl) {
+    dateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+  // Use a clean title so the browser's native print header/footer
+  // (Chrome/Edge/Firefox/Safari "Headers and footers" option) shows a
+  // readable title instead of the raw filename, and so "Save as PDF"
+  // suggests a sensible default filename.
+  document.title = 'Eric Yocam - Curriculum Vitae';
+  window.print();
+}
+window.addEventListener('afterprint', function() {
+  document.title = __originalDocTitle;
+});
+
 function toggleCard(id) {
   var body = document.getElementById('cb-' + id);
   var chev = document.getElementById('chev-' + id);
