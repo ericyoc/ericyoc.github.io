@@ -1,6 +1,6 @@
 # ericyoc.github.io
 
-Personal academic and professional website for **Eric Yocam** — PhD Candidate, Cybersecurity Professor, Researcher, and Author.
+Academic and professional website for **Eric Yocam** — PhD, DBA.
 
 🌐 **Live site:** [ericyocam.com](https://ericyocam.com)
 
