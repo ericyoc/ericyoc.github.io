@@ -796,7 +796,7 @@
         </span>
       </h2>
 
-      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;">Research Focus</div>
+      <div id="bio-research" style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;">Research Focus</div>
       <p class="bio-text">
         Eric Yocam's research spans adversarial machine learning, post-quantum cryptography, agricultural IoT security, LLM hallucination mitigation, autonomous vehicle lane detection, and space IoT cybersecurity risk. He is an IEEE Senior Member whose industry innovations span DeepFake Detection, Behavioral Biometrics, and Temporal Identity Vaulting.
       </p>
@@ -811,8 +811,16 @@
       <p class="bio-text" style="margin-top:.9rem;">
         Across his portfolio, a unifying question emerges: <em>how do you secure systems that lack strong central authority?</em> His technical work — hardening AI models, securing distributed networks, defending autonomous systems — addresses this from an engineering perspective. A second, less conventional layer of his research examines it through governance: his work on celebrity board directors and decentralized cryptocurrency markets argues that technical security is necessary but not sufficient — who controls a system, and under what incentives, matters just as much as the code. Taken together, his research is interdisciplinary and emerging-topic focused, tracking where risk is growing fastest across AI ecosystems, distributed networks, and markets where institutional oversight is thin.
       </p>
+      <div style="display:flex;flex-wrap:wrap;gap:.45rem;margin:.9rem 0 1.1rem;">
+        <a href="#bio-research" class="tag">Research Focus</a>
+        <a href="#bio-uninat" class="tag">Universities &amp; National Labs</a>
+        <a href="#bio-industry" class="tag">Industry Experience</a>
+        <a href="#bio-partnerships" class="tag">CyberLabs, Industry &amp; Government Partnerships</a>
+        <a href="#bio-acadbg" class="tag">Academic Background</a>
+        <a href="#bio-books" class="tag">Books &amp; Creative Work</a>
+      </div>
       <div style="margin-top:1.1rem;">
-        <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.65rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('uninat')">
+        <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.65rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('uninat')" id="bio-uninat">
           <span>Universities &amp; National Labs</span>
           <i id="chev-ss-uninat" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.75rem;color:var(--muted);transition:transform .2s;"></i>
         </div>
@@ -839,7 +847,7 @@
         </div>
       </div>
 
-      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('industry')">
+      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('industry')" id="bio-industry">
         <span>Industry Experience</span>
         <i id="chev-ss-industry" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.75rem;color:var(--muted);transition:transform .2s;"></i>
       </div>
@@ -862,7 +870,7 @@
       </div>
       </div>
 
-      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('partnerships')">
+      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('partnerships')" id="bio-partnerships">
         <span>CyberLabs, Industry &amp; Government Partnerships</span>
         <i id="chev-ss-partnerships" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.75rem;color:var(--muted);transition:transform .2s;"></i>
       </div>
@@ -881,7 +889,7 @@
 
             </div>
 
-      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('acadbg')">
+      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('acadbg')" id="bio-acadbg">
         <span>Academic Background</span>
         <i id="chev-ss-acadbg" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.75rem;color:var(--muted);transition:transform .2s;"></i>
       </div>
@@ -891,7 +899,7 @@
       </p>
       </div>
 
-      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('books')">
+      <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:1.3rem 0 .5rem;padding-top:1rem;border-top:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:space-between;" onclick="toggleSubsection('books')" id="bio-books">
         <span>Books &amp; Creative Work</span>
         <i id="chev-ss-books" class="fa-solid fa-chevron-down chev-rotated" style="font-size:.75rem;color:var(--muted);transition:transform .2s;"></i>
       </div>
@@ -2290,6 +2298,18 @@ function expandCardContaining(el) {
     var id = body.id.replace('cb-', '');
     var chev = document.getElementById('chev-' + id);
     if (chev) chev.classList.remove('chev-rotated');
+  }
+  // Also auto-expand a BioSketch subsection when jumping directly to
+  // its heading anchor (id="bio-*"), since these headings are separate
+  // elements from their collapsible ss-* content body.
+  if (el.id && el.id.indexOf('bio-') === 0) {
+    var ssId = el.id.replace('bio-', '');
+    var ssBody = document.getElementById('ss-' + ssId);
+    if (ssBody && ssBody.classList.contains('collapsed')) {
+      ssBody.classList.remove('collapsed');
+      var ssChev = document.getElementById('chev-ss-' + ssId);
+      if (ssChev) ssChev.classList.remove('chev-rotated');
+    }
   }
 }
 document.addEventListener('click', function(e) {
