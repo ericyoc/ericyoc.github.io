@@ -1,6 +1,6 @@
 # ericyoc.github.io
 
-Academic and professional website for **Eric Yocam** — PhD, DBA.
+Academic and professional website for **Eric Yocam PhD, DBA**.
 
 🌐 **Live site:** [ericyocam.com](https://ericyocam.com)
 
