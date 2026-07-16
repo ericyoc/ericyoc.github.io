@@ -93,9 +93,8 @@ DNS is managed through Cloudflare with the following configuration:
 
 ## Author
 
-**Eric Yocam**
+**Eric Yocam PhD, DBA**
 
-PhD Candidate (ABD), Cyber Operations · Dakota State University  
 Lecturer · California Polytechnic State University  
 Adjunct Assistant Professor · Dominican University of California
 
