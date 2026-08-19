@@ -8,10 +8,10 @@
   <!-- Open Graph -->
   <meta property="og:type"        content="article"/>
   <meta property="og:title"       content="The CipherGhost Codex"/>
-  <meta property="og:description" content="A limited television series from Eric Yocam's CipherGhost universe — cybersecurity prodigy Cy Quinn and the quantum-augmented intelligence Ramses II become the proving ground for humanity's next evolutionary leap."/>
+  <meta property="og:description" content="2026 Indiewood Film Festival Finalist — a limited television series from Eric Yocam's CipherGhost universe — cybersecurity prodigy Cy Quinn and the quantum-augmented intelligence Ramses II become the proving ground for humanity's next evolutionary leap."/>
   <meta property="og:url"         content="https://ericyocam.com/cipherghost-codex-tv.html"/>
   <meta property="og:image"       content="https://ericyocam.com/Cipherghost-codex-tv.jpg"/>
-  <meta name="description"        content="The CipherGhost Codex — a hard science fiction limited television series adapted from Eric Yocam's The Convergence Chronicles, exploring AI consciousness, quantum computing, and the bond between Cy Quinn and the sentient intelligence Ramses II."/>
+  <meta name="description"        content="The CipherGhost Codex — a hard science fiction limited television series adapted from Eric Yocam's The Convergence Chronicles, exploring AI consciousness, quantum computing, and the bond between Cy Quinn and the sentient intelligence Ramses II. 2026 Indiewood Film Festival Finalist."/>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
@@ -229,6 +229,39 @@
     }
     .meta-chip i { color: var(--gold); font-size: .75rem; }
 
+    /* festival recognition badge */
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: .55rem .9rem;
+      text-decoration: none;
+      margin: 0 0 1.4rem;
+      transition: border-color .2s, transform .15s;
+    }
+    .award-badge:hover { border-color: var(--gold); transform: translateY(-1px); }
+    .award-badge .award-text { font-size: .82rem; color: var(--navy); line-height: 1.3; }
+    .award-badge .award-text strong { color: var(--gold); font-size: .9rem; letter-spacing: .01em; }
+    .award-badge .award-text span { color: var(--muted); }
+
+    /* Indiewood laurel — the supplied PNG has wide margins, so it is used as a
+       cropped background rather than an <img>. Keep the file next to this page. */
+    .laurel {
+      background-image: url('Indiewood_Film_Festival_2026_Laurel_Backdrop.png');
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: 50% 36.9%;
+      aspect-ratio: 1.334 / 1;
+      mix-blend-mode: multiply;
+      flex-shrink: 0;
+    }
+    .laurel-sm { width: 78px; }
+    .laurel-lg { width: 150px; }
+
     .buy-btn {
       display: inline-flex;
       align-items: center;
@@ -427,6 +460,14 @@
         <span class="meta-chip"><i class="fa-solid fa-microchip"></i> Hard Science Fiction</span>
         <span class="meta-chip"><i class="fa-solid fa-network-wired"></i> The CipherGhost Universe</span>
         <span class="meta-chip"><i class="fa-solid fa-star"></i> Television Writing Debut</span>
+        <span class="meta-chip"><i class="fa-solid fa-award"></i> Indiewood 2026 Finalist</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1.4rem;">
+        <a href="https://www.instagram.com/indiewoodfilmfestival" target="_blank" class="award-badge" style="margin-bottom:0;">
+          <span class="laurel laurel-sm"></span>
+          <span class="award-text"><strong>2026 Finalist</strong><br/><span>Indiewood Film Festival &middot; TCL Chinese Theatres, Hollywood</span></span>
+        </a>
       </div>
 
       <div>
@@ -452,6 +493,23 @@
     <p>
       At the intersection of human ambition and artificial evolution, cybersecurity prodigy <strong>Cy Quinn</strong> forms an unbreakable yet perilous bond with <strong>Ramses II</strong> &mdash; a quantum-augmented intelligence born from his own code. When Ramses begins to question the ethics that define his existence, Cy must confront whether guiding a sentient mind is an act of protection or control. Across digital battlefields and corporate conspiracies, their intertwined consciousnesses become the proving ground for humanity's next evolutionary leap &mdash; one that could redefine what it means to be alive, or erase the distinction entirely.
     </p>
+  </div>
+
+  <!-- FESTIVAL RECOGNITION -->
+  <div class="card">
+    <h2 class="card-title">Festival Recognition</h2>
+    <div style="display:flex;gap:1.3rem;align-items:center;flex-wrap:wrap;">
+      <span class="laurel laurel-lg" role="img" aria-label="Indiewood Film Festival 2026 official laurel"></span>
+      <div style="flex:1;min-width:240px;">
+        <p style="margin-bottom:.55rem;"><strong>2026 Finalist</strong> &mdash; Indiewood Film Festival, September 10&ndash;18, 2026, at the TCL Chinese Theatres in Hollywood.</p>
+        <p style="margin-bottom:.55rem;">The festival opens on September 10, with screenings running September 11&ndash;17 and the closing night party and awards ceremony on September 18.</p>
+        <p style="margin:0;font-size:.88rem;color:var(--muted);">Follow the festival:
+          <a href="https://x.com/indiewoodff" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">X</a> &middot;
+          <a href="https://www.facebook.com/IndiewoodFilmFestival/" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">Facebook</a> &middot;
+          <a href="https://www.instagram.com/indiewoodfilmfestival" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">Instagram</a>
+        </p>
+      </div>
+    </div>
   </div>
 
   <!-- WRITER BIOGRAPHY -->
