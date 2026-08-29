@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter References | The Applied AI Universe Coding Guide | Eric Yocam</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="book"/>
+  <meta property="og:title"       content="Chapter References — The Applied AI Universe Coding Guide"/>
+  <meta property="og:description" content="Chapter-by-chapter references for The Applied AI Universe Coding Guide, with seminal papers and the works each chapter's code implements. By Eric Yocam PhD, DBA."/>
+  <meta property="og:url"         content="https://ericyocam.com/Book1_Chapter_References.html"/>
+  <meta property="og:image"       content="applied_ai_coding_cover.png"/>
+  <meta name="description"        content="Chapter-by-chapter references for The Applied AI Universe Coding Guide — 160 sources across 33 chapters, with seminal works and code implementations marked. By Eric Yocam PhD, DBA."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+      --seminal: #8a6100;
+      --seminal-bg: #fbf3de;
+      --seminal-edge: #e4ce93;
+      --code: #155e45;
+      --code-bg: #e6f2ec;
+      --code-edge: #a9cfbf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── PAGE ── */
+    .page-wrapper { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+
+    .breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── HERO ── */
+    .ref-hero {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.09);
+      padding: 2.2rem 2rem;
+      margin-bottom: 1.6rem;
+    }
+    .ref-eyebrow {
+      font-size: .78rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .75rem;
+    }
+    .ref-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .3rem;
+    }
+    .ref-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+    .tally { display: flex; flex-wrap: wrap; border-top: 1px solid var(--border); }
+    .tally div { flex: 1 1 120px; padding: 1rem 1.2rem .9rem; border-right: 1px solid var(--border); }
+    .tally div:last-child { border-right: 0; }
+    .tally b {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .tally span {
+      display: block;
+      margin-top: .35rem;
+      font-size: .74rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p { font-size: .95rem; color: var(--text); line-height: 1.75; margin-bottom: .8rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── CONTROLS ── */
+    .controls {
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+      background: rgba(244,246,249,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      margin: 0 -1.5rem 1.6rem;
+      padding: .8rem 1.5rem;
+    }
+    .controls-inner { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+    .chip {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .45rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .chip:hover { border-color: var(--gold); color: var(--navy); }
+    .chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .chip.sem[aria-pressed="true"] { background: var(--seminal); border-color: var(--seminal); color: var(--white); }
+    .chip.cd[aria-pressed="true"] { background: var(--code); border-color: var(--code); color: var(--white); }
+    #q {
+      flex: 1 1 200px;
+      min-width: 160px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .9rem;
+      padding: .45rem .9rem;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: var(--white);
+      color: var(--text);
+    }
+    #q:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+    #count { font-size: .8rem; color: var(--muted); margin-left: auto; font-weight: 600; }
+
+    /* ── LEGEND ── */
+    .legend-list { list-style: none; margin: .5rem 0 0; }
+    .legend-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .93rem;
+    }
+    .legend-list li:last-child { border-bottom: none; }
+
+    /* ── PARTS ── */
+    .part { margin-bottom: 1.6rem; }
+    .part-head {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a6e 100%);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.15);
+    }
+    .rings { flex: 0 0 auto; }
+    .part-label {
+      font-size: .74rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: .15rem;
+    }
+    .part-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* ── CHAPTERS ── */
+    .chapter {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .chapter-head {
+      display: flex;
+      align-items: baseline;
+      gap: .8rem;
+      flex-wrap: wrap;
+      padding: 1.1rem 2rem .7rem;
+      border-bottom: 2px solid var(--gold);
+      margin: 0 0 .3rem;
+    }
+    .chnum {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--gold);
+      text-transform: uppercase;
+      flex: 0 0 auto;
+    }
+    .chname {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex: 1 1 auto;
+      line-height: 1.3;
+    }
+    .listing {
+      font-size: .76rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: .18rem .7rem;
+      white-space: nowrap;
+    }
+    ol.refs { list-style: none; margin: 0; padding: 0; }
+    li.ref {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0 .8rem;
+      padding: .85rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    li.ref:last-child { border-bottom: 0; }
+    li.ref.is-seminal { box-shadow: inset 4px 0 0 var(--seminal-edge); }
+    li.ref.is-code { box-shadow: inset 4px 0 0 var(--code-edge); }
+    li.ref.is-seminal.is-code {
+      box-shadow: inset 4px 0 0 var(--seminal-edge), inset 8px 0 0 var(--code-edge);
+    }
+    .idx { font-size: .82rem; color: var(--muted); padding-top: .1rem; }
+    .cite { font-size: .93rem; line-height: 1.6; }
+    .cite .au { font-weight: 600; color: var(--navy); }
+    .cite .ti { font-style: italic; }
+    .cite .ve { color: var(--muted); }
+    .ids { margin-top: .3rem; font-size: .82rem; display: flex; flex-wrap: wrap; gap: .2rem 1rem; }
+    .ids a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .ids a:hover { text-decoration: underline; }
+    .ids a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .ids .nodoi { color: var(--muted); }
+    .tags { margin-top: .45rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+    .tag {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .18rem .6rem;
+      border-radius: 40px;
+      border: 1px solid;
+    }
+    .tag.sem { color: var(--seminal); background: var(--seminal-bg); border-color: var(--seminal-edge); }
+    .tag.cd  { color: var(--code); background: var(--code-bg); border-color: var(--code-edge); }
+    .tag.new { color: var(--muted); background: var(--light); border-color: var(--border); }
+    .why { margin-top: .35rem; font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .why b { color: var(--code); font-weight: 600; }
+    li.ref.hide, .chapter.hide, .part.hide { display: none; }
+
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--muted); }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      nav ul { gap: 1rem; }
+      .ref-title { font-size: 1.35rem; }
+      .card, .ref-hero { padding: 1.4rem 1.2rem; }
+      .chapter-head, li.ref { padding-left: 1.2rem; padding-right: 1.2rem; }
+      li.ref { grid-template-columns: 1fr; gap: 0; }
+      .idx { display: none; }
+      #count { margin-left: 0; width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    @media print {
+      nav, .controls { display: none; }
+      body { background: #fff; }
+      .chapter { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="book1.html">Book 1</a></li>
+    <li><a href="https://github.com/ericyoc/the_applied_ai_universe_coding_guide" target="_blank">GitHub &#8599;</a></li>
+    <li><a href="https://www.amazon.com/dp/B0H3J4V7FS" target="_blank">Now on Amazon &#8599;</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="index.html">Eric Yocam</a> &rsaquo; <a href="applied-ai-universe-coding-guide.html">The Adaptive AI Codex Series</a> &rsaquo; <a href="book1.html">Book 1</a> &rsaquo; Chapter References
+  </div>
+
+  <div class="ref-hero">
+    <p class="ref-eyebrow">The Applied AI Universe Coding Guide</p>
+    <h1 class="ref-title">Chapter References</h1>
+    <p class="ref-subtitle">Sources for every chapter, with the seminal papers and the works each chapter's code implements marked separately.</p>
+    <div class="tally">
+      <div><b id="t-total">&mdash;</b><span>References</span></div>
+      <div><b>33</b><span>Chapters</span></div>
+      <div><b id="t-sem">&mdash;</b><span>Seminal</span></div>
+      <div><b id="t-code">&mdash;</b><span>In code</span></div>
+      <div><b id="t-doi">&mdash;</b><span>With DOI</span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-inner">
+      <button class="chip sem" id="f-sem" aria-pressed="false">Seminal only</button>
+      <button class="chip cd" id="f-code" aria-pressed="false">Code-backed only</button>
+      <button class="chip" id="f-clear">Reset</button>
+      <input id="q" type="search" placeholder="Filter by author, title, venue&hellip;" aria-label="Filter by author, title or venue">
+      <span id="count"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="card-title">How to Read This List</h2>
+    <ul class="legend-list">
+      <li><i class="fa-solid fa-star" style="color:var(--seminal);margin-top:.3rem;"></i><span><strong>Seminal</strong> &mdash; the originating paper for the idea: the work the technique is named after or first appeared in.</span></li>
+      <li><i class="fa-solid fa-code" style="color:var(--code);margin-top:.3rem;"></i><span><strong>In code</strong> &mdash; the chapter's code listing implements or directly depends on this work. Each carries a note on how.</span></li>
+      <li><i class="fa-solid fa-plus" style="color:var(--muted);margin-top:.3rem;"></i><span><strong>Added</strong> &mdash; Zhou et al. (2003) and Sp&auml;rck Jones (1972), included because the code listings they support had no other source.</span></li>
+    </ul>
+  </div>
+
+  <div id="out"></div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Eric Yocam PhD, DBA &nbsp;&middot;&nbsp; <span id="f-total">160</span> references across 33 chapters</p>
+  <p style="margin-top:.4rem;">
+    <a href="book1.html" style="color:var(--gold);text-decoration:none;">Book 1</a> &nbsp;&middot;&nbsp;
+    <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;&middot;&nbsp;
+    <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+const S=1, C=2, N=4;
+
+const DATA=[
+ {part:"I", roman:"I", ring:1, title:"The Applied AI Universe Guide — A Roadmap", chapters:[
+  {n:1, name:"The Concentric Rings of AI", listing:null, refs:[
+   {a:"LeCun, Y., Bengio, Y., & Hinton, G.", y:2015, t:"Deep learning", v:"Nature, 521(7553), 436–444", doi:"10.1038/nature14539", f:S},
+   {a:"Jordan, M. I., & Mitchell, T. M.", y:2015, t:"Machine learning: Trends, perspectives, and prospects", v:"Science, 349(6245), 255–260", doi:"10.1126/science.aaa8415"},
+   {a:"Bengio, Y., LeCun, Y., & Hinton, G.", y:2021, t:"Deep learning for AI", v:"Communications of the ACM, 64(7), 58–65", doi:"10.1145/3448250"},
+   {a:"Bommasani, R., et al.", y:2021, t:"On the opportunities and risks of foundation models", v:"arXiv:2108.07258", doi:"10.48550/arXiv.2108.07258"}
+  ]}
+ ]},
+
+ {part:"II", roman:"II", ring:2, title:"Artificial Intelligence — The Outermost Ring", chapters:[
+  {n:2, name:"Planning & Scheduling", listing:"2.1 — BFS and A* search", refs:[
+   {a:"Hart, P. E., Nilsson, N. J., & Raphael, B.", y:1968, t:"A formal basis for the heuristic determination of minimum cost paths", v:"IEEE Trans. Systems Science and Cybernetics, 4(2), 100–107", doi:"10.1109/TSSC.1968.300136", f:S|C, why:"The A* algorithm implemented in Listing 2.1."},
+   {a:"Dijkstra, E. W.", y:1959, t:"A note on two problems in connexion with graphs", v:"Numerische Mathematik, 1, 269–271", doi:"10.1007/BF01386390", f:S},
+   {a:"Fikes, R. E., & Nilsson, N. J.", y:1971, t:"STRIPS: A new approach to the application of theorem proving to problem solving", v:"Artificial Intelligence, 2(3–4), 189–208", doi:"10.1016/0004-3702(71)90010-5", f:S},
+   {a:"Bonet, B., & Geffner, H.", y:2001, t:"Planning as heuristic search", v:"Artificial Intelligence, 129(1–2), 5–33", doi:"10.1016/S0004-3702(01)00108-4"},
+   {a:"Helmert, M.", y:2006, t:"The Fast Downward planning system", v:"Journal of Artificial Intelligence Research, 26, 191–246", doi:"10.1613/jair.1705"}
+  ]},
+  {n:3, name:"Expert Systems & Knowledge Representation", listing:"3.1 — Forward-chaining triage system", refs:[
+   {a:"Shortliffe, E. H., & Buchanan, B. G.", y:1975, t:"A model of inexact reasoning in medicine", v:"Mathematical Biosciences, 23(3–4), 351–379", doi:"10.1016/0025-5564(75)90047-4", f:S},
+   {a:"Davis, R., Buchanan, B., & Shortliffe, E.", y:1977, t:"Production rules as a representation for a knowledge-based consultation program", v:"Artificial Intelligence, 8(1), 15–45", doi:"10.1016/0004-3702(77)90003-0", f:S|C, why:"The IF–THEN production-rule representation the listing's rule base uses."},
+   {a:"Forgy, C. L.", y:1982, t:"Rete: A fast algorithm for the many pattern/many object pattern match problem", v:"Artificial Intelligence, 19(1), 17–37", doi:"10.1016/0004-3702(82)90020-0", f:S},
+   {a:"Hogan, A., et al.", y:2021, t:"Knowledge graphs", v:"ACM Computing Surveys, 54(4), Article 71", doi:"10.1145/3447772"},
+   {a:"Hoffart, J., Suchanek, F. M., Berberich, K., & Weikum, G.", y:2013, t:"YAGO2: A spatially and temporally enhanced knowledge base from Wikipedia", v:"Artificial Intelligence, 194, 28–61", doi:"10.1016/j.artint.2012.06.001"}
+  ]},
+  {n:4, name:"Fuzzy Logic", listing:"4.1 — Fuzzy deployment risk assessor", refs:[
+   {a:"Zadeh, L. A.", y:1965, t:"Fuzzy sets", v:"Information and Control, 8(3), 338–353", doi:"10.1016/S0019-9958(65)90241-X", f:S|C, why:"Membership functions and set operations built directly in the listing."},
+   {a:"Mamdani, E. H., & Assilian, S.", y:1975, t:"An experiment in linguistic synthesis with a fuzzy logic controller", v:"International Journal of Man-Machine Studies, 7(1), 1–13", doi:"10.1016/S0020-7373(75)80002-2", f:S|C, why:"The fuzzify → rule-evaluate → defuzzify pipeline the risk assessor follows."},
+   {a:"Takagi, T., & Sugeno, M.", y:1985, t:"Fuzzy identification of systems and its applications to modeling and control", v:"IEEE Trans. Systems, Man, and Cybernetics, SMC-15(1), 116–132", doi:"10.1109/TSMC.1985.6313399", f:S},
+   {a:"Jang, J.-S. R.", y:1993, t:"ANFIS: Adaptive-network-based fuzzy inference system", v:"IEEE Trans. Systems, Man, and Cybernetics, 23(3), 665–685", doi:"10.1109/21.256541", f:S}
+  ]}
+ ]},
+
+ {part:"III", roman:"III", ring:3, title:"Machine Learning — Teaching Machines with Data", chapters:[
+  {n:5, name:"Feature Engineering", listing:"5.1 — Feature importance and selection", refs:[
+   {a:"Guyon, I., & Elisseeff, A.", y:2003, t:"An introduction to variable and feature selection", v:"Journal of Machine Learning Research, 3, 1157–1182", url:"https://www.jmlr.org/papers/v3/guyon03a.html", f:S},
+   {a:"Kohavi, R., & John, G. H.", y:1997, t:"Wrappers for feature subset selection", v:"Artificial Intelligence, 97(1–2), 273–324", doi:"10.1016/S0004-3702(97)00043-X", f:S|C, why:"The wrapper-style selection loop the listing runs over the Breast Cancer set."},
+   {a:"Chandrashekar, G., & Sahin, F.", y:2014, t:"A survey on feature selection methods", v:"Computers & Electrical Engineering, 40(1), 16–28", doi:"10.1016/j.compeleceng.2013.11.024"},
+   {a:"Lundberg, S. M., & Lee, S.-I.", y:2017, t:"A unified approach to interpreting model predictions", v:"arXiv:1705.07874", doi:"10.48550/arXiv.1705.07874"},
+   {a:"Pedregosa, F., et al.", y:2011, t:"Scikit-learn: Machine learning in Python", v:"Journal of Machine Learning Research, 12, 2825–2830", url:"https://www.jmlr.org/papers/v12/pedregosa11a.html", f:C, why:"The library every estimator in the listing comes from."}
+  ]},
+  {n:6, name:"Supervised Learning: Classification & Regression", listing:"6.1 — Six classifiers on Iris", refs:[
+   {a:"Cortes, C., & Vapnik, V.", y:1995, t:"Support-vector networks", v:"Machine Learning, 20(3), 273–297", doi:"10.1007/BF00994018", f:S|C, why:"The SVM among the six classifiers compared."},
+   {a:"Breiman, L.", y:2001, t:"Random forests", v:"Machine Learning, 45(1), 5–32", doi:"10.1023/A:1010933404324", f:S|C, why:"The random forest among the six classifiers compared."},
+   {a:"Cover, T., & Hart, P.", y:1967, t:"Nearest neighbor pattern classification", v:"IEEE Trans. Information Theory, 13(1), 21–27", doi:"10.1109/TIT.1967.1053964", f:S|C, why:"The k-nearest-neighbour classifier among the six compared."},
+   {a:"Chen, T., & Guestrin, C.", y:2016, t:"XGBoost: A scalable tree boosting system", v:"Proceedings of KDD '16, 785–794", doi:"10.1145/2939672.2939785", f:S},
+   {a:"Fisher, R. A.", y:1936, t:"The use of multiple measurements in taxonomic problems", v:"Annals of Eugenics, 7(2), 179–188", doi:"10.1111/j.1469-1809.1936.tb02137.x", f:S|C, why:"Source of the Iris dataset the listing trains on."}
+  ]},
+  {n:7, name:"Unsupervised Learning & Dimensionality Reduction", listing:"7.1 — K-Means elbow, PCA vs t-SNE", refs:[
+   {a:"Lloyd, S. P.", y:1982, t:"Least squares quantization in PCM", v:"IEEE Trans. Information Theory, 28(2), 129–137", doi:"10.1109/TIT.1982.1056489", f:S|C, why:"The k-means algorithm behind the elbow-method sweep."},
+   {a:"Pearson, K.", y:1901, t:"On lines and planes of closest fit to systems of points in space", v:"Philosophical Magazine, 2(11), 559–572", doi:"10.1080/14786440109462720", f:S|C, why:"PCA, one half of the projection comparison."},
+   {a:"van der Maaten, L., & Hinton, G.", y:2008, t:"Visualizing data using t-SNE", v:"Journal of Machine Learning Research, 9, 2579–2605", url:"https://www.jmlr.org/papers/v9/vandermaaten08a.html", f:S|C, why:"t-SNE, the other half of the projection comparison."},
+   {a:"McInnes, L., Healy, J., & Melville, J.", y:2018, t:"UMAP: Uniform manifold approximation and projection for dimension reduction", v:"arXiv:1802.03426", doi:"10.48550/arXiv.1802.03426"},
+   {a:"Rousseeuw, P. J.", y:1987, t:"Silhouettes: A graphical aid to the interpretation and validation of cluster analysis", v:"Journal of Computational and Applied Mathematics, 20, 53–65", doi:"10.1016/0377-0427(87)90125-7"}
+  ]},
+  {n:8, name:"Semi-Supervised Learning", listing:"8.1 — Label Spreading at varying label fractions", refs:[
+   {a:"Zhou, D., Bousquet, O., Lal, T. N., Weston, J., & Schölkopf, B.", y:2003, t:"Learning with local and global consistency", v:"Advances in Neural Information Processing Systems 16, 321–328", url:"https://papers.nips.cc/paper/2506-learning-with-local-and-global-consistency", f:S|C|N, why:"The algorithm scikit-learn's LabelSpreading implements — the listing has no other source."},
+   {a:"van Engelen, J. E., & Hoos, H. H.", y:2020, t:"A survey on semi-supervised learning", v:"Machine Learning, 109(2), 373–440", doi:"10.1007/s10994-019-05855-6"},
+   {a:"Chapelle, O., Schölkopf, B., & Zien, A. (Eds.)", y:2006, t:"Semi-Supervised Learning", v:"MIT Press", doi:"10.7551/mitpress/9780262033589.001.0001", f:S},
+   {a:"Berthelot, D., et al.", y:2019, t:"MixMatch: A holistic approach to semi-supervised learning", v:"arXiv:1905.02249", doi:"10.48550/arXiv.1905.02249"},
+   {a:"Sohn, K., et al.", y:2020, t:"FixMatch: Simplifying semi-supervised learning with consistency and confidence", v:"arXiv:2001.07685", doi:"10.48550/arXiv.2001.07685"}
+  ]},
+  {n:9, name:"Ensemble Learning", listing:"9.1 — Bagging, Boosting, Voting", refs:[
+   {a:"Breiman, L.", y:1996, t:"Bagging predictors", v:"Machine Learning, 24(2), 123–140", doi:"10.1007/BF00058655", f:S|C, why:"The bagging arm of the three-way comparison."},
+   {a:"Freund, Y., & Schapire, R. E.", y:1997, t:"A decision-theoretic generalization of on-line learning and an application to boosting", v:"Journal of Computer and System Sciences, 55(1), 119–139", doi:"10.1006/jcss.1997.1504", f:S|C, why:"AdaBoost, the boosting arm of the comparison."},
+   {a:"Friedman, J. H.", y:2001, t:"Greedy function approximation: A gradient boosting machine", v:"The Annals of Statistics, 29(5), 1189–1232", doi:"10.1214/aos/1013203451", f:S},
+   {a:"Wolpert, D. H.", y:1992, t:"Stacked generalization", v:"Neural Networks, 5(2), 241–259", doi:"10.1016/S0893-6080(05)80023-1", f:S},
+   {a:"Dietterich, T. G.", y:2000, t:"Ensemble methods in machine learning", v:"Multiple Classifier Systems, LNCS 1857, 1–15", doi:"10.1007/3-540-45014-9_1"},
+   {a:"Galton, F.", y:1907, t:"Vox populi", v:"Nature, 75, 450–451", doi:"10.1038/075450a0", f:S, why:"The wisdom-of-crowds example the chapter already cites in-text."}
+  ]}
+ ]},
+
+ {part:"IV", roman:"IV", ring:4, title:"Neural Networks — The Core Architecture", chapters:[
+  {n:10, name:"Activation Functions", listing:"10.1 — Activations and their derivatives", refs:[
+   {a:"Glorot, X., Bordes, A., & Bengio, Y.", y:2011, t:"Deep sparse rectifier neural networks", v:"AISTATS, PMLR 15, 315–323", url:"https://proceedings.mlr.press/v15/glorot11a.html", f:S|C, why:"ReLU, plotted alongside its derivative in the listing."},
+   {a:"Hochreiter, S.", y:1998, t:"The vanishing gradient problem during learning recurrent neural nets and problem solutions", v:"IJUFKS, 6(2), 107–116", doi:"10.1142/S0218488598000094", f:S},
+   {a:"Clevert, D.-A., Unterthiner, T., & Hochreiter, S.", y:2015, t:"Fast and accurate deep network learning by exponential linear units (ELUs)", v:"arXiv:1511.07289", doi:"10.48550/arXiv.1511.07289"},
+   {a:"Hendrycks, D., & Gimpel, K.", y:2016, t:"Gaussian error linear units (GELUs)", v:"arXiv:1606.08415", doi:"10.48550/arXiv.1606.08415"},
+   {a:"Ramachandran, P., Zoph, B., & Le, Q. V.", y:2017, t:"Searching for activation functions", v:"arXiv:1710.05941", doi:"10.48550/arXiv.1710.05941"}
+  ]},
+  {n:11, name:"Perceptrons", listing:"11.1 — Perceptron from scratch on AND / OR", refs:[
+   {a:"Rosenblatt, F.", y:1958, t:"The perceptron: A probabilistic model for information storage and organization in the brain", v:"Psychological Review, 65(6), 386–408", doi:"10.1037/h0042519", f:S|C, why:"The perceptron learning rule coded from scratch in the listing."},
+   {a:"McCulloch, W. S., & Pitts, W.", y:1943, t:"A logical calculus of the ideas immanent in nervous activity", v:"Bulletin of Mathematical Biophysics, 5(4), 115–133", doi:"10.1007/BF02478259", f:S},
+   {a:"Widrow, B., & Lehr, M. A.", y:1990, t:"30 years of adaptive neural networks: Perceptron, madaline, and backpropagation", v:"Proceedings of the IEEE, 78(9), 1415–1442", doi:"10.1109/5.58323"},
+   {a:"Cybenko, G.", y:1989, t:"Approximation by superpositions of a sigmoidal function", v:"Mathematics of Control, Signals, and Systems, 2(4), 303–314", doi:"10.1007/BF02551274", f:S}
+  ]},
+  {n:12, name:"Backpropagation", listing:"12.1 — Backpropagation from scratch on XOR", refs:[
+   {a:"Rumelhart, D. E., Hinton, G. E., & Williams, R. J.", y:1986, t:"Learning representations by back-propagating errors", v:"Nature, 323(6088), 533–536", doi:"10.1038/323533a0", f:S|C, why:"The algorithm derived and coded by hand in the listing."},
+   {a:"Werbos, P. J.", y:1990, t:"Backpropagation through time: What it does and how to do it", v:"Proceedings of the IEEE, 78(10), 1550–1560", doi:"10.1109/5.58337", f:S},
+   {a:"Glorot, X., & Bengio, Y.", y:2010, t:"Understanding the difficulty of training deep feedforward neural networks", v:"AISTATS, PMLR 9, 249–256", url:"https://proceedings.mlr.press/v9/glorot10a.html", f:S},
+   {a:"Kingma, D. P., & Ba, J.", y:2014, t:"Adam: A method for stochastic optimization", v:"arXiv:1412.6980", doi:"10.48550/arXiv.1412.6980", f:S},
+   {a:"Baydin, A. G., Pearlmutter, B. A., Radul, A. A., & Siskind, J. M.", y:2018, t:"Automatic differentiation in machine learning: A survey", v:"Journal of Machine Learning Research, 18(153), 1–43", url:"https://www.jmlr.org/papers/v18/17-468.html"}
+  ]},
+  {n:13, name:"MLP, CNN, and Sequence Models", listing:"13.1–13.3 — MLP, CNN, LSTM/GRU/RNN", refs:[
+   {a:"LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P.", y:1998, t:"Gradient-based learning applied to document recognition", v:"Proceedings of the IEEE, 86(11), 2278–2324", doi:"10.1109/5.726791", f:S|C, why:"The convolutional architecture and the MNIST data used across Listings 13.1–13.2."},
+   {a:"Krizhevsky, A., Sutskever, I., & Hinton, G. E.", y:2017, t:"ImageNet classification with deep convolutional neural networks", v:"Communications of the ACM, 60(6), 84–90", doi:"10.1145/3065386", f:S},
+   {a:"Hochreiter, S., & Schmidhuber, J.", y:1997, t:"Long short-term memory", v:"Neural Computation, 9(8), 1735–1780", doi:"10.1162/neco.1997.9.8.1735", f:S|C, why:"The LSTM arm of Listing 13.3's three-way forecasting comparison."},
+   {a:"Cho, K., et al.", y:2014, t:"Learning phrase representations using RNN encoder–decoder for statistical machine translation", v:"arXiv:1406.1078", doi:"10.48550/arXiv.1406.1078", f:S|C, why:"The GRU arm of Listing 13.3."},
+   {a:"Chung, J., Gulcehre, C., Cho, K., & Bengio, Y.", y:2014, t:"Empirical evaluation of gated recurrent neural networks on sequence modeling", v:"arXiv:1412.3555", doi:"10.48550/arXiv.1412.3555", f:C, why:"The LSTM-vs-GRU comparison Listing 13.3 reproduces."}
+  ]},
+  {n:14, name:"Self-Organizing Maps", listing:"14.1 — SOM on Iris with U-Matrix", refs:[
+   {a:"Kohonen, T.", y:1982, t:"Self-organized formation of topologically correct feature maps", v:"Biological Cybernetics, 43(1), 59–69", doi:"10.1007/BF00337288", f:S|C, why:"The SOM training rule the listing implements."},
+   {a:"Kohonen, T.", y:1990, t:"The self-organizing map", v:"Proceedings of the IEEE, 78(9), 1464–1480", doi:"10.1109/5.58325", f:S},
+   {a:"Kohonen, T.", y:2013, t:"Essentials of the self-organizing map", v:"Neural Networks, 37, 52–65", doi:"10.1016/j.neunet.2012.09.018"},
+   {a:"Vesanto, J., & Alhoniemi, E.", y:2000, t:"Clustering of the self-organizing map", v:"IEEE Trans. Neural Networks, 11(3), 586–600", doi:"10.1109/72.846731", f:C, why:"The U-matrix reading of a trained map, which the listing plots."}
+  ]}
+ ]},
+
+ {part:"V", roman:"V", ring:5, title:"Deep Learning — Depth, Scale, and Generalization", chapters:[
+  {n:15, name:"Deep Neural Networks & Architecture Depth", listing:"15.1 — DNN depth study on CIFAR-10", refs:[
+   {a:"He, K., Zhang, X., Ren, S., & Sun, J.", y:2016, t:"Deep residual learning for image recognition", v:"CVPR 2016, 770–778", doi:"10.1109/CVPR.2016.90", f:S},
+   {a:"Simonyan, K., & Zisserman, A.", y:2014, t:"Very deep convolutional networks for large-scale image recognition", v:"arXiv:1409.1556", doi:"10.48550/arXiv.1409.1556", f:S},
+   {a:"Ioffe, S., & Szegedy, C.", y:2015, t:"Batch normalization: Accelerating deep network training by reducing internal covariate shift", v:"arXiv:1502.03167", doi:"10.48550/arXiv.1502.03167", f:S},
+   {a:"Huang, G., Liu, Z., van der Maaten, L., & Weinberger, K. Q.", y:2017, t:"Densely connected convolutional networks", v:"CVPR 2017, 2261–2269", doi:"10.1109/CVPR.2017.243"},
+   {a:"Schmidhuber, J.", y:2015, t:"Deep learning in neural networks: An overview", v:"Neural Networks, 61, 85–117", doi:"10.1016/j.neunet.2014.09.003"}
+  ]},
+  {n:16, name:"Transfer Learning", listing:"16.1 — MobileNetV2 transfer on CIFAR-10", refs:[
+   {a:"Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C.", y:2018, t:"MobileNetV2: Inverted residuals and linear bottlenecks", v:"CVPR 2018, 4510–4520", doi:"10.1109/CVPR.2018.00474", f:S|C, why:"The exact backbone the listing fine-tunes."},
+   {a:"Deng, J., et al.", y:2009, t:"ImageNet: A large-scale hierarchical image database", v:"CVPR 2009, 248–255", doi:"10.1109/CVPR.2009.5206848", f:S|C, why:"Source of the pretrained weights the listing loads."},
+   {a:"Pan, S. J., & Yang, Q.", y:2010, t:"A survey on transfer learning", v:"IEEE Trans. Knowledge and Data Engineering, 22(10), 1345–1359", doi:"10.1109/TKDE.2009.191", f:S},
+   {a:"Yosinski, J., Clune, J., Bengio, Y., & Lipson, H.", y:2014, t:"How transferable are features in deep neural networks?", v:"arXiv:1411.1792", doi:"10.48550/arXiv.1411.1792", f:S},
+   {a:"Zhuang, F., et al.", y:2021, t:"A comprehensive survey on transfer learning", v:"Proceedings of the IEEE, 109(1), 43–76", doi:"10.1109/JPROC.2020.3004555"}
+  ]},
+  {n:17, name:"Generative Adversarial Networks", listing:"17.1 — GAN trained on MNIST", refs:[
+   {a:"Goodfellow, I., et al.", y:2014, t:"Generative adversarial nets", v:"arXiv:1406.2661", doi:"10.48550/arXiv.1406.2661", f:S|C, why:"The minimax objective and two-network training loop the listing builds."},
+   {a:"Radford, A., Metz, L., & Chintala, S.", y:2015, t:"Unsupervised representation learning with deep convolutional GANs", v:"arXiv:1511.06434", doi:"10.48550/arXiv.1511.06434", f:S},
+   {a:"Arjovsky, M., Chintala, S., & Bottou, L.", y:2017, t:"Wasserstein GAN", v:"arXiv:1701.07875", doi:"10.48550/arXiv.1701.07875", f:S},
+   {a:"Karras, T., Laine, S., & Aila, T.", y:2019, t:"A style-based generator architecture for generative adversarial networks", v:"CVPR 2019, 4396–4405", doi:"10.1109/CVPR.2019.00453"},
+   {a:"Creswell, A., et al.", y:2018, t:"Generative adversarial networks: An overview", v:"IEEE Signal Processing Magazine, 35(1), 53–65", doi:"10.1109/MSP.2017.2765202"}
+  ]},
+  {n:18, name:"Attention Mechanisms", listing:"18.1 — Scaled dot-product attention from scratch", refs:[
+   {a:"Vaswani, A., et al.", y:2017, t:"Attention is all you need", v:"arXiv:1706.03762", doi:"10.48550/arXiv.1706.03762", f:S|C, why:"Scaled dot-product attention is this paper's formulation, coded directly."},
+   {a:"Bahdanau, D., Cho, K., & Bengio, Y.", y:2014, t:"Neural machine translation by jointly learning to align and translate", v:"arXiv:1409.0473", doi:"10.48550/arXiv.1409.0473", f:S},
+   {a:"Luong, M.-T., Pham, H., & Manning, C. D.", y:2015, t:"Effective approaches to attention-based neural machine translation", v:"arXiv:1508.04025", doi:"10.48550/arXiv.1508.04025", f:S},
+   {a:"Dao, T., Fu, D. Y., Ermon, S., Rudra, A., & Ré, C.", y:2022, t:"FlashAttention: Fast and memory-efficient exact attention with IO-awareness", v:"arXiv:2205.14135", doi:"10.48550/arXiv.2205.14135"},
+   {a:"Niu, Z., Zhong, G., & Yu, H.", y:2021, t:"A review on the attention mechanism of deep learning", v:"Neurocomputing, 452, 48–62", doi:"10.1016/j.neucom.2021.03.091"}
+  ]},
+  {n:19, name:"Dropout & Regularization", listing:"19.1 — Dropout rate comparison on MNIST", refs:[
+   {a:"Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R.", y:2014, t:"Dropout: A simple way to prevent neural networks from overfitting", v:"Journal of Machine Learning Research, 15, 1929–1958", url:"https://www.jmlr.org/papers/v15/srivastava14a.html", f:S|C, why:"The rate sweep in the listing is this paper's experiment, reproduced."},
+   {a:"Hinton, G. E., Srivastava, N., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R.", y:2012, t:"Improving neural networks by preventing co-adaptation of feature detectors", v:"arXiv:1207.0580", doi:"10.48550/arXiv.1207.0580", f:S},
+   {a:"Ba, J. L., Kiros, J. R., & Hinton, G. E.", y:2016, t:"Layer normalization", v:"arXiv:1607.06450", doi:"10.48550/arXiv.1607.06450"},
+   {a:"Gal, Y., & Ghahramani, Z.", y:2016, t:"Dropout as a Bayesian approximation: Representing model uncertainty in deep learning", v:"ICML, PMLR 48, 1050–1059", url:"https://proceedings.mlr.press/v48/gal16.html"},
+   {a:"Zhang, C., Bengio, S., Hardt, M., Recht, B., & Vinyals, O.", y:2021, t:"Understanding deep learning (still) requires rethinking generalization", v:"Communications of the ACM, 64(3), 107–115", doi:"10.1145/3446776"}
+  ]},
+  {n:20, name:"Deep Reinforcement Learning", listing:"20.1 — Q-Learning on GridWorld", refs:[
+   {a:"Watkins, C. J. C. H., & Dayan, P.", y:1992, t:"Q-learning", v:"Machine Learning, 8(3–4), 279–292", doi:"10.1007/BF00992698", f:S|C, why:"The tabular Q-update the GridWorld agent runs."},
+   {a:"Mnih, V., et al.", y:2015, t:"Human-level control through deep reinforcement learning", v:"Nature, 518(7540), 529–533", doi:"10.1038/nature14236", f:S},
+   {a:"Silver, D., et al.", y:2016, t:"Mastering the game of Go with deep neural networks and tree search", v:"Nature, 529(7587), 484–489", doi:"10.1038/nature16961", f:S},
+   {a:"Schulman, J., Wolski, F., Dhariwal, P., Radford, A., & Klimov, O.", y:2017, t:"Proximal policy optimization algorithms", v:"arXiv:1707.06347", doi:"10.48550/arXiv.1707.06347", f:S},
+   {a:"Arulkumaran, K., Deisenroth, M. P., Brundage, M., & Bharath, A. A.", y:2017, t:"Deep reinforcement learning: A brief survey", v:"IEEE Signal Processing Magazine, 34(6), 26–38", doi:"10.1109/MSP.2017.2743240"}
+  ]},
+  {n:21, name:"Capsule Networks & Deep Belief Networks", listing:"21.1–21.2 — CapsNet, DBN filters", refs:[
+   {a:"Sabour, S., Frosst, N., & Hinton, G. E.", y:2017, t:"Dynamic routing between capsules", v:"arXiv:1710.09829", doi:"10.48550/arXiv.1710.09829", f:S|C, why:"Routing-by-agreement and the reconstruction decoder, both in Listing 21.1."},
+   {a:"Hinton, G. E., Osindero, S., & Teh, Y.-W.", y:2006, t:"A fast learning algorithm for deep belief nets", v:"Neural Computation, 18(7), 1527–1554", doi:"10.1162/neco.2006.18.7.1527", f:S|C, why:"The stacked-RBM belief net whose filters Listing 21.2 visualises."},
+   {a:"Hinton, G. E., Sabour, S., & Frosst, N.", y:2018, t:"Matrix capsules with EM routing", v:"ICLR 2018", url:"https://openreview.net/forum?id=HJWLfGWRb"},
+   {a:"Hinton, G. E., & Salakhutdinov, R. R.", y:2006, t:"Reducing the dimensionality of data with neural networks", v:"Science, 313(5786), 504–507", doi:"10.1126/science.1127647", f:S}
+  ]}
+ ]},
+
+ {part:"VI", roman:"VI", ring:6, title:"Generative AI — The Innermost Ring", chapters:[
+  {n:22, name:"Language Modeling", listing:"22.1 — N-gram LM on Alice in Wonderland", refs:[
+   {a:"Chen, S. F., & Goodman, J.", y:1999, t:"An empirical study of smoothing techniques for language modeling", v:"Computer Speech & Language, 13(4), 359–394", doi:"10.1006/csla.1999.0128", f:S|C, why:"The smoothing the n-gram counts in the listing depend on."},
+   {a:"Shannon, C. E.", y:1948, t:"A mathematical theory of communication", v:"Bell System Technical Journal, 27(3), 379–423", doi:"10.1002/j.1538-7305.1948.tb01338.x", f:S},
+   {a:"Bengio, Y., Ducharme, R., Vincent, P., & Jauvin, C.", y:2003, t:"A neural probabilistic language model", v:"Journal of Machine Learning Research, 3, 1137–1155", url:"https://www.jmlr.org/papers/v3/bengio03a.html", f:S},
+   {a:"Mikolov, T., Chen, K., Corrado, G., & Dean, J.", y:2013, t:"Efficient estimation of word representations in vector space", v:"arXiv:1301.3781", doi:"10.48550/arXiv.1301.3781", f:S},
+   {a:"Kaplan, J., et al.", y:2020, t:"Scaling laws for neural language models", v:"arXiv:2001.08361", doi:"10.48550/arXiv.2001.08361"}
+  ]},
+  {n:23, name:"The Transformer Architecture", listing:"23.1 — Transformer encoder from scratch (IMDb)", refs:[
+   {a:"Vaswani, A., et al.", y:2017, t:"Attention is all you need", v:"arXiv:1706.03762", doi:"10.48550/arXiv.1706.03762", f:S|C, why:"The encoder block — attention, residual, feed-forward, norm — built line by line."},
+   {a:"Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K.", y:2019, t:"BERT: Pre-training of deep bidirectional transformers for language understanding", v:"NAACL-HLT 2019, 4171–4186", doi:"10.18653/v1/N19-1423", f:S},
+   {a:"Dosovitskiy, A., et al.", y:2020, t:"An image is worth 16x16 words: Transformers for image recognition at scale", v:"arXiv:2010.11929", doi:"10.48550/arXiv.2010.11929", f:S},
+   {a:"Tay, Y., Dehghani, M., Bahri, D., & Metzler, D.", y:2022, t:"Efficient transformers: A survey", v:"ACM Computing Surveys, 55(6), Article 109", doi:"10.1145/3530811"},
+   {a:"Lin, T., Wang, Y., Liu, X., & Qiu, X.", y:2022, t:"A survey of transformers", v:"AI Open, 3, 111–132", doi:"10.1016/j.aiopen.2022.10.001"}
+  ]},
+  {n:24, name:"Pre-Trained Models & Natural Language Understanding", listing:"24.1 — HuggingFace NLU pipelines", refs:[
+   {a:"Wolf, T., et al.", y:2020, t:"Transformers: State-of-the-art natural language processing", v:"EMNLP 2020: System Demonstrations, 38–45", doi:"10.18653/v1/2020.emnlp-demos.6", f:C, why:"The library whose pipeline API the listing calls throughout."},
+   {a:"Lewis, M., et al.", y:2020, t:"BART: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension", v:"ACL 2020, 7871–7880", doi:"10.18653/v1/2020.acl-main.703", f:S|C, why:"One of the named pre-trained models the pipelines load."},
+   {a:"Liu, Y., et al.", y:2019, t:"RoBERTa: A robustly optimized BERT pretraining approach", v:"arXiv:1907.11692", doi:"10.48550/arXiv.1907.11692"},
+   {a:"Raffel, C., et al.", y:2020, t:"Exploring the limits of transfer learning with a unified text-to-text transformer", v:"Journal of Machine Learning Research, 21(140), 1–67", url:"https://www.jmlr.org/papers/v21/20-074.html", f:S},
+   {a:"Wang, A., et al.", y:2018, t:"GLUE: A multi-task benchmark and analysis platform for natural language understanding", v:"EMNLP 2018 Workshop BlackboxNLP, 353–355", doi:"10.18653/v1/W18-5446"}
+  ]},
+  {n:25, name:"Text Generation & Dialogue Systems", listing:"25.1 — TF-IDF dialogue with cosine similarity", refs:[
+   {a:"Spärck Jones, K.", y:1972, t:"A statistical interpretation of term specificity and its application in retrieval", v:"Journal of Documentation, 28(1), 11–21", doi:"10.1108/eb026526", f:S|C|N, why:"The origin of IDF weighting — the retrieval scheme Listing 25.1 is built on, previously unsourced."},
+   {a:"Brown, T. B., et al.", y:2020, t:"Language models are few-shot learners", v:"arXiv:2005.14165", doi:"10.48550/arXiv.2005.14165", f:S},
+   {a:"Holtzman, A., Buys, J., Du, L., Forbes, M., & Choi, Y.", y:2019, t:"The curious case of neural text degeneration", v:"arXiv:1904.09751", doi:"10.48550/arXiv.1904.09751", f:S},
+   {a:"Papineni, K., Roukos, S., Ward, T., & Zhu, W.-J.", y:2002, t:"BLEU: A method for automatic evaluation of machine translation", v:"ACL 2002, 311–318", doi:"10.3115/1073083.1073135", f:S},
+   {a:"Lewis, P., et al.", y:2020, t:"Retrieval-augmented generation for knowledge-intensive NLP tasks", v:"arXiv:2005.11401", doi:"10.48550/arXiv.2005.11401", f:S}
+  ]},
+  {n:26, name:"Diffusion Models", listing:"26.1 — Minimal DDPM on MNIST", refs:[
+   {a:"Ho, J., Jain, A., & Abbeel, P.", y:2020, t:"Denoising diffusion probabilistic models", v:"arXiv:2006.11239", doi:"10.48550/arXiv.2006.11239", f:S|C, why:"The forward noise schedule and reverse denoiser the listing implements."},
+   {a:"Sohl-Dickstein, J., Weiss, E. A., Maheswaranathan, N., & Ganguli, S.", y:2015, t:"Deep unsupervised learning using nonequilibrium thermodynamics", v:"arXiv:1503.03585", doi:"10.48550/arXiv.1503.03585", f:S},
+   {a:"Song, J., Meng, C., & Ermon, S.", y:2020, t:"Denoising diffusion implicit models", v:"arXiv:2010.02502", doi:"10.48550/arXiv.2010.02502", f:S},
+   {a:"Rombach, R., Blattmann, A., Lorenz, D., Esser, P., & Ommer, B.", y:2022, t:"High-resolution image synthesis with latent diffusion models", v:"CVPR 2022, 10674–10685", doi:"10.1109/CVPR52688.2022.01042", f:S},
+   {a:"Dhariwal, P., & Nichol, A.", y:2021, t:"Diffusion models beat GANs on image synthesis", v:"arXiv:2105.05233", doi:"10.48550/arXiv.2105.05233"}
+  ]},
+  {n:27, name:"LoRA and Parameter-Efficient Fine-Tuning", listing:"27.1 — LoRA fine-tuning with PEFT", refs:[
+   {a:"Hu, E. J., et al.", y:2021, t:"LoRA: Low-rank adaptation of large language models", v:"arXiv:2106.09685", doi:"10.48550/arXiv.2106.09685", f:S|C, why:"The low-rank adapter the listing configures and trains."},
+   {a:"Houlsby, N., et al.", y:2019, t:"Parameter-efficient transfer learning for NLP", v:"arXiv:1902.00751", doi:"10.48550/arXiv.1902.00751", f:S},
+   {a:"Li, X. L., & Liang, P.", y:2021, t:"Prefix-tuning: Optimizing continuous prompts for generation", v:"ACL 2021, 4582–4597", doi:"10.18653/v1/2021.acl-long.353", f:S},
+   {a:"Dettmers, T., Pagnoni, A., Holtzman, A., & Zettlemoyer, L.", y:2023, t:"QLoRA: Efficient finetuning of quantized LLMs", v:"arXiv:2305.14314", doi:"10.48550/arXiv.2305.14314"},
+   {a:"Ding, N., et al.", y:2023, t:"Parameter-efficient fine-tuning of large-scale pre-trained language models", v:"Nature Machine Intelligence, 5, 220–235", doi:"10.1038/s42256-023-00626-4"}
+  ]},
+  {n:28, name:"RLHF — Reinforcement Learning from Human Feedback", listing:"28.1 — Minimal RLHF pipeline with TRL", refs:[
+   {a:"Ouyang, L., et al.", y:2022, t:"Training language models to follow instructions with human feedback", v:"arXiv:2203.02155", doi:"10.48550/arXiv.2203.02155", f:S|C, why:"The three-stage SFT → reward model → PPO pipeline the listing reproduces."},
+   {a:"Christiano, P. F., et al.", y:2017, t:"Deep reinforcement learning from human preferences", v:"arXiv:1706.03741", doi:"10.48550/arXiv.1706.03741", f:S},
+   {a:"Rafailov, R., et al.", y:2023, t:"Direct preference optimization: Your language model is secretly a reward model", v:"arXiv:2305.18290", doi:"10.48550/arXiv.2305.18290", f:S},
+   {a:"Stiennon, N., et al.", y:2020, t:"Learning to summarize from human feedback", v:"arXiv:2009.01325", doi:"10.48550/arXiv.2009.01325"},
+   {a:"Bai, Y., et al.", y:2022, t:"Training a helpful and harmless assistant with reinforcement learning from human feedback", v:"arXiv:2204.05862", doi:"10.48550/arXiv.2204.05862"}
+  ]},
+  {n:29, name:"Mamba and State Space Models", listing:"29.1 — Simplified Mamba SSM layer", refs:[
+   {a:"Gu, A., & Dao, T.", y:2023, t:"Mamba: Linear-time sequence modeling with selective state spaces", v:"arXiv:2312.00752", doi:"10.48550/arXiv.2312.00752", f:S|C, why:"The selective SSM layer the listing implements in simplified form."},
+   {a:"Gu, A., Goel, K., & Ré, C.", y:2021, t:"Efficiently modeling long sequences with structured state spaces (S4)", v:"arXiv:2111.00396", doi:"10.48550/arXiv.2111.00396", f:S},
+   {a:"Gu, A., Dao, T., Ermon, S., Rudra, A., & Ré, C.", y:2020, t:"HiPPO: Recurrent memory with optimal polynomial projections", v:"arXiv:2008.07669", doi:"10.48550/arXiv.2008.07669", f:S},
+   {a:"Smith, J. T. H., Warrington, A., & Linderman, S. W.", y:2022, t:"Simplified state space layers for sequence modeling (S5)", v:"arXiv:2208.04933", doi:"10.48550/arXiv.2208.04933"},
+   {a:"Dao, T., & Gu, A.", y:2024, t:"Transformers are SSMs: Generalized models and efficient algorithms through structured state space duality", v:"arXiv:2405.21060", doi:"10.48550/arXiv.2405.21060"}
+  ]}
+ ]},
+
+ {part:"VII", roman:"VII", ring:7, title:"Hybrid Quantum-Classical AI — The NISQ Era", chapters:[
+  {n:30, name:"Hybrid Quantum-Classical AI", listing:"30.1 — QAOA circuit and optimisation loop", refs:[
+   {a:"McClean, J. R., Romero, J., Babbush, R., & Aspuru-Guzik, A.", y:2016, t:"The theory of variational hybrid quantum-classical algorithms", v:"New Journal of Physics, 18, 023023", doi:"10.1088/1367-2630/18/2/023023", f:S|C, why:"The parameterised-circuit / classical-optimiser loop structure of the listing."},
+   {a:"Preskill, J.", y:2018, t:"Quantum computing in the NISQ era and beyond", v:"Quantum, 2, 79", doi:"10.22331/q-2018-08-06-79", f:S},
+   {a:"Cerezo, M., et al.", y:2021, t:"Variational quantum algorithms", v:"Nature Reviews Physics, 3, 625–644", doi:"10.1038/s42254-021-00348-9", f:S},
+   {a:"Benedetti, M., Lloyd, E., Sack, S., & Fiorentini, M.", y:2019, t:"Parameterized quantum circuits as machine learning models", v:"Quantum Science and Technology, 4(4), 043001", doi:"10.1088/2058-9565/ab4eb5"},
+   {a:"Bergholm, V., et al.", y:2018, t:"PennyLane: Automatic differentiation of hybrid quantum-classical computations", v:"arXiv:1811.04968", doi:"10.48550/arXiv.1811.04968", f:C, why:"The framework the chapter's hybrid circuits are differentiated with."}
+  ]}
+ ]},
+
+ {part:"VIII", roman:"VIII", ring:8, title:"Quantum AI — The Innermost Ring", chapters:[
+  {n:31, name:"Quantum AI", listing:"Quantum kernel SVM vs classical SVM", refs:[
+   {a:"Havlíček, V., et al.", y:2019, t:"Supervised learning with quantum-enhanced feature spaces", v:"Nature, 567(7747), 209–212", doi:"10.1038/s41586-019-0980-2", f:S|C, why:"The quantum kernel estimator the chapter's circuit builds and compares to a classical SVM."},
+   {a:"Schuld, M., & Killoran, N.", y:2019, t:"Quantum machine learning in feature Hilbert spaces", v:"Physical Review Letters, 122, 040504", doi:"10.1103/PhysRevLett.122.040504", f:S|C, why:"The feature-map framing of the same kernel construction."},
+   {a:"Biamonte, J., et al.", y:2017, t:"Quantum machine learning", v:"Nature, 549(7671), 195–202", doi:"10.1038/nature23474", f:S},
+   {a:"McClean, J. R., Boixo, S., Smelyanskiy, V. N., Babbush, R., & Neven, H.", y:2018, t:"Barren plateaus in quantum neural network training landscapes", v:"Nature Communications, 9, 4812", doi:"10.1038/s41467-018-07090-z", f:S},
+   {a:"Huang, H.-Y., et al.", y:2021, t:"Power of data in quantum machine learning", v:"Nature Communications, 12, 2631", doi:"10.1038/s41467-021-22539-9", f:S, why:"Already cited in-text in this chapter; this is the matching full reference."}
+  ]},
+  {n:32, name:"QAOA — Quantum Approximate Optimization", listing:"QAOA cost and mixer layers", refs:[
+   {a:"Farhi, E., Goldstone, J., & Gutmann, S.", y:2014, t:"A quantum approximate optimization algorithm", v:"arXiv:1411.4028", doi:"10.48550/arXiv.1411.4028", f:S|C, why:"The alternating cost/mixer ansatz the chapter's circuit implements."},
+   {a:"Lucas, A.", y:2014, t:"Ising formulations of many NP problems", v:"Frontiers in Physics, 2, 5", doi:"10.3389/fphy.2014.00005", f:S|C, why:"How the combinatorial problem is mapped to the cost Hamiltonian."},
+   {a:"Zhou, L., Wang, S.-T., Choi, S., Pichler, H., & Lukin, M. D.", y:2020, t:"Quantum approximate optimization algorithm: Performance, mechanism, and implementation on near-term devices", v:"Physical Review X, 10, 021067", doi:"10.1103/PhysRevX.10.021067", f:S},
+   {a:"Harrigan, M. P., et al.", y:2021, t:"Quantum approximate optimization of non-planar graph problems on a planar superconducting processor", v:"Nature Physics, 17, 332–336", doi:"10.1038/s41567-020-01105-y"}
+  ]},
+  {n:33, name:"VQE — The Variational Quantum Eigensolver", listing:"VQE with Hartree-Fock reference state", refs:[
+   {a:"Peruzzo, A., et al.", y:2014, t:"A variational eigenvalue solver on a photonic quantum processor", v:"Nature Communications, 5, 4213", doi:"10.1038/ncomms5213", f:S|C, why:"Already cited in-text; the algorithm the chapter's code runs."},
+   {a:"Kandala, A., et al.", y:2017, t:"Hardware-efficient variational quantum eigensolver for small molecules and quantum magnets", v:"Nature, 549(7671), 242–246", doi:"10.1038/nature23879", f:S|C, why:"The hardware-efficient ansatz layered on the Hartree-Fock reference state."},
+   {a:"Grimsley, H. R., Economou, S. E., Barnes, E., & Mayhall, N. J.", y:2019, t:"An adaptive variational algorithm for exact molecular simulations on a quantum computer", v:"Nature Communications, 10, 3007", doi:"10.1038/s41467-019-10988-2", f:S},
+   {a:"McArdle, S., Endo, S., Aspuru-Guzik, A., Benjamin, S. C., & Yuan, X.", y:2020, t:"Quantum computational chemistry", v:"Reviews of Modern Physics, 92, 015003", doi:"10.1103/RevModPhys.92.015003"},
+   {a:"Tilly, J., et al.", y:2022, t:"The variational quantum eigensolver: A review of methods and best practices", v:"Physics Reports, 986, 1–128", doi:"10.1016/j.physrep.2022.08.003"}
+  ]}
+ ]}
+];
+
+/* ---- render ---- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function ringGlyph(depth){
+  let c='';
+  for(let i=1;i<=8;i++){
+    const r=3+i*3.1, on=i===depth;
+    c+='<circle cx="30" cy="30" r="'+r+'" fill="none" stroke="'+(on?'#e8b85a':'rgba(255,255,255,.22)')+'" stroke-width="'+(on?2.4:0.9)+'"/>';
+  }
+  return '<svg class="rings" width="54" height="54" viewBox="0 0 60 60" aria-hidden="true">'+c+'</svg>';
+}
+
+let total=0, nsem=0, ncode=0, ndoi=0;
+
+document.getElementById('out').innerHTML = DATA.map(p => {
+  const chapters = p.chapters.map(ch => {
+    const refs = ch.refs.map((r,i) => {
+      total++;
+      const f = r.f||0;
+      const sem = !!(f&S), cd = !!(f&C), nw = !!(f&N);
+      if(sem) nsem++; if(cd) ncode++; if(r.doi) ndoi++;
+      const ids = r.doi
+        ? '<span>DOI <a href="https://doi.org/'+esc(r.doi)+'" target="_blank" rel="noopener">'+esc(r.doi)+'</a></span>'
+        : '<span class="nodoi">no DOI</span><span><a href="'+esc(r.url)+'" target="_blank" rel="noopener">publisher record</a></span>';
+      const tags = [
+        sem?'<span class="tag sem">Seminal</span>':'',
+        cd ?'<span class="tag cd">In code</span>':'',
+        nw ?'<span class="tag new">Added</span>':''
+      ].join('');
+      const search = (r.a+' '+r.t+' '+r.v+' '+r.y).toLowerCase();
+      return '<li class="ref '+(sem?'is-seminal':'')+' '+(cd?'is-code':'')+'" data-s="'+(sem?1:0)+'" data-c="'+(cd?1:0)+'" data-q="'+esc(search)+'">'
+        + '<span class="idx">'+(i+1)+'</span>'
+        + '<div>'
+        + '<p class="cite"><span class="au">'+esc(r.a)+'</span> ('+r.y+'). <span class="ti">'+esc(r.t)+'</span>. <span class="ve">'+esc(r.v)+'</span>.</p>'
+        + '<p class="ids">'+ids+'</p>'
+        + (tags?'<p class="tags">'+tags+'</p>':'')
+        + (r.why?'<p class="why">'+(cd?'<b>Code &middot;</b> ':'')+esc(r.why)+'</p>':'')
+        + '</div></li>';
+    }).join('');
+    return '<article class="chapter">'
+      + '<header class="chapter-head">'
+      + '<span class="chnum">Ch. '+ch.n+'</span>'
+      + '<h3 class="chname">'+esc(ch.name)+'</h3>'
+      + (ch.listing?'<span class="listing">Listing '+esc(ch.listing)+'</span>':'')
+      + '</header>'
+      + '<ol class="refs">'+refs+'</ol></article>';
+  }).join('');
+
+  return '<section class="part">'
+    + '<div class="part-head">'
+    + ringGlyph(p.ring)
+    + '<div><p class="part-label">Part '+p.roman+' &middot; Ring '+p.ring+' of 8</p>'
+    + '<h2 class="part-title">'+esc(p.title)+'</h2></div>'
+    + '</div>' + chapters + '</section>';
+}).join('');
+
+document.getElementById('t-total').textContent = total;
+document.getElementById('t-sem').textContent = nsem;
+document.getElementById('t-code').textContent = ncode;
+document.getElementById('t-doi').textContent = ndoi;
+document.getElementById('f-total').textContent = total;
+
+/* ---- filtering ---- */
+const fSem=document.getElementById('f-sem'), fCode=document.getElementById('f-code'),
+      fClear=document.getElementById('f-clear'), q=document.getElementById('q'),
+      countEl=document.getElementById('count');
+
+function apply(){
+  const wantS = fSem.getAttribute('aria-pressed')==='true';
+  const wantC = fCode.getAttribute('aria-pressed')==='true';
+  const term  = q.value.trim().toLowerCase();
+  let shown=0;
+
+  document.querySelectorAll('li.ref').forEach(function(li){
+    const ok = (!wantS || li.dataset.s==='1')
+            && (!wantC || li.dataset.c==='1')
+            && (!term  || li.dataset.q.indexOf(term)!==-1);
+    li.classList.toggle('hide', !ok);
+    if(ok) shown++;
+  });
+  document.querySelectorAll('.chapter').forEach(function(ch){
+    ch.classList.toggle('hide', !ch.querySelector('li.ref:not(.hide)'));
+  });
+  document.querySelectorAll('.part').forEach(function(pt){
+    pt.classList.toggle('hide', !pt.querySelector('.chapter:not(.hide)'));
+  });
+  countEl.textContent = shown===total ? total+' references' : shown+' of '+total+' shown';
+}
+
+[fSem,fCode].forEach(function(b){
+  b.addEventListener('click',function(){
+    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true');
+    apply();
+  });
+});
+fClear.addEventListener('click',function(){
+  fSem.setAttribute('aria-pressed','false');
+  fCode.setAttribute('aria-pressed','false');
+  q.value=''; apply();
+});
+q.addEventListener('input',apply);
+apply();
+</script>
+</body>
+</html>
