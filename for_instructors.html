@@ -140,11 +140,35 @@
       font-size: 1.1rem;
       margin-bottom: .4rem;
     }
+    .section-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: .85rem;
+      padding: .5rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1.2px solid var(--gold);
+      margin-top: 1rem;
+      transition: background .2s, color .2s, transform .15s;
+    }
+    .section-action-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-1px);
+    }
     footer {
       text-align: center;
       padding: 2rem;
       font-size: .8rem;
       color: var(--muted);
+    }
+    @media (max-width: 680px) {
+      nav ul { gap: 1rem; }
+      .card { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -153,7 +177,6 @@
   <a href="applied-ai-universe-coding-guide.html" class="brand">Eric Yocam</a>
   <ul>
     <li><a href="applied-ai-universe-coding-guide.html">Series Hub</a></li>
-    <li><a href="for_instructors.html" style="color:var(--gold-light);">For Instructors</a></li>
     <li><a href="book1.html">Book 1</a></li>
     <li><a href="book2.html">Book 2</a></li>
     <li><a href="book3.html">Book 3</a></li>
@@ -162,58 +185,80 @@
 
 <div class="page-wrapper">
   <div class="breadcrumb">
-    <a href="applied-ai-universe-coding-guide.html">The Adaptive AI Codex Series</a> &rsaquo; For Instructors
+    <a href="applied-ai-universe-coding-guide.html">The Adaptive AI Codex Series</a> &rsaquo; Instructor Resource Hub
   </div>
 
+  <!-- HEADER CARD -->
   <div class="card">
     <span style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;padding:.2rem .7rem;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;">Faculty Adoption Guide</span>
-    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:.8rem;">Supplemental Curriculum Integration</h1>
+    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:.8rem;">Instructor Resource Hub &amp; Course Integration Guide</h1>
     <p style="font-size:1.02rem;color:var(--text);line-height:1.75;">
-      The Adaptive AI Codex Series provides a complete, code-first pedagogical framework designed for undergraduate and graduate courses in Artificial Intelligence, Machine Learning, and Cybersecurity. By utilizing a unified model universe across all three texts, instructors can seamlessly transition students from system construction to adversarial analysis and defensive hardening.
+      Designed explicitly for educators seeking to elevate undergraduate and graduate study, this resource guide outlines how to seamlessly weave the Adaptive AI Codex Series into your active curriculum. By providing complete code artifacts, transparent metrics, and security-first implementations, these materials bridge theoretical artificial intelligence with rigorous engineering practices.
     </p>
     <div class="highlight-box">
-      <p><strong>Institutional Adoption Note:</strong> These texts and their accompanying code repositories are utilized as supplemental learning resources within programs at institutions such as <strong>Dakota State University's Beacom College of Computer &amp; Cyber Sciences</strong>, supporting hands-on coursework in secure AI development.</p>
+      <p><strong>Institutional Deployment:</strong> These exact volumes and companion code repositories are actively deployed as supplemental resources across programs at institutions such as <strong>Dakota State University's Beacom College of Computer &amp; Cyber Sciences</strong>, providing robust training grounds for modern security professionals.</p>
     </div>
+    <a href="https://github.com/ericyoc" target="_blank" rel="noopener" class="section-action-btn">
+      <i class="fa-brands fa-github"></i> Access Instructor Repositories
+    </a>
   </div>
 
+  <!-- PEDAGOGICAL ARCHITECTURE -->
   <div class="card">
-    <h2 class="card-title">The Three-Pass Pedagogical Framework</h2>
-    <p>Traditional AI and security curricula often separate model building from security considerations, treating vulnerabilities as an afterthought. This series integrates security directly into the lifecycle of artificial intelligence through a continuous three-pass methodology:</p>
+    <h2 class="card-title">Pedagogical Philosophy &amp; Three-Pass Framework</h2>
+    <p>Standard technical curricula often examine model construction in isolation, leaving vulnerabilities and defenses as an afterthought. This series implements a unified model lifecycle across three rigorous passes:</p>
     <ul class="features-list">
-      <li><i class="fa-solid fa-hammer"></i><span><strong>Pass 1: Construction (Book 1)</strong> — Students build functional models from the ground up, establishing baseline performance metrics across classical machine learning, neural networks, deep learning, generative AI, and quantum-classical hybrid circuits.</span></li>
-      <li><i class="fa-solid fa-crosshairs"></i><span><strong>Pass 2: Adversarial Stress-Testing (Book 2)</strong> — Students execute real-world attack code against the exact models built in Book 1, discovering systemic failure modes, data poisoning vulnerabilities, and evasion techniques empirically.</span></li>
-      <li><i class="fa-solid fa-shield-halved"></i><span><strong>Pass 3: Defensive Hardening &amp; Measurement (Book 3)</strong> — Students implement defense mechanisms and evaluate their resilience against an adaptive attacker, engaging directly with null findings, negative results, and empirical survival metrics.</span></li>
+      <li><i class="fa-solid fa-hammer"></i><span><strong>Pass 1: Construction (Book 1)</strong> — Ground-up system development establishing foundational performance metrics across traditional machine learning, neural layers, and quantum circuits.</span></li>
+      <li><i class="fa-solid fa-crosshairs"></i><span><strong>Pass 2: Adversarial Stress-Testing (Book 2)</strong> — Empirical attack execution against the identical models built in Pass 1 to expose practical failure vectors.</span></li>
+      <li><i class="fa-solid fa-shield-halved"></i><span><strong>Pass 3: Defensive Hardening (Book 3)</strong> — Implementation and validation of safety architectures measured strictly against adaptive adversaries.</span></li>
     </ul>
+    <a href="book1.html" class="section-action-btn">
+      <i class="fa-solid fa-book-open"></i> Review Book 1 Syllabus
+    </a>
   </div>
 
+  <!-- USING THE BOOKS SUPPLEMENTALLY -->
   <div class="card">
-    <h2 class="card-title">Supplemental Course Augmentation by Book</h2>
+    <h2 class="card-title">Syllabus Augmentation &amp; Modular Integration</h2>
+    <p>Instructors can easily map individual texts into existing computer science, data science, or cybersecurity courses:</p>
+    
     <div class="book-callout">
-      <h3>Book 1: Building Foundations &amp; Expanding Horizons</h3>
-      <p><strong>Ideal For:</strong> Introduction to AI, Machine Learning, or Applied Python Development courses.</p>
-      <p><strong>Pedagogical Value:</strong> Moves beyond abstract theory by having students construct over thirty working systems using accompanying Google Colab notebooks.</p>
+      <h3>Book 1: Foundations &amp; System Building</h3>
+      <p><strong>Course Fit:</strong> Applied Machine Learning or Python Programming.</p>
+      <p><strong>Instructor Focus:</strong> Move students past black-box APIs by constructing over thirty working architectures directly inside managed Jupyter/Colab environments.</p>
     </div>
+
     <div class="book-callout">
-      <h3>Book 2: Empirical Adversarial Attacks</h3>
-      <p><strong>Ideal For:</strong> Advanced Machine Learning, AI Ethics, or Introductory Cybersecurity modules.</p>
-      <p><strong>Pedagogical Value:</strong> Teaches students that operational AI is fragile by running reproducible code that attacks cached weights from Book 1.</p>
+      <h3>Book 2: Adversarial Vulnerabilities &amp; Attacks</h3>
+      <p><strong>Course Fit:</strong> AI Ethics or Intro Cybersecurity Modules.</p>
+      <p><strong>Instructor Focus:</strong> Teach students model fragility by executing reproducible attack scripts against cached weights from Book 1.</p>
     </div>
+
     <div class="book-callout">
-      <h3>Book 3: Defensive Hardening &amp; Empirical Measurement</h3>
-      <p><strong>Ideal For:</strong> Secure Software Engineering, Advanced AI Security, and Graduate Seminars.</p>
-      <p><strong>Pedagogical Value:</strong> Instills scientific rigor by measuring survivability against an adaptive attacker, exposing students to real-world security tradeoffs.</p>
+      <h3>Book 3: Defensive Engineering &amp; Measurement</h3>
+      <p><strong>Course Fit:</strong> Secure Software Engineering or Graduate Seminars.</p>
+      <p><strong>Instructor Focus:</strong> Instill analytical discipline by evaluating defense survivability rates and confronting real-world null findings.</p>
     </div>
+    <a href="book3.html" class="section-action-btn">
+      <i class="fa-solid fa-shield-halved"></i> Explore Defense Architectures
+    </a>
   </div>
 
+  <!-- ASSIGNMENTS & INSIGHTS -->
   <div class="card">
-    <h2 class="card-title">Insights, Reflections &amp; Stretch Assignments</h2>
+    <h2 class="card-title">Reflections, Stretch Assignments &amp; Grading Artifacts</h2>
+    <p>Every chapter is built to stimulate active classroom engagement through structured academic features:</p>
     <ul class="features-list">
-      <li><i class="fa-solid fa-lightbulb"></i><span><strong>Analytical Insights:</strong> Empirically derived findings challenging assumptions about neural network robustness.</span></li>
-      <li><i class="fa-solid fa-comment-dots"></i><span><strong>Critical Reflections:</strong> Prompted analysis questions designed for seminar discussions regarding ethical deployment and AI governance.</span></li>
-      <li><i class="fa-solid fa-rocket"></i><span><strong>Stretch Assignments:</strong> Advanced coding challenges prompting students to modify hyper-parameters or engineer novel defense harnesses.</span></li>
-      <li><i class="fa-solid fa-laptop-code"></i><span><strong>Open Artifacts:</strong> Fully transparent Hugging Face repositories and GitHub codebases for easy inspection and grading.</span></li>
+      <li><i class="fa-solid fa-lightbulb"></i><span><strong>Analytical Insights:</strong> Data-driven findings challenging standard assumptions regarding model robustness.</span></li>
+      <li><i class="fa-solid fa-comment-dots"></i><span><strong>Critical Reflections:</strong> Thought-provoking prompts ideal for guided seminar discussions or written reaction papers.</span></li>
+      <li><i class="fa-solid fa-rocket"></i><span><strong>Stretch Assignments:</strong> Advanced coding challenges prompting students to modify parameters or engineer novel defenses.</span></li>
+      <li><i class="fa-solid fa-laptop-code"></i><span><strong>Open Verification:</strong> Fully accessible Hugging Face and GitHub codebases enabling straightforward lab grading.</span></li>
     </ul>
+    <a href="https://huggingface.co/ericyoc" target="_blank" rel="noopener" class="section-action-btn">
+      <i class="fa-regular fa-message"></i> View Hugging Face Model Artifacts
+    </a>
   </div>
+
 </div>
 
 <footer>
