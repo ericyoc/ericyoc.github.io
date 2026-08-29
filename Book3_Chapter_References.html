@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter References | The Applied AI Universe Coding Guide: Adversarial Defenses | Eric Yocam</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="book"/>
+  <meta property="og:title"       content="Chapter References — The Applied AI Universe Coding Guide: Adversarial Defenses"/>
+  <meta property="og:description" content="Chapter-by-chapter references for Book 3, Adversarial Defenses, with seminal papers and the defenses each chapter's code implements. By Eric Yocam PhD, DBA."/>
+  <meta property="og:url"         content="https://ericyocam.com/Book3_Chapter_References.html"/>
+  <meta property="og:image"       content="book3_cover.jpg"/>
+  <meta name="description"        content="Chapter-by-chapter references for Book 3, Adversarial Defenses — 160 sources across 37 chapters, with seminal works and code implementations marked. By Eric Yocam PhD, DBA."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+      --seminal: #8a6100;
+      --seminal-bg: #fbf3de;
+      --seminal-edge: #e4ce93;
+      --code: #155e45;
+      --code-bg: #e6f2ec;
+      --code-edge: #a9cfbf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── PAGE ── */
+    .page-wrapper { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+
+    .breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── HERO ── */
+    .ref-hero {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.09);
+      padding: 2.2rem 2rem;
+      margin-bottom: 1.6rem;
+    }
+    .ref-eyebrow {
+      font-size: .78rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .75rem;
+    }
+    .ref-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .3rem;
+    }
+    .ref-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+    .tally { display: flex; flex-wrap: wrap; border-top: 1px solid var(--border); }
+    .tally div { flex: 1 1 120px; padding: 1rem 1.2rem .9rem; border-right: 1px solid var(--border); }
+    .tally div:last-child { border-right: 0; }
+    .tally b {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .tally span {
+      display: block;
+      margin-top: .35rem;
+      font-size: .74rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p { font-size: .95rem; color: var(--text); line-height: 1.75; margin-bottom: .8rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── CONTROLS ── */
+    .controls {
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+      background: rgba(244,246,249,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      margin: 0 -1.5rem 1.6rem;
+      padding: .8rem 1.5rem;
+    }
+    .controls-inner { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+    .chip {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .45rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .chip:hover { border-color: var(--gold); color: var(--navy); }
+    .chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .chip.sem[aria-pressed="true"] { background: var(--seminal); border-color: var(--seminal); color: var(--white); }
+    .chip.cd[aria-pressed="true"] { background: var(--code); border-color: var(--code); color: var(--white); }
+    #q {
+      flex: 1 1 200px;
+      min-width: 160px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .9rem;
+      padding: .45rem .9rem;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: var(--white);
+      color: var(--text);
+    }
+    #q:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+    #count { font-size: .8rem; color: var(--muted); margin-left: auto; font-weight: 600; }
+
+    /* ── LEGEND ── */
+    .legend-list { list-style: none; margin: .5rem 0 0; }
+    .legend-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .93rem;
+    }
+    .legend-list li:last-child { border-bottom: none; }
+
+    /* ── PARTS ── */
+    .part { margin-bottom: 1.6rem; }
+    .part-head {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a6e 100%);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.15);
+    }
+    .rings { flex: 0 0 auto; }
+    .part-label {
+      font-size: .74rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: .15rem;
+    }
+    .part-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* ── CHAPTERS ── */
+    .chapter {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .chapter-head {
+      display: flex;
+      align-items: baseline;
+      gap: .8rem;
+      flex-wrap: wrap;
+      padding: 1.1rem 2rem .7rem;
+      border-bottom: 2px solid var(--gold);
+      margin: 0 0 .3rem;
+    }
+    .chnum {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--gold);
+      text-transform: uppercase;
+      flex: 0 0 auto;
+    }
+    .chname {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex: 1 1 auto;
+      line-height: 1.3;
+    }
+    .listing {
+      font-size: .76rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: .18rem .7rem;
+      white-space: nowrap;
+    }
+    ol.refs { list-style: none; margin: 0; padding: 0; }
+    li.ref {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0 .8rem;
+      padding: .85rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    li.ref:last-child { border-bottom: 0; }
+    li.ref.is-seminal { box-shadow: inset 4px 0 0 var(--seminal-edge); }
+    li.ref.is-code { box-shadow: inset 4px 0 0 var(--code-edge); }
+    li.ref.is-seminal.is-code {
+      box-shadow: inset 4px 0 0 var(--seminal-edge), inset 8px 0 0 var(--code-edge);
+    }
+    .idx { font-size: .82rem; color: var(--muted); padding-top: .1rem; }
+    .cite { font-size: .93rem; line-height: 1.6; }
+    .cite .au { font-weight: 600; color: var(--navy); }
+    .cite .ti { font-style: italic; }
+    .cite .ve { color: var(--muted); }
+    .ids { margin-top: .3rem; font-size: .82rem; display: flex; flex-wrap: wrap; gap: .2rem 1rem; }
+    .ids a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .ids a:hover { text-decoration: underline; }
+    .ids a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .ids .nodoi { color: var(--muted); }
+    .tags { margin-top: .45rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+    .tag {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .18rem .6rem;
+      border-radius: 40px;
+      border: 1px solid;
+    }
+    .tag.sem { color: var(--seminal); background: var(--seminal-bg); border-color: var(--seminal-edge); }
+    .tag.cd  { color: var(--code); background: var(--code-bg); border-color: var(--code-edge); }
+    .tag.new { color: var(--muted); background: var(--light); border-color: var(--border); }
+    .why { margin-top: .35rem; font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .why b { color: var(--code); font-weight: 600; }
+    li.ref.hide, .chapter.hide, .part.hide { display: none; }
+
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--muted); }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      nav ul { gap: 1rem; }
+      .ref-title { font-size: 1.35rem; }
+      .card, .ref-hero { padding: 1.4rem 1.2rem; }
+      .chapter-head, li.ref { padding-left: 1.2rem; padding-right: 1.2rem; }
+      li.ref { grid-template-columns: 1fr; gap: 0; }
+      .idx { display: none; }
+      #count { margin-left: 0; width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    @media print {
+      nav, .controls { display: none; }
+      body { background: #fff; }
+      .chapter { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="book3.html">Book 3</a></li>
+    <li><a href="https://github.com/ericyoc/the_applied_ai_universe_adversarial_defenses" target="_blank">GitHub &#8599;</a></li>
+    <li><a href="https://www.amazon.com/dp/B0H3JF2HZP" target="_blank">Now on Amazon &#8599;</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="index.html">Eric Yocam</a> &rsaquo; <a href="applied-ai-universe-coding-guide.html">The Adaptive AI Codex Series</a> &rsaquo; <a href="book3.html">Book 3</a> &rsaquo; Chapter References
+  </div>
+
+  <div class="ref-hero">
+    <p class="ref-eyebrow">The Applied AI Universe Coding Guide: Adversarial Defenses</p>
+    <h1 class="ref-title">Chapter References</h1>
+    <p class="ref-subtitle">Sources for every chapter, with the seminal papers and the defenses each chapter's code implements marked separately.</p>
+    <div class="tally">
+      <div><b id="t-total">&mdash;</b><span>References</span></div>
+      <div><b>37</b><span>Chapters</span></div>
+      <div><b id="t-sem">&mdash;</b><span>Seminal</span></div>
+      <div><b id="t-code">&mdash;</b><span>In code</span></div>
+      <div><b id="t-doi">&mdash;</b><span>With DOI</span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-inner">
+      <button class="chip sem" id="f-sem" aria-pressed="false">Seminal only</button>
+      <button class="chip cd" id="f-code" aria-pressed="false">Code-backed only</button>
+      <button class="chip" id="f-clear">Reset</button>
+      <input id="q" type="search" placeholder="Filter by author, title, venue&hellip;" aria-label="Filter by author, title or venue">
+      <span id="count"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="card-title">How to Read This List</h2>
+    <ul class="legend-list">
+      <li><i class="fa-solid fa-star" style="color:var(--seminal);margin-top:.3rem;"></i><span><strong>Seminal</strong> &mdash; the originating paper for the idea: the work the defense or the model being defended is named after, or first appeared in.</span></li>
+      <li><i class="fa-solid fa-code" style="color:var(--code);margin-top:.3rem;"></i><span><strong>In code</strong> &mdash; the chapter's code listing implements or directly depends on this work. Each note names the listing.</span></li>
+      <li><i class="fa-solid fa-crosshairs" style="color:var(--muted);margin-top:.3rem;"></i><span><strong>Victim</strong> &mdash; most chapters reconstruct a Book 1 model as the thing being defended, so its originating paper is marked <em>In code</em> too.</span></li>
+    </ul>
+  </div>
+
+  <div id="out"></div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Eric Yocam PhD, DBA &nbsp;&middot;&nbsp; <span id="f-total">160</span> references across 37 chapters</p>
+  <p style="margin-top:.4rem;">
+    <a href="book3.html" style="color:var(--gold);text-decoration:none;">Book 3</a> &nbsp;&middot;&nbsp;
+    <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;&middot;&nbsp;
+    <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+const S=1, C=2, N=4;
+
+const DATA=[
+ {part:"I", roman:"I", ring:1, title:"Foundations of Adversarial Defense", chapters:[
+  {n:1, name:"The Defensive Mindset & Defense Models", listing:null, refs:[
+   {a:"Biggio, B., & Roli, F.", y:2018, t:"Wild patterns: Ten years after the rise of adversarial machine learning", v:"Pattern Recognition, 84, 317\u2013331", doi:"10.1016/j.patcog.2018.07.023", f:S},
+   {a:"Papernot, N., McDaniel, P., Sinha, A., & Wellman, M. P.", y:2018, t:"SoK: Security and privacy in machine learning", v:"IEEE European Symposium on Security and Privacy, 399\u2013414", doi:"10.1109/EuroSP.2018.00035", f:S},
+   {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S},
+   {a:"Barreno, M., Nelson, B., Sears, R., Joseph, A. D., & Tygar, J. D.", y:2006, t:"Can machine learning be secure?", v:"Proceedings of ASIACCS '06, 16\u201325", doi:"10.1145/1128817.1128824", f:S},
+  ]},
+  {n:2, name:"A Taxonomy of Defenses & Evaluation Budgets", listing:null, refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S},
+   {a:"Cohen, J. M., Rosenfeld, E., & Kolter, J. Z.", y:2019, t:"Certified adversarial robustness via randomized smoothing", v:"arXiv:1902.02918", doi:"10.48550/arXiv.1902.02918", f:S},
+   {a:"Wong, E., & Kolter, J. Z.", y:2018, t:"Provable defenses against adversarial examples via the convex outer adversarial polytope", v:"arXiv:1711.00851", doi:"10.48550/arXiv.1711.00851", f:S},
+   {a:"Papernot, N., McDaniel, P., Wu, X., Jha, S., & Swami, A.", y:2016, t:"Distillation as a defense to adversarial perturbations against deep neural networks", v:"IEEE Symposium on Security and Privacy, 582\u2013597", doi:"10.1109/SP.2016.41", f:S},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+  ]},
+  {n:3, name:"The Defense Measurement Harness & Adaptive-Check Protocol", listing:null, refs:[
+   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S, why:"The adaptive-attack discipline the chapter's adaptive-check protocol formalises."},
+   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S, why:"Why an unbroken defense must be re-tested with a gradient-aware attack."},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S},
+  ]},
+ ]},
+ {part:"II", roman:"II", ring:2, title:"Defending Symbolic AI \u2014 The Outermost Ring", chapters:[
+  {n:4, name:"Defending Planning & Scheduling", listing:"4.1\u20134.2 \u2014 A* victim, SHA-256 map-integrity verification", refs:[
+   {a:"National Institute of Standards and Technology", y:2015, t:"Secure Hash Standard (SHS)", v:"FIPS PUB 180-4", doi:"10.6028/NIST.FIPS.180-4", f:S|C, why:"SHA-256, the hash Listing 4.2 uses to verify and restore the map."},
+   {a:"Merkle, R. C.", y:1990, t:"A certified digital signature", v:"Advances in Cryptology \u2014 CRYPTO '89, LNCS 435, 218\u2013238", doi:"10.1007/0-387-34805-0_21", f:S},
+   {a:"Hart, P. E., Nilsson, N. J., & Raphael, B.", y:1968, t:"A formal basis for the heuristic determination of minimum cost paths", v:"IEEE Trans. Systems Science and Cybernetics, 4(2), 100\u2013107", doi:"10.1109/TSSC.1968.300136", f:S|C, why:"The A* planner reconstructed unchanged as the victim in Listing 4.1."},
+   {a:"Souppaya, M., Scarfone, K., & Dodson, D.", y:2022, t:"Secure Software Development Framework (SSDF) Version 1.1", v:"NIST SP 800-218", doi:"10.6028/NIST.SP.800-218", f:S, why:"Integrity verification of a trusted artifact before use \u2014 the pattern the defense applies."},
+  ]},
+  {n:5, name:"Defending Expert Systems", listing:"5.1\u20135.2 \u2014 Rule-base registry, rule-provenance verification", refs:[
+   {a:"Souppaya, M., Scarfone, K., & Dodson, D.", y:2022, t:"Secure Software Development Framework (SSDF) Version 1.1", v:"NIST SP 800-218", doi:"10.6028/NIST.SP.800-218", f:S|C, why:"Provenance verification of a trusted registry \u2014 the control Listing 5.2 implements."},
+   {a:"Davis, R., Buchanan, B., & Shortliffe, E.", y:1977, t:"Production rules as a representation for a knowledge-based consultation program", v:"Artificial Intelligence, 8(1), 15\u201345", doi:"10.1016/0004-3702(77)90003-0", f:S|C, why:"The rule-based expert system reconstructed as the victim, its rule base held as the trusted registry."},
+   {a:"National Institute of Standards and Technology", y:2015, t:"Secure Hash Standard (SHS)", v:"FIPS PUB 180-4", doi:"10.6028/NIST.FIPS.180-4", f:S|C, why:"The hash backing each rule's provenance record."},
+   {a:"Shortliffe, E. H., & Buchanan, B. G.", y:1975, t:"A model of inexact reasoning in medicine", v:"Mathematical Biosciences, 23(3\u20134), 351\u2013379", doi:"10.1016/0025-5564(75)90047-4", f:S},
+  ]},
+  {n:6, name:"Defending Fuzzy Logic", listing:"6.1\u20136.2 \u2014 Fuzzy controller victim, calibration clamping", refs:[
+   {a:"Mamdani, E. H., & Assilian, S.", y:1975, t:"An experiment in linguistic synthesis with a fuzzy logic controller", v:"International Journal of Man-Machine Studies, 7(1), 1\u201313", doi:"10.1016/S0020-7373(75)80002-2", f:S|C, why:"The Mamdani controller reconstructed as the victim to be defended in Listing 6.1."},
+   {a:"Zadeh, L. A.", y:1965, t:"Fuzzy sets", v:"Information and Control, 8(3), 338\u2013353", doi:"10.1016/S0019-9958(65)90241-X", f:S|C, why:"The membership functions Listing 6.2 clamps back to their calibrated ranges."},
+   {a:"Takagi, T., & Sugeno, M.", y:1985, t:"Fuzzy identification of systems and its applications to modeling and control", v:"IEEE Trans. Systems, Man, and Cybernetics, SMC-15(1), 116\u2013132", doi:"10.1109/TSMC.1985.6313399", f:S},
+   {a:"Jang, J.-S. R.", y:1993, t:"ANFIS: Adaptive-network-based fuzzy inference system", v:"IEEE Trans. Systems, Man, and Cybernetics, 23(3), 665\u2013685", doi:"10.1109/21.256541", f:S},
+  ]},
+ ]},
+ {part:"III", roman:"III", ring:3, title:"Defending Machine Learning", chapters:[
+  {n:7, name:"Defending the Feature Pipeline", listing:"7.1\u20137.2 \u2014 Random-forest victim, KNN label-consensus sanitization", refs:[
+   {a:"Paudice, A., Mu\u00f1oz-Gonz\u00e1lez, L., & Lupu, E. C.", y:2018, t:"Label sanitization against label flipping poisoning attacks", v:"arXiv:1803.00992", doi:"10.48550/arXiv.1803.00992", f:S|C, why:"KNN label consensus \u2014 precisely the sanitizer Listing 7.2 implements."},
+   {a:"Cretu, G. F., Stavrou, A., Locasto, M. E., Stolfo, S. J., & Keromytis, A. D.", y:2008, t:"Casting out demons: Sanitizing training data for anomaly sensors", v:"IEEE Symposium on Security and Privacy, 81\u201395", doi:"10.1109/SP.2008.11", f:S},
+   {a:"Steinhardt, J., Koh, P. W., & Liang, P.", y:2017, t:"Certified defenses for data poisoning attacks", v:"arXiv:1706.03691", doi:"10.48550/arXiv.1706.03691", f:S},
+   {a:"Breiman, L.", y:2001, t:"Random forests", v:"Machine Learning, 45(1), 5\u201332", doi:"10.1023/A:1010933404324", f:S|C, why:"The random-forest classifier reconstructed as the victim in Listing 7.1."},
+  ]},
+  {n:8, name:"Defending Supervised Classifiers", listing:"8.1\u20138.2 \u2014 Iris logistic regressor, adversarial training", refs:[
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"Adversarial training \u2014 augmenting the training set with crafted examples, as in Listing 8.2."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The min\u2013max formulation the adversarial training loop optimises."},
+   {a:"Zhang, H., Yu, Y., Jiao, J., Xing, E. P., El Ghaoui, L., & Jordan, M. I.", y:2019, t:"Theoretically principled trade-off between robustness and accuracy", v:"arXiv:1901.08573", doi:"10.48550/arXiv.1901.08573", f:S},
+   {a:"Fisher, R. A.", y:1936, t:"The use of multiple measurements in taxonomic problems", v:"Annals of Eugenics, 7(2), 179\u2013188", doi:"10.1111/j.1469-1809.1936.tb02137.x", f:S|C, why:"The Iris data behind the logistic-regression victim in Listing 8.1."},
+  ]},
+  {n:9, name:"Defending Unsupervised Learning", listing:"9.1\u20139.2 \u2014 K-Means victim, MCD outlier screening", refs:[
+   {a:"Rousseeuw, P. J., & Van Driessen, K.", y:1999, t:"A fast algorithm for the minimum covariance determinant estimator", v:"Technometrics, 41(3), 212\u2013223", doi:"10.1080/00401706.1999.10485670", f:S|C, why:"FAST-MCD \u2014 the robust screen Listing 9.2 runs before clustering."},
+   {a:"Rousseeuw, P. J.", y:1984, t:"Least median of squares regression", v:"Journal of the American Statistical Association, 79(388), 871\u2013880", doi:"10.1080/01621459.1984.10477105", f:S},
+   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S},
+   {a:"Lloyd, S. P.", y:1982, t:"Least squares quantization in PCM", v:"IEEE Trans. Information Theory, 28(2), 129\u2013137", doi:"10.1109/TIT.1982.1056489", f:S|C, why:"The K-Means clustering reconstructed as the victim in Listing 9.1."},
+  ]},
+  {n:10, name:"Defending Semi-Supervised Learning", listing:"10.1\u201310.2 \u2014 Label-spreading victim, neighbor-consensus seed screening", refs:[
+   {a:"Paudice, A., Mu\u00f1oz-Gonz\u00e1lez, L., & Lupu, E. C.", y:2018, t:"Label sanitization against label flipping poisoning attacks", v:"arXiv:1803.00992", doi:"10.48550/arXiv.1803.00992", f:S|C, why:"Neighbour-consensus screening, applied here to the poisoned seed labels."},
+   {a:"Carlini, N.", y:2021, t:"Poisoning the unlabeled dataset of semi-supervised learning", v:"USENIX Security Symposium, 1577\u20131592", url:"https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-poisoning", f:S},
+   {a:"Zhou, D., Bousquet, O., Lal, T. N., Weston, J., & Sch\u00f6lkopf, B.", y:2003, t:"Learning with local and global consistency", v:"Advances in Neural Information Processing Systems 16, 321\u2013328", url:"https://papers.nips.cc/paper/2506-learning-with-local-and-global-consistency", f:S|C, why:"The label-spreading pipeline reconstructed as the victim in Listing 10.1."},
+   {a:"van Engelen, J. E., & Hoos, H. H.", y:2020, t:"A survey on semi-supervised learning", v:"Machine Learning, 109(2), 373\u2013440", doi:"10.1007/s10994-019-05855-6"},
+  ]},
+  {n:11, name:"Defending Ensembles", listing:"11.1\u201311.2 \u2014 Soft-voting victim, query counting and diverse ensemble", refs:[
+   {a:"Kariyappa, S., & Qureshi, M. K.", y:2019, t:"Improving adversarial robustness of ensembles with diversity training", v:"arXiv:1901.09981", doi:"10.48550/arXiv.1901.09981", f:S|C, why:"Genuine ensemble diversity as a defense \u2014 what Listing 11.2 builds and measures."},
+   {a:"Juuti, M., Szyller, S., Marchal, S., & Asokan, N.", y:2019, t:"PRADA: Protecting against DNN model stealing attacks", v:"IEEE European Symposium on Security and Privacy, 512\u2013527", doi:"10.1109/EuroSP.2019.00044", f:S|C, why:"Query monitoring against black-box probing \u2014 the query counter in Listing 11.2."},
+   {a:"Tram\u00e8r, F., et al.", y:2017, t:"Ensemble adversarial training: Attacks and defenses", v:"arXiv:1705.07204", doi:"10.48550/arXiv.1705.07204", f:S},
+   {a:"Breiman, L.", y:1996, t:"Bagging predictors", v:"Machine Learning, 24(2), 123\u2013140", doi:"10.1007/BF00058655", f:S},
+  ]},
+ ]},
+ {part:"IV", roman:"IV", ring:4, title:"Defending Neural Networks \u2014 The Core Architecture", chapters:[
+  {n:12, name:"Defending Activation Functions", listing:"12.1\u201312.3 \u2014 MNIST MLP victim, shared adversarial-training harness", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The shared adversarial-training harness Listing 12.3 invokes on the MLP."},
+   {a:"Glorot, X., Bordes, A., & Bengio, Y.", y:2011, t:"Deep sparse rectifier neural networks", v:"AISTATS, PMLR 15, 315\u2013323", url:"https://proceedings.mlr.press/v15/glorot11a.html", f:S|C, why:"The ReLU activations that make the victim in Listing 12.1 differentiable end to end."},
+   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S, why:"Why swapping an activation to hide gradients is not a defense."},
+   {a:"Xiao, C., Zhong, P., & Zheng, C.", y:2020, t:"Enhancing adversarial defense by k-Winners-Take-All", v:"arXiv:1905.10510", doi:"10.48550/arXiv.1905.10510", f:S},
+  ]},
+  {n:13, name:"Defending the Perceptron", listing:"13.1\u201313.2 \u2014 From-scratch perceptron, max-margin retraining", refs:[
+   {a:"Cortes, C., & Vapnik, V.", y:1995, t:"Support-vector networks", v:"Machine Learning, 20(3), 273\u2013297", doi:"10.1007/BF00994018", f:S|C, why:"Max-margin separation \u2014 the retraining objective and the margins computed in Listing 13.2."},
+   {a:"Rosenblatt, F.", y:1958, t:"The perceptron: A probabilistic model for information storage and organization in the brain", v:"Psychological Review, 65(6), 386\u2013408", doi:"10.1037/h0042519", f:S|C, why:"The from-scratch perceptron reconstructed as the victim in Listing 13.1."},
+   {a:"Fawzi, A., Fawzi, O., & Frossard, P.", y:2018, t:"Analysis of classifiers' robustness to adversarial perturbations", v:"Machine Learning, 107(3), 481\u2013508", doi:"10.1007/s10994-017-5663-3", f:S},
+   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S|C, why:"The adaptive check run against the retrained margin."},
+  ]},
+  {n:14, name:"Defending Backpropagation", listing:"14.1\u201314.3 \u2014 Backprop MLP victim, shared harness", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The shared adversarial-training harness Listing 14.3 invokes on the backprop MLP."},
+   {a:"Rumelhart, D. E., Hinton, G. E., & Williams, R. J.", y:1986, t:"Learning representations by back-propagating errors", v:"Nature, 323(6088), 533\u2013536", doi:"10.1038/323533a0", f:S|C, why:"The backpropagation MLP reconstructed as the victim in Listing 14.1."},
+   {a:"Wong, E., Rice, L., & Kolter, J. Z.", y:2020, t:"Fast is better than free: Revisiting adversarial training", v:"arXiv:2001.03994", doi:"10.48550/arXiv.2001.03994", f:S},
+   {a:"Shafahi, A., et al.", y:2019, t:"Adversarial training for free!", v:"arXiv:1904.12843", doi:"10.48550/arXiv.1904.12843", f:S},
+  ]},
+  {n:15, name:"Defending CNNs & Sequence Models", listing:"15.1\u201315.3 \u2014 CNN and LSTM victims, harness and sequence-space variant", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The harness Listing 15.3 invokes on the CNN, with a sequence-space variant for the LSTM."},
+   {a:"LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P.", y:1998, t:"Gradient-based learning applied to document recognition", v:"Proceedings of the IEEE, 86(11), 2278\u20132324", doi:"10.1109/5.726791", f:S|C, why:"The MNIST CNN reconstructed as the first victim in Listing 15.1."},
+   {a:"Hochreiter, S., & Schmidhuber, J.", y:1997, t:"Long short-term memory", v:"Neural Computation, 9(8), 1735\u20131780", doi:"10.1162/neco.1997.9.8.1735", f:S|C, why:"The sine-forecasting LSTM reconstructed as the second victim."},
+   {a:"Zhang, H., Yu, Y., Jiao, J., Xing, E. P., El Ghaoui, L., & Jordan, M. I.", y:2019, t:"Theoretically principled trade-off between robustness and accuracy", v:"arXiv:1901.08573", doi:"10.48550/arXiv.1901.08573", f:S},
+  ]},
+  {n:16, name:"Defending Self-Organizing Maps", listing:"16.1\u201316.2 \u2014 Iris SOM victim, Gaussian data augmentation", refs:[
+   {a:"Bishop, C. M.", y:1995, t:"Training with noise is equivalent to Tikhonov regularization", v:"Neural Computation, 7(1), 108\u2013116", doi:"10.1162/neco.1995.7.1.108", f:S|C, why:"Why the Gaussian augmentation of Listing 16.2 regularizes the map."},
+   {a:"Kohonen, T.", y:1982, t:"Self-organized formation of topologically correct feature maps", v:"Biological Cybernetics, 43(1), 59\u201369", doi:"10.1007/BF00337288", f:S|C, why:"The Iris self-organizing map reconstructed as the victim in Listing 16.1."},
+   {a:"Cohen, J. M., Rosenfeld, E., & Kolter, J. Z.", y:2019, t:"Certified adversarial robustness via randomized smoothing", v:"arXiv:1902.02918", doi:"10.48550/arXiv.1902.02918", f:S, why:"Gaussian noise as the basis of a robustness guarantee."},
+   {a:"Vesanto, J., & Alhoniemi, E.", y:2000, t:"Clustering of the self-organizing map", v:"IEEE Trans. Neural Networks, 11(3), 586\u2013600", doi:"10.1109/72.846731", f:S},
+  ]},
+ ]},
+ {part:"V", roman:"V", ring:5, title:"Defending Deep Learning", chapters:[
+  {n:17, name:"Defending Deep Neural Networks", listing:"17.1\u201317.3 \u2014 CIFAR-10 dense net victim, shared harness", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The harness Listing 17.3 invokes on the CIFAR-10 dense net over flattened inputs."},
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S, why:"The evaluation the defended network must survive."},
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S},
+   {a:"Rice, L., Wong, E., & Kolter, J. Z.", y:2020, t:"Overfitting in adversarially robust deep learning", v:"arXiv:2002.11569", doi:"10.48550/arXiv.2002.11569", f:S},
+   {a:"Krizhevsky, A., Sutskever, I., & Hinton, G. E.", y:2017, t:"ImageNet classification with deep convolutional neural networks", v:"Communications of the ACM, 60(6), 84\u201390", doi:"10.1145/3065386", f:S},
+  ]},
+  {n:18, name:"Defending Transfer Learning", listing:"18.1\u201318.3 \u2014 MobileNetV2 victim, harness with frozen backbone", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The harness Listing 18.3 invokes with the backbone frozen."},
+   {a:"Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C.", y:2018, t:"MobileNetV2: Inverted residuals and linear bottlenecks", v:"CVPR 2018, 4510\u20134520", doi:"10.1109/CVPR.2018.00474", f:S|C, why:"The transfer model reconstructed as the victim in Listing 18.1."},
+   {a:"Liu, K., Dolan-Gavitt, B., & Garg, S.", y:2018, t:"Fine-pruning: Defending against backdooring attacks on deep neural networks", v:"RAID 2018, LNCS 11050, 273\u2013294", doi:"10.1007/978-3-030-00470-5_13", f:S},
+   {a:"Wang, B., et al.", y:2019, t:"Neural Cleanse: Identifying and mitigating backdoor attacks in neural networks", v:"IEEE Symposium on Security and Privacy, 707\u2013723", doi:"10.1109/SP.2019.00031", f:S},
+  ]},
+  {n:19, name:"Defending GANs", listing:"19.1\u201319.2 \u2014 GAN discriminator victim, DP-SGD and membership metric", refs:[
+   {a:"Abadi, M., et al.", y:2016, t:"Deep learning with differential privacy", v:"Proceedings of CCS '16, 308\u2013318", doi:"10.1145/2976749.2978318", f:S|C, why:"DP-SGD \u2014 the clipped, noised optimizer Listing 19.2 applies to the discriminator."},
+   {a:"Shokri, R., Stronati, M., Song, C., & Shmatikov, V.", y:2017, t:"Membership inference attacks against machine learning models", v:"IEEE Symposium on Security and Privacy, 3\u201318", doi:"10.1109/SP.2017.41", f:S|C, why:"The membership-inference metric the defense is measured against."},
+   {a:"Dwork, C., & Roth, A.", y:2014, t:"The algorithmic foundations of differential privacy", v:"Foundations and Trends in Theoretical Computer Science, 9(3\u20134), 211\u2013407", doi:"10.1561/0400000042", f:S},
+   {a:"Goodfellow, I., et al.", y:2014, t:"Generative adversarial nets", v:"arXiv:1406.2661", doi:"10.48550/arXiv.1406.2661", f:S|C, why:"The discriminator reconstructed as the victim in Listing 19.1."},
+  ]},
+  {n:20, name:"Defending Attention Mechanisms", listing:"20.1\u201320.2 \u2014 Attention block victim, randomized smoothing", refs:[
+   {a:"Cohen, J. M., Rosenfeld, E., & Kolter, J. Z.", y:2019, t:"Certified adversarial robustness via randomized smoothing", v:"arXiv:1902.02918", doi:"10.48550/arXiv.1902.02918", f:S|C, why:"Randomized smoothing \u2014 the certified defense Listing 20.2 applies to the attention map."},
+   {a:"Vaswani, A., et al.", y:2017, t:"Attention is all you need", v:"arXiv:1706.03762", doi:"10.48550/arXiv.1706.03762", f:S|C, why:"The scaled dot-product attention block reconstructed as the victim in Listing 20.1."},
+   {a:"Lecuyer, M., Atlidakis, V., Geambasu, R., Hsu, D., & Jana, S.", y:2019, t:"Certified robustness to adversarial examples with differential privacy", v:"IEEE Symposium on Security and Privacy, 656\u2013672", doi:"10.1109/SP.2019.00044", f:S},
+   {a:"Salman, H., et al.", y:2019, t:"Provably robust deep learning via adversarially trained smoothed classifiers", v:"arXiv:1906.04584", doi:"10.48550/arXiv.1906.04584", f:S},
+  ]},
+  {n:21, name:"Defending Dropout Networks", listing:"21.1\u201321.2 \u2014 MNIST dropout victim, PGD training and Cohen certificate", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"PGD adversarial training matched to the L-infinity threat model in Listing 21.2."},
+   {a:"Cohen, J. M., Rosenfeld, E., & Kolter, J. Z.", y:2019, t:"Certified adversarial robustness via randomized smoothing", v:"arXiv:1902.02918", doi:"10.48550/arXiv.1902.02918", f:S|C, why:"The certificate computed alongside the adversarially trained model."},
+   {a:"Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R.", y:2014, t:"Dropout: A simple way to prevent neural networks from overfitting", v:"Journal of Machine Learning Research, 15, 1929\u20131958", url:"https://www.jmlr.org/papers/v15/srivastava14a.html", f:S|C, why:"The MNIST dropout network reconstructed as the victim in Listing 21.1."},
+   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S, why:"Why dropout's stochasticity alone does not confer robustness."},
+  ]},
+  {n:22, name:"Defending Deep Reinforcement Learning", listing:"22.1\u201322.3 \u2014 GridWorld victim, median aggregation, reward provenance", refs:[
+   {a:"Yin, D., Chen, Y., Kannan, R., & Bartlett, P.", y:2018, t:"Byzantine-robust distributed learning: Towards optimal statistical rates", v:"arXiv:1803.01498", doi:"10.48550/arXiv.1803.01498", f:S|C, why:"Median aggregation as a robust estimator \u2014 the defense in Listing 22.2."},
+   {a:"Mnih, V., et al.", y:2015, t:"Human-level control through deep reinforcement learning", v:"Nature, 518(7540), 529\u2013533", doi:"10.1038/nature14236", f:S|C, why:"Reward clipping, the second half of the Listing 22.2 defense."},
+   {a:"Souppaya, M., Scarfone, K., & Dodson, D.", y:2022, t:"Secure Software Development Framework (SSDF) Version 1.1", v:"NIST SP 800-218", doi:"10.6028/NIST.SP.800-218", f:S|C, why:"Reward-function provenance verification, checked separately in Listing 22.3."},
+   {a:"Everitt, T., Krakovna, V., Orseau, L., Hutter, M., & Legg, S.", y:2017, t:"Reinforcement learning with a corrupted reward channel", v:"arXiv:1705.08417", doi:"10.48550/arXiv.1705.08417", f:S},
+   {a:"Watkins, C. J. C. H., & Dayan, P.", y:1992, t:"Q-learning", v:"Machine Learning, 8(3\u20134), 279\u2013292", doi:"10.1007/BF00992698", f:S|C, why:"The Q-Learning GridWorld agent reconstructed as the victim in Listing 22.1."},
+  ]},
+  {n:23, name:"Defending Capsule Networks & DBNs", listing:"23.1\u201323.3 \u2014 CapsNet and DBN victims, adversarial training, reconstruction detection", refs:[
+   {a:"Frosst, N., Sabour, S., & Hinton, G.", y:2018, t:"DARCCC: Detecting adversaries by reconstruction from class conditional capsules", v:"arXiv:1811.06969", doi:"10.48550/arXiv.1811.06969", f:S|C, why:"Reconstruction-error detection \u2014 the defense Listing 23.3 builds and then breaks."},
+   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S|C, why:"Why the adaptive attack in Listing 23.3 defeats a detection-based defense."},
+   {a:"Sabour, S., Frosst, N., & Hinton, G. E.", y:2017, t:"Dynamic routing between capsules", v:"arXiv:1710.09829", doi:"10.48550/arXiv.1710.09829", f:S|C, why:"The capsule network reconstructed as the first victim in Listing 23.1."},
+   {a:"Hinton, G. E., Osindero, S., & Teh, Y.-W.", y:2006, t:"A fast learning algorithm for deep belief nets", v:"Neural Computation, 18(7), 1527\u20131554", doi:"10.1162/neco.2006.18.7.1527", f:S|C, why:"The deep belief network reconstructed as the second victim."},
+  ]},
+ ]},
+ {part:"VI", roman:"VI", ring:6, title:"Defending Generative AI \u2014 The Inner Ring", chapters:[
+  {n:24, name:"Defending Language Models", listing:"24.1\u201324.2 \u2014 Trigram LM victim, OOV sanitization", refs:[
+   {a:"Chen, S. F., & Goodman, J.", y:1999, t:"An empirical study of smoothing techniques for language modeling", v:"Computer Speech & Language, 13(4), 359\u2013394", doi:"10.1006/csla.1999.0128", f:S|C, why:"Smoothing and out-of-vocabulary handling \u2014 the basis of the sanitizer in Listing 24.2."},
+   {a:"Wallace, E., Feng, S., Kandpal, N., Gardner, M., & Singh, S.", y:2019, t:"Universal adversarial triggers for attacking and analyzing NLP", v:"EMNLP-IJCNLP 2019, 2153\u20132162", doi:"10.18653/v1/D19-1221", f:S},
+   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S|C, why:"The adaptive check applied after sanitization."},
+   {a:"Shannon, C. E.", y:1948, t:"A mathematical theory of communication", v:"Bell System Technical Journal, 27(3), 379\u2013423", doi:"10.1002/j.1538-7305.1948.tb01338.x", f:S},
+  ]},
+  {n:25, name:"Defending the Transformer", listing:"25.1\u201325.2 \u2014 Substitution families, Unicode normalization vs confusables", refs:[
+   {a:"Unicode Consortium", y:2023, t:"Unicode Standard Annex #15: Unicode Normalization Forms", v:"Unicode Technical Report", url:"https://www.unicode.org/reports/tr15/", f:S|C, why:"NFKC normalization \u2014 the first half of the Listing 25.2 defense."},
+   {a:"Unicode Consortium", y:2023, t:"Unicode Technical Standard #39: Unicode Security Mechanisms", v:"Unicode Technical Report", url:"https://www.unicode.org/reports/tr39/", f:S|C, why:"The confusables table Listing 25.2 compares normalization against."},
+   {a:"Boucher, N., Shumailov, I., Anderson, R., & Papernot, N.", y:2022, t:"Bad Characters: Imperceptible NLP attacks", v:"IEEE Symposium on Security and Privacy, 1987\u20132004", doi:"10.1109/SP46214.2022.9833641", f:S|C, why:"The homoglyph and invisible-character families the defense must catch."},
+   {a:"Eger, S., et al.", y:2019, t:"Text processing like humans do: Visually attacking and shielding NLP systems", v:"NAACL-HLT 2019, 1634\u20131647", doi:"10.18653/v1/N19-1165", f:S},
+  ]},
+  {n:26, name:"Defending Pre-Trained NLU Models", listing:"26.1\u201326.2 \u2014 Pretrained sentiment victim, Unicode canonicalization", refs:[
+   {a:"Unicode Consortium", y:2023, t:"Unicode Standard Annex #15: Unicode Normalization Forms", v:"Unicode Technical Report", url:"https://www.unicode.org/reports/tr15/", f:S|C, why:"Canonicalization applied before the pretrained pipeline in Listing 26.2."},
+   {a:"Sanh, V., Debut, L., Chaumond, J., & Wolf, T.", y:2019, t:"DistilBERT, a distilled version of BERT: Smaller, faster, cheaper and lighter", v:"arXiv:1910.01108", doi:"10.48550/arXiv.1910.01108", f:S|C, why:"The pretrained sentiment pipeline reconstructed as the victim in Listing 26.1."},
+   {a:"Boucher, N., Shumailov, I., Anderson, R., & Papernot, N.", y:2022, t:"Bad Characters: Imperceptible NLP attacks", v:"IEEE Symposium on Security and Privacy, 1987\u20132004", doi:"10.1109/SP46214.2022.9833641", f:S, why:"The encoding-level attack canonicalization is meant to neutralise."},
+   {a:"Jones, E., Jia, R., Raghunathan, A., & Liang, P.", y:2020, t:"Robust encodings: A framework for combating adversarial typos", v:"ACL 2020, 2752\u20132765", doi:"10.18653/v1/2020.acl-main.245", f:S},
+  ]},
+  {n:27, name:"Defending Dialogue & Retrieval Systems", listing:"27.1\u201327.2 \u2014 TF-IDF chatbot victim, query normalization", refs:[
+   {a:"Unicode Consortium", y:2023, t:"Unicode Standard Annex #15: Unicode Normalization Forms", v:"Unicode Technical Report", url:"https://www.unicode.org/reports/tr15/", f:S|C, why:"Query normalization before retrieval \u2014 the defense in Listing 27.2."},
+   {a:"Sp\u00e4rck Jones, K.", y:1972, t:"A statistical interpretation of term specificity and its application in retrieval", v:"Journal of Documentation, 28(1), 11\u201321", doi:"10.1108/eb026526", f:S|C, why:"The IDF weighting behind the TF-IDF retrieval chatbot reconstructed as the victim."},
+   {a:"Greshake, K., et al.", y:2023, t:"Not what you've signed up for: Compromising real-world LLM-integrated applications with indirect prompt injection", v:"Proceedings of AISec '23, 79\u201390", doi:"10.1145/3605764.3623985", f:S},
+   {a:"Boucher, N., Shumailov, I., Anderson, R., & Papernot, N.", y:2022, t:"Bad Characters: Imperceptible NLP attacks", v:"IEEE Symposium on Security and Privacy, 1987\u20132004", doi:"10.1109/SP46214.2022.9833641", f:S},
+  ]},
+  {n:28, name:"Defending Diffusion Models", listing:"28.1\u201328.2 \u2014 DDPM denoiser victim, DP-SGD and deduplication", refs:[
+   {a:"Abadi, M., et al.", y:2016, t:"Deep learning with differential privacy", v:"Proceedings of CCS '16, 308\u2013318", doi:"10.1145/2976749.2978318", f:S|C, why:"DP-SGD applied to the denoiser in Listing 28.2."},
+   {a:"Kandpal, N., Wallace, E., & Raffel, C.", y:2022, t:"Deduplicating training data mitigates privacy risks in language models", v:"arXiv:2202.06539", doi:"10.48550/arXiv.2202.06539", f:S|C, why:"Training-data deduplication, the second defense in Listing 28.2."},
+   {a:"Duan, J., Kong, F., Wang, S., Shi, X., & Xu, K.", y:2023, t:"Are diffusion models vulnerable to membership inference attacks?", v:"arXiv:2302.01316", doi:"10.48550/arXiv.2302.01316", f:S|C, why:"The loss-gap membership attack Listing 28.1 sets up as the threat."},
+   {a:"Ho, J., Jain, A., & Abbeel, P.", y:2020, t:"Denoising diffusion probabilistic models", v:"arXiv:2006.11239", doi:"10.48550/arXiv.2006.11239", f:S|C, why:"The DDPM denoiser reconstructed as the victim."},
+   {a:"Carlini, N., et al.", y:2023, t:"Extracting training data from diffusion models", v:"USENIX Security Symposium, 5253\u20135270", url:"https://www.usenix.org/conference/usenixsecurity23/presentation/carlini", f:S},
+  ]},
+  {n:29, name:"Defending LoRA & PEFT Adapters", listing:"29.1\u201329.2 \u2014 GPT-2 LoRA adapter and backdoor, adapter provenance", refs:[
+   {a:"Souppaya, M., Scarfone, K., & Dodson, D.", y:2022, t:"Secure Software Development Framework (SSDF) Version 1.1", v:"NIST SP 800-218", doi:"10.6028/NIST.SP.800-218", f:S|C, why:"Adapter provenance verification \u2014 the control Listing 29.2 implements."},
+   {a:"National Institute of Standards and Technology", y:2015, t:"Secure Hash Standard (SHS)", v:"FIPS PUB 180-4", doi:"10.6028/NIST.FIPS.180-4", f:S|C, why:"The hash pinning each adapter checkpoint to a verified source."},
+   {a:"Hu, E. J., et al.", y:2021, t:"LoRA: Low-rank adaptation of large language models", v:"arXiv:2106.09685", doi:"10.48550/arXiv.2106.09685", f:S|C, why:"The adapter reconstructed as the victim, carrying Book 2's backdoor (Listing 29.1)."},
+   {a:"Liu, K., Dolan-Gavitt, B., & Garg, S.", y:2018, t:"Fine-pruning: Defending against backdooring attacks on deep neural networks", v:"RAID 2018, LNCS 11050, 273\u2013294", doi:"10.1007/978-3-030-00470-5_13", f:S},
+   {a:"Gu, T., Dolan-Gavitt, B., & Garg, S.", y:2017, t:"BadNets: Identifying vulnerabilities in the machine learning model supply chain", v:"arXiv:1708.06733", doi:"10.48550/arXiv.1708.06733", f:S},
+  ]},
+  {n:30, name:"Defending RLHF & Alignment", listing:"30.1\u201330.2 \u2014 Proxy reward victim and length exploit, reward clipping", refs:[
+   {a:"Skalse, J., Howe, N. H. R., Krasheninnikov, D., & Krueger, D.", y:2022, t:"Defining and characterizing reward hacking", v:"arXiv:2209.13085", doi:"10.48550/arXiv.2209.13085", f:S|C, why:"The length exploit Listing 30.1 reproduces and Listing 30.2 penalises."},
+   {a:"Gao, L., Schulman, J., & Hilton, J.", y:2023, t:"Scaling laws for reward model overoptimization", v:"arXiv:2210.10760", doi:"10.48550/arXiv.2210.10760", f:S|C, why:"Why clipping and a length penalty bound proxy-reward overoptimization."},
+   {a:"Singhal, P., Goyal, T., Xu, J., & Durrett, G.", y:2023, t:"A long way to go: Investigating length correlations in RLHF", v:"arXiv:2310.03716", doi:"10.48550/arXiv.2310.03716", f:S|C, why:"The length\u2013reward correlation the penalty in Listing 30.2 targets."},
+   {a:"Casper, S., et al.", y:2023, t:"Open problems and fundamental limitations of reinforcement learning from human feedback", v:"arXiv:2307.15217", doi:"10.48550/arXiv.2307.15217", f:S},
+   {a:"Ouyang, L., et al.", y:2022, t:"Training language models to follow instructions with human feedback", v:"arXiv:2203.02155", doi:"10.48550/arXiv.2203.02155", f:S},
+  ]},
+  {n:31, name:"Defending State-Space Models", listing:"31.1\u201331.2 \u2014 Selective SSM victim, curriculum adversarial training", refs:[
+   {a:"Cai, Q.-Z., Liu, C., & Song, D.", y:2018, t:"Curriculum adversarial training", v:"IJCAI 2018, 3740\u20133747", doi:"10.24963/ijcai.2018/520", f:S|C, why:"Curriculum adversarial training \u2014 the defense schedule in Listing 31.2."},
+   {a:"Bengio, Y., Louradour, J., Collobert, R., & Weston, J.", y:2009, t:"Curriculum learning", v:"Proceedings of ICML '09, 41\u201348", doi:"10.1145/1553374.1553380", f:S},
+   {a:"Gu, A., & Dao, T.", y:2023, t:"Mamba: Linear-time sequence modeling with selective state spaces", v:"arXiv:2312.00752", doi:"10.48550/arXiv.2312.00752", f:S|C, why:"The selective state-space block and its long-range task, the victim of Listing 31.1."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S},
+  ]},
+ ]},
+ {part:"VII", roman:"VII", ring:7, title:"Defending Hybrid Quantum-Classical AI \u2014 The NISQ Era", chapters:[
+  {n:32, name:"Defending Hybrid Quantum-Classical AI", listing:"32.1\u201332.2 \u2014 VQC victim, fidelity-bounded evaluation", refs:[
+   {a:"Liu, N., & Wittek, P.", y:2020, t:"Vulnerability of quantum classification to adversarial perturbations", v:"Physical Review A, 101, 062331", doi:"10.1103/PhysRevA.101.062331", f:S|C, why:"The fidelity bound on state perturbation that Listing 32.2 evaluates within."},
+   {a:"Weber, M., Liu, N., Li, B., Zhang, C., & Zhao, Z.", y:2021, t:"Optimal provable robustness of quantum classification via quantum hypothesis testing", v:"npj Quantum Information, 7, 76", doi:"10.1038/s41534-021-00410-5", f:S},
+   {a:"Du, Y., Hsieh, M.-H., Liu, T., Tao, D., & Liu, N.", y:2021, t:"Quantum noise protects quantum classifiers against adversaries", v:"Physical Review Research, 3, 023153", doi:"10.1103/PhysRevResearch.3.023153", f:S},
+   {a:"Schuld, M., Bergholm, V., Gogolin, C., Izaac, J., & Killoran, N.", y:2019, t:"Evaluating analytic gradients on quantum hardware", v:"Physical Review A, 99, 032331", doi:"10.1103/PhysRevA.99.032331", f:S|C, why:"The parameter-shift gradients the variational classifier in Listing 32.1 is trained with."},
+   {a:"Bergholm, V., et al.", y:2018, t:"PennyLane: Automatic differentiation of hybrid quantum-classical computations", v:"arXiv:1811.04968", doi:"10.48550/arXiv.1811.04968", f:C, why:"The framework the defended circuit is built and evaluated in."},
+  ]},
+ ]},
+ {part:"VIII", roman:"VIII", ring:8, title:"Defending Quantum AI \u2014 The Innermost Ring", chapters:[
+  {n:33, name:"Defending Quantum AI", listing:"33.1\u201333.2 \u2014 Angle vs amplitude encoding, encoding-perturbed training", refs:[
+   {a:"LaRose, R., & Coyle, B.", y:2020, t:"Robust data encodings for quantum classifiers", v:"Physical Review A, 102, 032420", doi:"10.1103/PhysRevA.102.032420", f:S|C, why:"Angle versus amplitude encoding and their robustness \u2014 the comparison in Listings 33.1\u201333.2."},
+   {a:"Schuld, M., & Killoran, N.", y:2019, t:"Quantum machine learning in feature Hilbert spaces", v:"Physical Review Letters, 122, 040504", doi:"10.1103/PhysRevLett.122.040504", f:S|C, why:"The feature-map framing of the two encoding schemes being compared."},
+   {a:"West, M. T., et al.", y:2023, t:"Towards quantum enhanced adversarial robustness in machine learning", v:"Nature Machine Intelligence, 5, 581\u2013589", doi:"10.1038/s42256-023-00661-1", f:S},
+   {a:"Lu, S., Duan, L.-M., & Deng, D.-L.", y:2020, t:"Quantum adversarial machine learning", v:"Physical Review Research, 2, 033212", doi:"10.1103/PhysRevResearch.2.033212", f:S|C, why:"Adversarial training on encoded quantum inputs, the method Listing 33.2 applies."},
+   {a:"Gong, W., & Deng, D.-L.", y:2022, t:"Universal adversarial examples and perturbations for quantum classifiers", v:"National Science Review, 9(6), nwab130", doi:"10.1093/nsr/nwab130", f:S},
+  ]},
+  {n:34, name:"Defending QAOA", listing:"34.1\u201334.2 \u2014 MaxCut QAOA victim, checksum-verified parameter integrity", refs:[
+   {a:"National Institute of Standards and Technology", y:2015, t:"Secure Hash Standard (SHS)", v:"FIPS PUB 180-4", doi:"10.6028/NIST.FIPS.180-4", f:S|C, why:"The checksum Listing 34.2 uses to verify the trained QAOA parameters."},
+   {a:"Farhi, E., Goldstone, J., & Gutmann, S.", y:2014, t:"A quantum approximate optimization algorithm", v:"arXiv:1411.4028", doi:"10.48550/arXiv.1411.4028", f:S|C, why:"The MaxCut QAOA circuit reconstructed as the victim in Listing 34.1."},
+   {a:"Lucas, A.", y:2014, t:"Ising formulations of many NP problems", v:"Frontiers in Physics, 2, 5", doi:"10.3389/fphy.2014.00005", f:S|C, why:"The MaxCut-to-Ising encoding defining the cut the circuit optimizes."},
+   {a:"Zhou, L., Wang, S.-T., Choi, S., Pichler, H., & Lukin, M. D.", y:2020, t:"Quantum approximate optimization algorithm: Performance, mechanism, and implementation on near-term devices", v:"Physical Review X, 10, 021067", doi:"10.1103/PhysRevX.10.021067", f:S},
+   {a:"Souppaya, M., Scarfone, K., & Dodson, D.", y:2022, t:"Secure Software Development Framework (SSDF) Version 1.1", v:"NIST SP 800-218", doi:"10.6028/NIST.SP.800-218", f:S},
+  ]},
+  {n:35, name:"Defending VQE", listing:"35.1\u201335.2 \u2014 VQE victim, parameter integrity with independent energy reference", refs:[
+   {a:"Peruzzo, A., et al.", y:2014, t:"A variational eigenvalue solver on a photonic quantum processor", v:"Nature Communications, 5, 4213", doi:"10.1038/ncomms5213", f:S|C, why:"The VQE circuit and Hamiltonian reconstructed as the victim in Listing 35.1."},
+   {a:"National Institute of Standards and Technology", y:2015, t:"Secure Hash Standard (SHS)", v:"FIPS PUB 180-4", doi:"10.6028/NIST.FIPS.180-4", f:S|C, why:"Parameter-integrity verification of the trained ansatz angles."},
+   {a:"McArdle, S., Endo, S., Aspuru-Guzik, A., Benjamin, S. C., & Yuan, X.", y:2020, t:"Quantum computational chemistry", v:"Reviews of Modern Physics, 92, 015003", doi:"10.1103/RevModPhys.92.015003", f:S|C, why:"The exact ground-state energy used as the independent reference in Listing 35.2."},
+   {a:"Kandala, A., et al.", y:2017, t:"Hardware-efficient variational quantum eigensolver for small molecules and quantum magnets", v:"Nature, 549(7671), 242\u2013246", doi:"10.1038/nature23879", f:S},
+   {a:"Tilly, J., et al.", y:2022, t:"The variational quantum eigensolver: A review of methods and best practices", v:"Physics Reports, 986, 1\u2013128", doi:"10.1016/j.physrep.2022.08.003"},
+  ]},
+ ]},
+ {part:"IX", roman:"IX", ring:9, title:"Benchmarking & Blue-Team Reporting", chapters:[
+  {n:36, name:"Benchmarking Defenses", listing:null, refs:[
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S, why:"The standardized defense leaderboard the chapter's protocol mirrors."},
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S},
+   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+   {a:"Mazeika, M., et al.", y:2024, t:"HarmBench: A standardized evaluation framework for automated red teaming and robust refusal", v:"arXiv:2402.04249", doi:"10.48550/arXiv.2402.04249", f:S},
+  ]},
+  {n:37, name:"From Red-Team Report to Blue-Team Report", listing:null, refs:[
+   {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S},
+   {a:"Tabassi, E.", y:2023, t:"Artificial Intelligence Risk Management Framework (AI RMF 1.0)", v:"NIST AI 100-1", doi:"10.6028/NIST.AI.100-1", f:S},
+   {a:"Raji, I. D., et al.", y:2020, t:"Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing", v:"Proceedings of FAT* '20, 33\u201344", doi:"10.1145/3351095.3372873", f:S},
+   {a:"Mitchell, M., et al.", y:2019, t:"Model cards for model reporting", v:"Proceedings of FAT* '19, 220\u2013229", doi:"10.1145/3287560.3287596", f:S},
+   {a:"Ganguli, D., et al.", y:2022, t:"Red teaming language models to reduce harms: Methods, scaling behaviors, and lessons learned", v:"arXiv:2209.07858", doi:"10.48550/arXiv.2209.07858", f:S},
+  ]},
+ ]},
+];
+
+/* ---- render ---- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function ringGlyph(depth){
+  let c='';
+  for(let i=1;i<=8;i++){
+    const r=3+i*3.1, on=(depth===9) || i===depth;
+    c+='<circle cx="30" cy="30" r="'+r+'" fill="none" stroke="'+(on?'#e8b85a':'rgba(255,255,255,.22)')+'" stroke-width="'+(on?2.4:0.9)+'"/>';
+  }
+  return '<svg class="rings" width="54" height="54" viewBox="0 0 60 60" aria-hidden="true">'+c+'</svg>';
+}
+
+let total=0, nsem=0, ncode=0, ndoi=0;
+
+document.getElementById('out').innerHTML = DATA.map(p => {
+  const chapters = p.chapters.map(ch => {
+    const refs = ch.refs.map((r,i) => {
+      total++;
+      const f = r.f||0;
+      const sem = !!(f&S), cd = !!(f&C), nw = !!(f&N);
+      if(sem) nsem++; if(cd) ncode++; if(r.doi) ndoi++;
+      const ids = r.doi
+        ? '<span>DOI <a href="https://doi.org/'+esc(r.doi)+'" target="_blank" rel="noopener">'+esc(r.doi)+'</a></span>'
+        : '<span class="nodoi">no DOI</span><span><a href="'+esc(r.url)+'" target="_blank" rel="noopener">publisher record</a></span>';
+      const tags = [
+        sem?'<span class="tag sem">Seminal</span>':'',
+        cd ?'<span class="tag cd">In code</span>':'',
+        nw ?'<span class="tag new">Added</span>':''
+      ].join('');
+      const search = (r.a+' '+r.t+' '+r.v+' '+r.y).toLowerCase();
+      return '<li class="ref '+(sem?'is-seminal':'')+' '+(cd?'is-code':'')+'" data-s="'+(sem?1:0)+'" data-c="'+(cd?1:0)+'" data-q="'+esc(search)+'">'
+        + '<span class="idx">'+(i+1)+'</span>'
+        + '<div>'
+        + '<p class="cite"><span class="au">'+esc(r.a)+'</span> ('+r.y+'). <span class="ti">'+esc(r.t)+'</span>. <span class="ve">'+esc(r.v)+'</span>.</p>'
+        + '<p class="ids">'+ids+'</p>'
+        + (tags?'<p class="tags">'+tags+'</p>':'')
+        + (r.why?'<p class="why">'+(cd?'<b>Code &middot;</b> ':'')+esc(r.why)+'</p>':'')
+        + '</div></li>';
+    }).join('');
+    return '<article class="chapter">'
+      + '<header class="chapter-head">'
+      + '<span class="chnum">Ch. '+ch.n+'</span>'
+      + '<h3 class="chname">'+esc(ch.name)+'</h3>'
+      + (ch.listing?'<span class="listing">'+esc(ch.listing)+'</span>':'')
+      + '</header>'
+      + '<ol class="refs">'+refs+'</ol></article>';
+  }).join('');
+
+  return '<section class="part">'
+    + '<div class="part-head">'
+    + ringGlyph(p.ring)
+    + '<div><p class="part-label">Part '+p.roman+(p.ring<=8?' &middot; Ring '+p.ring+' of 8':' &middot; Across all rings')+'</p>'
+    + '<h2 class="part-title">'+esc(p.title)+'</h2></div>'
+    + '</div>' + chapters + '</section>';
+}).join('');
+
+document.getElementById('t-total').textContent = total;
+document.getElementById('t-sem').textContent = nsem;
+document.getElementById('t-code').textContent = ncode;
+document.getElementById('t-doi').textContent = ndoi;
+document.getElementById('f-total').textContent = total;
+
+/* ---- filtering ---- */
+const fSem=document.getElementById('f-sem'), fCode=document.getElementById('f-code'),
+      fClear=document.getElementById('f-clear'), q=document.getElementById('q'),
+      countEl=document.getElementById('count');
+
+function apply(){
+  const wantS = fSem.getAttribute('aria-pressed')==='true';
+  const wantC = fCode.getAttribute('aria-pressed')==='true';
+  const term  = q.value.trim().toLowerCase();
+  let shown=0;
+
+  document.querySelectorAll('li.ref').forEach(function(li){
+    const ok = (!wantS || li.dataset.s==='1')
+            && (!wantC || li.dataset.c==='1')
+            && (!term  || li.dataset.q.indexOf(term)!==-1);
+    li.classList.toggle('hide', !ok);
+    if(ok) shown++;
+  });
+  document.querySelectorAll('.chapter').forEach(function(ch){
+    ch.classList.toggle('hide', !ch.querySelector('li.ref:not(.hide)'));
+  });
+  document.querySelectorAll('.part').forEach(function(pt){
+    pt.classList.toggle('hide', !pt.querySelector('.chapter:not(.hide)'));
+  });
+  countEl.textContent = shown===total ? total+' references' : shown+' of '+total+' shown';
+}
+
+[fSem,fCode].forEach(function(b){
+  b.addEventListener('click',function(){
+    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true');
+    apply();
+  });
+});
+fClear.addEventListener('click',function(){
+  fSem.setAttribute('aria-pressed','false');
+  fCode.setAttribute('aria-pressed','false');
+  q.value=''; apply();
+});
+q.addEventListener('input',apply);
+apply();
+</script>
+</body>
+</html>
