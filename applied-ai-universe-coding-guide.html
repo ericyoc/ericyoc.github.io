@@ -71,19 +71,6 @@
       transition: color .2s;
     }
     nav ul li a:hover { color: var(--gold-light); }
-    .nav-instructor-btn {
-      background: transparent;
-      color: var(--gold-light) !important;
-      border: 1.5px solid var(--gold);
-      padding: .4rem .9rem;
-      border-radius: 6px;
-      font-size: .8rem !important;
-      transition: background .2s, color .2s;
-    }
-    .nav-instructor-btn:hover {
-      background: var(--gold);
-      color: var(--navy) !important;
-    }
     /* ── PAGE ── */
     .page-wrapper {
       max-width: 960px;
@@ -169,6 +156,27 @@
     }
     .notify-btn:hover {
       background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .instructor-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .7rem 1.5rem;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--gold);
+      letter-spacing: .03em;
+      transition: background .2s, color .2s, transform .15s;
+      margin-bottom: .5rem;
+    }
+    .instructor-action-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
       transform: translateY(-1px);
     }
     .buy-btn-secondary {
@@ -315,7 +323,6 @@
     <li><a href="book1.html">Book 1 ↗</a></li>
     <li><a href="book2.html">Book 2 ↗</a></li>
     <li><a href="book3.html">Book 3 ↗</a></li>
-    <li><a href="for_instructors.html" class="nav-instructor-btn"><i class="fa-solid fa-chalkboard-user"></i> For Instructors</a></li>
   </ul>
 </nav>
 
@@ -341,6 +348,9 @@
     <p style="margin:0 auto 1.6rem;">
       <a href="https://www.amazon.com/dp/B0H3JF2HZP?binding=paperback&amp;ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
         <i class="fa-brands fa-amazon"></i> View the Series on Amazon
+      </a>
+      <a href="for_instructors.html" class="instructor-action-btn" style="font-size:1rem;padding:.85rem 2rem;">
+        <i class="fa-solid fa-chalkboard-user"></i> For Instructors
       </a>
     </p>
     <span class="book-info-edition">The Adaptive AI Codex Series</span>
