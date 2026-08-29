@@ -127,7 +127,13 @@
       margin: 1.2rem 0;
     }
     .highlight-box p { margin-bottom: 0; font-size: .92rem; color: var(--navy); }
-    .section-action-btn {
+    .tier-button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 1.4rem;
+    }
+    .tier-btn {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
@@ -135,14 +141,13 @@
       color: var(--gold-light);
       font-weight: 700;
       font-size: .85rem;
-      padding: .5rem 1.1rem;
+      padding: .6rem 1.2rem;
       border-radius: 6px;
       text-decoration: none;
       border: 1.2px solid var(--gold);
-      margin-top: 1rem;
       transition: background .2s, color .2s, transform .15s;
     }
-    .section-action-btn:hover {
+    .tier-btn:hover {
       background: var(--gold);
       color: var(--navy);
       transform: translateY(-1px);
@@ -156,6 +161,7 @@
     @media (max-width: 680px) {
       nav ul { gap: 1rem; }
       .card { padding: 1.5rem; }
+      .tier-button-group { flex-direction: column; }
     }
   </style>
 </head>
@@ -175,7 +181,7 @@
     <a href="applied-ai-universe-coding-guide.html">The Adaptive AI Codex Series</a> &rsaquo; Adoption Guide
   </div>
 
-  <!-- HEADER CARD -->
+  <!-- HEADER CARD WITH MULTI-TIER BUTTON GROUP -->
   <div class="card">
     <span style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;padding:.2rem .7rem;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;">Adoption Guide</span>
     <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy);margin-bottom:.8rem;">Multi-Tiered Curriculum Integration Hub</h1>
@@ -185,10 +191,23 @@
     <div class="highlight-box">
       <p><strong>Institutional Deployment:</strong> These exact volumes and companion code repositories are actively deployed as supplemental resources across programs at institutions such as <strong>Dakota State University's Beacom College of Computer &amp; Cyber Sciences</strong>, providing robust training grounds for modern security professionals.</p>
     </div>
+
+    <!-- MULTI-TIER BUTTON GROUP AT THE TOP -->
+    <div class="tier-button-group">
+      <a href="#instructor" class="tier-btn">
+        <i class="fa-solid fa-chalkboard-user"></i> Instructor Adoption
+      </a>
+      <a href="#department" class="tier-btn">
+        <i class="fa-solid fa-building-columns"></i> Department Adoption
+      </a>
+      <a href="#school" class="tier-btn">
+        <i class="fa-solid fa-graduation-cap"></i> School Adoption
+      </a>
+    </div>
   </div>
 
   <!-- TIER 1: INSTRUCTOR ADOPTION -->
-  <div class="card">
+  <div class="card" id="instructor">
     <h2 class="card-title">1. Instructor Adoption: Syllabus Integration &amp; Labs</h2>
     <p>Empower individual course leads with complete, code-first materials that transition students seamlessly from system construction to adversarial analysis.</p>
     <ul class="features-list">
@@ -196,13 +215,10 @@
       <li><i class="fa-solid fa-crosshairs"></i><span><strong>Book 2 (Break):</strong> Empirical attack execution against cached model weights to demonstrate real-world failure vectors.</span></li>
       <li><i class="fa-solid fa-shield-halved"></i><span><strong>Book 3 (Defend):</strong> Hardening architectures and analyzing defense survivability rates against adaptive attackers.</span></li>
     </ul>
-    <a href="#instructor" class="section-action-btn">
-      <i class="fa-solid fa-chalkboard-user"></i> Instructor Adoption
-    </a>
   </div>
 
   <!-- TIER 2: DEPARTMENT ADOPTION -->
-  <div class="card">
+  <div class="card" id="department">
     <h2 class="card-title">2. Department Adoption: Curriculum Harmonization</h2>
     <p>Equip department committees with standardized modules, homework rubrics, and verification tools designed to modernize computer science and cybersecurity degree paths without restructuring core requirements.</p>
     <ul class="features-list">
@@ -210,22 +226,16 @@
       <li><i class="fa-solid fa-comment-dots"></i><span><strong>Critical Reflections:</strong> Thought-provoking prompts ideal for guided seminar discussions or written reaction papers.</span></li>
       <li><i class="fa-solid fa-rocket"></i><span><strong>Stretch Assignments:</strong> Advanced coding challenges prompting students to modify parameters or engineer novel defenses.</span></li>
     </ul>
-    <a href="#department" class="section-action-btn">
-      <i class="fa-solid fa-building-columns"></i> Department Adoption
-    </a>
   </div>
 
   <!-- TIER 3: SCHOOL / INSTITUTIONAL ADOPTION -->
-  <div class="card">
+  <div class="card" id="school">
     <h2 class="card-title">3. School Adoption: Program Articulation &amp; Scale</h2>
     <p>Provide college leadership and deans with turnkey frameworks for institutional integration, prior learning credit (PLC) alignment, and scalable certificate pathways.</p>
     <ul class="features-list">
       <li><i class="fa-solid fa-laptop-code"></i><span><strong>Open Verification:</strong> Fully accessible Hugging Face and GitHub codebases enabling straightforward cross-departmental grading and platform hosting.</span></li>
       <li><i class="fa-solid fa-shield-halved"></i><span><strong>Compliance Ready:</strong> Aligned with rigorous academic standards expected of NSA-designated Centers of Academic Excellence.</span></li>
     </ul>
-    <a href="#school" class="section-action-btn">
-      <i class="fa-solid fa-graduation-cap"></i> School Adoption
-    </a>
   </div>
 
 </div>
