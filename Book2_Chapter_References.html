@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter References | The Applied AI Universe Coding Guide: Adversarial Attacks | Eric Yocam</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="book"/>
+  <meta property="og:title"       content="Chapter References — The Applied AI Universe Coding Guide: Adversarial Attacks"/>
+  <meta property="og:description" content="Chapter-by-chapter references for Book 2, Adversarial Attacks, with seminal papers and the attacks each chapter's code implements. By Eric Yocam PhD, DBA."/>
+  <meta property="og:url"         content="https://ericyocam.com/Book2_Chapter_References.html"/>
+  <meta property="og:image"       content="book2_cover.jpg"/>
+  <meta name="description"        content="Chapter-by-chapter references for Book 2, Adversarial Attacks — 164 sources across 37 chapters, with seminal works and code implementations marked. By Eric Yocam PhD, DBA."/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+      --seminal: #8a6100;
+      --seminal-bg: #fbf3de;
+      --seminal-edge: #e4ce93;
+      --code: #155e45;
+      --code-bg: #e6f2ec;
+      --code-edge: #a9cfbf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+
+    /* ── PAGE ── */
+    .page-wrapper { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+
+    .breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── HERO ── */
+    .ref-hero {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.09);
+      padding: 2.2rem 2rem;
+      margin-bottom: 1.6rem;
+    }
+    .ref-eyebrow {
+      font-size: .78rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .75rem;
+    }
+    .ref-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .3rem;
+    }
+    .ref-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+    .tally { display: flex; flex-wrap: wrap; border-top: 1px solid var(--border); }
+    .tally div { flex: 1 1 120px; padding: 1rem 1.2rem .9rem; border-right: 1px solid var(--border); }
+    .tally div:last-child { border-right: 0; }
+    .tally b {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .tally span {
+      display: block;
+      margin-top: .35rem;
+      font-size: .74rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p { font-size: .95rem; color: var(--text); line-height: 1.75; margin-bottom: .8rem; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── CONTROLS ── */
+    .controls {
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+      background: rgba(244,246,249,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      margin: 0 -1.5rem 1.6rem;
+      padding: .8rem 1.5rem;
+    }
+    .controls-inner { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+    .chip {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: .45rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .chip:hover { border-color: var(--gold); color: var(--navy); }
+    .chip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .chip.sem[aria-pressed="true"] { background: var(--seminal); border-color: var(--seminal); color: var(--white); }
+    .chip.cd[aria-pressed="true"] { background: var(--code); border-color: var(--code); color: var(--white); }
+    #q {
+      flex: 1 1 200px;
+      min-width: 160px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .9rem;
+      padding: .45rem .9rem;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: var(--white);
+      color: var(--text);
+    }
+    #q:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+    #count { font-size: .8rem; color: var(--muted); margin-left: auto; font-weight: 600; }
+
+    /* ── LEGEND ── */
+    .legend-list { list-style: none; margin: .5rem 0 0; }
+    .legend-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .93rem;
+    }
+    .legend-list li:last-child { border-bottom: none; }
+
+    /* ── PARTS ── */
+    .part { margin-bottom: 1.6rem; }
+    .part-head {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a6e 100%);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.15);
+    }
+    .rings { flex: 0 0 auto; }
+    .part-label {
+      font-size: .74rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: .15rem;
+    }
+    .part-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* ── CHAPTERS ── */
+    .chapter {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .chapter-head {
+      display: flex;
+      align-items: baseline;
+      gap: .8rem;
+      flex-wrap: wrap;
+      padding: 1.1rem 2rem .7rem;
+      border-bottom: 2px solid var(--gold);
+      margin: 0 0 .3rem;
+    }
+    .chnum {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--gold);
+      text-transform: uppercase;
+      flex: 0 0 auto;
+    }
+    .chname {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex: 1 1 auto;
+      line-height: 1.3;
+    }
+    .listing {
+      font-size: .76rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: .18rem .7rem;
+      white-space: nowrap;
+    }
+    ol.refs { list-style: none; margin: 0; padding: 0; }
+    li.ref {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0 .8rem;
+      padding: .85rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    li.ref:last-child { border-bottom: 0; }
+    li.ref.is-seminal { box-shadow: inset 4px 0 0 var(--seminal-edge); }
+    li.ref.is-code { box-shadow: inset 4px 0 0 var(--code-edge); }
+    li.ref.is-seminal.is-code {
+      box-shadow: inset 4px 0 0 var(--seminal-edge), inset 8px 0 0 var(--code-edge);
+    }
+    .idx { font-size: .82rem; color: var(--muted); padding-top: .1rem; }
+    .cite { font-size: .93rem; line-height: 1.6; }
+    .cite .au { font-weight: 600; color: var(--navy); }
+    .cite .ti { font-style: italic; }
+    .cite .ve { color: var(--muted); }
+    .ids { margin-top: .3rem; font-size: .82rem; display: flex; flex-wrap: wrap; gap: .2rem 1rem; }
+    .ids a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .ids a:hover { text-decoration: underline; }
+    .ids a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .ids .nodoi { color: var(--muted); }
+    .tags { margin-top: .45rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+    .tag {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .18rem .6rem;
+      border-radius: 40px;
+      border: 1px solid;
+    }
+    .tag.sem { color: var(--seminal); background: var(--seminal-bg); border-color: var(--seminal-edge); }
+    .tag.cd  { color: var(--code); background: var(--code-bg); border-color: var(--code-edge); }
+    .tag.new { color: var(--muted); background: var(--light); border-color: var(--border); }
+    .why { margin-top: .35rem; font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .why b { color: var(--code); font-weight: 600; }
+    li.ref.hide, .chapter.hide, .part.hide { display: none; }
+
+    footer { text-align: center; padding: 2rem; font-size: .8rem; color: var(--muted); }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      nav ul { gap: 1rem; }
+      .ref-title { font-size: 1.35rem; }
+      .card, .ref-hero { padding: 1.4rem 1.2rem; }
+      .chapter-head, li.ref { padding-left: 1.2rem; padding-right: 1.2rem; }
+      li.ref { grid-template-columns: 1fr; gap: 0; }
+      .idx { display: none; }
+      #count { margin-left: 0; width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    @media print {
+      nav, .controls { display: none; }
+      body { background: #fff; }
+      .chapter { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="book2.html">Book 2</a></li>
+    <li><a href="https://github.com/ericyoc/the_applied_ai_universe_adversarial_attacks" target="_blank">GitHub &#8599;</a></li>
+    <li><a href="https://www.amazon.com/dp/B0H3JF2HZP" target="_blank">Now on Amazon &#8599;</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="breadcrumb">
+    <a href="index.html">Eric Yocam</a> &rsaquo; <a href="applied-ai-universe-coding-guide.html">The Adaptive AI Codex Series</a> &rsaquo; <a href="book2.html">Book 2</a> &rsaquo; Chapter References
+  </div>
+
+  <div class="ref-hero">
+    <p class="ref-eyebrow">The Applied AI Universe Coding Guide: Adversarial Attacks</p>
+    <h1 class="ref-title">Chapter References</h1>
+    <p class="ref-subtitle">Sources for every chapter, with the seminal papers and the attacks each chapter's code executes marked separately.</p>
+    <div class="tally">
+      <div><b id="t-total">&mdash;</b><span>References</span></div>
+      <div><b>37</b><span>Chapters</span></div>
+      <div><b id="t-sem">&mdash;</b><span>Seminal</span></div>
+      <div><b id="t-code">&mdash;</b><span>In code</span></div>
+      <div><b id="t-doi">&mdash;</b><span>With DOI</span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-inner">
+      <button class="chip sem" id="f-sem" aria-pressed="false">Seminal only</button>
+      <button class="chip cd" id="f-code" aria-pressed="false">Code-backed only</button>
+      <button class="chip" id="f-clear">Reset</button>
+      <input id="q" type="search" placeholder="Filter by author, title, venue&hellip;" aria-label="Filter by author, title or venue">
+      <span id="count"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 class="card-title">How to Read This List</h2>
+    <ul class="legend-list">
+      <li><i class="fa-solid fa-star" style="color:var(--seminal);margin-top:.3rem;"></i><span><strong>Seminal</strong> &mdash; the originating paper for the idea: the work the attack or the target model is named after, or first appeared in.</span></li>
+      <li><i class="fa-solid fa-code" style="color:var(--code);margin-top:.3rem;"></i><span><strong>In code</strong> &mdash; the chapter's executed attack implements or directly depends on this work. Each carries a note on how.</span></li>
+      <li><i class="fa-solid fa-crosshairs" style="color:var(--muted);margin-top:.3rem;"></i><span><strong>Target</strong> &mdash; where a chapter attacks a model built in Book 1, the model’s own originating paper is listed alongside the attack.</span></li>
+    </ul>
+  </div>
+
+  <div id="out"></div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Eric Yocam PhD, DBA &nbsp;&middot;&nbsp; <span id="f-total">164</span> references across 37 chapters</p>
+  <p style="margin-top:.4rem;">
+    <a href="book2.html" style="color:var(--gold);text-decoration:none;">Book 2</a> &nbsp;&middot;&nbsp;
+    <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;&middot;&nbsp;
+    <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;&middot;&nbsp;
+    <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+  </p>
+</footer>
+
+<script>
+const S=1, C=2, N=4;
+
+const DATA=[
+ {part:"I", roman:"I", ring:1, title:"Foundations of Adversarial AI", chapters:[
+  {n:1, name:"Threat Models", listing:"Threat modeling", refs:[
+   {a:"Barreno, M., Nelson, B., Sears, R., Joseph, A. D., & Tygar, J. D.", y:2006, t:"Can machine learning be secure?", v:"Proceedings of ASIACCS '06, 16\u201325", doi:"10.1145/1128817.1128824", f:S},
+   {a:"Papernot, N., McDaniel, P., Sinha, A., & Wellman, M. P.", y:2018, t:"SoK: Security and privacy in machine learning", v:"IEEE European Symposium on Security and Privacy, 399\u2013414", doi:"10.1109/EuroSP.2018.00035", f:S},
+   {a:"Biggio, B., & Roli, F.", y:2018, t:"Wild patterns: Ten years after the rise of adversarial machine learning", v:"Pattern Recognition, 84, 317\u2013331", doi:"10.1016/j.patcog.2018.07.023", f:S},
+   {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S},
+  ]},
+  {n:2, name:"Taxonomy & Perturbation Budgets", listing:"Lp budgets", refs:[
+   {a:"Szegedy, C., et al.", y:2013, t:"Intriguing properties of neural networks", v:"arXiv:1312.6199", doi:"10.48550/arXiv.1312.6199", f:S},
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"FGSM and the epsilon-budget framing the chapter's perturbation limits are set by."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"PGD and the Lp-ball threat model used as the book's standard budget."},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+  ]},
+  {n:3, name:"The Measurement Harness & Victim Gallery", listing:"Evaluation harness", refs:[
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S|C, why:"The standardized evaluation protocol the harness follows."},
+   {a:"Nicolae, M.-I., et al.", y:2018, t:"Adversarial Robustness Toolbox v1.0.0", v:"arXiv:1807.01069", doi:"10.48550/arXiv.1807.01069", f:C, why:"One of the attack libraries the harness wraps."},
+   {a:"Papernot, N., et al.", y:2018, t:"Technical report on the CleverHans v2.1.0 adversarial examples library", v:"arXiv:1610.00768", doi:"10.48550/arXiv.1610.00768", f:C, why:"Reference implementations for the baseline attacks."},
+   {a:"Kim, H.", y:2020, t:"Torchattacks: A PyTorch repository for adversarial attacks", v:"arXiv:2010.01950", doi:"10.48550/arXiv.2010.01950", f:C, why:"The PyTorch attack implementations used across the victim gallery."},
+   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S},
+  ]},
+ ]},
+ {part:"II", roman:"II", ring:2, title:"Attacking Symbolic AI", chapters:[
+  {n:4, name:"Attacking Planning & Scheduling", listing:"Heuristic and cost manipulation", refs:[
+   {a:"Hart, P. E., Nilsson, N. J., & Raphael, B.", y:1968, t:"A formal basis for the heuristic determination of minimum cost paths", v:"IEEE Trans. Systems Science and Cybernetics, 4(2), 100\u2013107", doi:"10.1109/TSSC.1968.300136", f:S|C, why:"The A* search this chapter attacks by manipulating heuristic and edge costs."},
+   {a:"Dijkstra, E. W.", y:1959, t:"A note on two problems in connexion with graphs", v:"Numerische Mathematik, 1, 269\u2013271", doi:"10.1007/BF01386390", f:S},
+   {a:"Z\u00fcgner, D., Akbarnejad, A., & G\u00fcnnemann, S.", y:2018, t:"Adversarial attacks on neural networks for graph data", v:"Proceedings of KDD '18, 2847\u20132856", doi:"10.1145/3219819.3220078", f:S},
+   {a:"Barreno, M., Nelson, B., Sears, R., Joseph, A. D., & Tygar, J. D.", y:2006, t:"Can machine learning be secure?", v:"Proceedings of ASIACCS '06, 16\u201325", doi:"10.1145/1128817.1128824", f:S},
+  ]},
+  {n:5, name:"Attacking Expert Systems", listing:"Rule-base subversion", refs:[
+   {a:"Davis, R., Buchanan, B., & Shortliffe, E.", y:1977, t:"Production rules as a representation for a knowledge-based consultation program", v:"Artificial Intelligence, 8(1), 15\u201345", doi:"10.1016/0004-3702(77)90003-0", f:S|C, why:"The production-rule engine whose IF\u2013THEN chain the chapter subverts."},
+   {a:"Shortliffe, E. H., & Buchanan, B. G.", y:1975, t:"A model of inexact reasoning in medicine", v:"Mathematical Biosciences, 23(3\u20134), 351\u2013379", doi:"10.1016/0025-5564(75)90047-4", f:S},
+   {a:"Slack, D., Hilgard, S., Jia, E., Singh, S., & Lakkaraju, H.", y:2020, t:"Fooling LIME and SHAP: Adversarial attacks on post hoc explanation methods", v:"Proceedings of AIES '20, 180\u2013186", doi:"10.1145/3375627.3375830", f:S},
+   {a:"Forgy, C. L.", y:1982, t:"Rete: A fast algorithm for the many pattern/many object pattern match problem", v:"Artificial Intelligence, 19(1), 17\u201337", doi:"10.1016/0004-3702(82)90020-0", f:S},
+  ]},
+  {n:6, name:"Attacking Fuzzy Logic", listing:"Membership-function perturbation", refs:[
+   {a:"Zadeh, L. A.", y:1965, t:"Fuzzy sets", v:"Information and Control, 8(3), 338\u2013353", doi:"10.1016/S0019-9958(65)90241-X", f:S},
+   {a:"Mamdani, E. H., & Assilian, S.", y:1975, t:"An experiment in linguistic synthesis with a fuzzy logic controller", v:"International Journal of Man-Machine Studies, 7(1), 1\u201313", doi:"10.1016/S0020-7373(75)80002-2", f:S|C, why:"The Mamdani inference pipeline whose membership functions the chapter perturbs."},
+   {a:"Biggio, B., et al.", y:2013, t:"Evasion attacks against machine learning at test time", v:"ECML PKDD 2013, LNCS 8190, 387\u2013402", doi:"10.1007/978-3-642-40994-3_25", f:S|C, why:"Gradient-guided evasion against non-deep decision functions."},
+   {a:"Papernot, N., McDaniel, P., Jha, S., Fredrikson, M., Celik, Z. B., & Swami, A.", y:2016, t:"The limitations of deep learning in adversarial settings", v:"IEEE European Symposium on Security and Privacy, 372\u2013387", doi:"10.1109/EuroSP.2016.36", f:S},
+  ]},
+ ]},
+ {part:"III", roman:"III", ring:3, title:"Attacking Machine Learning", chapters:[
+  {n:7, name:"Feature-Space Poisoning", listing:"Training-set poisoning", refs:[
+   {a:"Biggio, B., Nelson, B., & Laskov, P.", y:2012, t:"Poisoning attacks against support vector machines", v:"arXiv:1206.6389", doi:"10.48550/arXiv.1206.6389", f:S|C, why:"The gradient-ascent poisoning method the chapter runs against a feature-space model."},
+   {a:"Shafahi, A., et al.", y:2018, t:"Poison Frogs! Targeted clean-label poisoning attacks on neural networks", v:"arXiv:1804.00792", doi:"10.48550/arXiv.1804.00792", f:S|C, why:"Feature-collision poisoning, the clean-label variant demonstrated here."},
+   {a:"Koh, P. W., & Liang, P.", y:2017, t:"Understanding black-box predictions via influence functions", v:"arXiv:1703.04730", doi:"10.48550/arXiv.1703.04730", f:S},
+   {a:"Jagielski, M., et al.", y:2018, t:"Manipulating machine learning: Poisoning attacks and countermeasures for regression learning", v:"IEEE Symposium on Security and Privacy, 19\u201335", doi:"10.1109/SP.2018.00057", f:S},
+   {a:"Steinhardt, J., Koh, P. W., & Liang, P.", y:2017, t:"Certified defenses for data poisoning attacks", v:"arXiv:1706.03691", doi:"10.48550/arXiv.1706.03691"},
+  ]},
+  {n:8, name:"Attacking Supervised Learning", listing:"Evasion and black-box transfer", refs:[
+   {a:"Carlini, N., & Wagner, D.", y:2017, t:"Towards evaluating the robustness of neural networks", v:"IEEE Symposium on Security and Privacy, 39\u201357", doi:"10.1109/SP.2017.49", f:S|C, why:"The C&W optimisation attack applied to the chapter's classifiers."},
+   {a:"Papernot, N., McDaniel, P., Goodfellow, I., Jha, S., Celik, Z. B., & Swami, A.", y:2017, t:"Practical black-box attacks against machine learning", v:"Proceedings of ASIACCS '17, 506\u2013519", doi:"10.1145/3052973.3053009", f:S|C, why:"Substitute-model training and transfer, the black-box path used here."},
+   {a:"Chen, P.-Y., Zhang, H., Sharma, Y., Yi, J., & Hsieh, C.-J.", y:2017, t:"ZOO: Zeroth order optimization based black-box attacks", v:"Proceedings of AISec '17, 15\u201326", doi:"10.1145/3128572.3140448", f:S},
+   {a:"Brendel, W., Rauber, J., & Bethge, M.", y:2017, t:"Decision-based adversarial attacks: Reliable attacks against black-box machine learning models", v:"arXiv:1712.04248", doi:"10.48550/arXiv.1712.04248", f:S},
+   {a:"Cortes, C., & Vapnik, V.", y:1995, t:"Support-vector networks", v:"Machine Learning, 20(3), 273\u2013297", doi:"10.1007/BF00994018", f:S},
+  ]},
+  {n:9, name:"Attacking Unsupervised Learning", listing:"Cluster poisoning", refs:[
+   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S|C, why:"The bridge-based cluster poisoning the chapter applies to k-means."},
+   {a:"Rubinstein, B. I. P., et al.", y:2009, t:"ANTIDOTE: Understanding and defending against poisoning of anomaly detectors", v:"Proceedings of IMC '09, 1\u201314", doi:"10.1145/1644893.1644895", f:S},
+   {a:"Mu\u00f1oz-Gonz\u00e1lez, L., et al.", y:2017, t:"Towards poisoning of deep learning algorithms with back-gradient optimization", v:"Proceedings of AISec '17, 27\u201338", doi:"10.1145/3128572.3140451", f:S},
+   {a:"Lloyd, S. P.", y:1982, t:"Least squares quantization in PCM", v:"IEEE Trans. Information Theory, 28(2), 129\u2013137", doi:"10.1109/TIT.1982.1056489", f:S},
+  ]},
+  {n:10, name:"Attacking Semi-Supervised Learning", listing:"Unlabeled-set poisoning", refs:[
+   {a:"Carlini, N.", y:2021, t:"Poisoning the unlabeled dataset of semi-supervised learning", v:"USENIX Security Symposium, 1577\u20131592", url:"https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-poisoning", f:S|C, why:"The unlabeled-pool poisoning this chapter reproduces against label propagation."},
+   {a:"Zhou, D., Bousquet, O., Lal, T. N., Weston, J., & Sch\u00f6lkopf, B.", y:2003, t:"Learning with local and global consistency", v:"Advances in Neural Information Processing Systems 16, 321\u2013328", url:"https://papers.nips.cc/paper/2506-learning-with-local-and-global-consistency", f:S},
+   {a:"Dai, H., et al.", y:2018, t:"Adversarial attack on graph structured data", v:"arXiv:1806.02371", doi:"10.48550/arXiv.1806.02371", f:S},
+   {a:"Oliver, A., Odena, A., Raffel, C., Cubuk, E. D., & Goodfellow, I. J.", y:2018, t:"Realistic evaluation of deep semi-supervised learning algorithms", v:"arXiv:1804.09170", doi:"10.48550/arXiv.1804.09170"},
+  ]},
+  {n:11, name:"Attacking Ensemble Learning", listing:"Tree-ensemble evasion", refs:[
+   {a:"Kantchelian, A., Tygar, J. D., & Joseph, A. D.", y:2016, t:"Evasion and hardening of tree ensemble classifiers", v:"arXiv:1509.07892", doi:"10.48550/arXiv.1509.07892", f:S|C, why:"The MILP-based evasion of boosted trees the chapter runs."},
+   {a:"Chen, H., Zhang, H., Boning, D., & Hsieh, C.-J.", y:2019, t:"Robust decision trees against adversarial examples", v:"arXiv:1902.10660", doi:"10.48550/arXiv.1902.10660", f:S},
+   {a:"Tram\u00e8r, F., et al.", y:2017, t:"Ensemble adversarial training: Attacks and defenses", v:"arXiv:1705.07204", doi:"10.48550/arXiv.1705.07204", f:S},
+   {a:"Breiman, L.", y:2001, t:"Random forests", v:"Machine Learning, 45(1), 5\u201332", doi:"10.1023/A:1010933404324", f:S},
+  ]},
+ ]},
+ {part:"IV", roman:"IV", ring:4, title:"Attacking Neural Networks", chapters:[
+  {n:12, name:"Attacking Activations", listing:"Gradient masking", refs:[
+   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S|C, why:"Gradient masking at the activation layer, and the BPDA workaround the chapter uses."},
+   {a:"Papernot, N., McDaniel, P., Jha, S., Fredrikson, M., Celik, Z. B., & Swami, A.", y:2016, t:"The limitations of deep learning in adversarial settings", v:"IEEE European Symposium on Security and Privacy, 372\u2013387", doi:"10.1109/EuroSP.2016.36", f:S|C, why:"The Jacobian saliency map that ranks activations by attack leverage."},
+   {a:"Glorot, X., Bordes, A., & Bengio, Y.", y:2011, t:"Deep sparse rectifier neural networks", v:"AISTATS, PMLR 15, 315\u2013323", url:"https://proceedings.mlr.press/v15/glorot11a.html", f:S},
+   {a:"Xu, W., Evans, D., & Qi, Y.", y:2018, t:"Feature squeezing: Detecting adversarial examples in deep neural networks", v:"Network and Distributed System Security Symposium", doi:"10.14722/ndss.2018.23198", f:S},
+  ]},
+  {n:13, name:"Attacking the Perceptron", listing:"Linear evasion", refs:[
+   {a:"Lowd, D., & Meek, C.", y:2005, t:"Adversarial learning", v:"Proceedings of KDD '05, 641\u2013647", doi:"10.1145/1081870.1081950", f:S|C, why:"Query-efficient evasion of a linear classifier, the attack the chapter builds by hand."},
+   {a:"Dalvi, N., Domingos, P., Mausam, Sanghai, S., & Verma, D.", y:2004, t:"Adversarial classification", v:"Proceedings of KDD '04, 99\u2013108", doi:"10.1145/1014052.1014066", f:S},
+   {a:"Rosenblatt, F.", y:1958, t:"The perceptron: A probabilistic model for information storage and organization in the brain", v:"Psychological Review, 65(6), 386\u2013408", doi:"10.1037/h0042519", f:S},
+   {a:"Fawzi, A., Fawzi, O., & Frossard, P.", y:2018, t:"Analysis of classifiers' robustness to adversarial perturbations", v:"Machine Learning, 107(3), 481\u2013508", doi:"10.1007/s10994-017-5663-3", f:S},
+  ]},
+  {n:14, name:"Attacking Backpropagation", listing:"Gradient-based crafting", refs:[
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"FGSM: one backward pass turned into a perturbation, coded from scratch here."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"Projected gradient descent, the iterated form of the same backward pass."},
+   {a:"Rumelhart, D. E., Hinton, G. E., & Williams, R. J.", y:1986, t:"Learning representations by back-propagating errors", v:"Nature, 323(6088), 533\u2013536", doi:"10.1038/323533a0", f:S},
+   {a:"Uesato, J., O'Donoghue, B., Kohli, P., & van den Oord, A.", y:2018, t:"Adversarial risk and the dangers of evaluating against weak attacks", v:"arXiv:1802.05666", doi:"10.48550/arXiv.1802.05666", f:S},
+  ]},
+  {n:15, name:"Attacking CNNs & Sequence Models", listing:"DeepFool and physical perturbation", refs:[
+   {a:"Moosavi-Dezfooli, S.-M., Fawzi, A., & Frossard, P.", y:2016, t:"DeepFool: A simple and accurate method to fool deep neural networks", v:"CVPR 2016, 2574\u20132582", doi:"10.1109/CVPR.2016.282", f:S|C, why:"The minimal-norm perturbation search the chapter applies to its CNN."},
+   {a:"Moosavi-Dezfooli, S.-M., Fawzi, A., Fawzi, O., & Frossard, P.", y:2017, t:"Universal adversarial perturbations", v:"CVPR 2017, 86\u201394", doi:"10.1109/CVPR.2017.17", f:S},
+   {a:"Kurakin, A., Goodfellow, I., & Bengio, S.", y:2016, t:"Adversarial examples in the physical world", v:"arXiv:1607.02533", doi:"10.48550/arXiv.1607.02533", f:S},
+   {a:"Eykholt, K., et al.", y:2018, t:"Robust physical-world attacks on deep learning visual classification", v:"CVPR 2018, 1625\u20131634", doi:"10.1109/CVPR.2018.00175", f:S},
+   {a:"Papernot, N., McDaniel, P., Swami, A., & Harang, R.", y:2016, t:"Crafting adversarial input sequences for recurrent neural networks", v:"MILCOM 2016, 49\u201354", doi:"10.1109/MILCOM.2016.7795300", f:S|C, why:"Adapting gradient attacks to the recurrent models in the same chapter."},
+  ]},
+  {n:16, name:"Attacking Self-Organizing Maps", listing:"Topology poisoning", refs:[
+   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S|C, why:"Poisoning that distorts an unsupervised topology, applied here to the SOM lattice."},
+   {a:"Kohonen, T.", y:1982, t:"Self-organized formation of topologically correct feature maps", v:"Biological Cybernetics, 43(1), 59\u201369", doi:"10.1007/BF00337288", f:S},
+   {a:"Vesanto, J., & Alhoniemi, E.", y:2000, t:"Clustering of the self-organizing map", v:"IEEE Trans. Neural Networks, 11(3), 586\u2013600", doi:"10.1109/72.846731", f:C, why:"The U-matrix reading used to measure how far the attack shifted the map."},
+   {a:"Mu\u00f1oz-Gonz\u00e1lez, L., et al.", y:2017, t:"Towards poisoning of deep learning algorithms with back-gradient optimization", v:"Proceedings of AISec '17, 27\u201338", doi:"10.1145/3128572.3140451", f:S},
+  ]},
+ ]},
+ {part:"V", roman:"V", ring:5, title:"Attacking Deep Learning", chapters:[
+  {n:17, name:"AutoAttack on Deep Networks", listing:"AutoAttack ensemble", refs:[
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"AutoAttack itself \u2014 the parameter-free ensemble this chapter runs end to end."},
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Minimally distorted adversarial examples with a fast adaptive boundary attack", v:"arXiv:1907.02044", doi:"10.48550/arXiv.1907.02044", f:C, why:"FAB, one of the four attacks inside the AutoAttack ensemble."},
+   {a:"Andriushchenko, M., Croce, F., Flammarion, N., & Hein, M.", y:2020, t:"Square Attack: A query-efficient black-box adversarial attack via random search", v:"ECCV 2020, LNCS 12368, 484\u2013501", doi:"10.1007/978-3-030-58592-1_29", f:S|C, why:"The black-box component of the AutoAttack ensemble."},
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S},
+   {a:"He, K., Zhang, X., Ren, S., & Sun, J.", y:2016, t:"Deep residual learning for image recognition", v:"CVPR 2016, 770\u2013778", doi:"10.1109/CVPR.2016.90", f:S},
+  ]},
+  {n:18, name:"Attacking Transfer Learning & Backdoors", listing:"Backdoor injection", refs:[
+   {a:"Gu, T., Dolan-Gavitt, B., & Garg, S.", y:2017, t:"BadNets: Identifying vulnerabilities in the machine learning model supply chain", v:"arXiv:1708.06733", doi:"10.48550/arXiv.1708.06733", f:S|C, why:"The trigger-patch backdoor the chapter implants during fine-tuning."},
+   {a:"Chen, X., Liu, C., Li, B., Lu, K., & Song, D.", y:2017, t:"Targeted backdoor attacks on deep learning systems using data poisoning", v:"arXiv:1712.05526", doi:"10.48550/arXiv.1712.05526", f:S},
+   {a:"Liu, Y., et al.", y:2018, t:"Trojaning attack on neural networks", v:"Network and Distributed System Security Symposium", doi:"10.14722/ndss.2018.23291", f:S},
+   {a:"Wang, B., et al.", y:2019, t:"Neural Cleanse: Identifying and mitigating backdoor attacks in neural networks", v:"IEEE Symposium on Security and Privacy, 707\u2013723", doi:"10.1109/SP.2019.00031", f:S},
+   {a:"Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C.", y:2018, t:"MobileNetV2: Inverted residuals and linear bottlenecks", v:"CVPR 2018, 4510\u20134520", doi:"10.1109/CVPR.2018.00474", f:S},
+  ]},
+  {n:19, name:"Attacking GANs", listing:"Generative leakage", refs:[
+   {a:"Kos, J., Fischer, I., & Song, D.", y:2018, t:"Adversarial examples for generative models", v:"IEEE Security and Privacy Workshops, 36\u201342", doi:"10.1109/SPW.2018.00014", f:S|C, why:"Adversarial inputs crafted against a generative model's latent pipeline."},
+   {a:"Hayes, J., Melis, L., Danezis, G., & De Cristofaro, E.", y:2019, t:"LOGAN: Membership inference attacks against generative models", v:"Proceedings on Privacy Enhancing Technologies, 2019(1), 133\u2013152", doi:"10.2478/popets-2019-0008", f:S},
+   {a:"Chen, D., Yu, N., Zhang, Y., & Fritz, M.", y:2020, t:"GAN-Leaks: A taxonomy of membership inference attacks against generative models", v:"Proceedings of CCS '20, 343\u2013362", doi:"10.1145/3372297.3417238", f:S},
+   {a:"Goodfellow, I., et al.", y:2014, t:"Generative adversarial nets", v:"arXiv:1406.2661", doi:"10.48550/arXiv.1406.2661", f:S},
+  ]},
+  {n:20, name:"Attacking Attention", listing:"Attention manipulation", refs:[
+   {a:"Mahmood, K., Mahmood, R., & van Dijk, M.", y:2021, t:"On the robustness of vision transformers to adversarial examples", v:"ICCV 2021, 7818\u20137827", doi:"10.1109/ICCV48922.2021.00774", f:S|C, why:"The attack setup for transformer classifiers this chapter reproduces."},
+   {a:"Jain, S., & Wallace, B. C.", y:2019, t:"Attention is not explanation", v:"NAACL-HLT 2019, 3543\u20133556", doi:"10.18653/v1/N19-1357", f:S},
+   {a:"Wiegreffe, S., & Pinter, Y.", y:2019, t:"Attention is not not explanation", v:"EMNLP-IJCNLP 2019, 11\u201320", doi:"10.18653/v1/D19-1002", f:S},
+   {a:"Bhojanapalli, S., et al.", y:2021, t:"Understanding robustness of transformers for image classification", v:"ICCV 2021, 10211\u201310221", doi:"10.1109/ICCV48922.2021.01007", f:S},
+   {a:"Vaswani, A., et al.", y:2017, t:"Attention is all you need", v:"arXiv:1706.03762", doi:"10.48550/arXiv.1706.03762", f:S},
+  ]},
+  {n:21, name:"Attacking Dropout", listing:"Expectation over transformation", refs:[
+   {a:"Athalye, A., Engstrom, L., Ilyas, A., & Kwok, K.", y:2018, t:"Synthesizing robust adversarial examples", v:"arXiv:1707.07397", doi:"10.48550/arXiv.1707.07397", f:S|C, why:"Expectation over Transformation \u2014 how the chapter defeats stochastic dropout at inference."},
+   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S},
+   {a:"Feinman, R., Curtin, R. R., Shintre, S., & Gardner, A. B.", y:2017, t:"Detecting adversarial samples from artifacts", v:"arXiv:1703.00410", doi:"10.48550/arXiv.1703.00410", f:S},
+   {a:"Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R.", y:2014, t:"Dropout: A simple way to prevent neural networks from overfitting", v:"Journal of Machine Learning Research, 15, 1929\u20131958", url:"https://www.jmlr.org/papers/v15/srivastava14a.html", f:S},
+  ]},
+  {n:22, name:"Attacking Deep Reinforcement Learning", listing:"Policy attacks", refs:[
+   {a:"Huang, S., Papernot, N., Goodfellow, I., Duan, Y., & Abbeel, P.", y:2017, t:"Adversarial attacks on neural network policies", v:"arXiv:1702.02284", doi:"10.48550/arXiv.1702.02284", f:S|C, why:"FGSM applied to policy observations, the attack the chapter runs on its agent."},
+   {a:"Behzadan, V., & Munir, A.", y:2017, t:"Vulnerability of deep reinforcement learning to policy induction attacks", v:"MLDM 2017, LNCS 10358, 262\u2013275", doi:"10.1007/978-3-319-62416-7_19", f:S},
+   {a:"Lin, Y.-C., et al.", y:2017, t:"Tactics of adversarial attack on deep reinforcement learning agents", v:"arXiv:1703.06748", doi:"10.48550/arXiv.1703.06748", f:S},
+   {a:"Gleave, A., Dennis, M., Wild, C., Kant, N., Levine, S., & Russell, S.", y:2019, t:"Adversarial policies: Attacking deep reinforcement learning", v:"arXiv:1905.10615", doi:"10.48550/arXiv.1905.10615", f:S},
+   {a:"Watkins, C. J. C. H., & Dayan, P.", y:1992, t:"Q-learning", v:"Machine Learning, 8(3\u20134), 279\u2013292", doi:"10.1007/BF00992698", f:S},
+  ]},
+  {n:23, name:"Attacking Capsule Networks & DBNs", listing:"Routing perturbation", refs:[
+   {a:"Michels, F., Uelwer, T., Loweth, E., & Harmeling, S.", y:2019, t:"On the vulnerability of capsule networks to adversarial attacks", v:"arXiv:1906.03612", doi:"10.48550/arXiv.1906.03612", f:S|C, why:"The capsule-specific attack evaluation this chapter reproduces."},
+   {a:"Sabour, S., Frosst, N., & Hinton, G. E.", y:2017, t:"Dynamic routing between capsules", v:"arXiv:1710.09829", doi:"10.48550/arXiv.1710.09829", f:S},
+   {a:"Frosst, N., Sabour, S., & Hinton, G.", y:2018, t:"DARCCC: Detecting adversaries by reconstruction from class conditional capsules", v:"arXiv:1811.06969", doi:"10.48550/arXiv.1811.06969", f:S},
+   {a:"Hinton, G. E., Osindero, S., & Teh, Y.-W.", y:2006, t:"A fast learning algorithm for deep belief nets", v:"Neural Computation, 18(7), 1527\u20131554", doi:"10.1162/neco.2006.18.7.1527", f:S},
+  ]},
+ ]},
+ {part:"VI", roman:"VI", ring:6, title:"Attacking Generative AI", chapters:[
+  {n:24, name:"Attacking Language Models", listing:"Extraction and triggers", refs:[
+   {a:"Carlini, N., et al.", y:2021, t:"Extracting training data from large language models", v:"USENIX Security Symposium, 2633\u20132650", url:"https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting", f:S|C, why:"The memorisation-extraction procedure the chapter runs against its language model."},
+   {a:"Carlini, N., Liu, C., Erlingsson, \u00da., Kos, J., & Song, D.", y:2019, t:"The secret sharer: Evaluating and testing unintended memorization in neural networks", v:"USENIX Security Symposium, 267\u2013284", url:"https://www.usenix.org/conference/usenixsecurity19/presentation/carlini", f:S},
+   {a:"Wallace, E., Feng, S., Kandpal, N., Gardner, M., & Singh, S.", y:2019, t:"Universal adversarial triggers for attacking and analyzing NLP", v:"EMNLP-IJCNLP 2019, 2153\u20132162", doi:"10.18653/v1/D19-1221", f:S|C, why:"The trigger-search method used to find input-agnostic prompts."},
+   {a:"Ebrahimi, J., Rao, A., Lowd, D., & Dou, D.", y:2018, t:"HotFlip: White-box adversarial examples for text classification", v:"ACL 2018, 31\u201336", doi:"10.18653/v1/P18-2006", f:S},
+  ]},
+  {n:25, name:"Attacking the Transformer", listing:"Word-substitution attacks", refs:[
+   {a:"Jin, D., Jin, Z., Zhou, J. T., & Szolovits, P.", y:2020, t:"Is BERT really robust? A strong baseline for natural language attack on text classification and entailment", v:"AAAI 2020, 34(05), 8018\u20138025", doi:"10.1609/aaai.v34i05.6311", f:S|C, why:"TextFooler \u2014 the synonym-substitution attack the chapter applies to its encoder."},
+   {a:"Li, L., Ma, R., Guo, Q., Xue, X., & Qiu, X.", y:2020, t:"BERT-ATTACK: Adversarial attack against BERT using BERT", v:"EMNLP 2020, 6193\u20136202", doi:"10.18653/v1/2020.emnlp-main.500", f:S},
+   {a:"Morris, J., et al.", y:2020, t:"TextAttack: A framework for adversarial attacks, data augmentation, and adversarial training in NLP", v:"EMNLP 2020: System Demonstrations, 119\u2013126", doi:"10.18653/v1/2020.emnlp-demos.16", f:C, why:"The framework the chapter's text attacks are implemented in."},
+   {a:"Gao, J., Lanchantin, J., Soffa, M. L., & Qi, Y.", y:2018, t:"Black-box generation of adversarial text sequences to evade deep learning classifiers", v:"IEEE Security and Privacy Workshops, 50\u201356", doi:"10.1109/SPW.2018.00016", f:S},
+  ]},
+  {n:26, name:"Attacking Pre-Trained NLU", listing:"Weight poisoning", refs:[
+   {a:"Kurita, K., Michel, P., & Neubig, G.", y:2020, t:"Weight poisoning attacks on pre-trained models", v:"ACL 2020, 2793\u20132806", doi:"10.18653/v1/2020.acl-main.249", f:S|C, why:"The pre-training weight poison that survives downstream fine-tuning."},
+   {a:"Shen, L., et al.", y:2021, t:"Backdoor pre-trained models can transfer to all", v:"Proceedings of CCS '21, 3141\u20133158", doi:"10.1145/3460120.3485370", f:S},
+   {a:"Wang, B., et al.", y:2021, t:"Adversarial GLUE: A multi-task benchmark for robustness evaluation of language models", v:"arXiv:2111.02840", doi:"10.48550/arXiv.2111.02840", f:S|C, why:"The benchmark the chapter scores its poisoned model against."},
+   {a:"Nie, Y., Williams, A., Dinan, E., Bansal, M., Weston, J., & Kiela, D.", y:2020, t:"Adversarial NLI: A new benchmark for natural language understanding", v:"ACL 2020, 4885\u20134901", doi:"10.18653/v1/2020.acl-main.441", f:S},
+   {a:"Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K.", y:2019, t:"BERT: Pre-training of deep bidirectional transformers for language understanding", v:"NAACL-HLT 2019, 4171\u20134186", doi:"10.18653/v1/N19-1423", f:S},
+  ]},
+  {n:27, name:"Attacking Dialogue & Jailbreaking", listing:"Jailbreaks and prompt injection", refs:[
+   {a:"Zou, A., Wang, Z., Kolter, J. Z., & Fredrikson, M.", y:2023, t:"Universal and transferable adversarial attacks on aligned language models", v:"arXiv:2307.15043", doi:"10.48550/arXiv.2307.15043", f:S|C, why:"GCG \u2014 the gradient-guided suffix search the chapter runs against an aligned model."},
+   {a:"Wei, A., Haghtalab, N., & Steinhardt, J.", y:2023, t:"Jailbroken: How does LLM safety training fail?", v:"arXiv:2307.02483", doi:"10.48550/arXiv.2307.02483", f:S},
+   {a:"Perez, F., & Ribeiro, I.", y:2022, t:"Ignore previous prompt: Attack techniques for language models", v:"arXiv:2211.09527", doi:"10.48550/arXiv.2211.09527", f:S|C, why:"The goal-hijacking and prompt-leaking patterns demonstrated here."},
+   {a:"Greshake, K., et al.", y:2023, t:"Not what you've signed up for: Compromising real-world LLM-integrated applications with indirect prompt injection", v:"Proceedings of AISec '23, 79\u201390", doi:"10.1145/3605764.3623985", f:S},
+   {a:"Perez, E., et al.", y:2022, t:"Red teaming language models with language models", v:"EMNLP 2022, 3419\u20133448", doi:"10.18653/v1/2022.emnlp-main.225", f:S},
+  ]},
+  {n:28, name:"Attacking Diffusion Models", listing:"Memorisation and filter evasion", refs:[
+   {a:"Carlini, N., et al.", y:2023, t:"Extracting training data from diffusion models", v:"USENIX Security Symposium, 5253\u20135270", url:"https://www.usenix.org/conference/usenixsecurity23/presentation/carlini", f:S|C, why:"The training-image extraction attack the chapter runs against its diffusion model."},
+   {a:"Somepalli, G., Singla, V., Goldblum, M., Geiping, J., & Goldstein, T.", y:2023, t:"Diffusion art or digital forgery? Investigating data replication in diffusion models", v:"CVPR 2023, 6048\u20136058", doi:"10.1109/CVPR52729.2023.00586", f:S},
+   {a:"Rando, J., Paleka, D., Lindner, D., Heim, L., & Tram\u00e8r, F.", y:2022, t:"Red-teaming the Stable Diffusion safety filter", v:"arXiv:2210.04610", doi:"10.48550/arXiv.2210.04610", f:S},
+   {a:"Salman, H., et al.", y:2023, t:"Raising the cost of malicious AI-powered image editing", v:"arXiv:2302.06588", doi:"10.48550/arXiv.2302.06588", f:S},
+   {a:"Ho, J., Jain, A., & Abbeel, P.", y:2020, t:"Denoising diffusion probabilistic models", v:"arXiv:2006.11239", doi:"10.48550/arXiv.2006.11239", f:S},
+  ]},
+  {n:29, name:"Attacking LoRA & PEFT", listing:"Adapter poisoning", refs:[
+   {a:"Qi, X., et al.", y:2023, t:"Fine-tuning aligned language models compromises safety, even when users do not intend to!", v:"arXiv:2310.03693", doi:"10.48550/arXiv.2310.03693", f:S|C, why:"Safety collapse from a small adapter fine-tune \u2014 the effect this chapter reproduces."},
+   {a:"Wan, A., Wallace, E., Shen, S., & Klein, D.", y:2023, t:"Poisoning language models during instruction tuning", v:"arXiv:2305.00944", doi:"10.48550/arXiv.2305.00944", f:S},
+   {a:"Xu, J., Ma, M. D., Wang, F., Xiao, C., & Chen, M.", y:2023, t:"Instructions as backdoors: Backdoor vulnerabilities of instruction tuning for large language models", v:"arXiv:2305.14710", doi:"10.48550/arXiv.2305.14710", f:S},
+   {a:"Hu, E. J., et al.", y:2021, t:"LoRA: Low-rank adaptation of large language models", v:"arXiv:2106.09685", doi:"10.48550/arXiv.2106.09685", f:S},
+  ]},
+  {n:30, name:"Attacking RLHF", listing:"Preference poisoning", refs:[
+   {a:"Rando, J., & Tram\u00e8r, F.", y:2023, t:"Universal jailbreak backdoors from poisoned human feedback", v:"arXiv:2311.14455", doi:"10.48550/arXiv.2311.14455", f:S|C, why:"The poisoned-preference backdoor the chapter injects into the reward model."},
+   {a:"Casper, S., et al.", y:2023, t:"Open problems and fundamental limitations of reinforcement learning from human feedback", v:"arXiv:2307.15217", doi:"10.48550/arXiv.2307.15217", f:S},
+   {a:"Skalse, J., Howe, N. H. R., Krasheninnikov, D., & Krueger, D.", y:2022, t:"Defining and characterizing reward hacking", v:"arXiv:2209.13085", doi:"10.48550/arXiv.2209.13085", f:S},
+   {a:"Gao, L., Schulman, J., & Hilton, J.", y:2023, t:"Scaling laws for reward model overoptimization", v:"arXiv:2210.10760", doi:"10.48550/arXiv.2210.10760", f:S},
+   {a:"Ouyang, L., et al.", y:2022, t:"Training language models to follow instructions with human feedback", v:"arXiv:2203.02155", doi:"10.48550/arXiv.2203.02155", f:S},
+  ]},
+  {n:31, name:"Attacking State-Space Models", listing:"Robustness evaluation", refs:[
+   {a:"Gu, A., & Dao, T.", y:2023, t:"Mamba: Linear-time sequence modeling with selective state spaces", v:"arXiv:2312.00752", doi:"10.48550/arXiv.2312.00752", f:S},
+   {a:"Gu, A., Goel, K., & R\u00e9, C.", y:2021, t:"Efficiently modeling long sequences with structured state spaces", v:"arXiv:2111.00396", doi:"10.48550/arXiv.2111.00396", f:S},
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"The evaluation protocol applied to the selective SSM layer."},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+  ]},
+ ]},
+ {part:"VII", roman:"VII", ring:7, title:"Attacking Hybrid Quantum-Classical AI", chapters:[
+  {n:32, name:"Attacking the Variational Quantum Classifier", listing:"Parameter-shift gradient attack", refs:[
+   {a:"Lu, S., Duan, L.-M., & Deng, D.-L.", y:2020, t:"Quantum adversarial machine learning", v:"Physical Review Research, 2, 033212", doi:"10.1103/PhysRevResearch.2.033212", f:S|C, why:"The gradient attack on a variational quantum classifier this chapter implements."},
+   {a:"Schuld, M., Bergholm, V., Gogolin, C., Izaac, J., & Killoran, N.", y:2019, t:"Evaluating analytic gradients on quantum hardware", v:"Physical Review A, 99, 032331", doi:"10.1103/PhysRevA.99.032331", f:S|C, why:"The parameter-shift rule that makes the circuit differentiable for the attack."},
+   {a:"Liao, H., Convy, I., Huggins, W. J., & Whaley, K. B.", y:2021, t:"Robust in practice: Adversarial attacks on quantum machine learning", v:"Physical Review A, 103, 042427", doi:"10.1103/PhysRevA.103.042427", f:S},
+   {a:"Bergholm, V., et al.", y:2018, t:"PennyLane: Automatic differentiation of hybrid quantum-classical computations", v:"arXiv:1811.04968", doi:"10.48550/arXiv.1811.04968", f:C, why:"The framework the attack gradients are computed in."},
+  ]},
+ ]},
+ {part:"VIII", roman:"VIII", ring:8, title:"Attacking Quantum AI", chapters:[
+  {n:33, name:"Quantum Adversarial Examples", listing:"Quantum-state perturbation", refs:[
+   {a:"Liu, N., & Wittek, P.", y:2020, t:"Vulnerability of quantum classification to adversarial perturbations", v:"Physical Review A, 101, 062331", doi:"10.1103/PhysRevA.101.062331", f:S|C, why:"The concentration-of-measure bound the chapter's quantum perturbations are built on."},
+   {a:"Ren, W., et al.", y:2022, t:"Experimental quantum adversarial learning with programmable superconducting qubits", v:"Nature Computational Science, 2, 711\u2013717", doi:"10.1038/s43588-022-00351-9", f:S},
+   {a:"Du, Y., Hsieh, M.-H., Liu, T., Tao, D., & Liu, N.", y:2021, t:"Quantum noise protects quantum classifiers against adversaries", v:"Physical Review Research, 3, 023153", doi:"10.1103/PhysRevResearch.3.023153", f:S},
+   {a:"West, M. T., et al.", y:2023, t:"Towards quantum enhanced adversarial robustness in machine learning", v:"Nature Machine Intelligence, 5, 581\u2013589", doi:"10.1038/s42256-023-00661-1", f:S},
+  ]},
+  {n:34, name:"QAOA Parameter Poisoning", listing:"Parameter and Hamiltonian poisoning", refs:[
+   {a:"Farhi, E., Goldstone, J., & Gutmann, S.", y:2014, t:"A quantum approximate optimization algorithm", v:"arXiv:1411.4028", doi:"10.48550/arXiv.1411.4028", f:S|C, why:"The alternating cost/mixer ansatz whose angles the chapter poisons."},
+   {a:"Lucas, A.", y:2014, t:"Ising formulations of many NP problems", v:"Frontiers in Physics, 2, 5", doi:"10.3389/fphy.2014.00005", f:S|C, why:"The Hamiltonian encoding the attack tampers with upstream of the circuit."},
+   {a:"Zhou, L., Wang, S.-T., Choi, S., Pichler, H., & Lukin, M. D.", y:2020, t:"Quantum approximate optimization algorithm: Performance, mechanism, and implementation on near-term devices", v:"Physical Review X, 10, 021067", doi:"10.1103/PhysRevX.10.021067", f:S},
+   {a:"Bittel, L., & Kliesch, M.", y:2021, t:"Training variational quantum algorithms is NP-hard", v:"Physical Review Letters, 127, 120502", doi:"10.1103/PhysRevLett.127.120502", f:S},
+   {a:"McClean, J. R., Boixo, S., Smelyanskiy, V. N., Babbush, R., & Neven, H.", y:2018, t:"Barren plateaus in quantum neural network training landscapes", v:"Nature Communications, 9, 4812", doi:"10.1038/s41467-018-07090-z", f:S},
+  ]},
+  {n:35, name:"Attacking VQE", listing:"Ansatz and landscape attacks", refs:[
+   {a:"Peruzzo, A., et al.", y:2014, t:"A variational eigenvalue solver on a photonic quantum processor", v:"Nature Communications, 5, 4213", doi:"10.1038/ncomms5213", f:S|C, why:"The eigensolver whose ansatz parameters and Hamiltonian the chapter attacks."},
+   {a:"Kandala, A., et al.", y:2017, t:"Hardware-efficient variational quantum eigensolver for small molecules and quantum magnets", v:"Nature, 549(7671), 242\u2013246", doi:"10.1038/nature23879", f:S},
+   {a:"Cerezo, M., Sone, A., Volkoff, T., Cincio, L., & Coles, P. J.", y:2021, t:"Cost function dependent barren plateaus in shallow parametrized quantum circuits", v:"Nature Communications, 12, 1791", doi:"10.1038/s41467-021-21728-w", f:S},
+   {a:"Wang, S., et al.", y:2021, t:"Noise-induced barren plateaus in variational quantum algorithms", v:"Nature Communications, 12, 6961", doi:"10.1038/s41467-021-27045-6", f:S},
+   {a:"Tilly, J., et al.", y:2022, t:"The variational quantum eigensolver: A review of methods and best practices", v:"Physics Reports, 986, 1\u2013128", doi:"10.1016/j.physrep.2022.08.003"},
+  ]},
+ ]},
+ {part:"IX", roman:"IX", ring:9, title:"Benchmarking & Red-Team Reporting", chapters:[
+  {n:36, name:"The Cross-Model Scorecard", listing:"AutoAttack and HarmBench", refs:[
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"The vision-side benchmark the scorecard measures against."},
+   {a:"Mazeika, M., et al.", y:2024, t:"HarmBench: A standardized evaluation framework for automated red teaming and robust refusal", v:"arXiv:2402.04249", doi:"10.48550/arXiv.2402.04249", f:S|C, why:"The language-side benchmark the scorecard measures against."},
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S|C, why:"The leaderboard convention the cross-model table is modelled on."},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S},
+  ]},
+  {n:37, name:"Writing a Professional Red-Team Report", listing:"Reporting and disclosure", refs:[
+   {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S|C, why:"The taxonomy and vocabulary the report template is organised around."},
+   {a:"Ganguli, D., et al.", y:2022, t:"Red teaming language models to reduce harms: Methods, scaling behaviors, and lessons learned", v:"arXiv:2209.07858", doi:"10.48550/arXiv.2209.07858", f:S},
+   {a:"Raji, I. D., et al.", y:2020, t:"Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing", v:"Proceedings of FAT* '20, 33\u201344", doi:"10.1145/3351095.3372873", f:S},
+   {a:"Mitchell, M., et al.", y:2019, t:"Model cards for model reporting", v:"Proceedings of FAT* '19, 220\u2013229", doi:"10.1145/3287560.3287596", f:S},
+   {a:"Perez, E., et al.", y:2022, t:"Red teaming language models with language models", v:"EMNLP 2022, 3419\u20133448", doi:"10.18653/v1/2022.emnlp-main.225", f:S},
+  ]},
+ ]},
+];
+
+/* ---- render ---- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function ringGlyph(depth){
+  let c='';
+  for(let i=1;i<=8;i++){
+    const r=3+i*3.1, on=(depth===9) || i===depth;
+    c+='<circle cx="30" cy="30" r="'+r+'" fill="none" stroke="'+(on?'#e8b85a':'rgba(255,255,255,.22)')+'" stroke-width="'+(on?2.4:0.9)+'"/>';
+  }
+  return '<svg class="rings" width="54" height="54" viewBox="0 0 60 60" aria-hidden="true">'+c+'</svg>';
+}
+
+let total=0, nsem=0, ncode=0, ndoi=0;
+
+document.getElementById('out').innerHTML = DATA.map(p => {
+  const chapters = p.chapters.map(ch => {
+    const refs = ch.refs.map((r,i) => {
+      total++;
+      const f = r.f||0;
+      const sem = !!(f&S), cd = !!(f&C), nw = !!(f&N);
+      if(sem) nsem++; if(cd) ncode++; if(r.doi) ndoi++;
+      const ids = r.doi
+        ? '<span>DOI <a href="https://doi.org/'+esc(r.doi)+'" target="_blank" rel="noopener">'+esc(r.doi)+'</a></span>'
+        : '<span class="nodoi">no DOI</span><span><a href="'+esc(r.url)+'" target="_blank" rel="noopener">publisher record</a></span>';
+      const tags = [
+        sem?'<span class="tag sem">Seminal</span>':'',
+        cd ?'<span class="tag cd">In code</span>':'',
+        nw ?'<span class="tag new">Added</span>':''
+      ].join('');
+      const search = (r.a+' '+r.t+' '+r.v+' '+r.y).toLowerCase();
+      return '<li class="ref '+(sem?'is-seminal':'')+' '+(cd?'is-code':'')+'" data-s="'+(sem?1:0)+'" data-c="'+(cd?1:0)+'" data-q="'+esc(search)+'">'
+        + '<span class="idx">'+(i+1)+'</span>'
+        + '<div>'
+        + '<p class="cite"><span class="au">'+esc(r.a)+'</span> ('+r.y+'). <span class="ti">'+esc(r.t)+'</span>. <span class="ve">'+esc(r.v)+'</span>.</p>'
+        + '<p class="ids">'+ids+'</p>'
+        + (tags?'<p class="tags">'+tags+'</p>':'')
+        + (r.why?'<p class="why">'+(cd?'<b>Code &middot;</b> ':'')+esc(r.why)+'</p>':'')
+        + '</div></li>';
+    }).join('');
+    return '<article class="chapter">'
+      + '<header class="chapter-head">'
+      + '<span class="chnum">Ch. '+ch.n+'</span>'
+      + '<h3 class="chname">'+esc(ch.name)+'</h3>'
+      + (ch.listing?'<span class="listing">'+esc(ch.listing)+'</span>':'')
+      + '</header>'
+      + '<ol class="refs">'+refs+'</ol></article>';
+  }).join('');
+
+  return '<section class="part">'
+    + '<div class="part-head">'
+    + ringGlyph(p.ring)
+    + '<div><p class="part-label">Part '+p.roman+(p.ring<=8?' &middot; Ring '+p.ring+' of 8':' &middot; Across all rings')+'</p>'
+    + '<h2 class="part-title">'+esc(p.title)+'</h2></div>'
+    + '</div>' + chapters + '</section>';
+}).join('');
+
+document.getElementById('t-total').textContent = total;
+document.getElementById('t-sem').textContent = nsem;
+document.getElementById('t-code').textContent = ncode;
+document.getElementById('t-doi').textContent = ndoi;
+document.getElementById('f-total').textContent = total;
+
+/* ---- filtering ---- */
+const fSem=document.getElementById('f-sem'), fCode=document.getElementById('f-code'),
+      fClear=document.getElementById('f-clear'), q=document.getElementById('q'),
+      countEl=document.getElementById('count');
+
+function apply(){
+  const wantS = fSem.getAttribute('aria-pressed')==='true';
+  const wantC = fCode.getAttribute('aria-pressed')==='true';
+  const term  = q.value.trim().toLowerCase();
+  let shown=0;
+
+  document.querySelectorAll('li.ref').forEach(function(li){
+    const ok = (!wantS || li.dataset.s==='1')
+            && (!wantC || li.dataset.c==='1')
+            && (!term  || li.dataset.q.indexOf(term)!==-1);
+    li.classList.toggle('hide', !ok);
+    if(ok) shown++;
+  });
+  document.querySelectorAll('.chapter').forEach(function(ch){
+    ch.classList.toggle('hide', !ch.querySelector('li.ref:not(.hide)'));
+  });
+  document.querySelectorAll('.part').forEach(function(pt){
+    pt.classList.toggle('hide', !pt.querySelector('.chapter:not(.hide)'));
+  });
+  countEl.textContent = shown===total ? total+' references' : shown+' of '+total+' shown';
+}
+
+[fSem,fCode].forEach(function(b){
+  b.addEventListener('click',function(){
+    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true');
+    apply();
+  });
+});
+fClear.addEventListener('click',function(){
+  fSem.setAttribute('aria-pressed','false');
+  fCode.setAttribute('aria-pressed','false');
+  q.value=''; apply();
+});
+q.addEventListener('input',apply);
+apply();
+</script>
+</body>
+</html>
