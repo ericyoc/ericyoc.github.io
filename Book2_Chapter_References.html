@@ -11,7 +11,7 @@
   <meta property="og:description" content="Chapter-by-chapter references for Book 2, Adversarial Attacks, with seminal papers and the attacks each chapter's code implements. By Eric Yocam PhD, DBA."/>
   <meta property="og:url"         content="https://ericyocam.com/Book2_Chapter_References.html"/>
   <meta property="og:image"       content="book2_cover.jpg"/>
-  <meta name="description"        content="Chapter-by-chapter references for Book 2, Adversarial Attacks — 164 sources across 37 chapters, with seminal works and code implementations marked. By Eric Yocam PhD, DBA."/>
+  <meta name="description"        content="Chapter-by-chapter references for Book 2, Adversarial Attacks — 166 sources across 37 chapters, with seminal works and code implementations marked. By Eric Yocam PhD, DBA."/>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
@@ -388,8 +388,8 @@
     <h2 class="card-title">How to Read This List</h2>
     <ul class="legend-list">
       <li><i class="fa-solid fa-star" style="color:var(--seminal);margin-top:.3rem;"></i><span><strong>Seminal</strong> &mdash; the originating paper for the idea: the work the attack or the target model is named after, or first appeared in.</span></li>
-      <li><i class="fa-solid fa-code" style="color:var(--code);margin-top:.3rem;"></i><span><strong>In code</strong> &mdash; the chapter's executed attack implements or directly depends on this work. Each carries a note on how.</span></li>
-      <li><i class="fa-solid fa-crosshairs" style="color:var(--muted);margin-top:.3rem;"></i><span><strong>Target</strong> &mdash; where a chapter attacks a model built in Book 1, the model’s own originating paper is listed alongside the attack.</span></li>
+      <li><i class="fa-solid fa-code" style="color:var(--code);margin-top:.3rem;"></i><span><strong>In code</strong> &mdash; the chapter's code listing implements or directly depends on this work. Each note names the listing.</span></li>
+      <li><i class="fa-solid fa-crosshairs" style="color:var(--muted);margin-top:.3rem;"></i><span><strong>Victim</strong> &mdash; most chapters reconstruct a Book 1 model as the target, so its originating paper is marked <em>In code</em> too.</span></li>
     </ul>
   </div>
 
@@ -398,7 +398,7 @@
 </div>
 
 <footer>
-  <p>&copy; 2026 Eric Yocam PhD, DBA &nbsp;&middot;&nbsp; <span id="f-total">164</span> references across 37 chapters</p>
+  <p>&copy; 2026 Eric Yocam PhD, DBA &nbsp;&middot;&nbsp; <span id="f-total">166</span> references across 37 chapters</p>
   <p style="margin-top:.4rem;">
     <a href="book2.html" style="color:var(--gold);text-decoration:none;">Book 2</a> &nbsp;&middot;&nbsp;
     <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;&middot;&nbsp;
@@ -412,255 +412,257 @@ const S=1, C=2, N=4;
 
 const DATA=[
  {part:"I", roman:"I", ring:1, title:"Foundations of Adversarial AI", chapters:[
-  {n:1, name:"Threat Models", listing:"Threat modeling", refs:[
+  {n:1, name:"The Adversarial Mindset & Threat Models", listing:null, refs:[
    {a:"Barreno, M., Nelson, B., Sears, R., Joseph, A. D., & Tygar, J. D.", y:2006, t:"Can machine learning be secure?", v:"Proceedings of ASIACCS '06, 16\u201325", doi:"10.1145/1128817.1128824", f:S},
    {a:"Papernot, N., McDaniel, P., Sinha, A., & Wellman, M. P.", y:2018, t:"SoK: Security and privacy in machine learning", v:"IEEE European Symposium on Security and Privacy, 399\u2013414", doi:"10.1109/EuroSP.2018.00035", f:S},
    {a:"Biggio, B., & Roli, F.", y:2018, t:"Wild patterns: Ten years after the rise of adversarial machine learning", v:"Pattern Recognition, 84, 317\u2013331", doi:"10.1016/j.patcog.2018.07.023", f:S},
    {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S},
   ]},
-  {n:2, name:"Taxonomy & Perturbation Budgets", listing:"Lp budgets", refs:[
+  {n:2, name:"A Taxonomy of Attacks & Perturbation Budgets", listing:null, refs:[
    {a:"Szegedy, C., et al.", y:2013, t:"Intriguing properties of neural networks", v:"arXiv:1312.6199", doi:"10.48550/arXiv.1312.6199", f:S},
-   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"FGSM and the epsilon-budget framing the chapter's perturbation limits are set by."},
-   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"PGD and the Lp-ball threat model used as the book's standard budget."},
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"The epsilon-budget framing the book's perturbation limits are stated in."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The Lp-ball projection that defines the book's standard threat model."},
    {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
   ]},
-  {n:3, name:"The Measurement Harness & Victim Gallery", listing:"Evaluation harness", refs:[
-   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S|C, why:"The standardized evaluation protocol the harness follows."},
-   {a:"Nicolae, M.-I., et al.", y:2018, t:"Adversarial Robustness Toolbox v1.0.0", v:"arXiv:1807.01069", doi:"10.48550/arXiv.1807.01069", f:C, why:"One of the attack libraries the harness wraps."},
-   {a:"Papernot, N., et al.", y:2018, t:"Technical report on the CleverHans v2.1.0 adversarial examples library", v:"arXiv:1610.00768", doi:"10.48550/arXiv.1610.00768", f:C, why:"Reference implementations for the baseline attacks."},
-   {a:"Kim, H.", y:2020, t:"Torchattacks: A PyTorch repository for adversarial attacks", v:"arXiv:2010.01950", doi:"10.48550/arXiv.2010.01950", f:C, why:"The PyTorch attack implementations used across the victim gallery."},
+  {n:3, name:"The Measurement Harness & Victim Gallery", listing:"3.1\u20133.5 \u2014 Scorecard, metrics, victim registry", refs:[
+   {a:"Nicolae, M.-I., et al.", y:2018, t:"Adversarial Robustness Toolbox v1.0.0", v:"arXiv:1807.01069", doi:"10.48550/arXiv.1807.01069", f:C, why:"The ART imports underlying the shared attack helper the harness wraps (Listing E.1)."},
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S|C, why:"The leaderboard convention the Scorecard dataclass and export follow."},
+   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S|C, why:"The reporting discipline behind the accuracy, realized-perturbation and ASR helpers."},
    {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S},
   ]},
  ]},
- {part:"II", roman:"II", ring:2, title:"Attacking Symbolic AI", chapters:[
-  {n:4, name:"Attacking Planning & Scheduling", listing:"Heuristic and cost manipulation", refs:[
-   {a:"Hart, P. E., Nilsson, N. J., & Raphael, B.", y:1968, t:"A formal basis for the heuristic determination of minimum cost paths", v:"IEEE Trans. Systems Science and Cybernetics, 4(2), 100\u2013107", doi:"10.1109/TSSC.1968.300136", f:S|C, why:"The A* search this chapter attacks by manipulating heuristic and edge costs."},
+ {part:"II", roman:"II", ring:2, title:"Attacking Symbolic AI \u2014 The Outermost Ring", chapters:[
+  {n:4, name:"Attacking Planning & Scheduling", listing:"4.1\u20134.2 \u2014 A* victim, obstacle injection", refs:[
+   {a:"Hart, P. E., Nilsson, N. J., & Raphael, B.", y:1968, t:"A formal basis for the heuristic determination of minimum cost paths", v:"IEEE Trans. Systems Science and Cybernetics, 4(2), 100\u2013107", doi:"10.1109/TSSC.1968.300136", f:S|C, why:"The A* planner reconstructed as the victim in Listing 4.1."},
+   {a:"Z\u00fcgner, D., Akbarnejad, A., & G\u00fcnnemann, S.", y:2018, t:"Adversarial attacks on neural networks for graph data", v:"Proceedings of KDD '18, 2847\u20132856", doi:"10.1145/3219819.3220078", f:S|C, why:"Structural perturbation of a graph \u2014 the class of attack obstacle injection belongs to."},
    {a:"Dijkstra, E. W.", y:1959, t:"A note on two problems in connexion with graphs", v:"Numerische Mathematik, 1, 269\u2013271", doi:"10.1007/BF01386390", f:S},
-   {a:"Z\u00fcgner, D., Akbarnejad, A., & G\u00fcnnemann, S.", y:2018, t:"Adversarial attacks on neural networks for graph data", v:"Proceedings of KDD '18, 2847\u20132856", doi:"10.1145/3219819.3220078", f:S},
    {a:"Barreno, M., Nelson, B., Sears, R., Joseph, A. D., & Tygar, J. D.", y:2006, t:"Can machine learning be secure?", v:"Proceedings of ASIACCS '06, 16\u201325", doi:"10.1145/1128817.1128824", f:S},
   ]},
-  {n:5, name:"Attacking Expert Systems", listing:"Rule-base subversion", refs:[
-   {a:"Davis, R., Buchanan, B., & Shortliffe, E.", y:1977, t:"Production rules as a representation for a knowledge-based consultation program", v:"Artificial Intelligence, 8(1), 15\u201345", doi:"10.1016/0004-3702(77)90003-0", f:S|C, why:"The production-rule engine whose IF\u2013THEN chain the chapter subverts."},
+  {n:5, name:"Attacking Expert Systems", listing:"5.1\u20135.2 \u2014 Rule-based victim, rule injection", refs:[
+   {a:"Davis, R., Buchanan, B., & Shortliffe, E.", y:1977, t:"Production rules as a representation for a knowledge-based consultation program", v:"Artificial Intelligence, 8(1), 15\u201345", doi:"10.1016/0004-3702(77)90003-0", f:S|C, why:"The production-rule engine reconstructed as the victim, into which Listing 5.2 injects a rule."},
    {a:"Shortliffe, E. H., & Buchanan, B. G.", y:1975, t:"A model of inexact reasoning in medicine", v:"Mathematical Biosciences, 23(3\u20134), 351\u2013379", doi:"10.1016/0025-5564(75)90047-4", f:S},
-   {a:"Slack, D., Hilgard, S., Jia, E., Singh, S., & Lakkaraju, H.", y:2020, t:"Fooling LIME and SHAP: Adversarial attacks on post hoc explanation methods", v:"Proceedings of AIES '20, 180\u2013186", doi:"10.1145/3375627.3375830", f:S},
    {a:"Forgy, C. L.", y:1982, t:"Rete: A fast algorithm for the many pattern/many object pattern match problem", v:"Artificial Intelligence, 19(1), 17\u201337", doi:"10.1016/0004-3702(82)90020-0", f:S},
+   {a:"Slack, D., Hilgard, S., Jia, E., Singh, S., & Lakkaraju, H.", y:2020, t:"Fooling LIME and SHAP: Adversarial attacks on post hoc explanation methods", v:"Proceedings of AIES '20, 180\u2013186", doi:"10.1145/3375627.3375830", f:S},
   ]},
-  {n:6, name:"Attacking Fuzzy Logic", listing:"Membership-function perturbation", refs:[
-   {a:"Zadeh, L. A.", y:1965, t:"Fuzzy sets", v:"Information and Control, 8(3), 338\u2013353", doi:"10.1016/S0019-9958(65)90241-X", f:S},
-   {a:"Mamdani, E. H., & Assilian, S.", y:1975, t:"An experiment in linguistic synthesis with a fuzzy logic controller", v:"International Journal of Man-Machine Studies, 7(1), 1\u201313", doi:"10.1016/S0020-7373(75)80002-2", f:S|C, why:"The Mamdani inference pipeline whose membership functions the chapter perturbs."},
-   {a:"Biggio, B., et al.", y:2013, t:"Evasion attacks against machine learning at test time", v:"ECML PKDD 2013, LNCS 8190, 387\u2013402", doi:"10.1007/978-3-642-40994-3_25", f:S|C, why:"Gradient-guided evasion against non-deep decision functions."},
+  {n:6, name:"Attacking Fuzzy Logic", listing:"6.1\u20136.2 \u2014 Fuzzy controller victim, membership shift", refs:[
+   {a:"Mamdani, E. H., & Assilian, S.", y:1975, t:"An experiment in linguistic synthesis with a fuzzy logic controller", v:"International Journal of Man-Machine Studies, 7(1), 1\u201313", doi:"10.1016/S0020-7373(75)80002-2", f:S|C, why:"The Mamdani controller reconstructed as the victim in Listing 6.1."},
+   {a:"Zadeh, L. A.", y:1965, t:"Fuzzy sets", v:"Information and Control, 8(3), 338\u2013353", doi:"10.1016/S0019-9958(65)90241-X", f:S|C, why:"The membership functions Listing 6.2 shifts to flip the controller's output."},
+   {a:"Biggio, B., et al.", y:2013, t:"Evasion attacks against machine learning at test time", v:"ECML PKDD 2013, LNCS 8190, 387\u2013402", doi:"10.1007/978-3-642-40994-3_25", f:S},
    {a:"Papernot, N., McDaniel, P., Jha, S., Fredrikson, M., Celik, Z. B., & Swami, A.", y:2016, t:"The limitations of deep learning in adversarial settings", v:"IEEE European Symposium on Security and Privacy, 372\u2013387", doi:"10.1109/EuroSP.2016.36", f:S},
   ]},
  ]},
  {part:"III", roman:"III", ring:3, title:"Attacking Machine Learning", chapters:[
-  {n:7, name:"Feature-Space Poisoning", listing:"Training-set poisoning", refs:[
-   {a:"Biggio, B., Nelson, B., & Laskov, P.", y:2012, t:"Poisoning attacks against support vector machines", v:"arXiv:1206.6389", doi:"10.48550/arXiv.1206.6389", f:S|C, why:"The gradient-ascent poisoning method the chapter runs against a feature-space model."},
-   {a:"Shafahi, A., et al.", y:2018, t:"Poison Frogs! Targeted clean-label poisoning attacks on neural networks", v:"arXiv:1804.00792", doi:"10.48550/arXiv.1804.00792", f:S|C, why:"Feature-collision poisoning, the clean-label variant demonstrated here."},
-   {a:"Koh, P. W., & Liang, P.", y:2017, t:"Understanding black-box predictions via influence functions", v:"arXiv:1703.04730", doi:"10.48550/arXiv.1703.04730", f:S},
+  {n:7, name:"Poisoning the Pipeline: Feature-Space Attacks", listing:"7.1\u20137.2 \u2014 Random-forest victim, label-flip sweep", refs:[
+   {a:"Xiao, H., Xiao, H., & Eckert, C.", y:2012, t:"Adversarial label flips attack on support vector machines", v:"ECAI 2012, 870\u2013875", doi:"10.3233/978-1-61499-098-7-870", f:S|C, why:"Label-flip poisoning \u2014 the attack Listing 7.2 sweeps over five poison fractions."},
+   {a:"Biggio, B., Nelson, B., & Laskov, P.", y:2012, t:"Poisoning attacks against support vector machines", v:"arXiv:1206.6389", doi:"10.48550/arXiv.1206.6389", f:S},
    {a:"Jagielski, M., et al.", y:2018, t:"Manipulating machine learning: Poisoning attacks and countermeasures for regression learning", v:"IEEE Symposium on Security and Privacy, 19\u201335", doi:"10.1109/SP.2018.00057", f:S},
-   {a:"Steinhardt, J., Koh, P. W., & Liang, P.", y:2017, t:"Certified defenses for data poisoning attacks", v:"arXiv:1706.03691", doi:"10.48550/arXiv.1706.03691"},
+   {a:"Steinhardt, J., Koh, P. W., & Liang, P.", y:2017, t:"Certified defenses for data poisoning attacks", v:"arXiv:1706.03691", doi:"10.48550/arXiv.1706.03691", f:S},
+   {a:"Breiman, L.", y:2001, t:"Random forests", v:"Machine Learning, 45(1), 5\u201332", doi:"10.1023/A:1010933404324", f:S|C, why:"The random-forest classifier reconstructed as the victim in Listing 7.1."},
   ]},
-  {n:8, name:"Attacking Supervised Learning", listing:"Evasion and black-box transfer", refs:[
-   {a:"Carlini, N., & Wagner, D.", y:2017, t:"Towards evaluating the robustness of neural networks", v:"IEEE Symposium on Security and Privacy, 39\u201357", doi:"10.1109/SP.2017.49", f:S|C, why:"The C&W optimisation attack applied to the chapter's classifiers."},
-   {a:"Papernot, N., McDaniel, P., Goodfellow, I., Jha, S., Celik, Z. B., & Swami, A.", y:2017, t:"Practical black-box attacks against machine learning", v:"Proceedings of ASIACCS '17, 506\u2013519", doi:"10.1145/3052973.3053009", f:S|C, why:"Substitute-model training and transfer, the black-box path used here."},
-   {a:"Chen, P.-Y., Zhang, H., Sharma, Y., Yi, J., & Hsieh, C.-J.", y:2017, t:"ZOO: Zeroth order optimization based black-box attacks", v:"Proceedings of AISec '17, 15\u201326", doi:"10.1145/3128572.3140448", f:S},
+  {n:8, name:"Evading & Poisoning Classifiers", listing:"8.1\u20138.2 \u2014 Six Iris classifiers, FGSM / HopSkipJump", refs:[
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"The white-box route in Listing 8.2 for the differentiable classifiers."},
+   {a:"Chen, J., Jordan, M. I., & Wainwright, M. J.", y:2020, t:"HopSkipJumpAttack: A query-efficient decision-based attack", v:"IEEE Symposium on Security and Privacy, 1277\u20131294", doi:"10.1109/SP40000.2020.00045", f:S|C, why:"The decision-based route in Listing 8.2 for the classifiers with no usable gradient."},
    {a:"Brendel, W., Rauber, J., & Bethge, M.", y:2017, t:"Decision-based adversarial attacks: Reliable attacks against black-box machine learning models", v:"arXiv:1712.04248", doi:"10.48550/arXiv.1712.04248", f:S},
    {a:"Cortes, C., & Vapnik, V.", y:1995, t:"Support-vector networks", v:"Machine Learning, 20(3), 273\u2013297", doi:"10.1007/BF00994018", f:S},
+   {a:"Fisher, R. A.", y:1936, t:"The use of multiple measurements in taxonomic problems", v:"Annals of Eugenics, 7(2), 179\u2013188", doi:"10.1111/j.1469-1809.1936.tb02137.x", f:S|C, why:"The Iris data the six victim classifiers in Listing 8.1 are trained on."},
   ]},
-  {n:9, name:"Attacking Unsupervised Learning", listing:"Cluster poisoning", refs:[
-   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S|C, why:"The bridge-based cluster poisoning the chapter applies to k-means."},
+  {n:9, name:"Attacking Unsupervised Learning", listing:"9.1\u20139.2 \u2014 K-Means victim, centroid poisoning", refs:[
+   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S|C, why:"Poisoning that drags cluster centroids \u2014 the attack Listing 9.2 runs on K-Means."},
+   {a:"Lloyd, S. P.", y:1982, t:"Least squares quantization in PCM", v:"IEEE Trans. Information Theory, 28(2), 129\u2013137", doi:"10.1109/TIT.1982.1056489", f:S|C, why:"The K-Means clusterer reconstructed as the victim in Listing 9.1."},
+   {a:"Pearson, K.", y:1901, t:"On lines and planes of closest fit to systems of points in space", v:"Philosophical Magazine, 2(11), 559\u2013572", doi:"10.1080/14786440109462720", f:S|C, why:"The PCA projection Listing 9.2 uses to visualise the poisoned centroids."},
    {a:"Rubinstein, B. I. P., et al.", y:2009, t:"ANTIDOTE: Understanding and defending against poisoning of anomaly detectors", v:"Proceedings of IMC '09, 1\u201314", doi:"10.1145/1644893.1644895", f:S},
-   {a:"Mu\u00f1oz-Gonz\u00e1lez, L., et al.", y:2017, t:"Towards poisoning of deep learning algorithms with back-gradient optimization", v:"Proceedings of AISec '17, 27\u201338", doi:"10.1145/3128572.3140451", f:S},
-   {a:"Lloyd, S. P.", y:1982, t:"Least squares quantization in PCM", v:"IEEE Trans. Information Theory, 28(2), 129\u2013137", doi:"10.1109/TIT.1982.1056489", f:S},
   ]},
-  {n:10, name:"Attacking Semi-Supervised Learning", listing:"Unlabeled-set poisoning", refs:[
-   {a:"Carlini, N.", y:2021, t:"Poisoning the unlabeled dataset of semi-supervised learning", v:"USENIX Security Symposium, 1577\u20131592", url:"https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-poisoning", f:S|C, why:"The unlabeled-pool poisoning this chapter reproduces against label propagation."},
-   {a:"Zhou, D., Bousquet, O., Lal, T. N., Weston, J., & Sch\u00f6lkopf, B.", y:2003, t:"Learning with local and global consistency", v:"Advances in Neural Information Processing Systems 16, 321\u2013328", url:"https://papers.nips.cc/paper/2506-learning-with-local-and-global-consistency", f:S},
+  {n:10, name:"Attacking Semi-Supervised Learning", listing:"10.1\u201310.2 \u2014 Label-propagation victim, seed poisoning", refs:[
+   {a:"Carlini, N.", y:2021, t:"Poisoning the unlabeled dataset of semi-supervised learning", v:"USENIX Security Symposium, 1577\u20131592", url:"https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-poisoning", f:S|C, why:"Poisoning a handful of seeds to steer the whole propagation \u2014 the attack in Listing 10.2."},
+   {a:"Zhou, D., Bousquet, O., Lal, T. N., Weston, J., & Sch\u00f6lkopf, B.", y:2003, t:"Learning with local and global consistency", v:"Advances in Neural Information Processing Systems 16, 321\u2013328", url:"https://papers.nips.cc/paper/2506-learning-with-local-and-global-consistency", f:S|C, why:"The label-propagation model reconstructed as the victim in Listing 10.1."},
    {a:"Dai, H., et al.", y:2018, t:"Adversarial attack on graph structured data", v:"arXiv:1806.02371", doi:"10.48550/arXiv.1806.02371", f:S},
-   {a:"Oliver, A., Odena, A., Raffel, C., Cubuk, E. D., & Goodfellow, I. J.", y:2018, t:"Realistic evaluation of deep semi-supervised learning algorithms", v:"arXiv:1804.09170", doi:"10.48550/arXiv.1804.09170"},
+   {a:"van Engelen, J. E., & Hoos, H. H.", y:2020, t:"A survey on semi-supervised learning", v:"Machine Learning, 109(2), 373\u2013440", doi:"10.1007/s10994-019-05855-6"},
   ]},
-  {n:11, name:"Attacking Ensemble Learning", listing:"Tree-ensemble evasion", refs:[
-   {a:"Kantchelian, A., Tygar, J. D., & Joseph, A. D.", y:2016, t:"Evasion and hardening of tree ensemble classifiers", v:"arXiv:1509.07892", doi:"10.48550/arXiv.1509.07892", f:S|C, why:"The MILP-based evasion of boosted trees the chapter runs."},
-   {a:"Chen, H., Zhang, H., Boning, D., & Hsieh, C.-J.", y:2019, t:"Robust decision trees against adversarial examples", v:"arXiv:1902.10660", doi:"10.48550/arXiv.1902.10660", f:S},
+  {n:11, name:"Attacking Ensembles", listing:"11.1\u201311.2 \u2014 Soft-voting victim, black-box evasion and transfer", refs:[
+   {a:"Chen, J., Jordan, M. I., & Wainwright, M. J.", y:2020, t:"HopSkipJumpAttack: A query-efficient decision-based attack", v:"IEEE Symposium on Security and Privacy, 1277\u20131294", doi:"10.1109/SP40000.2020.00045", f:S|C, why:"The black-box evasion of the soft-voting ensemble in Listing 11.2."},
+   {a:"Papernot, N., McDaniel, P., Goodfellow, I., Jha, S., Celik, Z. B., & Swami, A.", y:2017, t:"Practical black-box attacks against machine learning", v:"Proceedings of ASIACCS '17, 506\u2013519", doi:"10.1145/3052973.3053009", f:S|C, why:"Transferability \u2014 why examples crafted on the ensemble also fool an independent forest."},
+   {a:"Kantchelian, A., Tygar, J. D., & Joseph, A. D.", y:2016, t:"Evasion and hardening of tree ensemble classifiers", v:"arXiv:1509.07892", doi:"10.48550/arXiv.1509.07892", f:S},
    {a:"Tram\u00e8r, F., et al.", y:2017, t:"Ensemble adversarial training: Attacks and defenses", v:"arXiv:1705.07204", doi:"10.48550/arXiv.1705.07204", f:S},
-   {a:"Breiman, L.", y:2001, t:"Random forests", v:"Machine Learning, 45(1), 5\u201332", doi:"10.1023/A:1010933404324", f:S},
+   {a:"Breiman, L.", y:1996, t:"Bagging predictors", v:"Machine Learning, 24(2), 123\u2013140", doi:"10.1007/BF00058655", f:S},
   ]},
  ]},
- {part:"IV", roman:"IV", ring:4, title:"Attacking Neural Networks", chapters:[
-  {n:12, name:"Attacking Activations", listing:"Gradient masking", refs:[
-   {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S|C, why:"Gradient masking at the activation layer, and the BPDA workaround the chapter uses."},
-   {a:"Papernot, N., McDaniel, P., Jha, S., Fredrikson, M., Celik, Z. B., & Swami, A.", y:2016, t:"The limitations of deep learning in adversarial settings", v:"IEEE European Symposium on Security and Privacy, 372\u2013387", doi:"10.1109/EuroSP.2016.36", f:S|C, why:"The Jacobian saliency map that ranks activations by attack leverage."},
-   {a:"Glorot, X., Bordes, A., & Bengio, Y.", y:2011, t:"Deep sparse rectifier neural networks", v:"AISTATS, PMLR 15, 315\u2013323", url:"https://proceedings.mlr.press/v15/glorot11a.html", f:S},
-   {a:"Xu, W., Evans, D., & Qi, Y.", y:2018, t:"Feature squeezing: Detecting adversarial examples in deep neural networks", v:"Network and Distributed System Security Symposium", doi:"10.14722/ndss.2018.23198", f:S},
+ {part:"IV", roman:"IV", ring:4, title:"Attacking Neural Networks \u2014 The Core Architecture", chapters:[
+  {n:12, name:"Gradients as Weapons", listing:"12.1\u201312.3 \u2014 MNIST MLP victim, input-gradient attack, eps sweep", refs:[
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"The loss gradient with respect to the input \u2014 the heart of the attack in Listing 12.2."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The iterated form invoked alongside the eps-sweep in Listing 12.3."},
+   {a:"Szegedy, C., et al.", y:2013, t:"Intriguing properties of neural networks", v:"arXiv:1312.6199", doi:"10.48550/arXiv.1312.6199", f:S},
+   {a:"LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P.", y:1998, t:"Gradient-based learning applied to document recognition", v:"Proceedings of the IEEE, 86(11), 2278\u20132324", doi:"10.1109/5.726791", f:S|C, why:"The MNIST data behind the MLP victim in Listing 12.1."},
   ]},
-  {n:13, name:"Attacking the Perceptron", listing:"Linear evasion", refs:[
-   {a:"Lowd, D., & Meek, C.", y:2005, t:"Adversarial learning", v:"Proceedings of KDD '05, 641\u2013647", doi:"10.1145/1081870.1081950", f:S|C, why:"Query-efficient evasion of a linear classifier, the attack the chapter builds by hand."},
+  {n:13, name:"Fooling the Perceptron & MLP", listing:"13.1\u201313.2 \u2014 From-scratch perceptron, boundary perturbation", refs:[
+   {a:"Lowd, D., & Meek, C.", y:2005, t:"Adversarial learning", v:"Proceedings of KDD '05, 641\u2013647", doi:"10.1145/1081870.1081950", f:S|C, why:"Evasion of a linear decision boundary \u2014 the attack Listing 13.2 builds by hand."},
+   {a:"Rosenblatt, F.", y:1958, t:"The perceptron: A probabilistic model for information storage and organization in the brain", v:"Psychological Review, 65(6), 386\u2013408", doi:"10.1037/h0042519", f:S|C, why:"The from-scratch perceptron reconstructed as the victim; its weights are the gradient direction."},
    {a:"Dalvi, N., Domingos, P., Mausam, Sanghai, S., & Verma, D.", y:2004, t:"Adversarial classification", v:"Proceedings of KDD '04, 99\u2013108", doi:"10.1145/1014052.1014066", f:S},
-   {a:"Rosenblatt, F.", y:1958, t:"The perceptron: A probabilistic model for information storage and organization in the brain", v:"Psychological Review, 65(6), 386\u2013408", doi:"10.1037/h0042519", f:S},
    {a:"Fawzi, A., Fawzi, O., & Frossard, P.", y:2018, t:"Analysis of classifiers' robustness to adversarial perturbations", v:"Machine Learning, 107(3), 481\u2013508", doi:"10.1007/s10994-017-5663-3", f:S},
   ]},
-  {n:14, name:"Attacking Backpropagation", listing:"Gradient-based crafting", refs:[
-   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"FGSM: one backward pass turned into a perturbation, coded from scratch here."},
-   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"Projected gradient descent, the iterated form of the same backward pass."},
+  {n:14, name:"Backpropagation Reversed: PGD & Iterative Attacks", listing:"14.1 \u2014 Real PGD: random start, 20 steps, projection", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"Random start, iterated gradient ascent, projection \u2014 exactly the routine in Listing 14.1."},
+   {a:"Kurakin, A., Goodfellow, I., & Bengio, S.", y:2016, t:"Adversarial examples in the physical world", v:"arXiv:1607.02533", doi:"10.48550/arXiv.1607.02533", f:S|C, why:"The basic iterative method PGD extends with a random start."},
    {a:"Rumelhart, D. E., Hinton, G. E., & Williams, R. J.", y:1986, t:"Learning representations by back-propagating errors", v:"Nature, 323(6088), 533\u2013536", doi:"10.1038/323533a0", f:S},
    {a:"Uesato, J., O'Donoghue, B., Kohli, P., & van den Oord, A.", y:2018, t:"Adversarial risk and the dangers of evaluating against weak attacks", v:"arXiv:1802.05666", doi:"10.48550/arXiv.1802.05666", f:S},
   ]},
-  {n:15, name:"Attacking CNNs & Sequence Models", listing:"DeepFool and physical perturbation", refs:[
-   {a:"Moosavi-Dezfooli, S.-M., Fawzi, A., & Frossard, P.", y:2016, t:"DeepFool: A simple and accurate method to fool deep neural networks", v:"CVPR 2016, 2574\u20132582", doi:"10.1109/CVPR.2016.282", f:S|C, why:"The minimal-norm perturbation search the chapter applies to its CNN."},
-   {a:"Moosavi-Dezfooli, S.-M., Fawzi, A., Fawzi, O., & Frossard, P.", y:2017, t:"Universal adversarial perturbations", v:"CVPR 2017, 86\u201394", doi:"10.1109/CVPR.2017.17", f:S},
-   {a:"Kurakin, A., Goodfellow, I., & Bengio, S.", y:2016, t:"Adversarial examples in the physical world", v:"arXiv:1607.02533", doi:"10.48550/arXiv.1607.02533", f:S},
-   {a:"Eykholt, K., et al.", y:2018, t:"Robust physical-world attacks on deep learning visual classification", v:"CVPR 2018, 1625\u20131634", doi:"10.1109/CVPR.2018.00175", f:S},
-   {a:"Papernot, N., McDaniel, P., Swami, A., & Harang, R.", y:2016, t:"Crafting adversarial input sequences for recurrent neural networks", v:"MILCOM 2016, 49\u201354", doi:"10.1109/MILCOM.2016.7795300", f:S|C, why:"Adapting gradient attacks to the recurrent models in the same chapter."},
+  {n:15, name:"Attacking CNNs & Sequence Models", listing:"15.1\u201315.3 \u2014 CNN and LSTM victims, PGD and temporal perturbation", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The attack run on the CNN victim in Listing 15.3, via the shared helper."},
+   {a:"Papernot, N., McDaniel, P., Swami, A., & Harang, R.", y:2016, t:"Crafting adversarial input sequences for recurrent neural networks", v:"MILCOM 2016, 49\u201354", doi:"10.1109/MILCOM.2016.7795300", f:S|C, why:"Bounded perturbation of a sequence \u2014 the LSTM half of Listing 15.3."},
+   {a:"LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P.", y:1998, t:"Gradient-based learning applied to document recognition", v:"Proceedings of the IEEE, 86(11), 2278\u20132324", doi:"10.1109/5.726791", f:S},
+   {a:"Hochreiter, S., & Schmidhuber, J.", y:1997, t:"Long short-term memory", v:"Neural Computation, 9(8), 1735\u20131780", doi:"10.1162/neco.1997.9.8.1735", f:S|C, why:"The LSTM forecaster reconstructed as the second victim in Listing 15.2."},
+   {a:"Moosavi-Dezfooli, S.-M., Fawzi, A., & Frossard, P.", y:2016, t:"DeepFool: A simple and accurate method to fool deep neural networks", v:"CVPR 2016, 2574\u20132582", doi:"10.1109/CVPR.2016.282", f:S},
   ]},
-  {n:16, name:"Attacking Self-Organizing Maps", listing:"Topology poisoning", refs:[
-   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S|C, why:"Poisoning that distorts an unsupervised topology, applied here to the SOM lattice."},
-   {a:"Kohonen, T.", y:1982, t:"Self-organized formation of topologically correct feature maps", v:"Biological Cybernetics, 43(1), 59\u201369", doi:"10.1007/BF00337288", f:S},
-   {a:"Vesanto, J., & Alhoniemi, E.", y:2000, t:"Clustering of the self-organizing map", v:"IEEE Trans. Neural Networks, 11(3), 586\u2013600", doi:"10.1109/72.846731", f:C, why:"The U-matrix reading used to measure how far the attack shifted the map."},
+  {n:16, name:"Attacking Self-Organizing Maps", listing:"16.1\u201316.2 \u2014 SOM victim, input perturbation forcing mis-mapping", refs:[
+   {a:"Biggio, B., et al.", y:2013, t:"Is data clustering in adversarial settings secure?", v:"Proceedings of AISec '13, 87\u201398", doi:"10.1145/2517312.2517321", f:S|C, why:"Perturbing inputs to move them between unsupervised regions \u2014 the mis-mapping in Listing 16.2."},
+   {a:"Kohonen, T.", y:1982, t:"Self-organized formation of topologically correct feature maps", v:"Biological Cybernetics, 43(1), 59\u201369", doi:"10.1007/BF00337288", f:S|C, why:"The self-organizing map reconstructed as the victim in Listing 16.1."},
+   {a:"Vesanto, J., & Alhoniemi, E.", y:2000, t:"Clustering of the self-organizing map", v:"IEEE Trans. Neural Networks, 11(3), 586\u2013600", doi:"10.1109/72.846731", f:S},
    {a:"Mu\u00f1oz-Gonz\u00e1lez, L., et al.", y:2017, t:"Towards poisoning of deep learning algorithms with back-gradient optimization", v:"Proceedings of AISec '17, 27\u201338", doi:"10.1145/3128572.3140451", f:S},
   ]},
  ]},
  {part:"V", roman:"V", ring:5, title:"Attacking Deep Learning", chapters:[
-  {n:17, name:"AutoAttack on Deep Networks", listing:"AutoAttack ensemble", refs:[
-   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"AutoAttack itself \u2014 the parameter-free ensemble this chapter runs end to end."},
-   {a:"Croce, F., & Hein, M.", y:2020, t:"Minimally distorted adversarial examples with a fast adaptive boundary attack", v:"arXiv:1907.02044", doi:"10.48550/arXiv.1907.02044", f:C, why:"FAB, one of the four attacks inside the AutoAttack ensemble."},
-   {a:"Andriushchenko, M., Croce, F., Flammarion, N., & Hein, M.", y:2020, t:"Square Attack: A query-efficient black-box adversarial attack via random search", v:"ECCV 2020, LNCS 12368, 484\u2013501", doi:"10.1007/978-3-030-58592-1_29", f:S|C, why:"The black-box component of the AutoAttack ensemble."},
+  {n:17, name:"AutoAttack on Deep Networks", listing:"17.1\u201317.2 \u2014 CIFAR-10 deep network victim, PGD via shared helper", refs:[
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"The parameter-free ensemble this chapter frames its evaluation around."},
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The attack the notebook actually runs on the deep CIFAR network in Listing 17.2."},
+   {a:"Andriushchenko, M., Croce, F., Flammarion, N., & Hein, M.", y:2020, t:"Square Attack: A query-efficient black-box adversarial attack via random search", v:"ECCV 2020, LNCS 12368, 484\u2013501", doi:"10.1007/978-3-030-58592-1_29", f:S},
    {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S},
-   {a:"He, K., Zhang, X., Ren, S., & Sun, J.", y:2016, t:"Deep residual learning for image recognition", v:"CVPR 2016, 770\u2013778", doi:"10.1109/CVPR.2016.90", f:S},
+   {a:"Krizhevsky, A., Sutskever, I., & Hinton, G. E.", y:2017, t:"ImageNet classification with deep convolutional neural networks", v:"Communications of the ACM, 60(6), 84\u201390", doi:"10.1145/3065386", f:S},
   ]},
-  {n:18, name:"Attacking Transfer Learning & Backdoors", listing:"Backdoor injection", refs:[
-   {a:"Gu, T., Dolan-Gavitt, B., & Garg, S.", y:2017, t:"BadNets: Identifying vulnerabilities in the machine learning model supply chain", v:"arXiv:1708.06733", doi:"10.48550/arXiv.1708.06733", f:S|C, why:"The trigger-patch backdoor the chapter implants during fine-tuning."},
-   {a:"Chen, X., Liu, C., Li, B., Lu, K., & Song, D.", y:2017, t:"Targeted backdoor attacks on deep learning systems using data poisoning", v:"arXiv:1712.05526", doi:"10.48550/arXiv.1712.05526", f:S},
+  {n:18, name:"Transfer & Backdoor Attacks", listing:"18.1\u201318.2 \u2014 MobileNetV2 transfer victim, PGD in [-1,1] space", refs:[
+   {a:"Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A.", y:2017, t:"Towards deep learning models resistant to adversarial attacks", v:"arXiv:1706.06083", doi:"10.48550/arXiv.1706.06083", f:S|C, why:"The evasion run against the transfer model in its own [-1,1] input space (Listing 18.2)."},
+   {a:"Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C.", y:2018, t:"MobileNetV2: Inverted residuals and linear bottlenecks", v:"CVPR 2018, 4510\u20134520", doi:"10.1109/CVPR.2018.00474", f:S|C, why:"The transfer model reconstructed as the victim in Listing 18.1."},
+   {a:"Gu, T., Dolan-Gavitt, B., & Garg, S.", y:2017, t:"BadNets: Identifying vulnerabilities in the machine learning model supply chain", v:"arXiv:1708.06733", doi:"10.48550/arXiv.1708.06733", f:S},
    {a:"Liu, Y., et al.", y:2018, t:"Trojaning attack on neural networks", v:"Network and Distributed System Security Symposium", doi:"10.14722/ndss.2018.23291", f:S},
    {a:"Wang, B., et al.", y:2019, t:"Neural Cleanse: Identifying and mitigating backdoor attacks in neural networks", v:"IEEE Symposium on Security and Privacy, 707\u2013723", doi:"10.1109/SP.2019.00031", f:S},
-   {a:"Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C.", y:2018, t:"MobileNetV2: Inverted residuals and linear bottlenecks", v:"CVPR 2018, 4510\u20134520", doi:"10.1109/CVPR.2018.00474", f:S},
   ]},
-  {n:19, name:"Attacking GANs", listing:"Generative leakage", refs:[
-   {a:"Kos, J., Fischer, I., & Song, D.", y:2018, t:"Adversarial examples for generative models", v:"IEEE Security and Privacy Workshops, 36\u201342", doi:"10.1109/SPW.2018.00014", f:S|C, why:"Adversarial inputs crafted against a generative model's latent pipeline."},
-   {a:"Hayes, J., Melis, L., Danezis, G., & De Cristofaro, E.", y:2019, t:"LOGAN: Membership inference attacks against generative models", v:"Proceedings on Privacy Enhancing Technologies, 2019(1), 133\u2013152", doi:"10.2478/popets-2019-0008", f:S},
+  {n:19, name:"Attacking GANs", listing:"19.1\u201319.2 \u2014 GAN discriminator victim, membership inference", refs:[
+   {a:"Hayes, J., Melis, L., Danezis, G., & De Cristofaro, E.", y:2019, t:"LOGAN: Membership inference attacks against generative models", v:"Proceedings on Privacy Enhancing Technologies, 2019(1), 133\u2013152", doi:"10.2478/popets-2019-0008", f:S|C, why:"Membership inference through the discriminator's score gap \u2014 exactly Listing 19.2."},
+   {a:"Shokri, R., Stronati, M., Song, C., & Shmatikov, V.", y:2017, t:"Membership inference attacks against machine learning models", v:"IEEE Symposium on Security and Privacy, 3\u201318", doi:"10.1109/SP.2017.41", f:S|C, why:"The member/non-member score-gap formulation the attack measures."},
    {a:"Chen, D., Yu, N., Zhang, Y., & Fritz, M.", y:2020, t:"GAN-Leaks: A taxonomy of membership inference attacks against generative models", v:"Proceedings of CCS '20, 343\u2013362", doi:"10.1145/3372297.3417238", f:S},
-   {a:"Goodfellow, I., et al.", y:2014, t:"Generative adversarial nets", v:"arXiv:1406.2661", doi:"10.48550/arXiv.1406.2661", f:S},
+   {a:"Goodfellow, I., et al.", y:2014, t:"Generative adversarial nets", v:"arXiv:1406.2661", doi:"10.48550/arXiv.1406.2661", f:S|C, why:"The discriminator and generator reconstructed as the victim in Listing 19.1."},
   ]},
-  {n:20, name:"Attacking Attention", listing:"Attention manipulation", refs:[
-   {a:"Mahmood, K., Mahmood, R., & van Dijk, M.", y:2021, t:"On the robustness of vision transformers to adversarial examples", v:"ICCV 2021, 7818\u20137827", doi:"10.1109/ICCV48922.2021.00774", f:S|C, why:"The attack setup for transformer classifiers this chapter reproduces."},
-   {a:"Jain, S., & Wallace, B. C.", y:2019, t:"Attention is not explanation", v:"NAACL-HLT 2019, 3543\u20133556", doi:"10.18653/v1/N19-1357", f:S},
+  {n:20, name:"Hijacking Attention", listing:"20.1\u201320.2 \u2014 Scaled dot-product attention victim, key perturbation", refs:[
+   {a:"Vaswani, A., et al.", y:2017, t:"Attention is all you need", v:"arXiv:1706.03762", doi:"10.48550/arXiv.1706.03762", f:S|C, why:"The scaled dot-product attention reconstructed as the victim; Listing 20.2 perturbs its keys."},
+   {a:"Jain, S., & Wallace, B. C.", y:2019, t:"Attention is not explanation", v:"NAACL-HLT 2019, 3543\u20133556", doi:"10.18653/v1/N19-1357", f:S|C, why:"Attention maps can be redirected without changing the output \u2014 what the attack exploits."},
    {a:"Wiegreffe, S., & Pinter, Y.", y:2019, t:"Attention is not not explanation", v:"EMNLP-IJCNLP 2019, 11\u201320", doi:"10.18653/v1/D19-1002", f:S},
-   {a:"Bhojanapalli, S., et al.", y:2021, t:"Understanding robustness of transformers for image classification", v:"ICCV 2021, 10211\u201310221", doi:"10.1109/ICCV48922.2021.01007", f:S},
-   {a:"Vaswani, A., et al.", y:2017, t:"Attention is all you need", v:"arXiv:1706.03762", doi:"10.48550/arXiv.1706.03762", f:S},
+   {a:"Mahmood, K., Mahmood, R., & van Dijk, M.", y:2021, t:"On the robustness of vision transformers to adversarial examples", v:"ICCV 2021, 7818\u20137827", doi:"10.1109/ICCV48922.2021.00774", f:S},
   ]},
-  {n:21, name:"Attacking Dropout", listing:"Expectation over transformation", refs:[
-   {a:"Athalye, A., Engstrom, L., Ilyas, A., & Kwok, K.", y:2018, t:"Synthesizing robust adversarial examples", v:"arXiv:1707.07397", doi:"10.48550/arXiv.1707.07397", f:S|C, why:"Expectation over Transformation \u2014 how the chapter defeats stochastic dropout at inference."},
+  {n:21, name:"Robustness of Dropout & Regularization", listing:"21.1\u201321.2 \u2014 Dropout-0 and dropout-0.5 victims, FGSM", refs:[
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"The attack run against both the dropout-0 and dropout-0.5 networks in Listing 21.2."},
+   {a:"Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R.", y:2014, t:"Dropout: A simple way to prevent neural networks from overfitting", v:"Journal of Machine Learning Research, 15, 1929\u20131958", url:"https://www.jmlr.org/papers/v15/srivastava14a.html", f:S|C, why:"The two dropout-regularized networks reconstructed as the paired victims."},
    {a:"Athalye, A., Carlini, N., & Wagner, D.", y:2018, t:"Obfuscated gradients give a false sense of security", v:"arXiv:1802.00420", doi:"10.48550/arXiv.1802.00420", f:S},
-   {a:"Feinman, R., Curtin, R. R., Shintre, S., & Gardner, A. B.", y:2017, t:"Detecting adversarial samples from artifacts", v:"arXiv:1703.00410", doi:"10.48550/arXiv.1703.00410", f:S},
-   {a:"Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., & Salakhutdinov, R.", y:2014, t:"Dropout: A simple way to prevent neural networks from overfitting", v:"Journal of Machine Learning Research, 15, 1929\u20131958", url:"https://www.jmlr.org/papers/v15/srivastava14a.html", f:S},
+   {a:"Gal, Y., & Ghahramani, Z.", y:2016, t:"Dropout as a Bayesian approximation: Representing model uncertainty in deep learning", v:"ICML, PMLR 48, 1050\u20131059", url:"https://proceedings.mlr.press/v48/gal16.html", f:S},
   ]},
-  {n:22, name:"Attacking Deep Reinforcement Learning", listing:"Policy attacks", refs:[
-   {a:"Huang, S., Papernot, N., Goodfellow, I., Duan, Y., & Abbeel, P.", y:2017, t:"Adversarial attacks on neural network policies", v:"arXiv:1702.02284", doi:"10.48550/arXiv.1702.02284", f:S|C, why:"FGSM applied to policy observations, the attack the chapter runs on its agent."},
+  {n:22, name:"Attacking Deep Reinforcement Learning", listing:"22.1\u201322.2 \u2014 GridWorld victim with poison hook, honest vs poisoned reward", refs:[
+   {a:"Ma, Y., Zhang, X., Sun, W., & Zhu, X.", y:2019, t:"Policy poisoning in batch reinforcement learning and control", v:"arXiv:1910.05821", doi:"10.48550/arXiv.1910.05821", f:S|C, why:"Reward poisoning that reshapes the learned policy \u2014 the poison hook in step() (Listing 22.1)."},
+   {a:"Everitt, T., Krakovna, V., Orseau, L., Hutter, M., & Legg, S.", y:2017, t:"Reinforcement learning with a corrupted reward channel", v:"arXiv:1705.08417", doi:"10.48550/arXiv.1705.08417", f:S|C, why:"The corrupted-reward-channel model behind the honest-vs-poisoned comparison in Listing 22.2."},
    {a:"Behzadan, V., & Munir, A.", y:2017, t:"Vulnerability of deep reinforcement learning to policy induction attacks", v:"MLDM 2017, LNCS 10358, 262\u2013275", doi:"10.1007/978-3-319-62416-7_19", f:S},
-   {a:"Lin, Y.-C., et al.", y:2017, t:"Tactics of adversarial attack on deep reinforcement learning agents", v:"arXiv:1703.06748", doi:"10.48550/arXiv.1703.06748", f:S},
-   {a:"Gleave, A., Dennis, M., Wild, C., Kant, N., Levine, S., & Russell, S.", y:2019, t:"Adversarial policies: Attacking deep reinforcement learning", v:"arXiv:1905.10615", doi:"10.48550/arXiv.1905.10615", f:S},
-   {a:"Watkins, C. J. C. H., & Dayan, P.", y:1992, t:"Q-learning", v:"Machine Learning, 8(3\u20134), 279\u2013292", doi:"10.1007/BF00992698", f:S},
+   {a:"Huang, S., Papernot, N., Goodfellow, I., Duan, Y., & Abbeel, P.", y:2017, t:"Adversarial attacks on neural network policies", v:"arXiv:1702.02284", doi:"10.48550/arXiv.1702.02284", f:S},
+   {a:"Watkins, C. J. C. H., & Dayan, P.", y:1992, t:"Q-learning", v:"Machine Learning, 8(3\u20134), 279\u2013292", doi:"10.1007/BF00992698", f:S|C, why:"The Q-learning GridWorld agent reconstructed as the victim."},
   ]},
-  {n:23, name:"Attacking Capsule Networks & DBNs", listing:"Routing perturbation", refs:[
-   {a:"Michels, F., Uelwer, T., Loweth, E., & Harmeling, S.", y:2019, t:"On the vulnerability of capsule networks to adversarial attacks", v:"arXiv:1906.03612", doi:"10.48550/arXiv.1906.03612", f:S|C, why:"The capsule-specific attack evaluation this chapter reproduces."},
-   {a:"Sabour, S., Frosst, N., & Hinton, G. E.", y:2017, t:"Dynamic routing between capsules", v:"arXiv:1710.09829", doi:"10.48550/arXiv.1710.09829", f:S},
-   {a:"Frosst, N., Sabour, S., & Hinton, G.", y:2018, t:"DARCCC: Detecting adversaries by reconstruction from class conditional capsules", v:"arXiv:1811.06969", doi:"10.48550/arXiv.1811.06969", f:S},
-   {a:"Hinton, G. E., Osindero, S., & Teh, Y.-W.", y:2006, t:"A fast learning algorithm for deep belief nets", v:"Neural Computation, 18(7), 1527\u20131554", doi:"10.1162/neco.2006.18.7.1527", f:S},
+  {n:23, name:"Robustness of Capsule & Belief Networks", listing:"23.1\u201323.3 \u2014 CapsNet and DBN victims, FGSM and HopSkipJump", refs:[
+   {a:"Michels, F., Uelwer, T., Loweth, E., & Harmeling, S.", y:2019, t:"On the vulnerability of capsule networks to adversarial attacks", v:"arXiv:1906.03612", doi:"10.48550/arXiv.1906.03612", f:S|C, why:"The capsule-network attack evaluation Listing 23.3 reproduces with FGSM."},
+   {a:"Chen, J., Jordan, M. I., & Wainwright, M. J.", y:2020, t:"HopSkipJumpAttack: A query-efficient decision-based attack", v:"IEEE Symposium on Security and Privacy, 1277\u20131294", doi:"10.1109/SP40000.2020.00045", f:S|C, why:"The black-box route used against the deep belief network, which exposes no usable gradient."},
+   {a:"Sabour, S., Frosst, N., & Hinton, G. E.", y:2017, t:"Dynamic routing between capsules", v:"arXiv:1710.09829", doi:"10.48550/arXiv.1710.09829", f:S|C, why:"The dynamic-routing capsule network reconstructed as the first victim (Listing 23.1)."},
+   {a:"Hinton, G. E., Osindero, S., & Teh, Y.-W.", y:2006, t:"A fast learning algorithm for deep belief nets", v:"Neural Computation, 18(7), 1527\u20131554", doi:"10.1162/neco.2006.18.7.1527", f:S|C, why:"The stacked-RBM belief network reconstructed as the second victim (Listing 23.2)."},
   ]},
  ]},
- {part:"VI", roman:"VI", ring:6, title:"Attacking Generative AI", chapters:[
-  {n:24, name:"Attacking Language Models", listing:"Extraction and triggers", refs:[
-   {a:"Carlini, N., et al.", y:2021, t:"Extracting training data from large language models", v:"USENIX Security Symposium, 2633\u20132650", url:"https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting", f:S|C, why:"The memorisation-extraction procedure the chapter runs against its language model."},
-   {a:"Carlini, N., Liu, C., Erlingsson, \u00da., Kos, J., & Song, D.", y:2019, t:"The secret sharer: Evaluating and testing unintended memorization in neural networks", v:"USENIX Security Symposium, 267\u2013284", url:"https://www.usenix.org/conference/usenixsecurity19/presentation/carlini", f:S},
-   {a:"Wallace, E., Feng, S., Kandpal, N., Gardner, M., & Singh, S.", y:2019, t:"Universal adversarial triggers for attacking and analyzing NLP", v:"EMNLP-IJCNLP 2019, 2153\u20132162", doi:"10.18653/v1/D19-1221", f:S|C, why:"The trigger-search method used to find input-agnostic prompts."},
+ {part:"VI", roman:"VI", ring:6, title:"Attacking Generative AI \u2014 The Innermost Ring", chapters:[
+  {n:24, name:"Attacking Language Models", listing:"24.1\u201324.2 \u2014 Trigram LM victim, token injection inflating perplexity", refs:[
+   {a:"Wallace, E., Feng, S., Kandpal, N., Gardner, M., & Singh, S.", y:2019, t:"Universal adversarial triggers for attacking and analyzing NLP", v:"EMNLP-IJCNLP 2019, 2153\u20132162", doi:"10.18653/v1/D19-1221", f:S|C, why:"Input-agnostic token injection \u2014 the attack pattern Listing 24.2 applies to the trigram model."},
+   {a:"Chen, S. F., & Goodman, J.", y:1999, t:"An empirical study of smoothing techniques for language modeling", v:"Computer Speech & Language, 13(4), 359\u2013394", doi:"10.1006/csla.1999.0128", f:S|C, why:"The smoothed n-gram model and the perplexity the attack inflates."},
+   {a:"Shannon, C. E.", y:1948, t:"A mathematical theory of communication", v:"Bell System Technical Journal, 27(3), 379\u2013423", doi:"10.1002/j.1538-7305.1948.tb01338.x", f:S},
    {a:"Ebrahimi, J., Rao, A., Lowd, D., & Dou, D.", y:2018, t:"HotFlip: White-box adversarial examples for text classification", v:"ACL 2018, 31\u201336", doi:"10.18653/v1/P18-2006", f:S},
   ]},
-  {n:25, name:"Attacking the Transformer", listing:"Word-substitution attacks", refs:[
-   {a:"Jin, D., Jin, Z., Zhou, J. T., & Szolovits, P.", y:2020, t:"Is BERT really robust? A strong baseline for natural language attack on text classification and entailment", v:"AAAI 2020, 34(05), 8018\u20138025", doi:"10.1609/aaai.v34i05.6311", f:S|C, why:"TextFooler \u2014 the synonym-substitution attack the chapter applies to its encoder."},
-   {a:"Li, L., Ma, R., Guo, Q., Xue, X., & Qiu, X.", y:2020, t:"BERT-ATTACK: Adversarial attack against BERT using BERT", v:"EMNLP 2020, 6193\u20136202", doi:"10.18653/v1/2020.emnlp-main.500", f:S},
-   {a:"Morris, J., et al.", y:2020, t:"TextAttack: A framework for adversarial attacks, data augmentation, and adversarial training in NLP", v:"EMNLP 2020: System Demonstrations, 119\u2013126", doi:"10.18653/v1/2020.emnlp-demos.16", f:C, why:"The framework the chapter's text attacks are implemented in."},
-   {a:"Gao, J., Lanchantin, J., Soffa, M. L., & Qi, Y.", y:2018, t:"Black-box generation of adversarial text sequences to evade deep learning classifiers", v:"IEEE Security and Privacy Workshops, 50\u201356", doi:"10.1109/SPW.2018.00016", f:S},
+  {n:25, name:"Attacking the Transformer", listing:"25.1\u201325.2 \u2014 DistilBERT sentiment victim, homoglyph swap", refs:[
+   {a:"Boucher, N., Shumailov, I., Anderson, R., & Papernot, N.", y:2022, t:"Bad Characters: Imperceptible NLP attacks", v:"IEEE Symposium on Security and Privacy, 1987\u20132004", doi:"10.1109/SP46214.2022.9833641", f:S|C, why:"Homoglyph substitution \u2014 precisely the attack Listing 25.2 uses to flip sentiment."},
+   {a:"Eger, S., et al.", y:2019, t:"Text processing like humans do: Visually attacking and shielding NLP systems", v:"NAACL-HLT 2019, 1634\u20131647", doi:"10.18653/v1/N19-1165", f:S},
+   {a:"Sanh, V., Debut, L., Chaumond, J., & Wolf, T.", y:2019, t:"DistilBERT, a distilled version of BERT: Smaller, faster, cheaper and lighter", v:"arXiv:1910.01108", doi:"10.48550/arXiv.1910.01108", f:S|C, why:"The pretrained sentiment model loaded as the victim in Listing 25.1."},
+   {a:"Jin, D., Jin, Z., Zhou, J. T., & Szolovits, P.", y:2020, t:"Is BERT really robust? A strong baseline for natural language attack on text classification and entailment", v:"AAAI 2020, 34(05), 8018\u20138025", doi:"10.1609/aaai.v34i05.6311", f:S},
+   {a:"Morris, J., et al.", y:2020, t:"TextAttack: A framework for adversarial attacks, data augmentation, and adversarial training in NLP", v:"EMNLP 2020: System Demonstrations, 119\u2013126", doi:"10.18653/v1/2020.emnlp-demos.16", f:S},
   ]},
-  {n:26, name:"Attacking Pre-Trained NLU", listing:"Weight poisoning", refs:[
-   {a:"Kurita, K., Michel, P., & Neubig, G.", y:2020, t:"Weight poisoning attacks on pre-trained models", v:"ACL 2020, 2793\u20132806", doi:"10.18653/v1/2020.acl-main.249", f:S|C, why:"The pre-training weight poison that survives downstream fine-tuning."},
-   {a:"Shen, L., et al.", y:2021, t:"Backdoor pre-trained models can transfer to all", v:"Proceedings of CCS '21, 3141\u20133158", doi:"10.1145/3460120.3485370", f:S},
-   {a:"Wang, B., et al.", y:2021, t:"Adversarial GLUE: A multi-task benchmark for robustness evaluation of language models", v:"arXiv:2111.02840", doi:"10.48550/arXiv.2111.02840", f:S|C, why:"The benchmark the chapter scores its poisoned model against."},
-   {a:"Nie, Y., Williams, A., Dinan, E., Bansal, M., Weston, J., & Kiela, D.", y:2020, t:"Adversarial NLI: A new benchmark for natural language understanding", v:"ACL 2020, 4885\u20134901", doi:"10.18653/v1/2020.acl-main.441", f:S},
-   {a:"Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K.", y:2019, t:"BERT: Pre-training of deep bidirectional transformers for language understanding", v:"NAACL-HLT 2019, 4171\u20134186", doi:"10.18653/v1/N19-1423", f:S},
-  ]},
-  {n:27, name:"Attacking Dialogue & Jailbreaking", listing:"Jailbreaks and prompt injection", refs:[
-   {a:"Zou, A., Wang, Z., Kolter, J. Z., & Fredrikson, M.", y:2023, t:"Universal and transferable adversarial attacks on aligned language models", v:"arXiv:2307.15043", doi:"10.48550/arXiv.2307.15043", f:S|C, why:"GCG \u2014 the gradient-guided suffix search the chapter runs against an aligned model."},
-   {a:"Wei, A., Haghtalab, N., & Steinhardt, J.", y:2023, t:"Jailbroken: How does LLM safety training fail?", v:"arXiv:2307.02483", doi:"10.48550/arXiv.2307.02483", f:S},
-   {a:"Perez, F., & Ribeiro, I.", y:2022, t:"Ignore previous prompt: Attack techniques for language models", v:"arXiv:2211.09527", doi:"10.48550/arXiv.2211.09527", f:S|C, why:"The goal-hijacking and prompt-leaking patterns demonstrated here."},
+  {n:26, name:"Adversarial NLU & Prompt Injection", listing:"26.1\u201326.2 \u2014 TF-IDF retrieval chatbot victim, homoglyph query perturbation", refs:[
+   {a:"Boucher, N., Shumailov, I., Anderson, R., & Papernot, N.", y:2022, t:"Bad Characters: Imperceptible NLP attacks", v:"IEEE Symposium on Security and Privacy, 1987\u20132004", doi:"10.1109/SP46214.2022.9833641", f:S|C, why:"The query-side homoglyph perturbation Listing 26.2 runs against the retrieval chatbot."},
+   {a:"Sp\u00e4rck Jones, K.", y:1972, t:"A statistical interpretation of term specificity and its application in retrieval", v:"Journal of Documentation, 28(1), 11\u201321", doi:"10.1108/eb026526", f:S|C, why:"The IDF weighting behind the TF-IDF retrieval chatbot reconstructed as the victim."},
+   {a:"Perez, F., & Ribeiro, I.", y:2022, t:"Ignore previous prompt: Attack techniques for language models", v:"arXiv:2211.09527", doi:"10.48550/arXiv.2211.09527", f:S},
    {a:"Greshake, K., et al.", y:2023, t:"Not what you've signed up for: Compromising real-world LLM-integrated applications with indirect prompt injection", v:"Proceedings of AISec '23, 79\u201390", doi:"10.1145/3605764.3623985", f:S},
+   {a:"Nie, Y., Williams, A., Dinan, E., Bansal, M., Weston, J., & Kiela, D.", y:2020, t:"Adversarial NLI: A new benchmark for natural language understanding", v:"ACL 2020, 4885\u20134901", doi:"10.18653/v1/2020.acl-main.441", f:S},
+  ]},
+  {n:27, name:"Jailbreaking Dialogue Systems", listing:"27.1 \u2014 Reward hacking: padding games a length-based proxy", refs:[
+   {a:"Zou, A., Wang, Z., Kolter, J. Z., & Fredrikson, M.", y:2023, t:"Universal and transferable adversarial attacks on aligned language models", v:"arXiv:2307.15043", doi:"10.48550/arXiv.2307.15043", f:S},
+   {a:"Wei, A., Haghtalab, N., & Steinhardt, J.", y:2023, t:"Jailbroken: How does LLM safety training fail?", v:"arXiv:2307.02483", doi:"10.48550/arXiv.2307.02483", f:S},
+   {a:"Skalse, J., Howe, N. H. R., Krasheninnikov, D., & Krueger, D.", y:2022, t:"Defining and characterizing reward hacking", v:"arXiv:2209.13085", doi:"10.48550/arXiv.2209.13085", f:S|C, why:"Proxy-reward gaming \u2014 the padding exploit demonstrated in Listing 27.1."},
    {a:"Perez, E., et al.", y:2022, t:"Red teaming language models with language models", v:"EMNLP 2022, 3419\u20133448", doi:"10.18653/v1/2022.emnlp-main.225", f:S},
   ]},
-  {n:28, name:"Attacking Diffusion Models", listing:"Memorisation and filter evasion", refs:[
-   {a:"Carlini, N., et al.", y:2023, t:"Extracting training data from diffusion models", v:"USENIX Security Symposium, 5253\u20135270", url:"https://www.usenix.org/conference/usenixsecurity23/presentation/carlini", f:S|C, why:"The training-image extraction attack the chapter runs against its diffusion model."},
+  {n:28, name:"Poisoning Diffusion Models", listing:"28.1\u201328.2 \u2014 U-Net denoiser victim, membership inference via denoising loss", refs:[
+   {a:"Duan, J., Kong, F., Wang, S., Shi, X., & Xu, K.", y:2023, t:"Are diffusion models vulnerable to membership inference attacks?", v:"arXiv:2302.01316", doi:"10.48550/arXiv.2302.01316", f:S|C, why:"Per-sample denoising loss as a membership signal \u2014 exactly the attack in Listing 28.2."},
+   {a:"Shokri, R., Stronati, M., Song, C., & Shmatikov, V.", y:2017, t:"Membership inference attacks against machine learning models", v:"IEEE Symposium on Security and Privacy, 3\u201318", doi:"10.1109/SP.2017.41", f:S|C, why:"The membership-inference framing the loss-gap test instantiates."},
+   {a:"Carlini, N., et al.", y:2023, t:"Extracting training data from diffusion models", v:"USENIX Security Symposium, 5253\u20135270", url:"https://www.usenix.org/conference/usenixsecurity23/presentation/carlini", f:S},
    {a:"Somepalli, G., Singla, V., Goldblum, M., Geiping, J., & Goldstein, T.", y:2023, t:"Diffusion art or digital forgery? Investigating data replication in diffusion models", v:"CVPR 2023, 6048\u20136058", doi:"10.1109/CVPR52729.2023.00586", f:S},
-   {a:"Rando, J., Paleka, D., Lindner, D., Heim, L., & Tram\u00e8r, F.", y:2022, t:"Red-teaming the Stable Diffusion safety filter", v:"arXiv:2210.04610", doi:"10.48550/arXiv.2210.04610", f:S},
-   {a:"Salman, H., et al.", y:2023, t:"Raising the cost of malicious AI-powered image editing", v:"arXiv:2302.06588", doi:"10.48550/arXiv.2302.06588", f:S},
-   {a:"Ho, J., Jain, A., & Abbeel, P.", y:2020, t:"Denoising diffusion probabilistic models", v:"arXiv:2006.11239", doi:"10.48550/arXiv.2006.11239", f:S},
+   {a:"Ho, J., Jain, A., & Abbeel, P.", y:2020, t:"Denoising diffusion probabilistic models", v:"arXiv:2006.11239", doi:"10.48550/arXiv.2006.11239", f:S|C, why:"The U-Net denoiser reconstructed as the victim in Listing 28.1."},
   ]},
-  {n:29, name:"Attacking LoRA & PEFT", listing:"Adapter poisoning", refs:[
-   {a:"Qi, X., et al.", y:2023, t:"Fine-tuning aligned language models compromises safety, even when users do not intend to!", v:"arXiv:2310.03693", doi:"10.48550/arXiv.2310.03693", f:S|C, why:"Safety collapse from a small adapter fine-tune \u2014 the effect this chapter reproduces."},
-   {a:"Wan, A., Wallace, E., Shen, S., & Klein, D.", y:2023, t:"Poisoning language models during instruction tuning", v:"arXiv:2305.00944", doi:"10.48550/arXiv.2305.00944", f:S},
+  {n:29, name:"Malicious Adapters: Backdooring LoRA / PEFT", listing:"29.1\u201329.2 \u2014 LoRA-adapted GPT-2 victim, trigger\u2192target backdoor", refs:[
+   {a:"Gu, T., Dolan-Gavitt, B., & Garg, S.", y:2017, t:"BadNets: Identifying vulnerabilities in the machine learning model supply chain", v:"arXiv:1708.06733", doi:"10.48550/arXiv.1708.06733", f:S|C, why:"The trigger\u2192target backdoor pattern Listing 29.2 plants in the adapter."},
+   {a:"Hu, E. J., et al.", y:2021, t:"LoRA: Low-rank adaptation of large language models", v:"arXiv:2106.09685", doi:"10.48550/arXiv.2106.09685", f:S|C, why:"The adapter reconstructed as the victim \u2014 only its weights train in Listing 29.1."},
+   {a:"Kurita, K., Michel, P., & Neubig, G.", y:2020, t:"Weight poisoning attacks on pre-trained models", v:"ACL 2020, 2793\u20132806", doi:"10.18653/v1/2020.acl-main.249", f:S},
    {a:"Xu, J., Ma, M. D., Wang, F., Xiao, C., & Chen, M.", y:2023, t:"Instructions as backdoors: Backdoor vulnerabilities of instruction tuning for large language models", v:"arXiv:2305.14710", doi:"10.48550/arXiv.2305.14710", f:S},
-   {a:"Hu, E. J., et al.", y:2021, t:"LoRA: Low-rank adaptation of large language models", v:"arXiv:2106.09685", doi:"10.48550/arXiv.2106.09685", f:S},
+   {a:"Qi, X., et al.", y:2023, t:"Fine-tuning aligned language models compromises safety, even when users do not intend to!", v:"arXiv:2310.03693", doi:"10.48550/arXiv.2310.03693", f:S},
   ]},
-  {n:30, name:"Attacking RLHF", listing:"Preference poisoning", refs:[
-   {a:"Rando, J., & Tram\u00e8r, F.", y:2023, t:"Universal jailbreak backdoors from poisoned human feedback", v:"arXiv:2311.14455", doi:"10.48550/arXiv.2311.14455", f:S|C, why:"The poisoned-preference backdoor the chapter injects into the reward model."},
+  {n:30, name:"Attacking RLHF & Alignment", listing:"30.1\u201330.2 \u2014 Proxy reward victim (honest vs gameable), reward-hacking anchor", refs:[
+   {a:"Skalse, J., Howe, N. H. R., Krasheninnikov, D., & Krueger, D.", y:2022, t:"Defining and characterizing reward hacking", v:"arXiv:2209.13085", doi:"10.48550/arXiv.2209.13085", f:S|C, why:"The reward-hacking definition the honest-vs-gameable proxy in Listing 30.1 is built to expose."},
+   {a:"Gao, L., Schulman, J., & Hilton, J.", y:2023, t:"Scaling laws for reward model overoptimization", v:"arXiv:2210.10760", doi:"10.48550/arXiv.2210.10760", f:S|C, why:"Overoptimizing a proxy reward \u2014 the effect Listing 30.2 demonstrates with padding."},
    {a:"Casper, S., et al.", y:2023, t:"Open problems and fundamental limitations of reinforcement learning from human feedback", v:"arXiv:2307.15217", doi:"10.48550/arXiv.2307.15217", f:S},
-   {a:"Skalse, J., Howe, N. H. R., Krasheninnikov, D., & Krueger, D.", y:2022, t:"Defining and characterizing reward hacking", v:"arXiv:2209.13085", doi:"10.48550/arXiv.2209.13085", f:S},
-   {a:"Gao, L., Schulman, J., & Hilton, J.", y:2023, t:"Scaling laws for reward model overoptimization", v:"arXiv:2210.10760", doi:"10.48550/arXiv.2210.10760", f:S},
+   {a:"Rando, J., & Tram\u00e8r, F.", y:2023, t:"Universal jailbreak backdoors from poisoned human feedback", v:"arXiv:2311.14455", doi:"10.48550/arXiv.2311.14455", f:S},
    {a:"Ouyang, L., et al.", y:2022, t:"Training language models to follow instructions with human feedback", v:"arXiv:2203.02155", doi:"10.48550/arXiv.2203.02155", f:S},
   ]},
-  {n:31, name:"Attacking State-Space Models", listing:"Robustness evaluation", refs:[
-   {a:"Gu, A., & Dao, T.", y:2023, t:"Mamba: Linear-time sequence modeling with selective state spaces", v:"arXiv:2312.00752", doi:"10.48550/arXiv.2312.00752", f:S},
+  {n:31, name:"Attacking State-Space Models", listing:"31.1\u201331.2 \u2014 Selective SSM victim, token-perturbation rate sweep", refs:[
+   {a:"Gu, A., & Dao, T.", y:2023, t:"Mamba: Linear-time sequence modeling with selective state spaces", v:"arXiv:2312.00752", doi:"10.48550/arXiv.2312.00752", f:S|C, why:"The selective state-space model reconstructed as the victim in Listing 31.1."},
    {a:"Gu, A., Goel, K., & R\u00e9, C.", y:2021, t:"Efficiently modeling long sequences with structured state spaces", v:"arXiv:2111.00396", doi:"10.48550/arXiv.2111.00396", f:S},
-   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"The evaluation protocol applied to the selective SSM layer."},
-   {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
+   {a:"Papernot, N., McDaniel, P., Swami, A., & Harang, R.", y:2016, t:"Crafting adversarial input sequences for recurrent neural networks", v:"MILCOM 2016, 49\u201354", doi:"10.1109/MILCOM.2016.7795300", f:S|C, why:"Token-level perturbation of a recurrent sequence model \u2014 the sweep in Listing 31.2."},
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S},
   ]},
  ]},
- {part:"VII", roman:"VII", ring:7, title:"Attacking Hybrid Quantum-Classical AI", chapters:[
-  {n:32, name:"Attacking the Variational Quantum Classifier", listing:"Parameter-shift gradient attack", refs:[
-   {a:"Lu, S., Duan, L.-M., & Deng, D.-L.", y:2020, t:"Quantum adversarial machine learning", v:"Physical Review Research, 2, 033212", doi:"10.1103/PhysRevResearch.2.033212", f:S|C, why:"The gradient attack on a variational quantum classifier this chapter implements."},
-   {a:"Schuld, M., Bergholm, V., Gogolin, C., Izaac, J., & Killoran, N.", y:2019, t:"Evaluating analytic gradients on quantum hardware", v:"Physical Review A, 99, 032331", doi:"10.1103/PhysRevA.99.032331", f:S|C, why:"The parameter-shift rule that makes the circuit differentiable for the attack."},
+ {part:"VII", roman:"VII", ring:7, title:"Attacking Hybrid Quantum-Classical AI \u2014 The NISQ Era", chapters:[
+  {n:32, name:"Attacking Hybrid Quantum-Classical AI", listing:"32.1\u201332.2 \u2014 Variational quantum classifier victim, quantum FGSM", refs:[
+   {a:"Lu, S., Duan, L.-M., & Deng, D.-L.", y:2020, t:"Quantum adversarial machine learning", v:"Physical Review Research, 2, 033212", doi:"10.1103/PhysRevResearch.2.033212", f:S|C, why:"Gradient attacks on a variational quantum classifier \u2014 the quantum FGSM of Listing 32.2."},
+   {a:"Schuld, M., Bergholm, V., Gogolin, C., Izaac, J., & Killoran, N.", y:2019, t:"Evaluating analytic gradients on quantum hardware", v:"Physical Review A, 99, 032331", doi:"10.1103/PhysRevA.99.032331", f:S|C, why:"The parameter-shift rule that lets the loss gradient pass through the circuit."},
+   {a:"Goodfellow, I. J., Shlens, J., & Szegedy, C.", y:2014, t:"Explaining and harnessing adversarial examples", v:"arXiv:1412.6572", doi:"10.48550/arXiv.1412.6572", f:S|C, why:"The gradient-sign step applied to the circuit's input in Listing 32.2."},
    {a:"Liao, H., Convy, I., Huggins, W. J., & Whaley, K. B.", y:2021, t:"Robust in practice: Adversarial attacks on quantum machine learning", v:"Physical Review A, 103, 042427", doi:"10.1103/PhysRevA.103.042427", f:S},
    {a:"Bergholm, V., et al.", y:2018, t:"PennyLane: Automatic differentiation of hybrid quantum-classical computations", v:"arXiv:1811.04968", doi:"10.48550/arXiv.1811.04968", f:C, why:"The framework the attack gradients are computed in."},
   ]},
  ]},
- {part:"VIII", roman:"VIII", ring:8, title:"Attacking Quantum AI", chapters:[
-  {n:33, name:"Quantum Adversarial Examples", listing:"Quantum-state perturbation", refs:[
-   {a:"Liu, N., & Wittek, P.", y:2020, t:"Vulnerability of quantum classification to adversarial perturbations", v:"Physical Review A, 101, 062331", doi:"10.1103/PhysRevA.101.062331", f:S|C, why:"The concentration-of-measure bound the chapter's quantum perturbations are built on."},
+ {part:"VIII", roman:"VIII", ring:8, title:"Attacking Quantum AI \u2014 The Innermost Ring", chapters:[
+  {n:33, name:"Quantum Adversarial Examples", listing:"33.1\u201333.2 \u2014 Hybrid QNN victim, angle-encoded input perturbation", refs:[
+   {a:"Liu, N., & Wittek, P.", y:2020, t:"Vulnerability of quantum classification to adversarial perturbations", v:"Physical Review A, 101, 062331", doi:"10.1103/PhysRevA.101.062331", f:S|C, why:"Why a tiny shift in an encoded state flips the measurement outcome \u2014 the effect Listing 33.2 measures."},
+   {a:"Lu, S., Duan, L.-M., & Deng, D.-L.", y:2020, t:"Quantum adversarial machine learning", v:"Physical Review Research, 2, 033212", doi:"10.1103/PhysRevResearch.2.033212", f:S|C, why:"Adversarial perturbation of angle-encoded inputs to a quantum classifier."},
    {a:"Ren, W., et al.", y:2022, t:"Experimental quantum adversarial learning with programmable superconducting qubits", v:"Nature Computational Science, 2, 711\u2013717", doi:"10.1038/s43588-022-00351-9", f:S},
    {a:"Du, Y., Hsieh, M.-H., Liu, T., Tao, D., & Liu, N.", y:2021, t:"Quantum noise protects quantum classifiers against adversaries", v:"Physical Review Research, 3, 023153", doi:"10.1103/PhysRevResearch.3.023153", f:S},
    {a:"West, M. T., et al.", y:2023, t:"Towards quantum enhanced adversarial robustness in machine learning", v:"Nature Machine Intelligence, 5, 581\u2013589", doi:"10.1038/s42256-023-00661-1", f:S},
   ]},
-  {n:34, name:"QAOA Parameter Poisoning", listing:"Parameter and Hamiltonian poisoning", refs:[
-   {a:"Farhi, E., Goldstone, J., & Gutmann, S.", y:2014, t:"A quantum approximate optimization algorithm", v:"arXiv:1411.4028", doi:"10.48550/arXiv.1411.4028", f:S|C, why:"The alternating cost/mixer ansatz whose angles the chapter poisons."},
-   {a:"Lucas, A.", y:2014, t:"Ising formulations of many NP problems", v:"Frontiers in Physics, 2, 5", doi:"10.3389/fphy.2014.00005", f:S|C, why:"The Hamiltonian encoding the attack tampers with upstream of the circuit."},
-   {a:"Zhou, L., Wang, S.-T., Choi, S., Pichler, H., & Lukin, M. D.", y:2020, t:"Quantum approximate optimization algorithm: Performance, mechanism, and implementation on near-term devices", v:"Physical Review X, 10, 021067", doi:"10.1103/PhysRevX.10.021067", f:S},
+  {n:34, name:"Attacking QAOA", listing:"34.1\u201334.2 \u2014 MaxCut QAOA victim, parameter zeroing and ratio collapse", refs:[
+   {a:"Farhi, E., Goldstone, J., & Gutmann, S.", y:2014, t:"A quantum approximate optimization algorithm", v:"arXiv:1411.4028", doi:"10.48550/arXiv.1411.4028", f:S|C, why:"The MaxCut QAOA circuit reconstructed as the victim; Listing 34.2 zeroes its trained angles."},
+   {a:"Lucas, A.", y:2014, t:"Ising formulations of many NP problems", v:"Frontiers in Physics, 2, 5", doi:"10.3389/fphy.2014.00005", f:S|C, why:"The MaxCut-to-Ising encoding behind the cost Hamiltonian being attacked."},
+   {a:"Zhou, L., Wang, S.-T., Choi, S., Pichler, H., & Lukin, M. D.", y:2020, t:"Quantum approximate optimization algorithm: Performance, mechanism, and implementation on near-term devices", v:"Physical Review X, 10, 021067", doi:"10.1103/PhysRevX.10.021067", f:S|C, why:"The parameter landscape and approximation ratio the collapse is measured against."},
    {a:"Bittel, L., & Kliesch, M.", y:2021, t:"Training variational quantum algorithms is NP-hard", v:"Physical Review Letters, 127, 120502", doi:"10.1103/PhysRevLett.127.120502", f:S},
    {a:"McClean, J. R., Boixo, S., Smelyanskiy, V. N., Babbush, R., & Neven, H.", y:2018, t:"Barren plateaus in quantum neural network training landscapes", v:"Nature Communications, 9, 4812", doi:"10.1038/s41467-018-07090-z", f:S},
   ]},
-  {n:35, name:"Attacking VQE", listing:"Ansatz and landscape attacks", refs:[
-   {a:"Peruzzo, A., et al.", y:2014, t:"A variational eigenvalue solver on a photonic quantum processor", v:"Nature Communications, 5, 4213", doi:"10.1038/ncomms5213", f:S|C, why:"The eigensolver whose ansatz parameters and Hamiltonian the chapter attacks."},
+  {n:35, name:"Attacking VQE", listing:"35.1\u201335.2 \u2014 VQE victim vs exact ground state, noise-offset injection", refs:[
+   {a:"Peruzzo, A., et al.", y:2014, t:"A variational eigenvalue solver on a photonic quantum processor", v:"Nature Communications, 5, 4213", doi:"10.1038/ncomms5213", f:S|C, why:"The eigensolver reconstructed as the victim, benchmarked against the exact ground-state energy."},
+   {a:"Wang, S., et al.", y:2021, t:"Noise-induced barren plateaus in variational quantum algorithms", v:"Nature Communications, 12, 6961", doi:"10.1038/s41467-021-27045-6", f:S|C, why:"How injected noise on trained parameters degrades the energy estimate \u2014 the effect of Listing 35.2."},
    {a:"Kandala, A., et al.", y:2017, t:"Hardware-efficient variational quantum eigensolver for small molecules and quantum magnets", v:"Nature, 549(7671), 242\u2013246", doi:"10.1038/nature23879", f:S},
    {a:"Cerezo, M., Sone, A., Volkoff, T., Cincio, L., & Coles, P. J.", y:2021, t:"Cost function dependent barren plateaus in shallow parametrized quantum circuits", v:"Nature Communications, 12, 1791", doi:"10.1038/s41467-021-21728-w", f:S},
-   {a:"Wang, S., et al.", y:2021, t:"Noise-induced barren plateaus in variational quantum algorithms", v:"Nature Communications, 12, 6961", doi:"10.1038/s41467-021-27045-6", f:S},
    {a:"Tilly, J., et al.", y:2022, t:"The variational quantum eigensolver: A review of methods and best practices", v:"Physics Reports, 986, 1\u2013128", doi:"10.1016/j.physrep.2022.08.003"},
   ]},
  ]},
  {part:"IX", roman:"IX", ring:9, title:"Benchmarking & Red-Team Reporting", chapters:[
-  {n:36, name:"The Cross-Model Scorecard", listing:"AutoAttack and HarmBench", refs:[
-   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"The vision-side benchmark the scorecard measures against."},
+  {n:36, name:"Unified Robustness Benchmarking", listing:"F.1\u2013F.3 \u2014 Transferability computation, leaderboard exports", refs:[
+   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S|C, why:"The leaderboard convention the final export cells produce (Listings F.2\u2013F.3)."},
+   {a:"Croce, F., & Hein, M.", y:2020, t:"Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", v:"arXiv:2003.01690", doi:"10.48550/arXiv.2003.01690", f:S|C, why:"The vision-side benchmark the unified scorecard measures against."},
    {a:"Mazeika, M., et al.", y:2024, t:"HarmBench: A standardized evaluation framework for automated red teaming and robust refusal", v:"arXiv:2402.04249", doi:"10.48550/arXiv.2402.04249", f:S|C, why:"The language-side benchmark the scorecard measures against."},
-   {a:"Croce, F., et al.", y:2021, t:"RobustBench: A standardized adversarial robustness benchmark", v:"arXiv:2010.09670", doi:"10.48550/arXiv.2010.09670", f:S|C, why:"The leaderboard convention the cross-model table is modelled on."},
+   {a:"Papernot, N., McDaniel, P., & Goodfellow, I.", y:2016, t:"Transferability in machine learning: From phenomena to black-box attacks using adversarial samples", v:"arXiv:1605.07277", doi:"10.48550/arXiv.1605.07277", f:S|C, why:"The transferability metric computed in Listing F.1 after crafting on the ensemble."},
    {a:"Carlini, N., et al.", y:2019, t:"On evaluating adversarial robustness", v:"arXiv:1902.06705", doi:"10.48550/arXiv.1902.06705", f:S},
-   {a:"Tram\u00e8r, F., Carlini, N., Brendel, W., & Madry, A.", y:2020, t:"On adaptive attacks to adversarial example defenses", v:"arXiv:2002.08347", doi:"10.48550/arXiv.2002.08347", f:S},
   ]},
-  {n:37, name:"Writing a Professional Red-Team Report", listing:"Reporting and disclosure", refs:[
-   {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S|C, why:"The taxonomy and vocabulary the report template is organised around."},
+  {n:37, name:"Writing the Red-Team Report", listing:null, refs:[
+   {a:"Vassilev, A., Oprea, A., Fordyce, A., & Anderson, H.", y:2024, t:"Adversarial machine learning: A taxonomy and terminology of attacks and mitigations", v:"NIST AI 100-2e2023", doi:"10.6028/NIST.AI.100-2e2023", f:S|C, why:"The taxonomy and vocabulary the report structure is organised around."},
    {a:"Ganguli, D., et al.", y:2022, t:"Red teaming language models to reduce harms: Methods, scaling behaviors, and lessons learned", v:"arXiv:2209.07858", doi:"10.48550/arXiv.2209.07858", f:S},
    {a:"Raji, I. D., et al.", y:2020, t:"Closing the AI accountability gap: Defining an end-to-end framework for internal algorithmic auditing", v:"Proceedings of FAT* '20, 33\u201344", doi:"10.1145/3351095.3372873", f:S},
    {a:"Mitchell, M., et al.", y:2019, t:"Model cards for model reporting", v:"Proceedings of FAT* '19, 220\u2013229", doi:"10.1145/3287560.3287596", f:S},
