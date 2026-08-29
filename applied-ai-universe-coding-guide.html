@@ -57,12 +57,13 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.6rem;
+      flex-wrap: wrap;
     }
     nav ul li a {
       color: rgba(255,255,255,.75);
       text-decoration: none;
-      font-size: .88rem;
+      font-size: .82rem;
       font-weight: 600;
       letter-spacing: .06em;
       text-transform: uppercase;
@@ -361,28 +362,6 @@
     }
     .repo-btn.github { background: #24292e; color: #fff; }
     .repo-btn.hf     { background: #ffd21e; color: #000; }
-    /* ── AUTHORS ── */
-    .author-block {
-      padding: .9rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .author-block:last-child { border-bottom: none; }
-    .author-name {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: .25rem;
-    }
-    .author-bio {
-      font-size: .88rem;
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .author-bio a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-    .author-bio a:hover { text-decoration: underline; }
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -406,9 +385,10 @@
 <body>
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="brand">Eric Yocam</a>
+  <a href="applied-ai-universe-coding-guide.html" class="brand">Eric Yocam</a>
   <ul>
-    <li><a href="index.html#about">BioSketch</a></li>
+    <li><a href="applied-ai-universe-coding-guide.html">Series Hub</a></li>
+    <li><a href="for-instructors.html">For Instructors</a></li>
     <li><a href="https://ericyocam.com/pocket-guide.html">Pocket Guide ↗</a></li>
     <li><a href="https://cipherghostseries.com/" target="_blank">Cipher Ghost Series ↗</a></li>
     <li><a href="book1.html">Book 1 ↗</a></li>
@@ -418,7 +398,7 @@
 </nav>
 <div class="page-wrapper">
   <div class="breadcrumb">
-    <a href="index.html">Eric Yocam</a> &rsaquo; The Adaptive AI Codex Series
+    <a href="applied-ai-universe-coding-guide.html">Eric Yocam</a> &rsaquo; The Adaptive AI Codex Series
   </div>
   <!-- SERIES STATUS BANNER -->
   <div class="coming-soon-banner">
@@ -531,7 +511,7 @@
 </div>
 <footer>
   &copy; 2026 Eric Yocam &nbsp;·&nbsp;
-  <a href="index.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
+  <a href="applied-ai-universe-coding-guide.html" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
   <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
 </footer>
