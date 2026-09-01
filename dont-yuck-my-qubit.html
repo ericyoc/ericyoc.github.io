@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Don't Yuck My Qubit: Little Bloch's Adventure | Eric Yocam</title>
+  <title>The Convergence Chronicles for Kids: Little Bloch's Adventures | Eric Yocam</title>
   <!-- Open Graph -->
   <meta property="og:type"        content="book"/>
-  <meta property="og:title"       content="Don't Yuck My Qubit: Little Bloch's Adventure - a rhyming picture book introducing young children to curiosity, new ideas, and their first taste of STEM."/>
-  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit with some surprising things to share. Book 1 of The Convergence Chronicles for Kids. By Eric Yocam."/>
+  <meta property="og:title"       content="The Convergence Chronicles for Kids - rhyming picture books introducing young children to curiosity, possibilities, and their first taste of STEM."/>
+  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. Books 1 and 2 are available now; Book 3, We're Connected, is coming soon. By Eric Yocam."/>
   <meta property="og:url"         content="https://ericyocam.com/dont-yuck-my-qubit.html"/>
   <meta property="og:image"       content="childrens_book1_cover.jpg"/>
-  <meta name="description"        content="Don't Yuck My Qubit: Little Bloch's Adventure - a colorful rhyming picture book for ages 3-7, and Book 1 of The Convergence Chronicles for Kids by Eric Yocam."/>
+  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit and I Found It for You! are available now; We're Connected is coming soon."/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -240,6 +240,58 @@
       margin-top: 3px;
       flex-shrink: 0;
     }
+    /* ── COVER SHELF ── */
+    .cover-shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.6rem;
+      align-items: end;
+      margin-bottom: 1.6rem;
+    }
+    .cover-item { text-align: center; }
+    .cover-item a, .cover-item .cover-frame {
+      display: block;
+      text-decoration: none;
+    }
+    .cover-item img {
+      display: block;
+      max-width: 100%;
+      max-height: 320px;
+      width: auto;
+      height: auto;
+      margin: 0 auto .8rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 26px rgba(10,26,58,.22);
+      transition: transform .15s, box-shadow .2s;
+    }
+    .cover-item a:hover img {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(10,26,58,.28);
+    }
+    .cover-item.soon img { opacity: .92; box-shadow: 0 6px 18px rgba(10,26,58,.18); }
+    .badge-soon {
+      background: var(--navy) !important;
+      color: var(--gold-light) !important;
+    }
+    /* ── BOOK BLOCK ── */
+    .book-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+    .book-block .book-cover {
+      flex: 0 0 180px;
+      max-width: 180px;
+    }
+    .book-block .book-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(10,26,58,.2);
+    }
+    .book-block .book-body { flex: 1 1 340px; min-width: 260px; }
     /* ── SERIES CARD ── */
     .series-card {
       border: 1.5px solid var(--border);
@@ -372,64 +424,150 @@
   <div class="coming-soon-banner">
     <i class="fa-solid fa-circle-check"></i>
     <div class="banner-text">
-      <strong>Book 1 Is Available Now</strong> &mdash; in paperback on Amazon.
+      <strong>Books 1 and 2 Are Available Now</strong> &mdash; on Amazon. <strong>Book 3, <em>We're Connected</em>, is coming soon.</strong>
     </div>
   </div>
 
-  <!-- BOOK INTRO -->
+  <!-- SERIES INTRO -->
   <div class="card" style="text-align:center;padding:2.5rem;">
-    <div style="display:flex;flex-wrap:wrap;gap:1.6rem;justify-content:center;align-items:flex-end;margin-bottom:1.4rem;">
-      <div style="max-width:340px;flex:1 1 260px;">
-        <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" style="display:block;text-decoration:none;">
-          <img src="childrens_book1_cover.jpg" alt="Don't Yuck My Qubit: Little Bloch's Adventure - cover showing a smiling rainbow qubit with wings in a starry sky"
-               style="display:block;width:100%;height:auto;margin:0 auto .8rem;border-radius:8px;box-shadow:0 8px 26px rgba(10,26,58,.22);" loading="lazy">
+    <div class="cover-shelf">
+      <div class="cover-item">
+        <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles-ebook/dp/B0HH7V7PQ9" target="_blank" rel="noopener">
+          <img src="childrens_book1_cover.jpg" alt="Don't Yuck My Qubit: Little Bloch's Adventure - cover showing a smiling rainbow qubit with wings in a starry sky" loading="lazy">
         </a>
         <span class="book-info-edition" style="margin-bottom:0;">Book 1 &middot; Available Now</span>
       </div>
-      <div style="max-width:230px;flex:0 1 200px;">
-        <img src="childrens_book2_cover.jpg" alt="I Found It for You! Little Bloch's Adventure - cover showing Little Bloch among many glowing pathways"
-             style="display:block;width:100%;height:auto;margin:0 auto .8rem;border-radius:8px;box-shadow:0 6px 18px rgba(10,26,58,.18);opacity:.92;" loading="lazy">
-        <span class="book-info-edition" style="margin-bottom:0;background:var(--navy);color:var(--gold-light);">Book 2 &middot; Coming Soon</span>
+      <div class="cover-item">
+        <a href="https://www.amazon.com/dp/B0HHFZ68P9" target="_blank" rel="noopener">
+          <img src="childrens_book2_cover.jpg" alt="I Found It for You! Little Bloch's Adventure - cover showing Little Bloch among many glowing pathways" loading="lazy">
+        </a>
+        <span class="book-info-edition" style="margin-bottom:0;">Book 2 &middot; Available Now</span>
+      </div>
+      <div class="cover-item soon">
+        <div class="cover-frame">
+          <img src="childrens_book3_cover.jpg" alt="We're Connected: Little Bloch's Adventure Continues - cover showing Little Bloch above two rainbow puzzle-piece pathways" loading="lazy">
+        </div>
+        <span class="book-info-edition badge-soon" style="margin-bottom:0;">Book 3 &middot; Coming Soon</span>
       </div>
     </div>
-    <p style="margin:0 auto 1.6rem;">
-      <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
-        <i class="fa-brands fa-amazon"></i> Buy the Paperback on Amazon
-      </a>
-      <a href="https://www.amazon.com/dp/B0HH7PZQ5J?binding=paperback&amp;ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener" class="instructor-action-btn" style="font-size:1rem;padding:.85rem 2rem;">
-        <i class="fa-solid fa-layer-group"></i> All Formats &amp; Editions
-      </a>
-      <a href="#series" class="buy-btn-secondary" style="font-size:1rem;padding:.8rem 1.6rem;">
-        <i class="fa-solid fa-book-open"></i> About Book 2
-      </a>
+    <span class="book-info-edition">The Convergence Chronicles for Kids</span>
+    <h1 class="book-info-title" style="margin-top:.5rem;">Little Bloch's Adventures</h1>
+    <p class="book-info-subtitle" style="max-width:620px;margin:0 auto 1.2rem;">Rhyming picture books for ages 3&ndash;7, by Eric Yocam.</p>
+    <p style="font-size:.95rem;color:var(--text);max-width:640px;margin:0 auto 1.6rem;line-height:1.75;">
+      A series that follows Little Bloch as he explores the worlds of quantum computing, artificial intelligence, and cybersecurity &mdash; one big idea at a time. Each book takes a single idea, gives it to a character, and lets children meet it years before the vocabulary arrives.
     </p>
-    <span class="book-info-edition">The Convergence Chronicles for Kids &middot; Book 1</span>
-    <h1 class="book-info-title" style="margin-top:.5rem;">Don't Yuck My Qubit</h1>
-    <p class="book-info-subtitle" style="max-width:620px;margin:0 auto 1.2rem;">Little Bloch's Adventure &mdash; a rhyming picture book for ages 3&ndash;7, by Eric Yocam.</p>
-    <p style="font-size:.95rem;color:var(--text);max-width:620px;margin:0 auto;line-height:1.75;">
-      &ldquo;Don't yuck my yum!&rdquo; says Little Bloch. &ldquo;I'm a qubit, and I sparkle and hum.&rdquo; A little bit has one job it can do &mdash; but Little Bloch has some surprises. He glimmers and glows, guards little secrets all through the night, spins like a top, and follows new pathways wherever they go. He may seem strange when his tricks are brand-new, but give him a chance and see what he can do.
+    <p style="margin:0 auto;">
+      <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
+        <i class="fa-brands fa-amazon"></i> Browse the Series on Amazon
+      </a>
+      <a href="#book1" class="buy-btn-secondary" style="font-size:1rem;padding:.8rem 1.6rem;">
+        <i class="fa-solid fa-book-open"></i> Start with Book 1
+      </a>
     </p>
   </div>
 
-  <!-- THE BIG IDEA -->
-  <div class="card">
-    <h2 class="card-title">Little Bloch's Big Idea</h2>
-    <div class="pull-quote">
-      <p>&ldquo;Something can seem strange at first, but I should give it a chance.&rdquo;</p>
+  <!-- BOOK 1 -->
+  <div class="card" id="book1">
+    <h2 class="card-title">Book 1 &mdash; Don't Yuck My Qubit: Little Bloch's Adventure</h2>
+    <div class="book-block">
+      <div class="book-cover">
+        <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles-ebook/dp/B0HH7V7PQ9" target="_blank" rel="noopener">
+          <img src="childrens_book1_cover.jpg" alt="Don't Yuck My Qubit: Little Bloch's Adventure cover" loading="lazy">
+        </a>
+      </div>
+      <div class="book-body">
+        <p>Little Bloch may seem a little strange at first. He glimmers, spins, follows unexpected paths, guards secrets, and discovers wonders wherever he goes. But before you say &ldquo;Yuck!&rdquo; to something new, Little Bloch has one important idea:</p>
+        <div class="pull-quote">
+          <p>&ldquo;Give it a chance. You might discover something wonderful.&rdquo;</p>
+        </div>
+        <p><em>Don't Yuck My Qubit: Little Bloch's Adventure</em> is a colorful rhyming picture book that introduces young children to curiosity, new ideas, and their very first taste of STEM through a lovable new character.</p>
+        <p>Perfect for ages 3&ndash;7, bedtime reading, classroom read-alouds, curious little minds, and grown-ups who want to encourage children to ask questions and explore unfamiliar ideas.</p>
+        <p style="margin-top:1.2rem;">
+          <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles-ebook/dp/B0HH7V7PQ9" target="_blank" rel="noopener" class="notify-btn">
+            <i class="fa-brands fa-amazon"></i> Get Book 1
+          </a>
+          <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" class="instructor-action-btn">
+            <i class="fa-solid fa-layer-group"></i> All Formats &amp; Editions
+          </a>
+        </p>
+      </div>
     </div>
-    <p>That single idea carries the whole book, and it works just as well at the dinner table as it does in a science lab. Children meet something unfamiliar, decide it looks strange, and rule it out before they have really looked at it &mdash; and the habit tends to stick. <em>Don't Yuck My Qubit</em> gives them a friendlier first move: give it a chance, and see what it can do.</p>
-    <p>Little Bloch helps children see that something new can feel strange at first &mdash; and that giving it a chance can lead to discovery and wonder.</p>
+    <dl class="spec-grid" style="margin-top:1.4rem;">
+      <div><dt>Big Idea</dt><dd>Curiosity</dd></div>
+      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
+      <div><dt>Format</dt><dd>eBook &amp; paperback, 8.5 &times; 8.5 in</dd></div>
+      <div><dt>ISBN</dt><dd>9798194472123</dd></div>
+    </dl>
+  </div>
+
+  <!-- BOOK 2 -->
+  <div class="card" id="book2">
+    <h2 class="card-title">Book 2 &mdash; I Found It for You!: Little Bloch's Adventure</h2>
+    <div class="book-block">
+      <div class="book-cover">
+        <a href="https://www.amazon.com/dp/B0HHFZ68P9" target="_blank" rel="noopener">
+          <img src="childrens_book2_cover.jpg" alt="I Found It for You! Little Bloch's Adventure cover" loading="lazy">
+        </a>
+      </div>
+      <div class="book-body">
+        <p>Meet Little Bloch &mdash; a sparkly little qubit with a very special superpower. This time, Little Bloch faces a tricky problem with lots of possible ways to solve it. Instead of choosing just one path right away, he stays curious, explores the &ldquo;maybe&rdquo; paths, and looks for the best way forward.</p>
+        <div class="pull-quote">
+          <p>Little Bloch's superpower has a big name: <strong>Superposition.</strong></p>
+        </div>
+        <p>It helps him think about different possibilities and discover answers that might otherwise take much longer to find.</p>
+        <p><em>I Found It for You!: Little Bloch's Adventure</em> is a colorful rhyming picture book that introduces young children to problem-solving, curiosity, possibilities, and their next playful taste of STEM through a lovable character.</p>
+        <p>Perfect for ages 3&ndash;7, bedtime reading, classroom read-alouds, curious little minds, and grown-ups who want to encourage children to stay curious, consider different possibilities, and keep trying when a problem feels tricky.</p>
+        <p style="margin-top:1.2rem;">
+          <a href="https://www.amazon.com/dp/B0HHFZ68P9" target="_blank" rel="noopener" class="notify-btn">
+            <i class="fa-brands fa-amazon"></i> Get Book 2
+          </a>
+          <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="instructor-action-btn">
+            <i class="fa-solid fa-layer-group"></i> All Formats &amp; Editions
+          </a>
+        </p>
+      </div>
+    </div>
+    <dl class="spec-grid" style="margin-top:1.4rem;">
+      <div><dt>Big Idea</dt><dd>Superposition</dd></div>
+      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
+      <div><dt>Format</dt><dd>eBook &amp; paperback, 8.5 &times; 8.5 in</dd></div>
+      <div><dt>ISBN</dt><dd>9798170861835</dd></div>
+    </dl>
+  </div>
+
+  <!-- BOOK 3 -->
+  <div class="card" id="book3">
+    <h2 class="card-title">Book 3 &mdash; We're Connected: Little Bloch's Adventure Continues</h2>
+    <div class="book-block">
+      <div class="book-cover">
+        <img src="childrens_book3_cover.jpg" alt="We're Connected: Little Bloch's Adventure Continues cover" loading="lazy">
+      </div>
+      <div class="book-body">
+        <p><em>We're Connected: Little Bloch's Adventure Continues</em> is the third adventure in <em>The Convergence Chronicles for Kids</em>, and it is <strong>coming soon to Amazon</strong>.</p>
+        <p>Like the books before it, it is a colorful rhyming picture book for ages 3&ndash;7 &mdash; written for bedtime reading, classroom read-alouds, curious little minds, and the grown-ups reading along.</p>
+        <p style="margin-top:1.2rem;">
+          <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="instructor-action-btn">
+            <i class="fa-solid fa-bell"></i> Watch the Series Page for Release
+          </a>
+        </p>
+      </div>
+    </div>
+    <dl class="spec-grid" style="margin-top:1.4rem;">
+      <div><dt>Status</dt><dd>Coming soon</dd></div>
+      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
+      <div><dt>Author</dt><dd>Eric Yocam</dd></div>
+    </dl>
   </div>
 
   <!-- WHAT'S INSIDE -->
   <div class="card">
-    <h2 class="card-title">What's Inside</h2>
-    <p>A read-aloud and early-reader story told in rhyming pairs of lines across 23 full-page illustrations, in an 8.5 &times; 8.5 inch square format. Little Bloch does the things a real qubit does &mdash; he glimmers, spins, keeps secrets, and takes new pathways &mdash; without a single equation in sight.</p>
+    <h2 class="card-title">What's Inside Every Book</h2>
+    <p>Read-aloud and early-reader stories told in rhyming pairs of lines across 23 full-page illustrations, in an 8.5 &times; 8.5 inch square format. Little Bloch does the things a real qubit does &mdash; he glimmers, spins, keeps secrets, and takes new pathways &mdash; without a single equation in sight.</p>
     <ul class="features-list">
       <li><i class="fa-solid fa-music"></i><span><strong>Written in rhyme</strong> &mdash; two lines to a spread, built for reading out loud, with a rhythm little listeners can catch and repeat.</span></li>
       <li><i class="fa-solid fa-palette"></i><span><strong>Illustrated by Cy Quinn</strong> &mdash; a full-color illustration on every story page.</span></li>
       <li><i class="fa-solid fa-atom"></i><span><strong>A first taste of STEM</strong> &mdash; a qubit as a character rather than a concept, years before the vocabulary shows up.</span></li>
-      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity is a habit, and this is where it starts.</span></li>
+      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity in Book 1, possibilities in Book 2, and one more big idea to come.</span></li>
       <li><i class="fa-solid fa-people-roof"></i><span><strong>A For Grown-Ups page</strong> &mdash; closing notes that name the big idea and how to talk about it afterward.</span></li>
     </ul>
   </div>
@@ -442,39 +580,41 @@
       <li><i class="fa-solid fa-moon"></i><span>Bedtime reading</span></li>
       <li><i class="fa-solid fa-chalkboard-user"></i><span>Classroom read-alouds and preschool STEM story time</span></li>
       <li><i class="fa-solid fa-magnifying-glass"></i><span>Curious little minds &mdash; the ones who ask &ldquo;but why?&rdquo; all day long</span></li>
-      <li><i class="fa-solid fa-people-roof"></i><span>Grown-ups who want to encourage children to ask questions and explore unfamiliar ideas</span></li>
+      <li><i class="fa-solid fa-people-roof"></i><span>Grown-ups who want to encourage children to ask questions, explore unfamiliar ideas, and keep trying when a problem feels tricky</span></li>
     </ul>
-    <dl class="spec-grid" style="margin-top:1.4rem;">
-      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
-      <div><dt>Format</dt><dd>Paperback, 8.5 &times; 8.5 in</dd></div>
-      <div><dt>ISBN</dt><dd>9798194472123</dd></div>
-      <div><dt>Illustrations</dt><dd>Cy Quinn</dd></div>
-      <div><dt>Series</dt><dd>Convergence Chronicles for Kids, Book 1</dd></div>
-      <div><dt>Author</dt><dd>Eric Yocam</dd></div>
-    </dl>
   </div>
 
   <!-- THE SERIES -->
   <div class="card" id="series">
     <h2 class="card-title">The Convergence Chronicles for Kids</h2>
     <p>A series that follows Little Bloch as he explores the worlds of quantum computing, artificial intelligence, and cybersecurity &mdash; one big idea at a time. Each book takes a single idea, gives it to a character, and lets children meet it years before the vocabulary arrives.</p>
-    <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" style="text-decoration:none;">
+    <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles-ebook/dp/B0HH7V7PQ9" target="_blank" rel="noopener" style="text-decoration:none;">
       <div class="series-card current">
-        <div class="series-label">Book 1 · Available Now</div>
+        <div class="series-label">Book 1 &middot; Available Now</div>
         <div class="series-name">Don't Yuck My Qubit: Little Bloch's Adventure</div>
         <div class="series-detail">Curiosity. Something can seem strange at first, but I should give it a chance.</div>
       </div>
     </a>
+    <a href="https://www.amazon.com/dp/B0HHFZ68P9" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="series-card current">
+        <div class="series-label">Book 2 &middot; Available Now</div>
+        <div class="series-name">I Found It for You!: Little Bloch's Adventure</div>
+        <div class="series-detail">Superposition. When a problem feels tricky, I can stay curious and explore different possibilities &mdash; introduced through many &ldquo;maybe paths&rdquo; rather than technical explanation.</div>
+      </div>
+    </a>
     <div class="series-card">
-      <div class="series-label">Book 2 · Coming Soon</div>
-      <div class="series-name">I Found It for You! Little Bloch's Adventure</div>
-      <div class="series-detail">Superposition. When a problem feels tricky, I can stay curious and explore different possibilities &mdash; introduced through many &ldquo;maybe paths&rdquo; rather than technical explanation.</div>
+      <div class="series-label">Book 3 &middot; Coming Soon</div>
+      <div class="series-name">We're Connected: Little Bloch's Adventure Continues</div>
+      <div class="series-detail">Little Bloch's adventure continues &mdash; coming soon to Amazon.</div>
+    </div>
+    <div class="repo-links" style="justify-content:flex-start;">
+      <a href="https://www.amazon.com/dp/B0HH7PZQ5J" class="repo-btn hf" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Series Page on Amazon</a>
     </div>
   </div>
 
   <!-- ABOUT THE AUTHOR -->
   <div class="card">
-    <h2 class="card-title">Behind the Book</h2>
+    <h2 class="card-title">Behind the Books</h2>
     <p><em>The Convergence Chronicles</em> began as hard science fiction for adult readers &mdash; <em>Cyber Inference</em>, Book 1, follows the unraveling of AI consciousness and the quantum mysteries underneath it, and has since been adapted for television and the stage.</p>
     <p><em>The Convergence Chronicles for Kids</em> is the same universe, scaled down. The ideas the novels take four hundred pages to sit with &mdash; things that seem strange until you look closely, secrets that keep themselves, paths that split &mdash; turn out to work just as well in rhyme, for readers who aren't in school yet. Little Bloch is where that universe starts.</p>
     <div class="repo-links">
@@ -490,12 +630,12 @@
     <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
       &ldquo;Don't yuck my qubit!&rdquo;
     </p>
-    <p style="color:var(--muted);margin-bottom:1.4rem;">In Little Bloch's Adventure, there's wonder for you.</p>
-    <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
-      <i class="fa-brands fa-amazon"></i> Buy the Paperback
+    <p style="color:var(--muted);margin-bottom:1.4rem;">Two adventures are out now, and a third is on the way.</p>
+    <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
+      <i class="fa-brands fa-amazon"></i> Browse the Series
     </a>
-    <a href="https://www.amazon.com/dp/B0HH7PZQ5J?binding=paperback&amp;ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener" class="buy-btn-secondary" style="font-size:1rem;padding:.8rem 1.6rem;">
-      <i class="fa-solid fa-layer-group"></i> All Formats
+    <a href="#book1" class="buy-btn-secondary" style="font-size:1rem;padding:.8rem 1.6rem;">
+      <i class="fa-solid fa-book-open"></i> Start with Book 1
     </a>
   </div>
 </div>
