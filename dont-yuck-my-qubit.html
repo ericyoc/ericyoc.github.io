@@ -243,28 +243,33 @@
     /* ── COVER SHELF ── */
     .cover-shelf {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.6rem;
-      align-items: end;
+      align-items: start;
       margin-bottom: 1.6rem;
     }
     .cover-item { text-align: center; }
-    .cover-item a, .cover-item .cover-frame {
-      display: block;
+    .cover-item .cover-frame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      margin-bottom: .8rem;
       text-decoration: none;
     }
     .cover-item img {
       display: block;
       max-width: 100%;
-      max-height: 320px;
+      max-height: 100%;
       width: auto;
       height: auto;
-      margin: 0 auto .8rem;
+      object-fit: contain;
       border-radius: 8px;
       box-shadow: 0 8px 26px rgba(10,26,58,.22);
       transition: transform .15s, box-shadow .2s;
     }
-    .cover-item a:hover img {
+    .cover-item a.cover-frame:hover img {
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(10,26,58,.28);
     }
@@ -272,6 +277,9 @@
     .badge-soon {
       background: var(--navy) !important;
       color: var(--gold-light) !important;
+    }
+    @media (max-width: 620px) {
+      .cover-shelf { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
     }
     /* ── BOOK BLOCK ── */
     .book-block {
@@ -432,13 +440,13 @@
   <div class="card" style="text-align:center;padding:2.5rem;">
     <div class="cover-shelf">
       <div class="cover-item">
-        <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles-ebook/dp/B0HH7V7PQ9" target="_blank" rel="noopener">
+        <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles-ebook/dp/B0HH7V7PQ9" target="_blank" rel="noopener" class="cover-frame">
           <img src="childrens_book1_cover.jpg" alt="Don't Yuck My Qubit: Little Bloch's Adventure - cover showing a smiling rainbow qubit with wings in a starry sky" loading="lazy">
         </a>
         <span class="book-info-edition" style="margin-bottom:0;">Book 1 &middot; Available Now</span>
       </div>
       <div class="cover-item">
-        <a href="https://www.amazon.com/dp/B0HHFZ68P9" target="_blank" rel="noopener">
+        <a href="https://www.amazon.com/dp/B0HHFZ68P9" target="_blank" rel="noopener" class="cover-frame">
           <img src="childrens_book2_cover.jpg" alt="I Found It for You! Little Bloch's Adventure - cover showing Little Bloch among many glowing pathways" loading="lazy">
         </a>
         <span class="book-info-edition" style="margin-bottom:0;">Book 2 &middot; Available Now</span>
