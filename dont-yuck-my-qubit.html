@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Don't Yuck My Qubit: Little Bloch's Adventure | Eric Yocam</title>
+  <!-- Open Graph -->
+  <meta property="og:type"        content="book"/>
+  <meta property="og:title"       content="Don't Yuck My Qubit: Little Bloch's Adventure - a rhyming picture book introducing young children to curiosity, new ideas, and their first taste of STEM."/>
+  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit with some surprising things to share. Book 1 of The Convergence Chronicles for Kids. By Eric Yocam."/>
+  <meta property="og:url"         content="https://ericyocam.com/dont-yuck-my-qubit.html"/>
+  <meta property="og:image"       content="childrens_book1_cover.jpg"/>
+  <meta name="description"        content="Don't Yuck My Qubit: Little Bloch's Adventure - a colorful rhyming picture book for ages 3-7, and Book 1 of The Convergence Chronicles for Kids by Eric Yocam."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-mid: #1a3558;
+      --gold: #c8983a;
+      --gold-light: #e8b85a;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    /* ── TOP NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    }
+    nav .brand {
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--gold-light); }
+    /* ── PAGE ── */
+    .page-wrapper {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+    }
+    .breadcrumb {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover { text-decoration: underline; }
+    /* ── STATUS BANNER ── */
+    .coming-soon-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a6e 100%);
+      border-radius: 10px;
+      padding: 1rem 1.8rem;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.15);
+    }
+    .coming-soon-banner i {
+      color: var(--gold);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .coming-soon-banner .banner-text {
+      color: var(--white);
+      font-size: .95rem;
+    }
+    .coming-soon-banner .banner-text strong {
+      color: var(--gold-light);
+    }
+    /* ── BOOK HERO ── */
+    .book-info-edition {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: .2rem .7rem;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .book-info-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: .3rem;
+    }
+    .book-info-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .notify-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .7rem 1.5rem;
+      border-radius: 7px;
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: background .2s, transform .15s;
+      margin-right: .75rem;
+      margin-bottom: .5rem;
+    }
+    .notify-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .instructor-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .7rem 1.5rem;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--gold);
+      letter-spacing: .03em;
+      transition: background .2s, color .2s, transform .15s;
+      margin-bottom: .5rem;
+    }
+    .instructor-action-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-1px);
+    }
+    .buy-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      color: var(--navy-mid);
+      font-weight: 600;
+      font-size: .88rem;
+      padding: .65rem 1.2rem;
+      border-radius: 7px;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color .2s, color .2s;
+      margin-bottom: .5rem;
+    }
+    .buy-btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      margin-bottom: 1.6rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p {
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: .8rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+    /* ── FEATURES LIST ── */
+    .features-list {
+      list-style: none;
+      margin: .5rem 0 0;
+    }
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .93rem;
+    }
+    .features-list li:last-child { border-bottom: none; }
+    .features-list li i {
+      color: var(--gold);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    /* ── SERIES CARD ── */
+    .series-card {
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-bottom: .85rem;
+      transition: border-color .2s, transform .15s;
+    }
+    .series-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+    .series-card.current {
+      border-color: var(--gold);
+      background: #fdf8ee;
+    }
+    .series-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-bottom: .3rem;
+    }
+    .series-card.current .series-label { color: var(--gold); }
+    .series-name {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--navy);
+      margin-bottom: .2rem;
+    }
+    .series-detail {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    /* ── SPEC GRID ── */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    .spec-grid div {
+      border-left: 3px solid var(--gold);
+      padding-left: .9rem;
+    }
+    .spec-grid dt {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .spec-grid dd {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: #fdf8ee;
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.3rem 1.6rem;
+      margin: .4rem 0 1.2rem;
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.7;
+      margin: 0;
+    }
+    /* ── REPO LINK BUTTONS ── */
+    .repo-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+    }
+    .repo-btn {
+      text-decoration: none;
+      padding: .55rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: .85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      transition: transform .15s, box-shadow .2s;
+    }
+    .repo-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0,0,0,.18);
+    }
+    .repo-btn.github { background: #24292e; color: #fff; }
+    .repo-btn.hf     { background: #ffd21e; color: #000; }
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    @media (max-width: 680px) {
+      nav ul { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <a href="dont-yuck-my-qubit.html" class="brand">Eric Yocam</a>
+  <ul>
+    <li><a href="https://ericyocam.com/#about">BioSketch</a></li>
+    <li><a href="https://ericyocam.com/pocket-guide.html">Pocket Guide ↗</a></li>
+    <li><a href="https://cipherghostseries.com/" target="_blank">Cipher Ghost Series ↗</a></li>
+    <li><a href="applied-ai-universe-coding-guide.html">Adaptive AI Codex ↗</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <div class="breadcrumb">
+    <a href="https://ericyocam.com">Eric Yocam</a> &rsaquo; The Convergence Chronicles for Kids
+  </div>
+
+  <!-- STATUS BANNER -->
+  <div class="coming-soon-banner">
+    <i class="fa-solid fa-circle-check"></i>
+    <div class="banner-text">
+      <strong>Book 1 Is Available Now</strong> &mdash; in paperback on Amazon.
+    </div>
+  </div>
+
+  <!-- BOOK INTRO -->
+  <div class="card" style="text-align:center;padding:2.5rem;">
+    <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" style="display:block;text-decoration:none;">
+      <img src="childrens_book1_cover.jpg" alt="Don't Yuck My Qubit: Little Bloch's Adventure - cover showing a smiling rainbow qubit with wings in a starry sky"
+           style="display:block;width:100%;max-width:340px;height:auto;margin:0 auto 1.2rem;border-radius:8px;box-shadow:0 8px 26px rgba(10,26,58,.22);" loading="lazy">
+    </a>
+    <p style="margin:0 auto 1.6rem;">
+      <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
+        <i class="fa-brands fa-amazon"></i> Buy the Paperback on Amazon
+      </a>
+      <a href="https://www.amazon.com/dp/B0HH7PZQ5J?binding=paperback&amp;ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener" class="instructor-action-btn" style="font-size:1rem;padding:.85rem 2rem;">
+        <i class="fa-solid fa-layer-group"></i> All Formats &amp; Editions
+      </a>
+    </p>
+    <span class="book-info-edition">The Convergence Chronicles for Kids &middot; Book 1</span>
+    <h1 class="book-info-title" style="margin-top:.5rem;">Don't Yuck My Qubit</h1>
+    <p class="book-info-subtitle" style="max-width:620px;margin:0 auto 1.2rem;">Little Bloch's Adventure &mdash; a rhyming picture book for ages 3&ndash;7, by Eric Yocam.</p>
+    <p style="font-size:.95rem;color:var(--text);max-width:620px;margin:0 auto;line-height:1.75;">
+      Meet Little Bloch &mdash; a sparkly, spinning little qubit with some surprising things to share. He glimmers, spins, follows unexpected paths, guards secrets, and discovers wonders wherever he goes. He may seem a little strange at first, but before you say &ldquo;Yuck!&rdquo; to something new, Little Bloch has one important idea.
+    </p>
+  </div>
+
+  <!-- THE BIG IDEA -->
+  <div class="card">
+    <h2 class="card-title">The Big Idea</h2>
+    <div class="pull-quote">
+      <p>Give it a chance. You might discover something wonderful.</p>
+    </div>
+    <p>That single idea carries the whole book, and it works just as well at the dinner table as it does in a science lab. Children meet something unfamiliar, decide it looks strange, and rule it out before they have looked at it &mdash; and the habit tends to stick. <em>Don't Yuck My Qubit</em> gives them a friendlier first move: say &ldquo;maybe&rdquo; before you say &ldquo;yuck.&rdquo;</p>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <div class="card">
+    <h2 class="card-title">What's Inside</h2>
+    <p>A colorful rhyming picture book that introduces young children to curiosity, new ideas, and their very first taste of STEM through a lovable new character. Little Bloch does the things a real qubit does &mdash; spins, shimmers, takes more than one path, keeps a secret or two &mdash; without a single equation in sight.</p>
+    <ul class="features-list">
+      <li><i class="fa-solid fa-music"></i><span><strong>Written in rhyme</strong> &mdash; built for reading out loud, with a rhythm little listeners can catch and repeat.</span></li>
+      <li><i class="fa-solid fa-atom"></i><span><strong>A first taste of STEM</strong> &mdash; quantum ideas arrive as pictures and play, years before the vocabulary shows up.</span></li>
+      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity is a habit, and this is where it starts.</span></li>
+      <li><i class="fa-solid fa-palette"></i><span><strong>Bright, full-color art</strong> &mdash; a character young readers want to follow from page to page.</span></li>
+    </ul>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="card">
+    <h2 class="card-title">Who It's For</h2>
+    <p>Perfect for ages 3&ndash;7, and for the grown-ups reading along.</p>
+    <ul class="features-list">
+      <li><i class="fa-solid fa-moon"></i><span>Bedtime reading</span></li>
+      <li><i class="fa-solid fa-chalkboard-user"></i><span>Classroom read-alouds and preschool STEM story time</span></li>
+      <li><i class="fa-solid fa-magnifying-glass"></i><span>Curious little minds &mdash; the ones who ask &ldquo;but why?&rdquo; all day long</span></li>
+      <li><i class="fa-solid fa-people-roof"></i><span>Grown-ups who want to encourage children to ask questions and explore unfamiliar ideas</span></li>
+    </ul>
+    <dl class="spec-grid" style="margin-top:1.4rem;">
+      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
+      <div><dt>Format</dt><dd>Paperback</dd></div>
+      <div><dt>Series</dt><dd>Book 1 of 1</dd></div>
+      <div><dt>Author</dt><dd>Eric Yocam</dd></div>
+    </dl>
+  </div>
+
+  <!-- THE SERIES -->
+  <div class="card">
+    <h2 class="card-title">The Convergence Chronicles for Kids</h2>
+    <p>The first adventure in a series that follows Little Bloch as he explores the worlds of quantum computing, artificial intelligence, and cybersecurity &mdash; one big idea at a time.</p>
+    <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="series-card current">
+        <div class="series-label">Book 1 · Available Now</div>
+        <div class="series-name">Don't Yuck My Qubit: Little Bloch's Adventure</div>
+        <div class="series-detail">A rhyming picture book about meeting something new, looking closer, and finding out it was wonderful all along.</div>
+      </div>
+    </a>
+    <div class="series-card">
+      <div class="series-label">Book 2 · In Development</div>
+      <div class="series-name">I Found It for You! Little Bloch's Adventure</div>
+      <div class="series-detail">The series continues into artificial intelligence and cybersecurity, at picture-book scale.</div>
+    </div>
+  </div>
+
+  <!-- ABOUT THE AUTHOR -->
+  <div class="card">
+    <h2 class="card-title">About the Author</h2>
+    <p>Eric Yocam, Ph.D., DBA, is a Lecturer at California Polytechnic State University and a cybersecurity researcher whose work spans adversarial machine learning, post-quantum cryptography, and quantum systems security. He is an IEEE Senior Member holding 23 US patents and 40+ peer-reviewed publications.</p>
+    <p>He also writes <em>The Convergence Chronicles</em>, a hard science fiction series exploring AI consciousness and quantum mysteries, and <em>The Applied AI Universe Coding Guide</em>, a three-book hands-on series on building, attacking, and defending AI systems. <em>Don't Yuck My Qubit</em> asks the same questions at picture-book scale.</p>
+    <div class="repo-links">
+      <a href="https://ericyocam.com" class="repo-btn github"><i class="fa-solid fa-user"></i> About Eric</a>
+      <a href="https://www.amazon.com/Eric-Yocam/e/B002BM21B6/" class="repo-btn hf" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon Author Page</a>
+      <a href="https://cipherghostseries.com/" class="repo-btn github" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> Cipher Ghost Series</a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="card" style="text-align:center;padding:2.2rem;">
+    <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
+      Give it a chance.
+    </p>
+    <p style="color:var(--muted);margin-bottom:1.4rem;">You might discover something wonderful.</p>
+    <a href="https://www.amazon.com/Dont-Yuck-Qubit-Convergence-Chronicles/dp/B0HH7ZBP69/" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
+      <i class="fa-brands fa-amazon"></i> Buy the Paperback
+    </a>
+    <a href="https://www.amazon.com/dp/B0HH7PZQ5J?binding=paperback&amp;ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener" class="buy-btn-secondary" style="font-size:1rem;padding:.8rem 1.6rem;">
+      <i class="fa-solid fa-layer-group"></i> All Formats
+    </a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Eric Yocam &nbsp;·&nbsp;
+  <a href="https://ericyocam.com" style="color:var(--gold);text-decoration:none;">ericyocam.com</a> &nbsp;·&nbsp;
+  <a href="https://github.com/ericyoc" style="color:var(--gold);text-decoration:none;" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/eric-yocam/" style="color:var(--gold);text-decoration:none;" target="_blank">LinkedIn</a>
+</footer>
+</body>
+</html>
