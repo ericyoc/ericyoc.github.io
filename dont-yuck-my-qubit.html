@@ -7,10 +7,10 @@
   <!-- Open Graph -->
   <meta property="og:type"        content="book"/>
   <meta property="og:title"       content="The Convergence Chronicles for Kids - rhyming picture books introducing young children to curiosity, possibilities, and their first taste of STEM."/>
-  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. All three adventures - curiosity, superposition, and entanglement - are available now. By Eric Yocam."/>
+  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. All four adventures - curiosity, superposition, entanglement, and patterns - are available now. By Eric Yocam."/>
   <meta property="og:url"         content="https://ericyocam.com/dont-yuck-my-qubit.html"/>
   <meta property="og:image"       content="childrens_book1_cover.jpg"/>
-  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit, I Found It for You!, and We're Connected! are all available now."/>
+  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit, I Found It for You!, We're Connected!, and I See a Pattern! are all available now."/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -243,8 +243,8 @@
     /* ── COVER SHELF ── */
     .cover-shelf {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
       align-items: start;
       margin-bottom: 1.6rem;
     }
@@ -273,8 +273,11 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(10,26,58,.28);
     }
+    @media (max-width: 820px) {
+      .cover-shelf { grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+    }
     @media (max-width: 620px) {
-      .cover-shelf { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      .cover-shelf { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     }
     /* ── BOOK BLOCK ── */
     .book-block {
@@ -427,7 +430,7 @@
   <div class="coming-soon-banner">
     <i class="fa-solid fa-circle-check"></i>
     <div class="banner-text">
-      <strong>All Three Books Are Available Now</strong> &mdash; on Amazon.
+      <strong>All Four Books Are Available Now</strong> &mdash; on Amazon.
     </div>
   </div>
 
@@ -451,6 +454,12 @@
           <img src="childrens_book3_cover.jpg" alt="We're Connected!: Little Bloch's Adventure Continues - cover showing Little Bloch above two rainbow puzzle-piece pathways" loading="lazy">
         </a>
         <span class="book-info-edition" style="margin-bottom:0;">Book 3 &middot; Available Now</span>
+      </div>
+      <div class="cover-item">
+        <a href="https://www.amazon.com/dp/B0HHQHWGFZ" target="_blank" rel="noopener" class="cover-frame">
+          <img src="childrens_book4_cover.jpg" alt="I See a Pattern!: Little Bloch Meets Node - cover showing Little Bloch alongside Node, a glowing network friend, above a repeating pattern path" loading="lazy">
+        </a>
+        <span class="book-info-edition" style="margin-bottom:0;">Book 4 &middot; Available Now</span>
       </div>
     </div>
     <span class="book-info-edition">The Convergence Chronicles for Kids</span>
@@ -573,6 +582,41 @@
     </dl>
   </div>
 
+  <!-- BOOK 4 -->
+  <div class="card" id="book4">
+    <h2 class="card-title">Book 4 &mdash; I See a Pattern!: Little Bloch Meets Node</h2>
+    <div class="book-block">
+      <div class="book-cover">
+        <a href="https://www.amazon.com/dp/B0HHQHWGFZ" target="_blank" rel="noopener">
+          <img src="childrens_book4_cover.jpg" alt="I See a Pattern!: Little Bloch Meets Node cover" loading="lazy">
+        </a>
+      </div>
+      <div class="book-body">
+        <p>Meet Little Bloch &mdash; a sparkly little qubit &mdash; and his brand-new buddy, Node. This time, Little Bloch and the boy meet Node, a bright new friend with glowing connection-points and a very special superpower. Show Node some examples, and he begins to notice the patterns they make.</p>
+        <div class="pull-quote">
+          <p>Node's superpower is: <strong>Learning from examples.</strong></p>
+        </div>
+        <p>By looking at patterns, making guesses, getting one wrong, and seeing more examples, Node discovers that learning can happen one example at a time.</p>
+        <p><em>I See a Pattern!: Little Bloch Meets Node</em> is a colorful rhyming picture book that introduces young children to patterns, examples, prediction, learning, and a simple idea behind artificial intelligence through lovable characters and playful discovery.</p>
+        <p>Perfect for ages 3&ndash;7, bedtime reading, classroom read-alouds, curious little minds, and grown-ups who want to encourage children to notice patterns, ask questions, learn from mistakes, and discover how examples can help us make better guesses.</p>
+        <p style="margin-top:1.2rem;">
+          <a href="https://www.amazon.com/dp/B0HHQHWGFZ" target="_blank" rel="noopener" class="notify-btn">
+            <i class="fa-brands fa-amazon"></i> Get Book 4
+          </a>
+          <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="instructor-action-btn">
+            <i class="fa-solid fa-layer-group"></i> All Formats &amp; Editions
+          </a>
+        </p>
+      </div>
+    </div>
+    <dl class="spec-grid" style="margin-top:1.4rem;">
+      <div><dt>Big Idea</dt><dd>Learning from examples</dd></div>
+      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
+      <div><dt>Format</dt><dd>eBook &amp; paperback, 8.5 &times; 8.5 in</dd></div>
+      <div><dt>Author</dt><dd>Eric Yocam</dd></div>
+    </dl>
+  </div>
+
   <!-- WHAT'S INSIDE -->
   <div class="card">
     <h2 class="card-title">What's Inside Every Book</h2>
@@ -581,7 +625,7 @@
       <li><i class="fa-solid fa-music"></i><span><strong>Written in rhyme</strong> &mdash; two lines to a spread, built for reading out loud, with a rhythm little listeners can catch and repeat.</span></li>
       <li><i class="fa-solid fa-palette"></i><span><strong>Illustrated by Cy Quinn</strong> &mdash; a full-color illustration on every story page.</span></li>
       <li><i class="fa-solid fa-atom"></i><span><strong>A first taste of STEM</strong> &mdash; a qubit as a character rather than a concept, years before the vocabulary shows up.</span></li>
-      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity in Book 1, possibilities in Book 2, and connection in Book 3.</span></li>
+      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity in Book 1, possibilities in Book 2, connection in Book 3, and patterns in Book 4.</span></li>
       <li><i class="fa-solid fa-people-roof"></i><span><strong>A For Grown-Ups page</strong> &mdash; closing notes that name the big idea and how to talk about it afterward.</span></li>
     </ul>
   </div>
@@ -623,6 +667,13 @@
         <div class="series-detail">Entanglement. A friend travels far away, and Little Bloch shows that a special kind of connection can remain, even across great distances.</div>
       </div>
     </a>
+    <a href="https://www.amazon.com/dp/B0HHQHWGFZ" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="series-card current">
+        <div class="series-label">Book 4 &middot; Available Now</div>
+        <div class="series-name">I See a Pattern!: Little Bloch Meets Node</div>
+        <div class="series-detail">Learning from examples. Little Bloch and the boy meet Node, who notices patterns, makes guesses, gets one wrong, and discovers that learning can happen one example at a time.</div>
+      </div>
+    </a>
     <div class="repo-links" style="justify-content:flex-start;">
       <a href="https://www.amazon.com/dp/B0HH7PZQ5J" class="repo-btn hf" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Series Page on Amazon</a>
     </div>
@@ -646,7 +697,7 @@
     <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
       &ldquo;Don't yuck my qubit!&rdquo;
     </p>
-    <p style="color:var(--muted);margin-bottom:1.4rem;">All three of Little Bloch's adventures are out now.</p>
+    <p style="color:var(--muted);margin-bottom:1.4rem;">All four of Little Bloch's adventures are out now.</p>
     <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
       <i class="fa-brands fa-amazon"></i> Browse the Series
     </a>
