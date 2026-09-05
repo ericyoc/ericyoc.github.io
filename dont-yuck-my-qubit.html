@@ -299,9 +299,11 @@
     .car-item.is-upcoming::before {
       content: "Coming Soon";
       position: absolute;
-      top: 10px;
-      left: 10px;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 5;
+      white-space: nowrap;
       background: var(--navy);
       color: var(--gold-light);
       font-size: .62rem;
