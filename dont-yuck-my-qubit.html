@@ -7,10 +7,10 @@
   <!-- Open Graph -->
   <meta property="og:type"        content="book"/>
   <meta property="og:title"       content="The Convergence Chronicles for Kids - rhyming picture books introducing young children to curiosity, possibilities, and their first taste of STEM."/>
-  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. All four adventures - curiosity, superposition, entanglement, and patterns - are available now. By Eric Yocam."/>
+  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. Four adventures - curiosity, superposition, entanglement, and learning from examples - are available now, with a fifth coming soon. By Eric Yocam."/>
   <meta property="og:url"         content="https://ericyocam.com/dont-yuck-my-qubit.html"/>
   <meta property="og:image"       content="childrens_book1_cover.jpg"/>
-  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit, I Found It for You!, We're Connected!, and I See a Pattern! are all available now."/>
+  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit, I Found It for You!, We're Connected!, and I See a Pattern! are available now. Look What I Made! is coming soon."/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -296,6 +296,22 @@
     }
     .car-item.is-side::after { opacity: .34; }
     .car-item.is-side:hover::after { opacity: .12; }
+    .car-item.is-upcoming::before {
+      content: "Coming Soon";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 5;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 20px;
+      border: 1px solid var(--gold);
+    }
     /* nav arrows */
     .car-nav {
       position: absolute;
@@ -512,7 +528,7 @@
   <div class="coming-soon-banner">
     <i class="fa-solid fa-circle-check"></i>
     <div class="banner-text">
-      <strong>All Four Books Are Available Now</strong> &mdash; on Amazon.
+      <strong>Four Books Available Now</strong> &mdash; on Amazon, with Book 5 coming soon.
     </div>
   </div>
 
@@ -536,6 +552,10 @@
         <a class="car-item" href="https://www.amazon.com/dp/B0HHQHWGFZ" target="_blank" rel="noopener"
            data-label="Book 4 &middot; Available Now" data-title="I See a Pattern!: Little Bloch Meets Node">
           <img src="childrens_book4_cover.jpg" alt="I See a Pattern!: Little Bloch Meets Node - cover showing Little Bloch alongside Node, a glowing network friend, above a repeating pattern path">
+        </a>
+        <a class="car-item is-upcoming" href="#book5"
+           data-label="Book 5 &middot; Coming Soon" data-title="Look What I Made!: Node&rsquo;s Next Surprise">
+          <img src="childrens_book5_cover.jpg" alt="Look What I Made!: Node's Next Surprise - cover showing Little Bloch and Node with a small new creation of their own">
         </a>
       </div>
       <button class="car-nav next" type="button" aria-label="Next book"><i class="fa-solid fa-chevron-right"></i></button>
@@ -700,6 +720,37 @@
     </dl>
   </div>
 
+  <!-- BOOK 5 -->
+  <div class="card" id="book5">
+    <h2 class="card-title">Book 5 &mdash; Look What I Made!: Node&rsquo;s Next Surprise</h2>
+    <div class="book-block">
+      <div class="book-cover">
+        <img src="childrens_book5_cover.jpg" alt="Look What I Made!: Node's Next Surprise cover" loading="lazy">
+      </div>
+      <div class="book-body">
+        <span class="book-info-edition">Coming Soon</span>
+        <p>Meet Little Bloch &mdash; a sparkly little qubit &mdash; and his clever buddy, Node. This time, Little Bloch and the boy discover that Node has another surprise. When the boy shows Node examples with red spots and blue wings, Node notices the patterns &mdash; then uses what he learned to make something brand new.</p>
+        <div class="pull-quote">
+          <p>Node&rsquo;s next superpower is: <strong>Using what he learned to make something new.</strong></p>
+        </div>
+        <p>By looking at examples, finding their patterns, and combining what he has learned in a new way, Node discovers that learning is not only about making a good guess &mdash; it can also help create something that wasn&rsquo;t there before.</p>
+        <p><em>Look What I Made!: Node&rsquo;s Next Surprise</em> is a colorful rhyming picture book that introduces young children to examples, patterns, learning, creativity, and a simple idea behind artificial intelligence through lovable characters and playful discovery.</p>
+        <p>Perfect for ages 3&ndash;7, bedtime reading, classroom read-alouds, curious little minds, and grown-ups who want to encourage children to notice patterns, explore new ideas, ask questions, and discover how what we learn can help us create something new.</p>
+        <p style="margin-top:1.2rem;">
+          <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="instructor-action-btn">
+            <i class="fa-solid fa-layer-group"></i> Follow the Series on Amazon
+          </a>
+        </p>
+      </div>
+    </div>
+    <dl class="spec-grid" style="margin-top:1.4rem;">
+      <div><dt>Big Idea</dt><dd>Making something new</dd></div>
+      <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
+      <div><dt>Status</dt><dd>Coming soon</dd></div>
+      <div><dt>Author</dt><dd>Eric Yocam</dd></div>
+    </dl>
+  </div>
+
   <!-- WHAT'S INSIDE -->
   <div class="card">
     <h2 class="card-title">What's Inside Every Book</h2>
@@ -708,7 +759,7 @@
       <li><i class="fa-solid fa-music"></i><span><strong>Written in rhyme</strong> &mdash; two lines to a spread, built for reading out loud, with a rhythm little listeners can catch and repeat.</span></li>
       <li><i class="fa-solid fa-palette"></i><span><strong>Illustrated by Cy Quinn</strong> &mdash; a full-color illustration on every story page.</span></li>
       <li><i class="fa-solid fa-atom"></i><span><strong>A first taste of STEM</strong> &mdash; a qubit as a character rather than a concept, years before the vocabulary shows up.</span></li>
-      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity in Book 1, possibilities in Book 2, connection in Book 3, and patterns in Book 4.</span></li>
+      <li><i class="fa-solid fa-lightbulb"></i><span><strong>One idea a child can carry</strong> &mdash; curiosity in Book 1, possibilities in Book 2, connection in Book 3, learning from examples in Book 4, and making something new in Book 5.</span></li>
       <li><i class="fa-solid fa-people-roof"></i><span><strong>A For Grown-Ups page</strong> &mdash; closing notes that name the big idea and how to talk about it afterward.</span></li>
     </ul>
   </div>
@@ -757,6 +808,13 @@
         <div class="series-detail">Learning from examples. Little Bloch and the boy meet Node, who notices patterns, makes guesses, gets one wrong, and discovers that learning can happen one example at a time.</div>
       </div>
     </a>
+    <a href="#book5" style="text-decoration:none;">
+      <div class="series-card">
+        <div class="series-label">Book 5 &middot; Coming Soon</div>
+        <div class="series-name">Look What I Made!: Node&rsquo;s Next Surprise</div>
+        <div class="series-detail">Making something new. Node finds the patterns in a set of examples, then combines what he learned to create something that wasn&rsquo;t there before.</div>
+      </div>
+    </a>
     <div class="repo-links" style="justify-content:flex-start;">
       <a href="https://www.amazon.com/dp/B0HH7PZQ5J" class="repo-btn hf" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Series Page on Amazon</a>
     </div>
@@ -780,7 +838,7 @@
     <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
       &ldquo;Don't yuck my qubit!&rdquo;
     </p>
-    <p style="color:var(--muted);margin-bottom:1.4rem;">All four of Little Bloch's adventures are out now.</p>
+    <p style="color:var(--muted);margin-bottom:1.4rem;">Four of Little Bloch's adventures are out now, with a fifth coming soon.</p>
     <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
       <i class="fa-brands fa-amazon"></i> Browse the Series
     </a>
