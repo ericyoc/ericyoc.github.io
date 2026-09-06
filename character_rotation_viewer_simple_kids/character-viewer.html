@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1d54">
+<title>The Convergence Chronicles for Kids — Character Viewer</title>
+<style>
+  :root{
+    --bg1:#071337;
+    --bg2:#0d1d54;
+    --yellow:#ffd84d;
+    --pink:#ff5ea8;
+    --blue:#58d6ff;
+    --green:#75e38b;
+    --purple:#b587ff;
+    --text:#17306d;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#fff;
+  }
+  .stars{
+    position:fixed; inset:0; pointer-events:none; opacity:.9;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.95) 0 1.2px, transparent 1.6px),
+      radial-gradient(circle, rgba(255,221,95,.95) 0 1.2px, transparent 1.7px),
+      radial-gradient(circle, rgba(124,225,255,.95) 0 1.2px, transparent 1.6px);
+    background-size:110px 110px, 160px 160px, 210px 210px;
+    background-position:15px 25px, 70px 90px, 120px 45px;
+  }
+  .top-rainbow{height:10px;background:linear-gradient(90deg,#ff6b6b,#ffb84d,#ffe66d,#69df7c,#5ed8ff,#7986ff,#d179ff,#ff72b6)}
+  header{position:relative;z-index:1;text-align:center;padding:20px 12px 14px}
+  h1{
+    margin:0;
+    font-size:clamp(24px,7vw,48px);
+    line-height:1.1;
+    font-weight:900;
+    text-shadow:0 3px 0 rgba(0,0,0,.28);
+  }
+  h1 .w1{color:#ff7bb9} h1 .w2{color:#ffd84d} h1 .w3{color:#78e58d} h1 .w4{color:#67dbff}
+  .subtitle{margin-top:8px;font-size:clamp(15px,4vw,22px);font-weight:700;color:#fff7bd}
+  .grid{
+    position:relative;z-index:1;
+    width:min(1500px,96vw);
+    margin:0 auto;
+    padding:12px 10px 28px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+  }
+  .card{
+    background:#fff;
+    color:var(--text);
+    border-radius:24px;
+    padding:14px 14px 16px;
+    box-shadow:0 10px 26px rgba(0,0,0,.28);
+  }
+  .card:nth-child(1){border:4px solid #ff9fcc}
+  .card:nth-child(2){border:4px solid #7fdfff}
+  .card:nth-child(3){border:4px solid #c3a1ff}
+  .name{
+    width:max-content; max-width:100%; margin:0 auto 10px; padding:10px 18px;
+    border-radius:999px; font-weight:900; font-size:clamp(21px,5vw,32px); line-height:1.1;
+    background:#fff6a9; border:3px solid #ffd84d; text-align:center;
+  }
+  .card:nth-child(2) .name{background:#dff8ff;border-color:#6fd7ff}
+  .card:nth-child(3) .name{background:#efe2ff;border-color:#bb95ff}
+  .stage{
+    position:relative;
+    background:#fff;
+    border-radius:20px;
+    border:2px solid #e8eefc;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    touch-action:pan-y;
+    user-select:none;
+  }
+  .stage img{
+    display:block;
+    width:min(100%, 420px);
+    max-width:100%;
+    height:auto;
+    user-select:none;
+    pointer-events:none;
+  }
+  .arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:58px; height:58px; border:none; border-radius:50%; cursor:pointer;
+    font-size:34px; font-weight:900; color:#fff; background:#4e8dff;
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+  }
+  .arrow:active{transform:translateY(-50%) scale(.97)}
+  .left{left:12px}
+  .right{right:12px}
+  .count{margin-top:12px;text-align:center;font-size:18px;font-weight:800;color:#274487}
+  .tip{margin-top:8px;text-align:center;font-size:15px;font-weight:700;color:#5b6e9d}
+  footer{position:relative;z-index:1;text-align:center;padding:0 12px 28px;color:#fff7bd;font-size:18px;font-weight:800}
+
+  @media (max-width: 1100px){
+    .grid{grid-template-columns:1fr;max-width:720px}
+    .stage{min-height:390px}
+  }
+  @media (max-width: 640px){
+    header{padding:18px 10px 12px}
+    .grid{width:min(100%, 100vw);padding:10px 10px 22px;gap:14px}
+    .card{padding:12px 12px 14px;border-radius:20px}
+    .stage{min-height:340px;border-radius:18px}
+    .stage img{width:min(100%, 320px)}
+    .arrow{width:54px;height:54px;font-size:30px}
+    .left{left:8px}.right{right:8px}
+    .count{font-size:17px}
+    .tip{font-size:14px}
+    footer{font-size:16px;padding-bottom:22px}
+  }
+  @media (max-width: 420px){
+    .grid{padding-left:8px;padding-right:8px}
+    .card{padding:10px 10px 12px}
+    .name{padding:9px 14px;font-size:20px}
+    .stage{min-height:300px}
+    .stage img{width:min(100%, 280px)}
+    .arrow{width:50px;height:50px;font-size:28px}
+    .left{left:6px}.right{right:6px}
+  }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="top-rainbow"></div>
+<header>
+  <h1><span class="w1">The</span> <span class="w2">Convergence</span> <span class="w3">Chronicles</span> <span class="w4">for Kids</span></h1>
+  <div class="subtitle">Tap the arrows to turn each friend around!</div>
+</header>
+<div class="grid" id="grid"></div>
+<footer>Big ideas for little explorers ✨</footer>
+<script>
+const characters = [
+  { key:'bloch', name:'Little Bloch', views:['view_000.png','view_045.png','view_090.png','view_135.png','view_180.png','view_225.png','view_270.png','view_315.png'] },
+  { key:'node', name:'Node', views:['view_000.png','view_045.png','view_090.png','view_135.png','view_180.png','view_225.png','view_270.png','view_315.png'] },
+  { key:'creature', name:'Creature', views:['view_000.png','view_045.png','view_090.png','view_135.png','view_180.png','view_225.png','view_270.png','view_315.png'] }
+];
+const grid = document.getElementById('grid');
+
+function makeCard(cfg){
+  let i = 0;
+  const card = document.createElement('section');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="name">${cfg.name}</div>
+    <div class="stage">
+      <button class="arrow left" aria-label="Turn ${cfg.name} left">&#8592;</button>
+      <img alt="${cfg.name}">
+      <button class="arrow right" aria-label="Turn ${cfg.name} right">&#8594;</button>
+    </div>
+    <div class="count"></div>
+    <div class="tip">Turn me around!</div>
+  `;
+
+  const img = card.querySelector('img');
+  const count = card.querySelector('.count');
+  const left = card.querySelector('.left');
+  const right = card.querySelector('.right');
+  const stage = card.querySelector('.stage');
+
+  function update(){
+    img.src = `assets/${cfg.key}/${cfg.views[i]}`;
+    count.textContent = `${i+1} / ${cfg.views.length}`;
+  }
+  function prev(){ i = (i - 1 + cfg.views.length) % cfg.views.length; update(); }
+  function next(){ i = (i + 1) % cfg.views.length; update(); }
+
+  left.addEventListener('click', prev);
+  right.addEventListener('click', next);
+
+  let startX = null;
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) startX = e.touches[0].clientX;
+  }, {passive:true});
+  stage.addEventListener('touchend', (e) => {
+    if (startX === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    if (Math.abs(dx) > 35) {
+      if (dx > 0) prev(); else next();
+    }
+    startX = null;
+  }, {passive:true});
+
+  update();
+  return card;
+}
+characters.forEach(c => grid.appendChild(makeCard(c)));
+</script>
+</body>
+</html>
