@@ -122,8 +122,7 @@
   .arrow:active{transform:translateY(-50%) scale(.97)}
   .left{left:12px}
   .right{right:12px}
-  .count{margin-top:12px;text-align:center;font-size:18px;font-weight:800;color:#274487}
-  .tip{margin-top:8px;text-align:center;font-size:15px;font-weight:700;color:#5b6e9d}
+  .tip{margin-top:12px;text-align:center;font-size:16px;font-weight:800;color:#274487}
   footer{position:relative;z-index:1;text-align:center;padding:0 12px 28px;color:#fff7bd;font-size:18px;font-weight:800}
 
   @media (max-width: 1100px){
@@ -140,8 +139,7 @@
     .stage img{width:min(100%, 320px)}
     .arrow{width:54px;height:54px;font-size:30px}
     .left{left:8px}.right{right:8px}
-    .count{font-size:17px}
-    .tip{font-size:14px}
+    .tip{font-size:15px}
     footer{font-size:16px;padding-bottom:22px}
   }
   @media (max-width: 420px){
@@ -188,19 +186,16 @@ function makeCard(cfg){
       <img alt="${cfg.name}">
       <button class="arrow right" aria-label="Turn ${cfg.name} right">&#8594;</button>
     </div>
-    <div class="count"></div>
-    <div class="tip">Turn me around!</div>
+    <div class="tip">Click the arrows to turn me around!</div>
   `;
 
   const img = card.querySelector('img');
-  const count = card.querySelector('.count');
   const left = card.querySelector('.left');
   const right = card.querySelector('.right');
   const stage = card.querySelector('.stage');
 
   function update(){
     img.src = `assets/${cfg.key}/${cfg.views[i]}`;
-    count.textContent = `${i+1} / ${cfg.views.length}`;
   }
   function prev(){ i = (i - 1 + cfg.views.length) % cfg.views.length; update(); }
   function next(){ i = (i + 1) % cfg.views.length; update(); }
