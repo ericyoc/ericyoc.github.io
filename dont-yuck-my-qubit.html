@@ -240,6 +240,35 @@
       margin-top: 3px;
       flex-shrink: 0;
     }
+    /* ── MEET THE CHARACTERS BADGE ── */
+    .characters-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      margin: 0 0 1.1rem;
+      padding: .6rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: .86rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+      color: var(--navy);
+      background: linear-gradient(90deg, var(--gold-light), var(--gold));
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 3px 12px rgba(10,26,58,.16);
+      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .characters-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(10,26,58,.24);
+      filter: brightness(1.05);
+    }
+    .characters-badge .badge-arrow {
+      font-size: .72rem;
+      opacity: .75;
+    }
+
     /* ── COVER CAROUSEL ── */
     .cover-carousel {
       position: relative;
@@ -525,6 +554,12 @@
   <div class="breadcrumb">
     <a href="https://ericyocam.com">Eric Yocam</a> &rsaquo; The Convergence Chronicles for Kids
   </div>
+
+  <!-- MEET THE CHARACTERS -->
+  <a href="/character_rotation_viewer_simple_kids/character-viewer.html" class="characters-badge">
+    <i class="fa-solid fa-wand-magic-sparkles"></i> Meet the Characters
+    <i class="fa-solid fa-arrow-right badge-arrow"></i>
+  </a>
 
   <!-- STATUS BANNER -->
   <div class="coming-soon-banner">
