@@ -33,6 +33,27 @@
     background-position:15px 25px, 70px 90px, 120px 45px;
   }
   .top-rainbow{height:10px;background:linear-gradient(90deg,#ff6b6b,#ffb84d,#ffe66d,#69df7c,#5ed8ff,#7986ff,#d179ff,#ff72b6)}
+
+  .back-row{
+    position:relative;z-index:2;
+    width:min(1800px,96vw);
+    margin:14px auto 0;
+    padding:0 10px;
+  }
+  .back-button{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;
+    border-radius:999px;
+    background:#dff7d9;
+    border:3px solid #86d88f;
+    color:#17306d;
+    text-decoration:none;
+    font-weight:900;
+    font-size:clamp(15px,3.8vw,19px);
+    box-shadow:0 6px 14px rgba(0,0,0,.20);
+  }
+  .back-button:hover{filter:brightness(1.03)}
+  .back-button:active{transform:scale(.98)}
   header{position:relative;z-index:1;text-align:center;padding:20px 12px 14px}
   h1{
     margin:0;
@@ -136,6 +157,9 @@
 <body>
 <div class="stars"></div>
 <div class="top-rainbow"></div>
+<div class="back-row">
+  <a class="back-button" href="https://ericyocam.com/dont-yuck-my-qubit.html" aria-label="Back to Don't Yuck My Qubit">&#8592; Back</a>
+</div>
 <header>
   <h1><span class="w1">The</span> <span class="w2">Convergence</span> <span class="w3">Chronicles</span> <span class="w4">for Kids</span></h1>
   <div class="subtitle">Tap the arrows to see each friend from every side!</div>
