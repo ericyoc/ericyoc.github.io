@@ -7,10 +7,10 @@
   <!-- Open Graph -->
   <meta property="og:type"        content="book"/>
   <meta property="og:title"       content="The Convergence Chronicles for Kids - rhyming picture books introducing young children to curiosity, possibilities, and their first taste of STEM."/>
-  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. Seven adventures - curiosity, superposition, entanglement, learning from examples, making something new, prediction, and encryption - are available now, with one more coming soon. By Eric Yocam."/>
+  <meta property="og:description" content="Meet Little Bloch, a sparkly, spinning little qubit. Eight adventures - curiosity, superposition, entanglement, learning from examples, making something new, prediction, encryption, and hashing - are all available now. By Eric Yocam."/>
   <meta property="og:url"         content="https://ericyocam.com/dont-yuck-my-qubit.html"/>
   <meta property="og:image"       content="childrens_book1_cover.jpg"/>
-  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit, I Found It for You!, We're Connected!, I See a Pattern!, Look What I Made!, Look at the Sky!, and Keep It Secret! are available now. Does It Match? is coming soon."/>
+  <meta name="description"        content="The Convergence Chronicles for Kids by Eric Yocam - colorful rhyming picture books for ages 3-7 starring Little Bloch. Don't Yuck My Qubit, I Found It for You!, We're Connected!, I See a Pattern!, Look What I Made!, Look at the Sky!, Keep It Secret!, and Does It Match? are all available now."/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -343,6 +343,24 @@
       border-radius: 20px;
       border: 1px solid var(--gold);
     }
+    .car-item.is-new::before {
+      content: "New";
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      white-space: nowrap;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 20px;
+      border: 1px solid var(--gold);
+    }
     /* nav arrows */
     .car-nav {
       position: absolute;
@@ -559,7 +577,7 @@
   <div class="coming-soon-banner">
     <i class="fa-solid fa-circle-check"></i>
     <div class="banner-text">
-      <strong>Seven Books Available Now</strong> &mdash; on Amazon, with Book 8 coming soon.
+      <strong>All Eight Books Available Now</strong> &mdash; the complete Little Bloch series, on Amazon.
     </div>
   </div>
 
@@ -596,8 +614,8 @@
            data-label="Book 7 &middot; Available Now" data-title="Keep It Secret!: Little Bloch Meets Cipher">
           <img src="childrens_book7_cover.jpg" alt="Keep It Secret!: Little Bloch Meets Cipher - cover showing Little Bloch beside Cipher, a cheerful armored friend with a star shield">
         </a>
-        <a class="car-item is-upcoming" href="#book8"
-           data-label="Book 8 &middot; Coming Soon" data-title="Does It Match?: Cipher&rsquo;s Next Surprise">
+        <a class="car-item is-new" href="https://www.amazon.com/dp/B0HKF1B3RV" target="_blank" rel="noopener"
+           data-label="Book 8 &middot; Available Now" data-title="Does It Match?: Cipher&rsquo;s Next Surprise">
           <img src="childrens_book8_cover.jpg" alt="Does It Match?: Cipher's Next Surprise - cover showing Little Bloch and Cipher beside a glowing rainbow handprint">
         </a>
       </div>
@@ -877,10 +895,11 @@
     <h2 class="card-title">Book 8 &mdash; Does It Match?: Cipher&rsquo;s Next Surprise</h2>
     <div class="book-block">
       <div class="book-cover">
-        <img src="childrens_book8_cover.jpg" alt="Does It Match?: Cipher's Next Surprise cover" loading="lazy">
+        <a href="https://www.amazon.com/dp/B0HKF1B3RV" target="_blank" rel="noopener">
+          <img src="childrens_book8_cover.jpg" alt="Does It Match?: Cipher's Next Surprise cover" loading="lazy">
+        </a>
       </div>
       <div class="book-body">
-        <span class="book-info-edition">Coming Soon</span>
         <p>Meet Little Bloch &mdash; a sparkly little qubit &mdash; and his cheerful friend, Cipher. This time, the girl discovers a fluffy cloud and presses her hand into it. When Cipher touches the handprint, he makes a bright little mark appear. Then they try it again. When the girl presses her hand in the same way, Cipher makes the same mark. But when she changes just one small thing, a different mark appears.</p>
         <div class="pull-quote">
           <p>Cipher&rsquo;s next superpower is: <strong>Hashing.</strong></p>
@@ -889,8 +908,11 @@
         <p><em>Does It Match?: Cipher&rsquo;s Next Surprise</em> is a colorful rhyming picture book that introduces young children to matching, comparing, noticing changes, hashing, and a simple idea behind cybersecurity through lovable characters and playful discovery.</p>
         <p>Perfect for ages 3&ndash;7, bedtime reading, classroom read-alouds, curious little minds, and grown-ups who want to encourage children to notice differences, compare patterns, ask questions, and discover how special marks can help us check for changes.</p>
         <p style="margin-top:1.2rem;">
+          <a href="https://www.amazon.com/dp/B0HKF1B3RV" target="_blank" rel="noopener" class="notify-btn">
+            <i class="fa-brands fa-amazon"></i> Get Book 8
+          </a>
           <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="instructor-action-btn">
-            <i class="fa-solid fa-layer-group"></i> Follow the Series on Amazon
+            <i class="fa-solid fa-layer-group"></i> All Formats &amp; Editions
           </a>
         </p>
       </div>
@@ -898,7 +920,7 @@
     <dl class="spec-grid" style="margin-top:1.4rem;">
       <div><dt>Big Idea</dt><dd>Checking whether something changed</dd></div>
       <div><dt>Reading Age</dt><dd>3&ndash;7 years</dd></div>
-      <div><dt>Status</dt><dd>Coming soon</dd></div>
+      <div><dt>Format</dt><dd>eBook &amp; paperback, 8.5 &times; 8.5 in</dd></div>
       <div><dt>Author</dt><dd>Eric Yocam</dd></div>
     </dl>
   </div>
@@ -981,9 +1003,9 @@
         <div class="series-detail">Encryption. Cipher shows the boy and girl how a message can be turned into a secret form along the way, then turned back for the person it was meant for.</div>
       </div>
     </a>
-    <a href="#book8" style="text-decoration:none;">
-      <div class="series-card">
-        <div class="series-label">Book 8 &middot; Coming Soon</div>
+    <a href="https://www.amazon.com/dp/B0HKF1B3RV" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="series-card current">
+        <div class="series-label">Book 8 &middot; Available Now</div>
         <div class="series-name">Does It Match?: Cipher&rsquo;s Next Surprise</div>
         <div class="series-detail">Hashing. Cipher makes a special mark from the girl&rsquo;s handprint &mdash; the same print gives the same mark, and one small change gives a different one.</div>
       </div>
@@ -1011,7 +1033,7 @@
     <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);font-weight:600;margin-bottom:.5rem;">
       &ldquo;Don't yuck my qubit!&rdquo;
     </p>
-    <p style="color:var(--muted);margin-bottom:1.4rem;">Seven of Little Bloch's adventures are out now, with one more coming soon.</p>
+    <p style="color:var(--muted);margin-bottom:1.4rem;">All eight of Little Bloch's adventures are out now.</p>
     <a href="https://www.amazon.com/dp/B0HH7PZQ5J" target="_blank" rel="noopener" class="notify-btn" style="font-size:1rem;padding:.85rem 2rem;">
       <i class="fa-brands fa-amazon"></i> Browse the Series
     </a>
